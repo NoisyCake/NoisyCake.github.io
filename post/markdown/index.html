@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: April 12, 2024 --><html lang="en-us" >
+<!-- Last Published: April 13, 2024 --><html lang="en-us" >
 
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
@@ -279,12 +279,12 @@
 
   
 
-<meta name="description" content="Что такое git и для чего он нужен?" />
+<meta name="description" content="Что такое Markdown?" />
 
 
 
-<link rel="alternate" hreflang="en-us" href="http://localhost:1313/post/blog-with-jupyter/" />
-<link rel="canonical" href="http://localhost:1313/post/blog-with-jupyter/" />
+<link rel="alternate" hreflang="en-us" href="http://localhost:1313/post/markdown/" />
+<link rel="canonical" href="http://localhost:1313/post/markdown/" />
 
 
 
@@ -326,18 +326,18 @@
 
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Academic" />
-<meta property="og:url" content="http://localhost:1313/post/blog-with-jupyter/" />
-<meta property="og:title" content="Управление версиями. Git. | Academic" />
-<meta property="og:description" content="Что такое git и для чего он нужен?" /><meta property="og:image" content="http://localhost:1313/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+<meta property="og:url" content="http://localhost:1313/post/markdown/" />
+<meta property="og:title" content="Язык разметки Markdown. | Academic" />
+<meta property="og:description" content="Что такое Markdown?" /><meta property="og:image" content="http://localhost:1313/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
 
   
     <meta
       property="article:published_time"
-      content="2024-04-11T00:00:00&#43;00:00"
+      content="2024-04-12T00:00:00&#43;00:00"
     />
   
   
-    <meta property="article:modified_time" content="2024-04-11T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2024-04-12T00:00:00&#43;00:00">
   
 
 
@@ -363,12 +363,12 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/post/blog-with-jupyter/"
+    "@id": "http://localhost:1313/post/markdown/"
   },
-  "headline": "Управление версиями. Git.",
+  "headline": "Язык разметки Markdown.",
   
-  "datePublished": "2024-04-11T00:00:00Z",
-  "dateModified": "2024-04-11T00:00:00Z",
+  "datePublished": "2024-04-12T00:00:00Z",
+  "dateModified": "2024-04-12T00:00:00Z",
   
   "author": {
     "@type": "Person",
@@ -383,7 +383,7 @@
       "url": "http://localhost:1313/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "Что такое git и для чего он нужен?"
+  "description": "Что такое Markdown?"
 }
 </script>
 
@@ -405,7 +405,7 @@
 
 
   
-  <title>Управление версиями. Git. | Academic</title>
+  <title>Язык разметки Markdown. | Academic</title>
 
   
   
@@ -425,7 +425,7 @@
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="94fa5e486d3bf3e0941e2ff6e7126c06" >
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="a0ade9b4b218a8a455292eee739b86e8" >
 
   
   
@@ -839,7 +839,7 @@
   
   
 <div class="article-container pt-3">
-  <h1>Управление версиями. Git.</h1>
+  <h1>Язык разметки Markdown.</h1>
 
   
 
@@ -858,7 +858,7 @@
     
       
     
-    Apr 11, 2024
+    Apr 12, 2024
   </span>
   
 
@@ -867,7 +867,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    2 min read
   </span>
   
 
@@ -895,13 +895,27 @@
   <div class="article-container">
 
     <div class="article-style">
-      <h2 id="о-системе-контроля-версий">О системе контроля версий</h2>
-<p>Что такое «система контроля версий» и почему это важно? Система контроля версий — это система, записывающая изменения в файл или набор файлов в течение времени и позволяющая вернуться позже к определённой версии. Для контроля версий файлов в этой книге в качестве примера будет использоваться исходный код программного обеспечения, хотя на самом деле вы можете использовать контроль версий практически для любых типов файлов.</p>
-<p>Если вы графический или web-дизайнер и хотите сохранить каждую версию изображения или макета (скорее всего, захотите), система контроля версий (далее VCS) — как раз то, что нужно. Она позволяет вернуть файлы к состоянию, в котором они были до изменений, вернуть проект к исходному состоянию, увидеть изменения, увидеть, кто последний менял что-то и вызвал проблему, кто поставил задачу и когда и многое другое. Использование VCS также значит в целом, что, если вы сломали что-то или потеряли файлы, вы спокойно можете всё исправить. В дополнение ко всему вы получите всё это без каких-либо дополнительных усилий.</p>
-<h2 id="локальные-системы-контроля-версий">Локальные системы контроля версий</h2>
-<p>Многие люди в качестве метода контроля версий применяют копирование файлов в отдельный каталог (возможно даже, каталог с отметкой по времени, если они достаточно сообразительны). Данный подход очень распространён из-за его простоты, однако он невероятно сильно подвержен появлению ошибок. Можно легко забыть в каком каталоге вы находитесь и случайно изменить не тот файл или скопировать не те файлы, которые вы хотели.</p>
-<p>Для того, чтобы решить эту проблему, программисты давным-давно разработали локальные VCS с простой базой данных, которая хранит записи о всех изменениях в файлах, осуществляя тем самым контроль ревизий.</p>
-<p>Одной из популярных VCS была система RCS, которая и сегодня распространяется со многими компьютерами. RCS хранит на диске наборы патчей (различий между файлами) в специальном формате, применяя которые она может воссоздавать состояние каждого файла в заданный момент времени.</p>
+      <h2 id="кратко">Кратко</h2>
+<p>Markdown — удобочитаемый язык разметки, который прозрачно конвертируется в HTML. Его можно открывать и изменять в любом редакторе текста. Широко используется для написания документаций и README-файлов.</p>
+<h2 id="пример">Пример</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Дока
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Дока — это **добрая** энциклопедия для веб-разработчиков.
+</span></span><span class="line"><span class="cl">Вы можете [открыть её](https://doka.guide) в своём браузере.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## Преимущества
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- Понятный материал;
+</span></span><span class="line"><span class="cl">- Нескучные объяснения;
+</span></span><span class="line"><span class="cl">- Удобный поиск.
+</span></span></code></pre></div><p>Он содержит базовые элементы, которые можно найти почти в любом README.md:</p>
+<pre><code>заголовок первого уровня для названия;
+выделение жирным шрифтом важных частей в описании;
+ссылка с понятным текстом;
+заголовок второго уровня для подпунктов;
+маркированный список для перечисления преимуществ.
+</code></pre>
+<p>Несмотря на то, что Markdown достаточно удобно читать в исходном виде, его часто переводят в HTML. Результат конвертации находится ниже.</p>
 <p>
 
 
@@ -921,79 +935,45 @@
 <figure  >
   <div class="d-flex justify-content-center">
     <div class="w-100" ><img alt="png" srcset="
-               /post/blog-with-jupyter/1_hufcb633eabb4ce248b64f5422c2c69f5a_20255_2922a69b005f22388ab6fe14deaff683.webp 400w,
-               /post/blog-with-jupyter/1_hufcb633eabb4ce248b64f5422c2c69f5a_20255_aeb36534a4ec30a62b867034975e7c5a.webp 760w,
-               /post/blog-with-jupyter/1_hufcb633eabb4ce248b64f5422c2c69f5a_20255_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
-               src="/post/blog-with-jupyter/1_hufcb633eabb4ce248b64f5422c2c69f5a_20255_2922a69b005f22388ab6fe14deaff683.webp"
+               /post/markdown/1_hud73479b4b624d389dc837d94e4180305_26066_0b683fab3ceecb28eb07de5e70ce0b63.webp 400w,
+               /post/markdown/1_hud73479b4b624d389dc837d94e4180305_26066_bb5d2f8b60a7d856c9c6172d8b61844b.webp 760w,
+               /post/markdown/1_hud73479b4b624d389dc837d94e4180305_26066_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="/post/markdown/1_hud73479b4b624d389dc837d94e4180305_26066_0b683fab3ceecb28eb07de5e70ce0b63.webp"
                width="760"
-               height="649"
+               height="267"
                loading="lazy" data-zoomable /></div>
   </div></figure>
 </p>
-<h2 id="централизованные-системы-контроля-версий">Централизованные системы контроля версий</h2>
-<p>Следующая серьёзная проблема, с которой сталкиваются люди, — это необходимость взаимодействовать с другими разработчиками. Для того, чтобы разобраться с ней, были разработаны централизованные системы контроля версий (Centralized Version Control System, далее CVCS). Такие системы, как CVS, Subversion и Perforce, используют единственный сервер, содержащий все версии файлов, и некоторое количество клиентов, которые получают файлы из этого централизованного хранилища. Применение CVCS являлось стандартом на протяжении многих лет.</p>
-<p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure  >
-  <div class="d-flex justify-content-center">
-    <div class="w-100" ><img alt="png" srcset="
-               /post/blog-with-jupyter/2_hu74fb508a0af33a33fa0f541a94378552_22810_7363a8c03460a7840650c0fc334567e3.webp 400w,
-               /post/blog-with-jupyter/2_hu74fb508a0af33a33fa0f541a94378552_22810_4509d50753982d3f7642bf8d4f105333.webp 760w,
-               /post/blog-with-jupyter/2_hu74fb508a0af33a33fa0f541a94378552_22810_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
-               src="/post/blog-with-jupyter/2_hu74fb508a0af33a33fa0f541a94378552_22810_7363a8c03460a7840650c0fc334567e3.webp"
-               width="760"
-               height="528"
-               loading="lazy" data-zoomable /></div>
-  </div></figure>
-</p>
-<p>Такой подход имеет множество преимуществ, особенно перед локальными VCS. Например, все разработчики проекта в определённой степени знают, чем занимается каждый из них. Администраторы имеют полный контроль над тем, кто и что может делать, и гораздо проще администрировать CVCS, чем оперировать локальными базами данных на каждом клиенте.</p>
-<p>Несмотря на это, данный подход тоже имеет серьёзные минусы. Самый очевидный минус — это единая точка отказа, представленная централизованным сервером. Если этот сервер выйдет из строя на час, то в течение этого времени никто не сможет использовать контроль версий для сохранения изменений, над которыми работает, а также никто не сможет обмениваться этими изменениями с другими разработчиками. Если жёсткий диск, на котором хранится центральная БД, повреждён, а своевременные бэкапы отсутствуют, вы потеряете всё — всю историю проекта, не считая единичных снимков репозитория, которые сохранились на локальных машинах разработчиков. Локальные VCS страдают от той же самой проблемы: когда вся история проекта хранится в одном месте, вы рискуете потерять всё.</p>
-<h2 id="распределённые-системы-контроля-версий">Распределённые системы контроля версий</h2>
-<p>Здесь в игру вступают распределённые системы контроля версий (Distributed Version Control System, далее DVCS). В DVCS (таких как Git, Mercurial, Bazaar или Darcs) клиенты не просто скачивают снимок всех файлов (состояние файлов на определённый момент времени) — они полностью копируют репозиторий. В этом случае, если один из серверов, через который разработчики обменивались данными, умрёт, любой клиентский репозиторий может быть скопирован на другой сервер для продолжения работы. Каждая копия репозитория является полным бэкапом всех данных.</p>
-<p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure  >
-  <div class="d-flex justify-content-center">
-    <div class="w-100" ><img alt="png" srcset="
-               /post/blog-with-jupyter/3_hu7dff96406965f7bb87732a216019226c_26657_3997218895f0f52f7071f00347d72236.webp 400w,
-               /post/blog-with-jupyter/3_hu7dff96406965f7bb87732a216019226c_26657_13aa5c173ba1f70cd7389d15d48964a9.webp 760w,
-               /post/blog-with-jupyter/3_hu7dff96406965f7bb87732a216019226c_26657_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
-               src="/post/blog-with-jupyter/3_hu7dff96406965f7bb87732a216019226c_26657_3997218895f0f52f7071f00347d72236.webp"
-               width="635"
-               height="760"
-               loading="lazy" data-zoomable /></div>
-  </div></figure>
-</p>
-<p>Более того, многие DVCS могут одновременно взаимодействовать с несколькими удалёнными репозиториями, благодаря этому вы можете работать с различными группами людей, применяя различные подходы единовременно в рамках одного проекта. Это позволяет применять сразу несколько подходов в разработке, например, иерархические модели, что совершенно невозможно в централизованных системах.</p>
-
+<h2 id="синтаксис">Синтаксис</h2>
+<p>Параграф</p>
+<p>Параграф — это одна или несколько подряд идущих строчек текста, отделённых одной или несколькими пустыми строчками. Если строка содержит только пробелы или табы, то она всё равно считается пустой.</p>
+<p>Подряд идущие строчки будут склеены в одну, если не добавить жёсткий перенос. Существует несколько способов, как это можно сделать:</p>
+<pre><code>добавить два (или больше) пробелов в конце строки &lt;пробел&gt;&lt;пробел&gt;;
+добавить обратную косую черту в конце строки \;
+добавить HTML-тег переноса строки &lt;br&gt;.
+</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Привет,
+</span></span><span class="line"><span class="cl">мир!
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Привет,&lt;пробел&gt;&lt;пробел&gt;
+</span></span><span class="line"><span class="cl">пробел!
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Привет,\
+</span></span><span class="line"><span class="cl">косая черта!
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Привет,&lt;br&gt;
+</span></span><span class="line"><span class="cl">тег бр-р-р!
+</span></span></code></pre></div><h2 id="заголовки">Заголовки</h2>
+<p>Markdown предлагает два стиля написания заголовков: через решётки (#) и через подчёркивания (====). Можно использовать до шести уровней заголовков, но подчёркивания позволяют создавать только первые два (&lt;h1&gt; и &lt;h2&gt;).
+Решётки (Atx-style)</p>
+<p>Для того чтобы выделить заголовок, необходимо поставить от 1 до 6 решёток (#) и пробел в самом начале строки. Уровень заголовка зависит только от количества решёток.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Заголовок 1 уровня
+</span></span><span class="line"><span class="cl">## Заголовок 2 уровня
+</span></span><span class="line"><span class="cl">### Заголовок 3 уровня
+</span></span><span class="line"><span class="cl">#### Заголовок 4 уровня
+</span></span><span class="line"><span class="cl">##### Заголовок 5 уровня
+</span></span><span class="line"><span class="cl">###### Заголовок 6 уровня
+</span></span></code></pre></div>
     </div>
 
     
@@ -1019,7 +999,7 @@
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fblog-with-jupyter%2F&amp;text=%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5&#43;%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%D0%BC%D0%B8.&#43;Git." target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fmarkdown%2F&amp;text=%D0%AF%D0%B7%D1%8B%D0%BA&#43;%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%82%D0%BA%D0%B8&#43;Markdown." target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -1036,7 +1016,7 @@
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fblog-with-jupyter%2F&amp;t=%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5&#43;%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%D0%BC%D0%B8.&#43;Git." target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fmarkdown%2F&amp;t=%D0%AF%D0%B7%D1%8B%D0%BA&#43;%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%82%D0%BA%D0%B8&#43;Markdown." target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -1055,7 +1035,7 @@
         
       
       <li>
-        <a href="mailto:?subject=%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%D0%BC%D0%B8.%20Git.&amp;body=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fblog-with-jupyter%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+        <a href="mailto:?subject=%D0%AF%D0%B7%D1%8B%D0%BA%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%82%D0%BA%D0%B8%20Markdown.&amp;body=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fmarkdown%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -1072,7 +1052,7 @@
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fblog-with-jupyter%2F&amp;title=%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5&#43;%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%D0%BC%D0%B8.&#43;Git." target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fmarkdown%2F&amp;title=%D0%AF%D0%B7%D1%8B%D0%BA&#43;%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%82%D0%BA%D0%B8&#43;Markdown." target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -1089,7 +1069,7 @@
       
       
       <li>
-        <a href="whatsapp://send?text=%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5&#43;%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%D0%BC%D0%B8.&#43;Git.%20http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fblog-with-jupyter%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+        <a href="whatsapp://send?text=%D0%AF%D0%B7%D1%8B%D0%BA&#43;%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%82%D0%BA%D0%B8&#43;Markdown.%20http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fmarkdown%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -1106,7 +1086,7 @@
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fblog-with-jupyter%2F&amp;title=%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5&#43;%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%D0%BC%D0%B8.&#43;Git." target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2Fmarkdown%2F&amp;title=%D0%AF%D0%B7%D1%8B%D0%BA&#43;%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%82%D0%BA%D0%B8&#43;Markdown." target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -1145,7 +1125,7 @@
     <div class="media-body">
       <h5 class="card-title"><a href="http://localhost:1313/">NoisyCake</a></h5>
       <h6 class="card-subtitle">Студент-программист</h6>
-      <p class="card-text">Мои научные интересы включают в себя изучение работы и устройства компьютера и программирование на разных языках.</p>
+      <p class="card-text">Мои интересы включают в себя изучение работы и устройства компьютера и программирование на разных языках.</p>
       <ul class="network-icon" aria-hidden="true">
   
     
