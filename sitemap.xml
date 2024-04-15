@@ -11,7 +11,15 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:1313/post/</loc>
-    <lastmod>2024-04-12T00:00:00+00:00</lastmod>
+    <lastmod>2024-04-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/post/third_week/</loc>
+    <lastmod>2024-04-15T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/post/report_preporation/</loc>
+    <lastmod>2024-04-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:1313/post/second_week/</loc>

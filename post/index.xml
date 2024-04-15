@@ -5,12 +5,127 @@
     <link>http://localhost:1313/post/</link>
       <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 12 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 15 Apr 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>Posts</title>
       <link>http://localhost:1313/post/</link>
     </image>
+    
+    <item>
+      <title>Как прошла моя третья неделя</title>
+      <link>http://localhost:1313/post/third_week/</link>
+      <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/third_week/</guid>
+      <description>&lt;h1 id=&#34;кратко-и-понятно&#34;&gt;Кратко и понятно&lt;/h1&gt;
+&lt;p&gt;Неделя прошла отлично. Я вспомнил, как готовить еду, сделали много лабораторных работ. Также погулял с одногруппниками (почти никто не пришёл), подышал свежим воздухом.
+Во вторник была экскурсия от университета в научный городок Дубна. Там нам показали коллайдер, ускоритель частиц, ещё много интересного, да и вообще было много полезной информации. Под впечатлением сразу же записался на следующую экскурсию, но теперь уже на шоколадную фабрику. Жду 26 числа.
+Устроился курьером, но пока ещё не работал, так как учёба (да и играю тоже).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Оформление отчёта</title>
+      <link>http://localhost:1313/post/report_preporation/</link>
+      <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/report_preporation/</guid>
+      <description>&lt;h2 id=&#34;содержимое-отчёта&#34;&gt;Содержимое отчёта&lt;/h2&gt;
+&lt;p&gt;Отчёт должен содержать следующие элементы:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Титульный лист с указанием номера лабораторной работы и ФИО студента.
+
+    Формулировка цели работы.
+
+    Описание результатов выполнения лабораторной работы:
+
+    описание выполняемого задания;
+
+    скриншоты (снимки экрана), фиксирующие выполнение заданий лабораторной работы;
+
+    комментарии и выводы по результатам выполнения заданий.
+
+Описание результатов выполнения заданий для самостоятельной работы:
+
+    описание выполняемого задания;
+
+    скриншоты (снимки экрана), фиксирующие выполнение заданий;
+
+    комментарии и выводы по результатам выполнения заданий;
+
+    листинги написанных программ (при наличии).
+
+Выводы, согласованные с целью работы.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;пример&#34;&gt;Пример&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# Дока
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Дока — это **добрая** энциклопедия для веб-разработчиков.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Вы можете [открыть её](https://doka.guide) в своём браузере.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;## Преимущества
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- Понятный материал;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- Нескучные объяснения;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- Удобный поиск.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Он содержит базовые элементы, которые можно найти почти в любом README.md:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;заголовок первого уровня для названия;
+выделение жирным шрифтом важных частей в описании;
+ссылка с понятным текстом;
+заголовок второго уровня для подпунктов;
+маркированный список для перечисления преимуществ.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Несмотря на то, что Markdown достаточно удобно читать в исходном виде, его часто переводят в HTML. Результат конвертации находится ниже.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;1.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;синтаксис&#34;&gt;Синтаксис&lt;/h2&gt;
+&lt;p&gt;Параграф&lt;/p&gt;
+&lt;p&gt;Параграф — это одна или несколько подряд идущих строчек текста, отделённых одной или несколькими пустыми строчками. Если строка содержит только пробелы или табы, то она всё равно считается пустой.&lt;/p&gt;
+&lt;p&gt;Подряд идущие строчки будут склеены в одну, если не добавить жёсткий перенос. Существует несколько способов, как это можно сделать:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;добавить два (или больше) пробелов в конце строки &amp;lt;пробел&amp;gt;&amp;lt;пробел&amp;gt;;
+добавить обратную косую черту в конце строки \;
+добавить HTML-тег переноса строки &amp;lt;br&amp;gt;.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Привет,
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;мир!
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Привет,&amp;lt;пробел&amp;gt;&amp;lt;пробел&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;пробел!
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Привет,\
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;косая черта!
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Привет,&amp;lt;br&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;тег бр-р-р!
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;заголовки&#34;&gt;Заголовки&lt;/h2&gt;
+&lt;p&gt;Markdown предлагает два стиля написания заголовков: через решётки (#) и через подчёркивания (====). Можно использовать до шести уровней заголовков, но подчёркивания позволяют создавать только первые два (&amp;lt;h1&amp;gt; и &amp;lt;h2&amp;gt;).
+Решётки (Atx-style)&lt;/p&gt;
+&lt;p&gt;Для того чтобы выделить заголовок, необходимо поставить от 1 до 6 решёток (#) и пробел в самом начале строки. Уровень заголовка зависит только от количества решёток.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# Заголовок 1 уровня
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;## Заголовок 2 уровня
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;### Заголовок 3 уровня
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;#### Заголовок 4 уровня
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;##### Заголовок 5 уровня
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;###### Заголовок 6 уровня
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
     
     <item>
       <title>Как прошла моя вторая неделя</title>
@@ -23,7 +138,7 @@
     </item>
     
     <item>
-      <title>Язык разметки Markdown.</title>
+      <title>Язык разметки Markdown. Ч.1</title>
       <link>http://localhost:1313/post/markdown/</link>
       <pubDate>Fri, 12 Apr 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/markdown/</guid>
@@ -67,10 +182,10 @@
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;png&#34; srcset=&#34;
-               /post/markdown/1_hud73479b4b624d389dc837d94e4180305_26066_de802107a0cb00706f98eb5d4ea6180e.webp 400w,
+               /post/markdown/1_hud73479b4b624d389dc837d94e4180305_26066_0b683fab3ceecb28eb07de5e70ce0b63.webp 400w,
                /post/markdown/1_hud73479b4b624d389dc837d94e4180305_26066_bb5d2f8b60a7d856c9c6172d8b61844b.webp 760w,
                /post/markdown/1_hud73479b4b624d389dc837d94e4180305_26066_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;http://localhost:1313/post/markdown/1_hud73479b4b624d389dc837d94e4180305_26066_de802107a0cb00706f98eb5d4ea6180e.webp&#34;
+               src=&#34;http://localhost:1313/post/markdown/1_hud73479b4b624d389dc837d94e4180305_26066_0b683fab3ceecb28eb07de5e70ce0b63.webp&#34;
                width=&#34;760&#34;
                height=&#34;267&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -95,33 +210,17 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Привет,&amp;lt;br&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;тег бр-р-р!
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Такой подход имеет множество преимуществ, особенно перед локальными VCS. Например, все разработчики проекта в определённой степени знают, чем занимается каждый из них. Администраторы имеют полный контроль над тем, кто и что может делать, и гораздо проще администрировать CVCS, чем оперировать локальными базами данных на каждом клиенте.&lt;/p&gt;
-&lt;p&gt;Несмотря на это, данный подход тоже имеет серьёзные минусы. Самый очевидный минус — это единая точка отказа, представленная централизованным сервером. Если этот сервер выйдет из строя на час, то в течение этого времени никто не сможет использовать контроль версий для сохранения изменений, над которыми работает, а также никто не сможет обмениваться этими изменениями с другими разработчиками. Если жёсткий диск, на котором хранится центральная БД, повреждён, а своевременные бэкапы отсутствуют, вы потеряете всё — всю историю проекта, не считая единичных снимков репозитория, которые сохранились на локальных машинах разработчиков. Локальные VCS страдают от той же самой проблемы: когда вся история проекта хранится в одном месте, вы рискуете потерять всё.&lt;/p&gt;
-&lt;h2 id=&#34;распределённые-системы-контроля-версий&#34;&gt;Распределённые системы контроля версий&lt;/h2&gt;
-&lt;p&gt;Здесь в игру вступают распределённые системы контроля версий (Distributed Version Control System, далее DVCS). В DVCS (таких как Git, Mercurial, Bazaar или Darcs) клиенты не просто скачивают снимок всех файлов (состояние файлов на определённый момент времени) — они полностью копируют репозиторий. В этом случае, если один из серверов, через который разработчики обменивались данными, умрёт, любой клиентский репозиторий может быть скопирован на другой сервер для продолжения работы. Каждая копия репозитория является полным бэкапом всех данных.&lt;/p&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;3.png&#34; alt=&#34;png&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;p&gt;Более того, многие DVCS могут одновременно взаимодействовать с несколькими удалёнными репозиториями, благодаря этому вы можете работать с различными группами людей, применяя различные подходы единовременно в рамках одного проекта. Это позволяет применять сразу несколько подходов в разработке, например, иерархические модели, что совершенно невозможно в централизованных системах.&lt;/p&gt;
-</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;заголовки&#34;&gt;Заголовки&lt;/h2&gt;
+&lt;p&gt;Markdown предлагает два стиля написания заголовков: через решётки (#) и через подчёркивания (====). Можно использовать до шести уровней заголовков, но подчёркивания позволяют создавать только первые два (&amp;lt;h1&amp;gt; и &amp;lt;h2&amp;gt;).
+Решётки (Atx-style)&lt;/p&gt;
+&lt;p&gt;Для того чтобы выделить заголовок, необходимо поставить от 1 до 6 решёток (#) и пробел в самом начале строки. Уровень заголовка зависит только от количества решёток.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# Заголовок 1 уровня
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;## Заголовок 2 уровня
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;### Заголовок 3 уровня
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;#### Заголовок 4 уровня
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;##### Заголовок 5 уровня
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;###### Заголовок 6 уровня
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
