@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="ru">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Устройство Памяти В Python - HFK</title><meta name="author" content="NoisyCake">
+<meta name="description" content="{&lt; lead &gt;} Конспект посвящён объяснению понятия компьютерной памяти и тому, как эта память устроена в языке программирования Python {&lt; /lead &gt;}
+Компьютерная памятьКак можем видеть из схемы ниже, память в компьюетере разделяется на внутреннюю и внешнюю:
+"><meta name="keywords" content='python, memory'>
+  <meta itemprop="name" content="Устройство памяти в Python">
+  <meta itemprop="description" content="{&lt; lead &gt;} Конспект посвящён объяснению понятия компьютерной памяти и тому, как эта память устроена в языке программирования Python {&lt; /lead &gt;}
+Компьютерная памятьКак можем видеть из схемы ниже, память в компьюетере разделяется на внутреннюю и внешнюю:">
+  <meta itemprop="datePublished" content="2024-11-09T20:01:01+08:00">
+  <meta itemprop="dateModified" content="2024-11-09T20:01:01+08:00">
+  <meta itemprop="wordCount" content="2540">
+  <meta itemprop="keywords" content="Python,Memory"><meta property="og:url" content="http://localhost:1313/posts/_notes/memory_python/">
+  <meta property="og:site_name" content="HFK">
+  <meta property="og:title" content="Устройство памяти в Python">
+  <meta property="og:description" content="{&lt; lead &gt;} Конспект посвящён объяснению понятия компьютерной памяти и тому, как эта память устроена в языке программирования Python {&lt; /lead &gt;}
+Компьютерная памятьКак можем видеть из схемы ниже, память в компьюетере разделяется на внутреннюю и внешнюю:">
+  <meta property="og:locale" content="ru">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-11-09T20:01:01+08:00">
+    <meta property="article:modified_time" content="2024-11-09T20:01:01+08:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Memory">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Устройство памяти в Python">
+  <meta name="twitter:description" content="{&lt; lead &gt;} Конспект посвящён объяснению понятия компьютерной памяти и тому, как эта память устроена в языке программирования Python {&lt; /lead &gt;}
+Компьютерная памятьКак можем видеть из схемы ниже, память в компьюетере разделяется на внутреннюю и внешнюю:">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/_notes/memory_python/" title="Устройство памяти в Python - HFK" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Устройство памяти в Python",
+    "inLanguage": "ru",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/posts\/_notes\/memory_python\/"
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "python, memory","wordcount":  2540 ,
+    "url": "http:\/\/localhost:1313\/posts\/_notes\/memory_python\/","datePublished": "2024-11-09T20:01:01+08:00","dateModified": "2024-11-09T20:01:01+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "NoisyCake"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="HFK"><img loading="lazy" src="img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a class="menu-link" href="/posts/articles"><i class="fa-solid fa-newspaper"></i> Статьи</a></li><li class="menu-item">
+              <a class="menu-link" href="/posts/notes"><i class="fa-solid fa-note-sticky"></i> Конспекты</a></li><li class="menu-item">
+              <a class="menu-link" href="/about"><i class="fa-solid fa-user"></i> Обо мне</a></li><li class="menu-item">
+              <a class="menu-link" href="/categories"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Поиск">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Очистить">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="Сменить Тему">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="HFK"><img loading="lazy" src="img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Поиск">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Очистить">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Отменить
+            </a>
+          </li><li class="menu-item"><a class="menu-link" href="/posts/articles"><i class="fa-solid fa-newspaper"></i> Статьи</a></li><li class="menu-item"><a class="menu-link" href="/posts/notes"><i class="fa-solid fa-note-sticky"></i> Конспекты</a></li><li class="menu-item"><a class="menu-link" href="/about"><i class="fa-solid fa-user"></i> Обо мне</a></li><li class="menu-item"><a class="menu-link" href="/categories"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item"><a class="menu-link" href="/tags"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="Сменить Тему"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="HFK">Домой</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">Статьи</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Устройство памяти в Python</li>
+    </ol>
+  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=""></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Устройство Памяти В Python</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisy_cake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+    NoisyCake</a></span></div><div class="post-meta-line"><span title="Опубликовано 2024-11-09 20:01:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="09-11-2024">09-11-2024</time></span>&nbsp;<span title="2540 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 2600 слов</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>12 минут</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>Содержание</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#centerкомпьютерная-памятьcenter"><!-- raw HTML omitted -->Компьютерная память<!-- raw HTML omitted --></a>
+      <ul>
+        <li><a href="#внутренняя-память">Внутренняя память</a></li>
+        <li><a href="#внешняя-память">Внешняя память</a></li>
+      </ul>
+    </li>
+    <li><a href="#centerуправление-памятью-в-pythoncenter"><!-- raw HTML omitted -->Управление памятью в Python<!-- raw HTML omitted --></a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#centerблокcenter"><!-- raw HTML omitted -->Блок<!-- raw HTML omitted --></a></li>
+            <li><a href="#centerпулcenter"><!-- raw HTML omitted -->Пул<!-- raw HTML omitted --></a></li>
+            <li><a href="#centerареныcenter"><!-- raw HTML omitted -->Арены<!-- raw HTML omitted --></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#centerочистка-памятиcenter"><!-- raw HTML omitted -->Очистка памяти<!-- raw HTML omitted --></a>
+      <ul>
+        <li><a href="#подсчёт-ссылок">Подсчёт ссылок</a></li>
+        <li><a href="#сборщик-мусора">Сборщик мусора</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><p>{&lt; lead &gt;}
+Конспект посвящён объяснению понятия компьютерной памяти и тому, как эта память устроена в языке программирования Python
+{&lt; /lead &gt;}</p>
+<h2 id="centerкомпьютерная-памятьcenter" class="heading-element"><span><!-- raw HTML omitted -->Компьютерная память<!-- raw HTML omitted --></span>
+  <a href="#center%d0%ba%d0%be%d0%bc%d0%bf%d1%8c%d1%8e%d1%82%d0%b5%d1%80%d0%bd%d0%b0%d1%8f-%d0%bf%d0%b0%d0%bc%d1%8f%d1%82%d1%8ccenter" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Как можем видеть из схемы ниже, память в компьюетере разделяется на <strong>внутреннюю</strong> и <strong>внешнюю</strong>:</p>
+<p><img loading="lazy" src="/posts/_notes/memory_python/images/diagram0.png" alt="/posts/_notes/memory_python/images/diagram0.png" srcset="/posts/_notes/memory_python/images/diagram0.png?size=small, /posts/_notes/memory_python/images/diagram0.png?size=medium 1.5x, /posts/_notes/memory_python/images/diagram0.png?size=large 2x" data-title="/posts/_notes/memory_python/images/diagram0.png" style="--width: 3840px;--aspect-ratio: 3840 / 2939;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>Посмотрим подробнее на каждый тип памяти.</p>
+<hr>
+<h3 id="внутренняя-память" class="heading-element"><span>Внутренняя память</span>
+  <a href="#%d0%b2%d0%bd%d1%83%d1%82%d1%80%d0%b5%d0%bd%d0%bd%d1%8f%d1%8f-%d0%bf%d0%b0%d0%bc%d1%8f%d1%82%d1%8c" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Характерными особенностями внутренней памяти по сравнению с внешней являются высокое быстродействие и ограниченный объем. Физически внутренняя память компьютера представляет собой интегральные микросхемы, которые размещаются в специальных гнездах на материнской плате. Чем больше размер внутренней памяти, тем более сложную задачу и с большей скоростью может решить компьютер.</p>
+<p>Внутренняя память подразделяется на:</p>
+<ul>
+<li>постоянную память</li>
+<li>оперативную память</li>
+<li>кэш-память</li>
+</ul>
+<p><strong>Постоянная память</strong> (ROM — read-only memory) — энергозависимая память, использующаяся для долговременного хранения неизменяемого массива данных. Содержание ПЗУ специальным образом закладываестя при его изготовлении для постоянного хранения. Из название как раз можно понять, что данная память предназначена только для чтения.</p>
+<p><strong>Оперативная память</strong> (RAM — Random Access Memory) — в большинстве случаев энергозависимая память, хранящая выполняемый машинный код программ, входные, выходные и промежуточные данные, обрабатываемые процессором в текущем сеансе работы ПК. После выключения питания компьютера, полностью очищается.</p>
+<p>Микросхемы оперативной памяти монтируются на печатной плате. Каждая такая плата снабжена контактами, расположенными вдоль нижнего края. Для подключения к другим устройствам компьютера такая плата вставляется своими контактами в специальный разъем (слот) на материнской плате. Материнская плата имеет несколько разъемов для модулей оперативной памяти, суммарный объем которых может принимать ряд фиксированных значений, например 2, 4, 8, 16, 32 Гб и более.</p>
+<p>Оперативная память бывает нескольких типов: SDRAM, DDR, DDR2, DDR3, DDR4, DDR5. Каждый последующий тип памяти представляет собой улучшение предыдущего и позволяет новой памяти работать с большей скоростью. В данный момент в современных компьютерах используется оперативная память типа DDR4 и DDR5.</p>
+<p><strong>Кэш-память</strong> (cache) — промежуточный буфер с быстрым доступом к нему, содержащий информацию, которая может быть запрошена с наибольшей вероятностью. Эта память испольлзуется при обмене данными между процессором и оперативной памятью. Алгоритм ее работы позволяет сократить частоту обращений процессора к оперативной памяти и, следовательно, повысить производительность компьютера.</p>
+<p>Современные процессоры оснащены кэшем, который состоит зачастую из трех уровней: L1 (первый уровень), L2 (второй уровень), L3 (третий уровень).</p>
+<ul>
+<li>
+<p><strong>L1</strong> — наиболее быстрый уровень кэш-памяти, который работает напрямую с ядром процессора, в следствии чего обладает наименьшим временем доступа и работает на частотах, близких процессору. Размер данного кэша обычно не велик, а количество микросхем зачастую привязано к количеству ядер процессора, при этом у каждого ядра кэш свой собственный. Размер блока может варьироваться от 64-256 КБ у десктопов и ноутбуков до 1-2 МБ для серверных решений.</p>
+<p>Сам L1 тоже имеет свое разделение. Он делится на кэш команд и кэш данных:</p>
+<ul>
+<li>
+<p>Первый содержит информацию об операции, которой занимается ЦП, проще говоря, отвечает на вопрос: «Что надо сделать»;</p>
+</li>
+<li>
+<p>Второй хранит в себе данные, над которыми должны производиться вычисления.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>L2</strong> — второй уровень более масштабный, нежели первый, но в результате, обладает меньшими скоростными характеристиками. Также привязан к ядру и не взаимодействует с остальными.</p>
+</li>
+<li>
+<p><strong>L3</strong> — третий уровень. Он более медленный, нежели два предыдущих, но всё же гораздо быстрее, чем оперативная память. Этот блок уже доступен для всех ядер процессора. На третьем уровне временно хранятся данные, которые хоть и важны для продуктивной работы, но регистры обращаются за этой информацией относительно нечасто.</p>
+</li>
+</ul>
+<p><img loading="lazy" src="/posts/_notes/memory_python/images/diagram1.png" alt="/posts/_notes/memory_python/images/diagram1.png" srcset="/posts/_notes/memory_python/images/diagram1.png?size=small, /posts/_notes/memory_python/images/diagram1.png?size=medium 1.5x, /posts/_notes/memory_python/images/diagram1.png?size=large 2x" data-title="/posts/_notes/memory_python/images/diagram1.png" style="--width: 1012px;--aspect-ratio: 1012 / 312;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<hr>
+<h3 id="внешняя-память" class="heading-element"><span>Внешняя память</span>
+  <a href="#%d0%b2%d0%bd%d0%b5%d1%88%d0%bd%d1%8f%d1%8f-%d0%bf%d0%b0%d0%bc%d1%8f%d1%82%d1%8c" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Назначение внешней памяти компьютера заключается в долговременном хранении информации любого вида. Выключение питания компьютера не приводит к очистке внешней памяти и её объём в тысячи раз больше объёма внутренней памяти. Минус такой памяти в том, что обращение к ней требует гораздо большего времени.</p>
+<p>К устройствам внешней памяти относятся:</p>
+<ul>
+<li>Жёсткие магнитные диски (HDD — Hard Disk Drive)</li>
+<li>Твердотельные накопители (SSD — Solid State Drive)</li>
+<li>Оптические диски (CD-ROM, DVD-ROM, Blue-Ray и т.д.)</li>
+<li>Флеш-накопители</li>
+<li>Гибкие магнитные диски</li>
+</ul>
+<p>Наиболее распространенный вариант постоянной памяти — жесткие диски HDD. Они представляют собой один или несколько магнитных дисков, вращающихся с огромной скоростью (от 5 до 12 тысяч оборотов в минуту), и головок, предназначенных для считывания и записи информации. HDD являются надежными носителями информации, позволяют записывать и считывать информацию огромное количество раз. Неудобство в том, что они очень медленные и восприимчивы к ударам, падениям и прочим механическим воздействиям, особенно в момент работы.</p>
+<p>Почти у каждого уверенного пользователя ПК в наши дни скорее найдётся SSD, чем HDD. Их популярность неудивительна, ведь они имеют гораздо более высокую скорость записи и чтения и невосприимчивы к механическим воздействиям. Их можно было бы назвать идеальными накопителями, если бы не ощутимо конечное количество циклов чтения-записи.</p>
+<h2 id="centerуправление-памятью-в-pythoncenter" class="heading-element"><span><!-- raw HTML omitted -->Управление памятью в Python<!-- raw HTML omitted --></span>
+  <a href="#center%d1%83%d0%bf%d1%80%d0%b0%d0%b2%d0%bb%d0%b5%d0%bd%d0%b8%d0%b5-%d0%bf%d0%b0%d0%bc%d1%8f%d1%82%d1%8c%d1%8e-%d0%b2-pythoncenter" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Управление памятью — это процесс выделения, распределения и координации памяти таким образом, чтобы все программы работали правильно и могли оптимально получать доступ к различным системным ресурсам. Управление памятью также включает в себя и очистку памяти от объектов, которые больше не нужны.</p>
+<p>Существует два типа управления памятью: ручное и автоматическое.</p>
+<p>Ручное управление включает в себя, как правило, три этапа:</p>
+<ol>
+<li>Запрос памяти у операционной системы</li>
+<li>Работа с ней</li>
+<li>Возвращение памяти обратно в операционную систему</li>
+</ol>
+<p>Ручной подход управления (как в C, C++, Pascal и т.д.) позволяет работать с памятью максимально эффективно. Программист точно знает, сколько памяти ему выделено, зачем он её использует, и т.д. Однако помимо преимуществ такой подход имеет и ряд недостатков. Ключевой из них — сложность. Управлять памятью вручную — сложно и тяжело, поскольку легко забыть вернуть память обратно операционной системе, в результате чего возникает утечка: программа держит неиспользуемую память просто так, не давая применять ее для решения других задач.</p>
+<p>Автоматическое управление памятью (как в Python, Java, JS, C#, Ruby и т.д.) берет на себя самый сложный этап — возвращение памяти обратно операционной системе, когда она уже не требуется. Восстановленная память может использоваться другими объектами. В определённых случаях это менее эффективно, но позволяет сильно сократить трудозатраты и повысить надежность процесса.</p>
+<p>Python — это язык с автоматическим управлением памятью. Причем для управления ею он использует несколько механизмов. При запуске Python программы создается новый процесс, в рамках которого операционная система выделяет пул ресурсов, включая виртуальное адресное пространство. В эту память загружается интерпретатор Python вместе со всеми необходимыми ему для работы данными, включая код написанной программы.</p>
+<p>Оставшаяся свободная виртуальная память может использоваться для хранения информации об объектах Python. Для управления этой памятью в CPython используется специальный механизм, который называется аллокатор. Он используется каждый раз, когда вам нужно создать новый объект.</p>
+<p>Обычно мы в своих программах не оперируем большими объектами. Большая часть наших данных — это числа, строки и т.д., они занимают не такой уж большой объем в расчёте на одно значение. Но зато мы создаем их достаточно часто. И это приводило бы к проблемам, если бы Python абсолютно все такие вызовы транслировал в операционную систему. Системный вызов на выделение памяти — штука трудозатратная, зачастую связанная с переходом в контекст ядра операционной системы. Поэтому одна из главных задач аллокатора Python — оптимизация количества системных вызовов.</p>
+<p>{&lt; alert &ldquo;circle-info&rdquo; &gt;}
+Для больших объектов (больше 512 байт) Python выделяет память напрямую у ОС. Обычно таких объектов не очень много в рамках программы, и создаются они нечасто. Поэтому накладные расходы на создание таких объектов напрямую в RAM не так высоки.
+{&lt; /alert &gt;}</p>
+<p>Аллокатор для малых объектов (не больше 512 байт) использует три уровня абстракции:</p>
+<ul>
+<li>Блок — кусок памяти, используемый для хранения одного объекта.</li>
+<li>Пул — страница памяти, содержащий блоки (обычно 4 килобайта).</li>
+<li>Арена — большой непрерывный кусок памяти, содержащий пулы (обычно 256 килобайт).</li>
+</ul>
+<p><img loading="lazy" src="/posts/_notes/memory_python/images/arena_pool_block.png" alt="/posts/_notes/memory_python/images/arena_pool_block.png" srcset="/posts/_notes/memory_python/images/arena_pool_block.png?size=small, /posts/_notes/memory_python/images/arena_pool_block.png?size=medium 1.5x, /posts/_notes/memory_python/images/arena_pool_block.png?size=large 2x" data-title="/posts/_notes/memory_python/images/arena_pool_block.png" style="--width: 1132px;--aspect-ratio: 1132 / 626;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h4 id="centerблокcenter" class="heading-element"><span><!-- raw HTML omitted -->Блок<!-- raw HTML omitted --></span>
+  <a href="#center%d0%b1%d0%bb%d0%be%d0%bacenter" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>Блок — это кусок памяти, который может содержать только один Python объект фиксированного размера. Размер блока может варьироваться от 8 до 512 байт и должен быть кратен восьми. Все блоки в конкретном пуле имеют одинаковый размер и находятся в одном классе размера, который и определяет размер блока.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Запрос памяти в байтах</th>
+          <th style="text-align: center">Размер блока в байтах</th>
+          <th style="text-align: center">Индекс класса размера</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">1-8</td>
+          <td style="text-align: center">8</td>
+          <td style="text-align: center">0</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">9-16</td>
+          <td style="text-align: center">16</td>
+          <td style="text-align: center">1</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">17-24</td>
+          <td style="text-align: center">24</td>
+          <td style="text-align: center">2</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">25-32</td>
+          <td style="text-align: center">32</td>
+          <td style="text-align: center">3</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">33-40</td>
+          <td style="text-align: center">40</td>
+          <td style="text-align: center">4</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">41-48</td>
+          <td style="text-align: center">48</td>
+          <td style="text-align: center">5</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">&hellip;</td>
+          <td style="text-align: center">&hellip;</td>
+          <td style="text-align: center">&hellip;</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">505-512</td>
+          <td style="text-align: center">512</td>
+          <td style="text-align: center">63</td>
+      </tr>
+  </tbody>
+</table>
+<p>Таким образом, если необходимы:</p>
+<ul>
+<li>6 байт, то данные будут помещены в блок размером 8 байт;</li>
+<li>42 байта, то данные будут помещены в блок размером 48 байт;</li>
+<li>и т.д.</li>
+</ul>
+<h4 id="centerпулcenter" class="heading-element"><span><!-- raw HTML omitted -->Пул<!-- raw HTML omitted --></span>
+  <a href="#center%d0%bf%d1%83%d0%bbcenter" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>Пулы состоят из блоков одного размера. Каждый пул работает по принципу двухсвязного списка с другими пулами того же размера, поэтому алгоритм может с легкостью найти необходимое место для требуемого размера блока даже среди множества пулов. Размер пула равен 4 килобайта.</p>
+<p>{&lt; alert &ldquo;circle-info&rdquo; &gt;}
+Ограничение пула фиксированным размером блоков помогает с фрагментацией. Если объект уничтожается, аллокатор может заполнить это пространство новым объектом того же размера.
+{&lt; /alert &gt;}</p>
+<p>Для эффективного управления пулами Python использует дополнительный список, который называется <code>usedpools</code>. Он хранит указатели на пулы, сгруппированные по классам. Как уже известно, все пулы с одинаковым размером блока связаны между собой с помощью двухсвязного списка. Чтобы перебрать их, нужно просто знать начало списка. Если пулов такого размера нет, то при первом запросе памяти будет создан новый.</p>
+<p>Пулы находятся в трех состояниях:</p>
+<ul>
+<li>Используемый (used) — частично заполненный, какие-то блоки заняты, какие-то свободны;</li>
+<li>Полный (full) — полностью заполненный, все блоки заняты;</li>
+<li>Пустой (empty) — все блоки свободны и доступны для записи (хранятся в списке пустых пулов <code>freepools</code>).</li>
+</ul>
+<p>Используемый пул содержит блоки, в которые можно записать какую-то информацию. Блоки полного пула все распределены и уже содержат данные. Пустые пулы не содержат данных и могут быть разбиты на какие угодны классы размера при необходимости.</p>
+<p>Допустим, нашему коду необходимо 8 байт. Если в списке используемых пулов нет пулов с классом размера в 8 байт, то новый пустой пул инициализируется, как хранящий блоки по 8 байт. Затем пустой пул добавляется в список используемых пулов и может быть использован при следующих запросах.</p>
+<p>Заполненный пул освобождает некоторые блоки, когда эта информация в них уже не нужна. Этот пул добавится в список используемых в соответствии со своим классом размера.</p>
+<p>{&lt; alert &ldquo;circle-info&rdquo; &gt;}
+Пулы и блоки не выделяют память напрямую, вместо этого они используют уже выделенное пространство в аренах.
+{&lt; /alert &gt;}</p>
+<h4 id="centerареныcenter" class="heading-element"><span><!-- raw HTML omitted -->Арены<!-- raw HTML omitted --></span>
+  <a href="#center%d0%b0%d1%80%d0%b5%d0%bd%d1%8bcenter" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>Арена – это кусок памяти размером в 256 килобайт, который обеспечивает память для 64 пулов.</p>
+<p>Арены, в отличие от пулов, не имеют явных разделений на состояния. Они сами по себе организованы в двухсвязный список <code>usable_arenas</code>, который отсортирован по количеству свободных пулов. Чем меньше свободных пулов, тем ближе арена к началу списка.</p>
+<p><img loading="lazy" src="/posts/_notes/memory_python/images/arena.png" alt="/posts/_notes/memory_python/images/arena.png" srcset="/posts/_notes/memory_python/images/arena.png?size=small, /posts/_notes/memory_python/images/arena.png?size=medium 1.5x, /posts/_notes/memory_python/images/arena.png?size=large 2x" data-title="/posts/_notes/memory_python/images/arena.png" style="--width: 960px;--aspect-ratio: 960 / 540;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>Поэтому наиболее полная арена будет выбрана для записи еще большего количества данных. Такое расположение арен позволяет снизить объем потребляемой программой памяти. Дело в том, что в некоторых случаях, когда память освобождается, она все еще остается недоступной операционной системе. Процесс Python держит ее распределенной и использует ее позже для новых данных. Полное освобождение памяти возвращает память в пользование операционной системе.</p>
+<p>Арены — единственные области, которые могут быть полностью освобождены. Таким образом мы понимаем, что те арены, которые находятся в списке ближе к пустому состоянию, должны быть освобождены. В таком случае, область памяти может быть действительно полностью освобождена, и соответственно общий объем памяти Python программы будет уменьшен.</p>
+<h2 id="centerочистка-памятиcenter" class="heading-element"><span><!-- raw HTML omitted -->Очистка памяти<!-- raw HTML omitted --></span>
+  <a href="#center%d0%be%d1%87%d0%b8%d1%81%d1%82%d0%ba%d0%b0-%d0%bf%d0%b0%d0%bc%d1%8f%d1%82%d0%b8center" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Как мы уже знаем, язык Python является языком с автоматически управляемой памятью, то есть программисту, пишущему код на Python, не нужно беспокоиться о работе с памятью, в частности заниматься ее освобождением. Как только данные программы (объекты в Python) больше не нужны, Python автоматически освобождает память, которую они занимали. Несмотря на это, понимание того, как работает механизм очистки памяти, может помочь писать более качественный и производительный код.</p>
+<p>Стандартный интерпретатор Python использует сразу два механизма очистки памяти:</p>
+<ul>
+<li>Подсчёт ссылок;</li>
+<li>Сборщик мусора (Garbage Collector, GC).</li>
+</ul>
+<h3 id="подсчёт-ссылок" class="heading-element"><span>Подсчёт ссылок</span>
+  <a href="#%d0%bf%d0%be%d0%b4%d1%81%d1%87%d1%91%d1%82-%d1%81%d1%81%d1%8b%d0%bb%d0%be%d0%ba" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Алгоритм подсчета ссылок — это один из самых простых механизмов очистки памяти. Объекты удаляются как только на них больше нет ссылок.</p>
+<p>Каждый объект в Python унаследован от базового класса PyObject, который содержит специальное поле <code>Reference Count (ob_refcnt)</code>, в котором хранится количество ссылок на данный объект. Как только кто-то начинает ссылаться на объект, значение этого поля увеличивается на единицу. Если по какой-то причине ссылка пропадает, то это поле уменьшается на один. При этом если счетчик ссылок для определенного объекта достигает нуля, то интерпретатор запускает процесс уничтожения объекта. Если удаленный объект содержал ссылки на другие объекты, то эти ссылки также удаляются. Таким образом, удаление одного объекта может повлечь за собой удаление других.</p>
+<p>{&lt; alert &ldquo;circle-info&rdquo; &gt;}
+Механизм подсчета ссылок работает в режиме реального времени.
+{&lt; /alert &gt;}</p>
+<p>Четыре основных сценария, увеличивающих количество ссылок на объект:</p>
+<ul>
+<li>Создание нового объекта и присвоение его переменной;</li>
+<li>Присвоение уже существующего объекта переменной;</li>
+<li>Передача объекта в функцию в качестве аргумента;</li>
+<li>Добавление объекта в список, множество, словарь и т.д.</li>
+</ul>
+<p>Четыре основных сценария, уменьшающих количество ссылок на объект:</p>
+<ul>
+<li>Удаление объекта из области видимости функции после ее завершения;</li>
+<li>Удаление переменной с помощью оператора del;</li>
+<li>Переприсваивание переменной нового значения;</li>
+<li>Удаление объекта из списка, множества, словаря и т.д.</li>
+</ul>
+<p>Для получения количества ссылок на заданный объект используется функция <code>getrefcount()</code> из модуля <code>sys</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getrefcount</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: 2</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Когда мы вызываем функцию <code>getrefcount()</code> для получение количества ссылок на объект, мы увеличиваем количество ссылок на объект на один, так как передаем <code>nums</code> в качестве аргумента в функцию. Поэтому счетчик ссылок равен 2. Это означает, что и переменная <code>nums</code>, и функция <code>getrefcount()</code> ссылаются на один и тот же список <code>[1, 2, 3]</code>.</p>
+<p>Алгоритм подсчета ссылок очень простой и эффективный, но у него есть один большой недостаток. Он не умеет определять циклические ссылки. Приведённый ниже код создаёт циклические ссылки, так как <code>nums1</code> содержит ссылку на <code>nums2</code>, в то время как <code>nums2</code> содержит ссылку на <code>nums1</code>. Таким образом, счетчики ссылок у <code>nums1</code> и <code>nums2</code> никогда не будут равны нулю.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">nums1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">nums2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">nums1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nums2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">nums2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nums1</span><span class="p">)</span> </span></span></code></pre></td></tr></table>
+</div>
+</div><p>Именно из-за этого в Python существует дополнительный механизм очистки памяти — сборщик мусора (Garbage Collector, GC), который следит за объектами с потенциальными циклическими ссылками.</p>
+<p>{&lt; alert &ldquo;circle-info&rdquo; &gt;}
+В Python алгоритм подсчета ссылок является фундаментальным и не может быть отключен, тогда как сборщик мусора (GC) опционален и может быть отключен.
+{&lt; /alert &gt;}</p>
+<p>Количество ссылок на определенный объект иногда может оказаться заметно больше, чем кажется на первый взгляд. Дело в том, что многие неизменяемые объекты уже используются, например, в реализациях встроенных функций и типов данных. Объекты, относящиеся к изменяемым типам данных данной особенности не подвержены, так как изменение такого объекта в одной части программы привело бы к его изменению в другой части программы.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getrefcount</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>     <span class="c1"># число 0</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getrefcount</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>     <span class="c1"># число 1</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getrefcount</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">))</span>    <span class="c1"># пустая строка</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getrefcount</span><span class="p">(()))</span>    <span class="c1"># пустой кортеж</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Возможный вывод:
+</span></span><span class="line"><span class="cl">164
+</span></span><span class="line"><span class="cl">84
+</span></span><span class="line"><span class="cl">58
+</span></span><span class="line"><span class="cl">1257</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Счетчик ссылок подвержен проблемам в многопоточной среде, которые могут приводить к некорректности обновления этого счетчика из разных потоков и, следовательно, к удалению объектов, на которые еще существуют ссылки. Чтобы этого избежать, CPython использует GIL — Global Interpreter Lock. Каждый раз, когда происходит работа с памятью, GIL — как глобальная блокировка — препятствует выполнению этих действий одновременно из двух потоков. Он гарантирует, что сначала отработает один, потом другой.</p>
+<hr>
+<h3 id="сборщик-мусора" class="heading-element"><span>Сборщик мусора</span>
+  <a href="#%d1%81%d0%b1%d0%be%d1%80%d1%89%d0%b8%d0%ba-%d0%bc%d1%83%d1%81%d0%be%d1%80%d0%b0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>В отличие от алгоритма подсчета ссылок, сборщик мусора не работает в режиме реального времени и запускается периодически. Каждый запуск сборщика создаёт микропаузы в работе программы, поэтому Python использует различные эвристики для определения частоты запуска сборщика мусора.</p>
+<p>Сборщик мусора разделяет все объекты на 3 поколения (нулевое, первое и второе). Новые объекты попадают в нулевое поколение. Если новый объект выживает в процессе сборки мусора, то он перемещается в следующее поколение. Чем старше поколение, тем реже оно сканируется на сборку мусора. Так как новые объекты зачастую имеют очень маленький срок жизни (являются временными), то имеет смысл проверять их чаще, чем те, которые уже прошли через несколько этапов сборки мусора.</p>
+<p>В каждом поколении есть специальный порог срабатывания, при достижении которого срабатывает процесс сборки мусора. Если сразу несколько поколений преодолели порог, то выбирается наиболее старшее поколение, так как сборка мусора в старших поколениях включает в себя также сборку мусора и в младших поколениях.</p>
+<hr>
+<p><strong>Основной источник:</strong> <a href="https://stepik.org/course/82541/syllabus"target="_blank" rel="external nofollow noopener noreferrer">https://stepik.org/course/82541/syllabus</a></p>
+<p>Дополнительные источники:</p>
+<ul>
+<li><a href="https://habr.com/ru/companies/domclick/articles/530804/"target="_blank" rel="external nofollow noopener noreferrer">Habr</a></li>
+<li><a href="https://market.marvel.ru/blog/komplektuyushchie-i-optsii/kesh-pamyat-protsessora/"target="_blank" rel="external nofollow noopener noreferrer">Market.Marvel.ru</a></li>
+<li><a href="https://github.com/python/cpython/blob/7d6ddb96b34b94c1cbdf95baa94492c48426404e/Objects/obmalloc.c"target="_blank" rel="external nofollow noopener noreferrer">GitHub</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="Oбновлена 2024-11-09 20:01:01">Oбновлена 09-11-2024&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="Поделиться в X" data-sharer="twitter" data-url="http://localhost:1313/posts/_notes/memory_python/" data-title="Устройство Памяти В Python" data-hashtags="python,memory"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/_notes/memory_python/" data-hashtag="python"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/_notes/memory_python/" data-title="Устройство Памяти В Python"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/python/" class="post-tag" title="Тэги - Python">Python</a><a href="/tags/memory/" class="post-tag" title="Тэги - Memory">Memory</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">Назад</a></span>&nbsp;|&nbsp;<span><a href="/">Домой</a></span>
+    </section>
+  </div><div class="post-nav"></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="Содержание"><h2 class="toc-title">Содержание&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://t.me/noisy_cake"target="_blank" rel="external nofollow noopener noreferrer">NoisyCake</a></span></div><div class="footer-line statistics"><span class="site-time" title='Website running ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Дней жизни:</span><span class="run-times ms-1">Website running ...</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='Всего посетителей'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='Всего посещений'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Наверх"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><div class="reading-progress-bar" style="--fi-progress-start: left; top: 0;"></div><noscript>
+    <div class="noscript-warning"></div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"code":{"copyTitle":"Копировать в буфер обмена","editLockTitle":"Заблокировать редактируемый кодовый блок","editUnLockTitle":"Разблокировать редактируемый блок кода","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Нихачу","link":"Учить больше","message":"На этом сайте используются куки"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"Результатов не найдено","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2024-11-15T16:15:22","version":"v0.3.14"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>

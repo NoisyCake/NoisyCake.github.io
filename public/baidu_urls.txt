@@ -1,0 +1,3 @@
+http://localhost:1313/about/
+http://localhost:1313/posts/notes/basics_of_statistics/
+http://localhost:1313/posts/notes/memory_python/

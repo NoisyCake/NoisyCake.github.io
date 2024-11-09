@@ -1,0 +1,340 @@
+baseURL = 'https://NoisyCake.github.io'
+defaultContentLanguage = "ru"
+languageCode = 'ru'
+languageName = "Russian"
+paginate = "10"
+enableEmoji = true
+
+title = 'HFK'
+theme = 'FixIt'
+
+
+
+[menu]
+  [[menu.main]]
+    pre = '<i class="fa-solid fa-feather-pointed"></i>' 
+    name = 'Посты'
+    url = "/posts/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = ""
+    #  Identifier of the parent menu item
+    parent = "Посты"
+    # you can add extra information before the name (HTML format is supported), such as icons
+    pre = '<i class="fa-solid fa-newspaper"></i>'
+    # you can add extra information after the name (HTML format is supported), such as icons
+    post = ""
+    name = "Статьи"
+    url = "/posts/articles/"
+    # title will be shown when you hover on this menu link
+    title = ""
+    weight = 1
+    #  add user-defined content to menu items
+
+  [[menu.main]]
+    identifier = ""
+    parent = 'Посты'
+    pre = '<i class="fa-solid fa-note-sticky"></i>'
+    name = "Конспекты"
+    url = "/posts/notes/"
+    weight = 2
+
+  [[menu.main]]
+    identifier = 'about'
+    pre = '<i class="fa-solid fa-user"></i>'
+    name = "Описание"
+    url = "/about/"
+    weight = 3
+
+  [[menu.main]]
+    pre = '<i class="fa-solid fa-folder-tree"></i>'
+    name = 'Категории'
+    url = '/categories/'
+    weight = 4
+    
+  [[menu.main]]
+    pre = '<i class="fa-solid fa-tags"></i>'
+    name = 'Теги'
+    url = '/tags/'
+    weight = 5
+
+    [menu.main.params]
+      # add css class to a specific menu item
+      class = ""
+      # whether set as a draft menu item whose function is similar to a draft post/page
+      draft = false
+      #  add fontawesome icon to a specific menu item
+      icon = ""
+      #  set menu item type, optional values: ["mobile", "desktop"]
+      type = ""
+      #  whether to show the submenu item divider line
+      divided = false
+
+
+
+[params]
+  keywords = ["NoisyCake", "HFK"]
+  defaultTheme = 'dark'
+  dateFormat = '02-01-2006'
+  enablePWA = true
+  capitalizeTitles = false
+  externalIcon = true
+  withSiteTitle = true
+  titleDelimiter = "|"
+  indexWithSubtitle = false
+
+  [params.author]
+    name = "NoisyCake"
+    email = "darkgxd@vk.com"
+    link = "https://t.me/noisy_cake"
+    avatar = ""
+
+  [params.app]
+    name = "HFK"
+    noFavicon = false
+    svgFavicon = "static/favicon.svg"
+    iconColor = "#5bbad5"
+    tileColor = "#da532c"
+    [params.app.themeColor]
+      light = "#f8f8f8"
+      dark = "#252627"
+
+  [params.search]
+    enable = true
+    # type of search engine ["algolia", "fuse"]
+    type = "fuse"
+    # max index length of the chunked content
+    contentLength = 4000
+    # placeholder of the search bar
+    placeholder = ""
+    # max number of results length
+    maxResultLength = 10
+    # snippet length of the result
+    snippetLength = 30
+    # HTML tag name of the highlight part in results
+    highlightTag = "em"
+    # whether to use the absolute URL based on the baseURL in search index
+    absoluteURL = false
+    [params.search.fuse]
+      # FixIt 0.2.17 | NEW https://fusejs.io/api/options.html
+      isCaseSensitive = false
+      minMatchCharLength = 2
+      findAllMatches = false
+      location = 0
+      threshold = 0.3
+      distance = 100
+      ignoreLocation = false
+      useExtendedSearch = false
+      ignoreFieldNorm = false
+
+  [params.header]
+    desktopMode = "sticky"
+    mobileMode = "auto"
+    [params.header.title]
+      logo = "/img/logo_transparent.png"
+      typeit = false
+
+  [params.breadcrumb]
+    enable = true
+    sticky = true
+    showHome = false
+    separator = "/"
+    capitalize = false
+
+  [params.footer]
+    enable = true
+    copyright = true
+    author = true
+    since = "2024"
+    [params.footer.powered]
+      enable = false
+      hugoLogo = false
+      themeLogo = false
+    [params.footer.siteTime]
+      enable = true
+      animate = true
+      icon = "fa-solid fa-heartbeat"
+      pre = "Дней жизни:"
+      value = "2024-11-15T16:15:22"
+    [params.footer.order]
+      powered = 0
+      copyright = 0
+      statistics = 0
+      visitor = 0
+      beian = 0
+
+  [params.section]
+    paginate = 20
+    dateFormat = '02-01'
+    [params.section.feed]
+      # The number of posts to include in the feed. Default is -1, which means all posts.
+      limit = -1
+      # whether to show the full text content in feed.
+      fullText = false
+
+  [params.list]
+    paginate = 20
+    # date format (month and day)
+    dateFormat = "01-02"
+    # FixIt 0.3.10 | NEW Term list feed config for RSS, Atom and JSON feed.
+    [list.feed]
+      # The number of posts to include in the feed. Default is -1, which means all posts.
+      limit = -1
+      # whether to show the full text content in feed.
+      fullText = false
+
+  [params.tagcloud]
+    enable = true
+    min = 14 # Minimum font size in px
+    max = 32 # Maximum font size in px
+    peakCount = 10 # Maximum count of posts per tag
+    orderby = "name" # Order of tags, optional values: ["name", "count"]
+
+  [params.home]
+    paginate = 10
+    [params.home.profile]
+      enable = true
+      avatarURL = "img/avatar.jpg"
+      avatarMenu = "about"
+      title = "Hungry for Knowledge"
+      subtitle = "Сайт-проект-блог. Тематика: в основном IT"
+      typeit = true
+      social = true
+      disclaimer = "Вся информация предоставлена для ознакомительных целей. К действиям не призываю"
+    [params.home.posts]
+      enable = true
+      paginate = 6
+
+  [params.social]
+    Telegram = 'https://t.me/noisy_cake'
+    VK = 'https://vk.com/darkgxd'
+    RSS = false
+
+  [params.page]
+    authorAvatar = true
+    # FixIt 0.2.13 | NEW Page style ("narrow", "normal", "wide", ...)
+    pageStyle = "normal"
+    # FixIt 0.2.17 | CHANGED Auto Bookmark Support
+    # If true, save the reading progress when closing the page.
+    autoBookmark = true
+    # FixIt 0.2.17 | NEW whether to enable wordCount
+    wordCount = true
+    # FixIt 0.2.17 | NEW whether to enable readingTime
+    readingTime = true
+    # FixIt 0.2.18 | NEW whether to enable instant.page
+    instantPage = true
+    # FixIt 0.3.0 | NEW whether to enable collection list at the sidebar
+    collectionList = true
+    # FixIt 0.3.0 | NEW whether to enable collection navigation at the end of the post
+    collectionNavigation = true
+    linkToMarkdown = false
+
+    [params.page.toc]
+      # whether to enable the table of the contents
+      enable = true
+      #  whether to keep the static table of the contents in front of the post
+      keepStatic = false
+      # whether to make the table of the contents in the sidebar automatically collapsed
+      auto = true
+      # FixIt 0.2.13 | NEW position of TOC ("left", "right")
+      position = "right"
+      # FixIt 0.3.12 | NEW supersede `markup.tableOfContents` settings
+      ordered = true
+      startLevel = 2
+      endLevel = 6
+
+    [params.page.code]
+      # whether to show the copy button of the code block
+      copy = true
+      # FixIt 0.2.13 | NEW whether to show the edit button of the code block
+      edit = true
+      # the maximum number of lines of displayed code by default
+      maxShownLines = 50
+
+    [params.page.share]
+      enable = true
+      Twitter = true
+      Facebook = false
+      Linkedin = false
+      Weibo = false
+      Baidu = false
+      VK = true
+      Whatsapp = true
+      Mix = true
+
+    [params.page.comment]
+      enable = false
+
+  [params.mermaid]
+    themes = ["default", "dark"]
+
+  [params.busuanzi]
+    enable = true
+    source = "https://vercount.one/js"
+    siteViews = true
+    pageViews = true
+
+  [params.seo]
+    image = "/img/logo_transparent.png"
+    thumbnailUrl = ""
+
+  [params.cookieconsent]
+    enable = true
+    [params.cookieconsent.content]
+      message = "На этом сайте используются куки"
+      dismiss = "Нихачу"
+      link = ""
+
+  [params.backToTop]
+    enable = true
+    scrollpercent = false
+
+  [params.readingProgress]
+    enable = true
+    start = "left"
+    position = "top"
+    reversed = false
+    light = "#8581dd"
+    dark = "#fff"
+    height = "2px"
+
+  [params.pace]
+    enable = true
+    color = "blue"
+    theme = "minimal"
+
+  
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+    guessSyntax = true
+
+
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  collection = "collections"
+
+
+
+[outputs]
+  _merge = "shallow"
+  home = ["html", "rss", "jsonfeed", "archives", "offline", "readme", "baidu_urls", "search"]
+  page = ["html", "markdown"]
+  section = ["html", "rss", "jsonfeed"]
+  taxonomy = ["html"]
+  term = ["html", "rss", "jsonfeed"]
+
+
+
+[sitemap]
+  changefreq = "weekly"
+  disable = false
+  filename = "sitemap.xml"
+  priority = 0.5

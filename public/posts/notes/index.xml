@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Конспекты - HFK</title>
+    <link>http://localhost:1313/posts/notes/</link>
+    <description>HFK</description>
+    <generator>Hugo 0.138.0 &amp; FixIt v0.3.14</generator>
+    <language>ru</language>
+    <managingEditor>darkgxd@vk.com (NoisyCake)</managingEditor>
+    <webMaster>darkgxd@vk.com (NoisyCake)</webMaster>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/notes/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
