@@ -28,7 +28,7 @@ events:
   - timestamp: 2024-11-08
     content: После долгого простоя в связи с несовместимостью Blowfish с мобильными устройствами (или ошибками реализации) было решено сменить тему Blowfish -&gt; FixIt
   - timestamp: 2024-11-12
-    content: Куплен домен noisycake.com
+    content: Куплен домен noisycake.ru
 ```
 {{&lt; /details &gt;}}
 

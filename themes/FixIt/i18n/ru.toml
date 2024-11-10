@@ -100,7 +100,7 @@ editLockTitle = "Заблокировать редактируемый кодо�
 editUnLockTitle = "Разблокировать редактируемый блок кода"
 cookieconsentMessage = "Этот сайт использует Cookies для улучшения вашего опыта."
 cookieconsentDismiss = "Согласен"
-cookieconsentLink = "Учить больше"
+cookieconsentLink = "Узнать больше"
 # === partials/assets.html ===
 
 # === partials/plugin/share.html ===

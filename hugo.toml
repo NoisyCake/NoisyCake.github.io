@@ -282,8 +282,8 @@ theme = 'FixIt'
   [params.cookieconsent]
     enable = true
     [params.cookieconsent.content]
-      message = "На этом сайте используются куки"
-      dismiss = "Нихачу"
+      message = "Сайт использует куки"
+      dismiss = "Окей"
       link = ""
 
   [params.backToTop]
@@ -303,6 +303,12 @@ theme = 'FixIt'
     enable = true
     color = "blue"
     theme = "minimal"
+
+  [params.analytics]
+    enable = true
+    [params.analytics.google]
+      id = "G-S6EH7BLWKB"
+      anonymizeIP = true
 
   
 
