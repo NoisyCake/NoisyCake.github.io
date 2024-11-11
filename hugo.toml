@@ -12,15 +12,16 @@ theme = 'FixIt'
 
 [menu]
   [[menu.main]]
+    identifier = "posts"
     pre = '<i class="fa-solid fa-feather-pointed"></i>' 
     name = 'Посты'
     url = "/posts/"
     weight = 1
 
   [[menu.main]]
-    identifier = ""
+    identifier = "articles"
     #  Identifier of the parent menu item
-    parent = "Посты"
+    parent = "posts"
     # you can add extra information before the name (HTML format is supported), such as icons
     pre = '<i class="fa-solid fa-newspaper"></i>'
     # you can add extra information after the name (HTML format is supported), such as icons
@@ -33,27 +34,29 @@ theme = 'FixIt'
     #  add user-defined content to menu items
 
   [[menu.main]]
-    identifier = ""
-    parent = 'Посты'
+    identifier = "notes"
+    parent = 'posts'
     pre = '<i class="fa-solid fa-note-sticky"></i>'
     name = "Конспекты"
     url = "/posts/notes/"
     weight = 2
 
   [[menu.main]]
+    identifier = 'categories'
+    pre = '<i class="fa-solid fa-folder-tree"></i>'
+    name = 'Категории'
+    url = '/categories/'
+    weight = 3
+    
+  [[menu.main]]
     identifier = 'about'
     pre = '<i class="fa-solid fa-user"></i>'
     name = "Описание"
     url = "/about/"
-    weight = 3
-
-  [[menu.main]]
-    pre = '<i class="fa-solid fa-folder-tree"></i>'
-    name = 'Категории'
-    url = '/categories/'
     weight = 4
     
   [[menu.main]]
+    identifier = 'tags'
     pre = '<i class="fa-solid fa-tags"></i>'
     name = 'Теги'
     url = '/tags/'
@@ -93,7 +96,7 @@ theme = 'FixIt'
   [params.app]
     name = "HFK"
     noFavicon = false
-    svgFavicon = "static/favicon.svg"
+    svgFavicon = "/favicon.svg"
     iconColor = "#5bbad5"
     tileColor = "#da532c"
     [params.app.themeColor]
@@ -207,8 +210,8 @@ theme = 'FixIt'
       paginate = 6
 
   [params.social]
-    Telegram = 'https://t.me/noisy_cake'
-    VK = 'https://vk.com/darkgxd'
+    Telegram = 'noisy_cake'
+    VK = 'darkgxd'
     RSS = false
 
   [params.page]
@@ -308,7 +311,7 @@ theme = 'FixIt'
     enable = true
     [params.analytics.google]
       id = "G-S6EH7BLWKB"
-      anonymizeIP = true
+      anonymizeIP = false
 
   
 
