@@ -5,37 +5,32 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Устройство Памяти В Python - HFK</title><meta name="author" content="NoisyCake">
-<meta name="description" content="{&lt; lead &gt;} Конспект посвящён объяснению понятия компьютерной памяти и тому, как эта память устроена в языке программирования Python {&lt; /lead &gt;}
-Компьютерная памятьКак можем видеть из схемы ниже, память в компьюетере разделяется на внутреннюю и внешнюю:
+    <title>Устройство памяти в Python | HFK</title><meta name="author" content="NoisyCake">
+<meta name="description" content="
+Конспект посвящён объяснению понятия компьютерной памяти и тому, как эта память устроена в языке программирования Python
 "><meta name="keywords" content='python, memory'>
   <meta itemprop="name" content="Устройство памяти в Python">
-  <meta itemprop="description" content="{&lt; lead &gt;} Конспект посвящён объяснению понятия компьютерной памяти и тому, как эта память устроена в языке программирования Python {&lt; /lead &gt;}
-Компьютерная памятьКак можем видеть из схемы ниже, память в компьюетере разделяется на внутреннюю и внешнюю:">
-  <meta itemprop="datePublished" content="2024-11-09T20:01:01+08:00">
-  <meta itemprop="dateModified" content="2024-11-09T20:01:01+08:00">
-  <meta itemprop="wordCount" content="2540">
+  <meta itemprop="description" content="Конспект посвящён объяснению понятия компьютерной памяти и тому, как эта память устроена в языке программирования Python">
+  <meta itemprop="datePublished" content="2024-09-08T17:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-09-08T17:00:00+00:00">
+  <meta itemprop="wordCount" content="2504">
   <meta itemprop="keywords" content="Python,Memory"><meta property="og:url" content="http://localhost:1313/posts/_notes/memory_python/">
   <meta property="og:site_name" content="HFK">
   <meta property="og:title" content="Устройство памяти в Python">
-  <meta property="og:description" content="{&lt; lead &gt;} Конспект посвящён объяснению понятия компьютерной памяти и тому, как эта память устроена в языке программирования Python {&lt; /lead &gt;}
-Компьютерная памятьКак можем видеть из схемы ниже, память в компьюетере разделяется на внутреннюю и внешнюю:">
+  <meta property="og:description" content="Конспект посвящён объяснению понятия компьютерной памяти и тому, как эта память устроена в языке программирования Python">
   <meta property="og:locale" content="ru">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-11-09T20:01:01+08:00">
-    <meta property="article:modified_time" content="2024-11-09T20:01:01+08:00">
+    <meta property="article:published_time" content="2024-09-08T17:00:00+00:00">
+    <meta property="article:modified_time" content="2024-09-08T17:00:00+00:00">
     <meta property="article:tag" content="Python">
     <meta property="article:tag" content="Memory">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Устройство памяти в Python">
-  <meta name="twitter:description" content="{&lt; lead &gt;} Конспект посвящён объяснению понятия компьютерной памяти и тому, как эта память устроена в языке программирования Python {&lt; /lead &gt;}
-Компьютерная памятьКак можем видеть из схемы ниже, память в компьюетере разделяется на внутреннюю и внешнюю:">
+  <meta name="twitter:description" content="Конспект посвящён объяснению понятия компьютерной памяти и тому, как эта память устроена в языке программирования Python">
 <meta name="application-name" content="FixIt">
-<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/_notes/memory_python/" title="Устройство памяти в Python - HFK" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/_notes/memory_python/" title="Устройство памяти в Python | HFK" /><link rel="next" type="text/html" href="http://localhost:1313/posts/_notes/basics_of_statistics/" title="Основы статистики" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/_notes/memory_python/index.md" title="Устройство памяти в Python | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -46,8 +41,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/posts\/_notes\/memory_python\/"
-    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "python, memory","wordcount":  2540 ,
-    "url": "http:\/\/localhost:1313\/posts\/_notes\/memory_python\/","datePublished": "2024-11-09T20:01:01+08:00","dateModified": "2024-11-09T20:01:01+08:00","publisher": {
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "python, memory","wordcount":  2504 ,
+    "url": "http:\/\/localhost:1313\/posts\/_notes\/memory_python\/","datePublished": "2024-09-08T17:00:00+00:00","dateModified": "2024-09-08T17:00:00+00:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
         "@type": "Person",
@@ -58,14 +53,18 @@
   <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
   <div class="header-wrapper">
     <div class="header-title">
-      <a href="/" title="HFK"><img loading="lazy" src="img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+      <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
     <nav>
-      <ul class="menu"><li class="menu-item">
-              <a class="menu-link" href="/posts/articles"><i class="fa-solid fa-newspaper"></i> Статьи</a></li><li class="menu-item">
-              <a class="menu-link" href="/posts/notes"><i class="fa-solid fa-note-sticky"></i> Конспекты</a></li><li class="menu-item">
-              <a class="menu-link" href="/about"><i class="fa-solid fa-user"></i> Обо мне</a></li><li class="menu-item">
-              <a class="menu-link" href="/categories"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item">
-              <a class="menu-link" href="/tags"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+      <ul class="menu"><li class="menu-item has-children">
+              <a class="menu-link" href="/posts/"><i class="fa-solid fa-feather-pointed"></i> Посты</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/posts/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/posts/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li></ul></li><li class="menu-item">
+              <a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
             <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-desktop">
             <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Поиск">
               <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
@@ -85,7 +84,7 @@
   <div class="header-container">
     <div class="header-wrapper">
       <div class="header-title">
-        <a href="/" title="HFK"><img loading="lazy" src="img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+        <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
       <div class="menu-toggle" id="menu-toggle-mobile">
         <span></span><span></span><span></span>
       </div>
@@ -107,7 +106,15 @@
             <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
               Отменить
             </a>
-          </li><li class="menu-item"><a class="menu-link" href="/posts/articles"><i class="fa-solid fa-newspaper"></i> Статьи</a></li><li class="menu-item"><a class="menu-link" href="/posts/notes"><i class="fa-solid fa-note-sticky"></i> Конспекты</a></li><li class="menu-item"><a class="menu-link" href="/about"><i class="fa-solid fa-user"></i> Обо мне</a></li><li class="menu-item"><a class="menu-link" href="/categories"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item"><a class="menu-link" href="/tags"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item menu-system">
+          </li><li class="menu-item"><span class="nested-item">
+                  <a class="menu-link" href="/posts/"><i class="fa-solid fa-feather-pointed"></i> Посты</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/posts/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/posts/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item"><a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item"><a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item menu-system">
           <span class="menu-system-item theme-switch" title="Сменить Тему"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
       </ul>
     </nav>
@@ -117,51 +124,50 @@
   </div>
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
-  </div><nav aria-label="breadcrumb" class="breadcrumb-container">
-    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/" title="HFK">Домой</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">Статьи</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Устройство памяти в Python</li>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">Посты</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/_notes/" title="Конспекты">Конспекты</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Устройство памяти в Python</li>
     </ol>
   </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=""></aside>
 
   <article class="page single">
-    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Устройство Памяти В Python</span>
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Устройство памяти в Python</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisy_cake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-    NoisyCake</a></span></div><div class="post-meta-line"><span title="Опубликовано 2024-11-09 20:01:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="09-11-2024">09-11-2024</time></span>&nbsp;<span title="2540 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 2600 слов</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>12 минут</span>&nbsp;</div>
+    NoisyCake</a></span><span class="post-included-in">&nbsp;включен в <a href="/categories/python/" class="post-category" title="Категория - Python"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Python</a></span></div><div class="post-meta-line"><span title="Опубликовано 2024-09-08 17:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="08-09-2024">08-09-2024</time></span>&nbsp;<span title="2504 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 2600 слов</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>12 минут</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>Содержание</span>
           <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-  <ul>
+  <ol>
     <li><a href="#centerкомпьютерная-памятьcenter"><!-- raw HTML omitted -->Компьютерная память<!-- raw HTML omitted --></a>
-      <ul>
+      <ol>
         <li><a href="#внутренняя-память">Внутренняя память</a></li>
         <li><a href="#внешняя-память">Внешняя память</a></li>
-      </ul>
+      </ol>
     </li>
     <li><a href="#centerуправление-памятью-в-pythoncenter"><!-- raw HTML omitted -->Управление памятью в Python<!-- raw HTML omitted --></a>
-      <ul>
+      <ol>
         <li>
-          <ul>
+          <ol>
             <li><a href="#centerблокcenter"><!-- raw HTML omitted -->Блок<!-- raw HTML omitted --></a></li>
             <li><a href="#centerпулcenter"><!-- raw HTML omitted -->Пул<!-- raw HTML omitted --></a></li>
             <li><a href="#centerареныcenter"><!-- raw HTML omitted -->Арены<!-- raw HTML omitted --></a></li>
-          </ul>
+          </ol>
         </li>
-      </ul>
+      </ol>
     </li>
     <li><a href="#centerочистка-памятиcenter"><!-- raw HTML omitted -->Очистка памяти<!-- raw HTML omitted --></a>
-      <ul>
+      <ol>
         <li><a href="#подсчёт-ссылок">Подсчёт ссылок</a></li>
         <li><a href="#сборщик-мусора">Сборщик мусора</a></li>
-      </ul>
+      </ol>
     </li>
-  </ul>
+  </ol>
 </nav></div>
-      </div><div class="content" id="content"><p>{&lt; lead &gt;}
-Конспект посвящён объяснению понятия компьютерной памяти и тому, как эта память устроена в языке программирования Python
-{&lt; /lead &gt;}</p>
+      </div><div class="content" id="content"><p><img loading="lazy" src="/posts/_notes/memory_python/images/feature.png" alt="/posts/_notes/memory_python/images/feature.png" srcset="/posts/_notes/memory_python/images/feature.png?size=small, /posts/_notes/memory_python/images/feature.png?size=medium 1.5x, /posts/_notes/memory_python/images/feature.png?size=large 2x" data-title="/posts/_notes/memory_python/images/feature.png" style="--width: 1920px;--aspect-ratio: 1920 / 1101;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>Конспект посвящён объяснению понятия компьютерной памяти и тому, как эта память устроена в языке программирования Python</p>
 <h2 id="centerкомпьютерная-памятьcenter" class="heading-element"><span><!-- raw HTML omitted -->Компьютерная память<!-- raw HTML omitted --></span>
   <a href="#center%d0%ba%d0%be%d0%bc%d0%bf%d1%8c%d1%8e%d1%82%d0%b5%d1%80%d0%bd%d0%b0%d1%8f-%d0%bf%d0%b0%d0%bc%d1%8f%d1%82%d1%8ccenter" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
@@ -241,9 +247,12 @@
 <p>Python — это язык с автоматическим управлением памятью. Причем для управления ею он использует несколько механизмов. При запуске Python программы создается новый процесс, в рамках которого операционная система выделяет пул ресурсов, включая виртуальное адресное пространство. В эту память загружается интерпретатор Python вместе со всеми необходимыми ему для работы данными, включая код написанной программы.</p>
 <p>Оставшаяся свободная виртуальная память может использоваться для хранения информации об объектах Python. Для управления этой памятью в CPython используется специальный механизм, который называется аллокатор. Он используется каждый раз, когда вам нужно создать новый объект.</p>
 <p>Обычно мы в своих программах не оперируем большими объектами. Большая часть наших данных — это числа, строки и т.д., они занимают не такой уж большой объем в расчёте на одно значение. Но зато мы создаем их достаточно часто. И это приводило бы к проблемам, если бы Python абсолютно все такие вызовы транслировал в операционную систему. Системный вызов на выделение памяти — штука трудозатратная, зачастую связанная с переходом в контекст ядра операционной системы. Поэтому одна из главных задач аллокатора Python — оптимизация количества системных вызовов.</p>
-<p>{&lt; alert &ldquo;circle-info&rdquo; &gt;}
-Для больших объектов (больше 512 байт) Python выделяет память напрямую у ОС. Обычно таких объектов не очень много в рамках программы, и создаются они нечасто. Поэтому накладные расходы на создание таких объектов напрямую в RAM не так высоки.
-{&lt; /alert &gt;}</p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Для больших объектов (больше 512 байт) Python выделяет память напрямую у ОС. Обычно таких объектов не очень много в рамках программы, и создаются они нечасто. Поэтому накладные расходы на создание таких объектов напрямую в RAM не так высоки.</div>
+  </div>
+</div>
 <p>Аллокатор для малых объектов (не больше 512 байт) использует три уровня абстракции:</p>
 <ul>
 <li>Блок — кусок памяти, используемый для хранения одного объекта.</li>
@@ -318,9 +327,12 @@
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h4><p>Пулы состоят из блоков одного размера. Каждый пул работает по принципу двухсвязного списка с другими пулами того же размера, поэтому алгоритм может с легкостью найти необходимое место для требуемого размера блока даже среди множества пулов. Размер пула равен 4 килобайта.</p>
-<p>{&lt; alert &ldquo;circle-info&rdquo; &gt;}
-Ограничение пула фиксированным размером блоков помогает с фрагментацией. Если объект уничтожается, аллокатор может заполнить это пространство новым объектом того же размера.
-{&lt; /alert &gt;}</p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Ограничение пула фиксированным размером блоков помогает с фрагментацией. Если объект уничтожается, аллокатор может заполнить это пространство новым объектом того же размера.</div>
+  </div>
+</div>
 <p>Для эффективного управления пулами Python использует дополнительный список, который называется <code>usedpools</code>. Он хранит указатели на пулы, сгруппированные по классам. Как уже известно, все пулы с одинаковым размером блока связаны между собой с помощью двухсвязного списка. Чтобы перебрать их, нужно просто знать начало списка. Если пулов такого размера нет, то при первом запросе памяти будет создан новый.</p>
 <p>Пулы находятся в трех состояниях:</p>
 <ul>
@@ -331,9 +343,12 @@
 <p>Используемый пул содержит блоки, в которые можно записать какую-то информацию. Блоки полного пула все распределены и уже содержат данные. Пустые пулы не содержат данных и могут быть разбиты на какие угодны классы размера при необходимости.</p>
 <p>Допустим, нашему коду необходимо 8 байт. Если в списке используемых пулов нет пулов с классом размера в 8 байт, то новый пустой пул инициализируется, как хранящий блоки по 8 байт. Затем пустой пул добавляется в список используемых пулов и может быть использован при следующих запросах.</p>
 <p>Заполненный пул освобождает некоторые блоки, когда эта информация в них уже не нужна. Этот пул добавится в список используемых в соответствии со своим классом размера.</p>
-<p>{&lt; alert &ldquo;circle-info&rdquo; &gt;}
-Пулы и блоки не выделяют память напрямую, вместо этого они используют уже выделенное пространство в аренах.
-{&lt; /alert &gt;}</p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Пулы и блоки не выделяют память напрямую, вместо этого они используют уже выделенное пространство в аренах.</div>
+  </div>
+</div>
 <h4 id="centerареныcenter" class="heading-element"><span><!-- raw HTML omitted -->Арены<!-- raw HTML omitted --></span>
   <a href="#center%d0%b0%d1%80%d0%b5%d0%bd%d1%8bcenter" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
@@ -359,9 +374,12 @@
   </a>
 </h3><p>Алгоритм подсчета ссылок — это один из самых простых механизмов очистки памяти. Объекты удаляются как только на них больше нет ссылок.</p>
 <p>Каждый объект в Python унаследован от базового класса PyObject, который содержит специальное поле <code>Reference Count (ob_refcnt)</code>, в котором хранится количество ссылок на данный объект. Как только кто-то начинает ссылаться на объект, значение этого поля увеличивается на единицу. Если по какой-то причине ссылка пропадает, то это поле уменьшается на один. При этом если счетчик ссылок для определенного объекта достигает нуля, то интерпретатор запускает процесс уничтожения объекта. Если удаленный объект содержал ссылки на другие объекты, то эти ссылки также удаляются. Таким образом, удаление одного объекта может повлечь за собой удаление других.</p>
-<p>{&lt; alert &ldquo;circle-info&rdquo; &gt;}
-Механизм подсчета ссылок работает в режиме реального времени.
-{&lt; /alert &gt;}</p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Механизм подсчета ссылок работает в режиме реального времени.</div>
+  </div>
+</div>
 <p>Четыре основных сценария, увеличивающих количество ссылок на объект:</p>
 <ul>
 <li>Создание нового объекта и присвоение его переменной;</li>
@@ -414,9 +432,12 @@
 </span></span><span class="line"><span class="cl"><span class="n">nums2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nums1</span><span class="p">)</span> </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Именно из-за этого в Python существует дополнительный механизм очистки памяти — сборщик мусора (Garbage Collector, GC), который следит за объектами с потенциальными циклическими ссылками.</p>
-<p>{&lt; alert &ldquo;circle-info&rdquo; &gt;}
-В Python алгоритм подсчета ссылок является фундаментальным и не может быть отключен, тогда как сборщик мусора (GC) опционален и может быть отключен.
-{&lt; /alert &gt;}</p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">В Python алгоритм подсчета ссылок является фундаментальным и не может быть отключен, тогда как сборщик мусора (GC) опционален и может быть отключен.</div>
+  </div>
+</div>
 <p>Количество ссылок на определенный объект иногда может оказаться заметно больше, чем кажется на первый взгляд. Дело в том, что многие неизменяемые объекты уже используются, например, в реализациях встроенных функций и типов данных. Объекты, относящиеся к изменяемым типам данных данной особенности не подвержены, так как изменение такого объекта в одной части программы привело бы к его изменению в другой части программы.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -460,26 +481,26 @@
 <p>Сборщик мусора разделяет все объекты на 3 поколения (нулевое, первое и второе). Новые объекты попадают в нулевое поколение. Если новый объект выживает в процессе сборки мусора, то он перемещается в следующее поколение. Чем старше поколение, тем реже оно сканируется на сборку мусора. Так как новые объекты зачастую имеют очень маленький срок жизни (являются временными), то имеет смысл проверять их чаще, чем те, которые уже прошли через несколько этапов сборки мусора.</p>
 <p>В каждом поколении есть специальный порог срабатывания, при достижении которого срабатывает процесс сборки мусора. Если сразу несколько поколений преодолели порог, то выбирается наиболее старшее поколение, так как сборка мусора в старших поколениях включает в себя также сборку мусора и в младших поколениях.</p>
 <hr>
-<p><strong>Основной источник:</strong> <a href="https://stepik.org/course/82541/syllabus"target="_blank" rel="external nofollow noopener noreferrer">https://stepik.org/course/82541/syllabus</a></p>
+<p><strong>Основной источник:</strong> <a href="https://stepik.org/course/82541/syllabus"target="_blank" rel="external nofollow noopener noreferrer">https://stepik.org/course/82541/syllabus<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></p>
 <p>Дополнительные источники:</p>
 <ul>
-<li><a href="https://habr.com/ru/companies/domclick/articles/530804/"target="_blank" rel="external nofollow noopener noreferrer">Habr</a></li>
-<li><a href="https://market.marvel.ru/blog/komplektuyushchie-i-optsii/kesh-pamyat-protsessora/"target="_blank" rel="external nofollow noopener noreferrer">Market.Marvel.ru</a></li>
-<li><a href="https://github.com/python/cpython/blob/7d6ddb96b34b94c1cbdf95baa94492c48426404e/Objects/obmalloc.c"target="_blank" rel="external nofollow noopener noreferrer">GitHub</a></li>
-</ul>
-</div><div class="post-footer" id="post-footer">
+<li><a href="https://habr.com/ru/companies/domclick/articles/530804/"target="_blank" rel="external nofollow noopener noreferrer">Habr<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></li>
+<li><a href="https://market.marvel.ru/blog/komplektuyushchie-i-optsii/kesh-pamyat-protsessora/"target="_blank" rel="external nofollow noopener noreferrer">Market.Marvel.ru<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></li>
+<li><a href="https://github.com/python/cpython/blob/7d6ddb96b34b94c1cbdf95baa94492c48426404e/Objects/obmalloc.c"target="_blank" rel="external nofollow noopener noreferrer">GitHub<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></li>
+</ul></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title="Oбновлена 2024-11-09 20:01:01">Oбновлена 09-11-2024&nbsp;</span>
+        <span title="Oбновлена 2024-09-08 17:00:00">Oбновлена 08-09-2024&nbsp;</span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
         <div class="post-info-md"></div>
         <div class="post-info-share">
-          <span><a href="javascript:void(0);" title="Поделиться в X" data-sharer="twitter" data-url="http://localhost:1313/posts/_notes/memory_python/" data-title="Устройство Памяти В Python" data-hashtags="python,memory"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="Поделиться в Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/_notes/memory_python/" data-hashtag="python"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="Поделиться в 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/_notes/memory_python/" data-title="Устройство Памяти В Python"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+          <span><a href="javascript:void(0);" title="Поделиться в X" data-sharer="twitter" data-url="http://localhost:1313/posts/_notes/memory_python/" data-title="Устройство памяти в Python" data-hashtags="python,memory"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/posts/_notes/memory_python/" data-title="Устройство памяти в Python" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в VK" data-sharer="vk" data-url="http://localhost:1313/posts/_notes/memory_python/" data-title="Устройство памяти в Python"><i class="fa-brands fa-vk fa-fw" aria-hidden="true"></i></a>
+  <a href="//mix.com/add?url=http%3a%2f%2flocalhost%3a1313%2fposts%2f_notes%2fmemory_python%2f&amp;description=%d0%a3%d1%81%d1%82%d1%80%d0%be%d0%b9%d1%81%d1%82%d0%b2%d0%be%20%d0%bf%d0%b0%d0%bc%d1%8f%d1%82%d0%b8%20%d0%b2%20Python" target="_blank" title="Поделиться в Mix"><i class="fa-brands fa-mix fa-fw" aria-hidden="true"></i></a>
   </span>
         </div>
       </div></div>
@@ -489,7 +510,7 @@
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">Назад</a></span>&nbsp;|&nbsp;<span><a href="/">Домой</a></span>
     </section>
-  </div><div class="post-nav"></div>
+  </div><div class="post-nav"><a href="/posts/_notes/basics_of_statistics/" class="post-nav-item" rel="next" title="Основы статистики">Основы статистики<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article>
 
@@ -501,9 +522,9 @@
           <span id="busuanzi_container_site_uv" title='Всего посетителей'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='Всего посещений'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
         </div></div>
   </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Наверх"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
-        </div></div><div id="mask"></div><div class="reading-progress-bar" style="--fi-progress-start: left; top: 0;"></div><noscript>
+        </div></div><div id="mask"></div><div class="reading-progress-bar" style="--fi-progress-start: left; top: 0; --fi-progress-bg: #8581dd; --fi-progress-bg-dark: #fff;"></div><noscript>
     <div class="noscript-warning"></div>
   </noscript>
 </div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"code":{"copyTitle":"Копировать в буфер обмена","editLockTitle":"Заблокировать редактируемый кодовый блок","editUnLockTitle":"Разблокировать редактируемый блок кода","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Нихачу","link":"Учить больше","message":"На этом сайте используются куки"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"Результатов не найдено","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2024-11-15T16:15:22","version":"v0.3.14"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"Копировать в буфер обмена","editLockTitle":"Заблокировать редактируемый кодовый блок","editUnLockTitle":"Разблокировать редактируемый блок кода","editable":true,"maxShownLines":50},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Окей","link":"Узнать больше","message":"Сайт использует куки"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"Результатов не найдено","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2024-11-15T16:15:22","version":"v0.3.14"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
 </html>

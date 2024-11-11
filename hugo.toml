@@ -15,31 +15,34 @@ theme = 'FixIt'
     identifier = "posts"
     pre = '<i class="fa-solid fa-feather-pointed"></i>' 
     name = 'Посты'
-    url = "/posts/"
+    url = ""
     weight = 1
-
-  [[menu.main]]
-    identifier = "articles"
-    #  Identifier of the parent menu item
-    parent = "posts"
-    # you can add extra information before the name (HTML format is supported), such as icons
-    pre = '<i class="fa-solid fa-newspaper"></i>'
-    # you can add extra information after the name (HTML format is supported), such as icons
-    post = ""
-    name = "Статьи"
-    url = "/posts/articles/"
-    # title will be shown when you hover on this menu link
-    title = ""
-    weight = 1
-    #  add user-defined content to menu items
 
   [[menu.main]]
     identifier = "notes"
     parent = 'posts'
     pre = '<i class="fa-solid fa-note-sticky"></i>'
     name = "Конспекты"
-    url = "/posts/notes/"
+    url = "/notes/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "articless"
+    parent = "posts"
+    pre = '<i class="fa-solid fa-newspaper"></i>'
+    post = ""
+    name = "Статьи"
+    url = "/articles/"
+    title = ""
     weight = 2
+
+  [[menu.main]]
+    identifier = 'projects'
+    parent = 'posts'
+    pre = '<i class="fa-solid fa-briefcase"></i>'
+    name = 'Проекты'
+    url = '/projects/'
+    weight = 3
 
   [[menu.main]]
     identifier = 'categories'
@@ -47,21 +50,21 @@ theme = 'FixIt'
     name = 'Категории'
     url = '/categories/'
     weight = 3
-    
-  [[menu.main]]
-    identifier = 'about'
-    pre = '<i class="fa-solid fa-user"></i>'
-    name = "Описание"
-    url = "/about/"
-    weight = 4
-    
+ 
   [[menu.main]]
     identifier = 'tags'
     pre = '<i class="fa-solid fa-tags"></i>'
     name = 'Теги'
     url = '/tags/'
+    weight = 4
+   
+  [[menu.main]]
+    identifier = 'about'
+    pre = '<i class="fa-solid fa-user"></i>'
+    name = "Описание"
+    url = "/about/"
     weight = 5
-
+    
     [menu.main.params]
       # add css class to a specific menu item
       class = ""

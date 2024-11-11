@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="ru">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Основы статистики | HFK</title><meta name="author" content="NoisyCake">
+<meta name="description" content="Попытка объяснить основы математической статистики на простом языке
+ПредупреждениеВ процессе написания"><meta name="keywords" content='math'>
+  <meta itemprop="name" content="Основы статистики">
+  <meta itemprop="description" content="Попытка объяснить основы математической статистики на простом языке
+ПредупреждениеВ процессе написания">
+  <meta itemprop="datePublished" content="2024-09-15T17:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-09-15T17:00:00+00:00">
+  <meta itemprop="wordCount" content="1812">
+  <meta itemprop="keywords" content="Math"><meta property="og:url" content="http://localhost:1313/posts/_notes/basics_of_statistics/">
+  <meta property="og:site_name" content="HFK">
+  <meta property="og:title" content="Основы статистики">
+  <meta property="og:description" content="Попытка объяснить основы математической статистики на простом языке
+ПредупреждениеВ процессе написания">
+  <meta property="og:locale" content="ru">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-09-15T17:00:00+00:00">
+    <meta property="article:modified_time" content="2024-09-15T17:00:00+00:00">
+    <meta property="article:tag" content="Math">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Основы статистики">
+  <meta name="twitter:description" content="Попытка объяснить основы математической статистики на простом языке
+ПредупреждениеВ процессе написания">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/_notes/basics_of_statistics/" title="Основы статистики | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/_notes/memory_python/" title="Устройство памяти в Python" /><link rel="next" type="text/html" href="http://localhost:1313/about/" title="О нас" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/_notes/basics_of_statistics/index.md" title="Основы статистики | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Основы статистики",
+    "inLanguage": "ru",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/posts\/_notes\/basics_of_statistics\/"
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "math","wordcount":  1812 ,
+    "url": "http:\/\/localhost:1313\/posts\/_notes\/basics_of_statistics\/","datePublished": "2024-09-15T17:00:00+00:00","dateModified": "2024-09-15T17:00:00+00:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "NoisyCake"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item has-children">
+              <a class="menu-link" href="/posts/"><i class="fa-solid fa-feather-pointed"></i> Посты</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/posts/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/posts/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li></ul></li><li class="menu-item">
+              <a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Поиск">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Очистить">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="Сменить Тему">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Поиск">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Очистить">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Отменить
+            </a>
+          </li><li class="menu-item"><span class="nested-item">
+                  <a class="menu-link" href="/posts/"><i class="fa-solid fa-feather-pointed"></i> Посты</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/posts/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/posts/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item"><a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item"><a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="Сменить Тему"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/posts/" title="Posts">Посты</a></li><li class="breadcrumb-item" data-separator="/"><a href="/posts/_notes/" title="Конспекты">Конспекты</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Основы статистики</li>
+    </ol>
+  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=""></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Основы статистики</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisy_cake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+    NoisyCake</a></span><span class="post-included-in">&nbsp;включен в <a href="/categories/math/" class="post-category" title="Категория - Math"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Math</a></span></div><div class="post-meta-line"><span title="Опубликовано 2024-09-15 17:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="15-09-2024">15-09-2024</time></span>&nbsp;<span title="1812 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 1900 слов</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>9 минут</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>Содержание</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ol>
+    <li><a href="#генеральная-совокупность-и-выборка">Генеральная совокупность и выборка</a></li>
+    <li><a href="#типы-переменных">Типы переменных</a></li>
+    <li><a href="#меры-центральной-тенденции">Меры центральной тенденции</a></li>
+    <li><a href="#меры-изменчивости">Меры изменчивости</a></li>
+    <li><a href="#квантили-распределения-box-plot">Квантили распределения, box plot</a></li>
+    <li><a href="#нормальное-распределение">Нормальное распределение</a></li>
+    <li><a href="#центральная-предельная-теорема">Центральная предельная теорема</a></li>
+    <li><a href="#доверительные-интервалы-для-среднего">Доверительные интервалы для среднего</a></li>
+    <li><a href="#p-уровень-значимости">P-уровень значимости</a></li>
+  </ol>
+</nav></div>
+      </div><div class="content" id="content"><p>Попытка объяснить основы математической статистики на простом языке</p>
+<div class="details admonition warning open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-exclamation-triangle" aria-hidden="true"></i>Предупреждение<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">В процессе написания</div>
+  </div>
+</div>
+<h2 id="генеральная-совокупность-и-выборка" class="heading-element"><span>Генеральная совокупность и выборка</span>
+  <a href="#%d0%b3%d0%b5%d0%bd%d0%b5%d1%80%d0%b0%d0%bb%d1%8c%d0%bd%d0%b0%d1%8f-%d1%81%d0%be%d0%b2%d0%be%d0%ba%d1%83%d0%bf%d0%bd%d0%be%d1%81%d1%82%d1%8c-%d0%b8-%d0%b2%d1%8b%d0%b1%d0%be%d1%80%d0%ba%d0%b0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Генеральная совокупность (ГС) — это множество всех объектов, относительно которых предполагается делать выводы в рамках конкретного исследования.</p>
+<p>Выборка — часть генеральной совокупности. Требуется, если невозможно провести исследования над всей генеральной совокупностью.</p>
+<p>Репрезентативная выборка — такая выборка, в которой все основные признаки генеральной совокупности, из которой извлечена данная выборка, представлены приблизительно в той же пропорции или с той же частотой, что и в этой ГС.</p>
+<p>Способы выборок:</p>
+<ol>
+<li>Простейшая случайная выборка. В ней объекты выбираются случайным образом из всей ГС.</li>
+</ol>
+<p><img loading="lazy" src="/posts/_notes/basics_of_statistics/images/selection1.png" alt="/posts/_notes/basics_of_statistics/images/selection1.png" srcset="/posts/_notes/basics_of_statistics/images/selection1.png?size=small, /posts/_notes/basics_of_statistics/images/selection1.png?size=medium 1.5x, /posts/_notes/basics_of_statistics/images/selection1.png?size=large 2x" data-title="/posts/_notes/basics_of_statistics/images/selection1.png" style="--width: 1055px;--aspect-ratio: 1055 / 522;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<ol start="2">
+<li>Стратифицированная выборка. Генеральная совокупность в такой выборке разбивается на страпы (группы) на основе определённого признака/признаков, затем из каждой группы случайным образом берутся элементы.</li>
+</ol>
+<p><img loading="lazy" src="/posts/_notes/basics_of_statistics/images/selection2.png" alt="/posts/_notes/basics_of_statistics/images/selection2.png" srcset="/posts/_notes/basics_of_statistics/images/selection2.png?size=small, /posts/_notes/basics_of_statistics/images/selection2.png?size=medium 1.5x, /posts/_notes/basics_of_statistics/images/selection2.png?size=large 2x" data-title="/posts/_notes/basics_of_statistics/images/selection2.png" style="--width: 1056px;--aspect-ratio: 1056 / 510;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<ol start="3">
+<li>Групповая (кластерная) выборка. Совокупность также разделяется на группы, но не по какому-то признаку, а случайным образом. Следующим шагом выбираются несколько групп, из которых элементы берутся также случайно.</li>
+</ol>
+<p><img loading="lazy" src="/posts/_notes/basics_of_statistics/images/selection3.png" alt="/posts/_notes/basics_of_statistics/images/selection3.png" srcset="/posts/_notes/basics_of_statistics/images/selection3.png?size=small, /posts/_notes/basics_of_statistics/images/selection3.png?size=medium 1.5x, /posts/_notes/basics_of_statistics/images/selection3.png?size=large 2x" data-title="/posts/_notes/basics_of_statistics/images/selection3.png" style="--width: 1056px;--aspect-ratio: 1056 / 514;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<hr>
+<h2 id="типы-переменных" class="heading-element"><span>Типы переменных</span>
+  <a href="#%d1%82%d0%b8%d0%bf%d1%8b-%d0%bf%d0%b5%d1%80%d0%b5%d0%bc%d0%b5%d0%bd%d0%bd%d1%8b%d1%85" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Переменными выборки называют те или иные признаки объектов, которые собираются исследовать. Они бывают нескольких видов.</p>
+<p><strong>Количественные</strong> — переменные, которые можно измерить (к примеру, рост). Если переменная может принимать любое значение на определённом промежутке, то она называется <strong>непрерывной</strong> количественной переменной (например, рост в промежутке от 150 до 200). <strong>Дискретными</strong> переменными называются те, которые могут принять отдельное возможное значение с определённой вероятностью (количество детей в семье).</p>
+<p><strong>Номинативные (качественные)</strong> — также бывают двух видов. Первые — <strong>номинальные</strong> переменные, использующиеся как имена для групп. Например, можно обозначить группу мужчин за x, а группу женщин за y. Вторые — <strong>ранговые</strong> переменные, представляющие упорядоченные категории. К примеру, степень удовлетворённости обслуживанием в кафе или порядковый номер бегуна в забеге.</p>
+<hr>
+<h2 id="меры-центральной-тенденции" class="heading-element"><span>Меры центральной тенденции</span>
+  <a href="#%d0%bc%d0%b5%d1%80%d1%8b-%d1%86%d0%b5%d0%bd%d1%82%d1%80%d0%b0%d0%bb%d1%8c%d0%bd%d0%be%d0%b9-%d1%82%d0%b5%d0%bd%d0%b4%d0%b5%d0%bd%d1%86%d0%b8%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Гистограмма частот — графическое представление распределения количественного признака.</p>
+<p><img loading="lazy" src="/posts/_notes/basics_of_statistics/images/histogram.png" alt="/posts/_notes/basics_of_statistics/images/histogram.png" srcset="/posts/_notes/basics_of_statistics/images/histogram.png?size=small, /posts/_notes/basics_of_statistics/images/histogram.png?size=medium 1.5x, /posts/_notes/basics_of_statistics/images/histogram.png?size=large 2x" data-title="/posts/_notes/basics_of_statistics/images/histogram.png" style="--width: 1841px;--aspect-ratio: 1841 / 931;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>Познакомимся с типами описательных статистик.</p>
+<p><strong>Меры центральной тенденции</strong> — значения, вычисленные тем или иным путём исходя из графика, описывающие множество значений самого графика.</p>
+<p>Допустим, имеются 1000 значений некоторой количественной переменной. Требуется описать эти данные всего одним числом, содержащим ценную информацию.</p>
+<ol>
+<li>
+<p><strong>Мода</strong> — значение измеряемого признака, встречающееся наиболее часто.</p>
+<p>Рассмотрим следующий график. Числом, которое встречается чаще всего, является 172 — оно и будет модой распределения.</p>
+<p>Исключим одно значение, равное 172. Теперь имеем моду сразу из трёх значений: 167, 170, 172.</p>
+<p><img loading="lazy" src="/posts/_notes/basics_of_statistics/images/fashion.png" alt="/posts/_notes/basics_of_statistics/images/fashion.png" srcset="/posts/_notes/basics_of_statistics/images/fashion.png?size=small, /posts/_notes/basics_of_statistics/images/fashion.png?size=medium 1.5x, /posts/_notes/basics_of_statistics/images/fashion.png?size=large 2x" data-title="/posts/_notes/basics_of_statistics/images/fashion.png" style="--width: 1447px;--aspect-ratio: 1447 / 660;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+</li>
+<li>
+<p><strong>Медиана</strong> — значение признака, которое делит <strong>упорядоченное</strong> множество данных пополам.</p>
+<p>При <!-- raw HTML omitted -->нечётном<!-- raw HTML omitted --> количестве элементов медианой является середина множества. При <!-- raw HTML omitted -->чётном<!-- raw HTML omitted --> же — среднее арифметическое двух центральных значений признака.</p>
+<p>Возьмём только первые 9 чисел из упорядоченного множества на графике. Имеем след. значения: 157, 159, 161, 164, 165, 166, 167, 167, 167. В данном случае медианой является 165.</p>
+</li>
+<li>
+<p><strong>Среднее значение</strong> — среднее арифметическое всех значений признака.</p>
+<p>Данный показатель (вернее, среднее арифметическое) обладает некоторыми свойствами:</p>
+<ul>
+<li>Если каждый элемент выборки увеличить на одно и то же число, то и среднее значение увеличится на это число.</li>
+<li>Если каждый элемент выборки умножить на одно и то же число, то и среднее значение у на это число.</li>
+<li>Если для каждого значения выборки рассчитать его отклонение от среднего арифметического, то сумма этих отклонений будет равна 0.</li>
+</ul>
+<p>Обозначение: \(\Mu/\mu\) — для ГС или \(\bar{x}\) — для выборки</p>
+</li>
+</ol>
+<p>Представленное выше распределение симметрично, унимодально (имеет одну моду) и не имеет заметных выбросов, поэтому для его описания можно использовать любую меру.</p>
+<hr>
+<h2 id="меры-изменчивости" class="heading-element"><span>Меры изменчивости</span>
+  <a href="#%d0%bc%d0%b5%d1%80%d1%8b-%d0%b8%d0%b7%d0%bc%d0%b5%d0%bd%d1%87%d0%b8%d0%b2%d0%be%d1%81%d1%82%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Чтобы рассчитать показатели, характеризующие изменчивость исследуемого признака, можно использовать следующие меры:</p>
+<ol>
+<li>
+<p><strong>Размах</strong> (range) — разность между максимальным и минимальным значением распределения. Данная мера использует всего два значения, из-за чего не является достаточно показательной.<br>
+Обозначение: \(R\)</p>
+</li>
+<li>
+<p><strong>Дисперсия</strong> — средний квадрат отклонений индивидуальных значений признака от их средней величины.</p>
+<p>Она вычисляется по следующей формуле: \(D = \frac{\sum(x_i - \bar{x})^2}{n}\). Важно уточнить, что данная формула применима только к генеральной совокупности. Для расчёта дисперсии выборки из знаменателя вычитают единицу: \(D = \frac{\sum(x_i - \bar{x})^2}{n-1}\)<br>
+Обозначение: \(D\) или \(\sigma^2\)</p>
+</li>
+<li>
+<p><strong>Среднеквадратичное (стандартное) отклонение</strong> — реальное среднее значение отклонений, получаемое извлечением корня из дисперсии. Соответственно, для нахождения, пользуемся формулой:
+$$
+\sqrt{\sigma = \frac{\sum(x_i - \bar{x})^2}{n-1}}
+$$
+Обозначение: \(\sigma\) — для ГС или \(sd\) — для выборки</p>
+<p>Разберём некоторые свойства дисперсии:</p>
+<ol>
+<li>\(D_{x+c} = D_x\)<br>
+\(sd_{x+c} = sd_x\)</li>
+<li>\(D_{xc} = D_x * x^2\)<br>
+\(sd_{xc} = sd_x * x\)</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h2 id="квантили-распределения-box-plot" class="heading-element"><span>Квантили распределения, box plot</span>
+  <a href="#%d0%ba%d0%b2%d0%b0%d0%bd%d1%82%d0%b8%d0%bb%d0%b8-%d1%80%d0%b0%d1%81%d0%bf%d1%80%d0%b5%d0%b4%d0%b5%d0%bb%d0%b5%d0%bd%d0%b8%d1%8f-box-plot" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p><strong>Квантили</strong> — такие значения признака, которые делят упорядоченные данные на некоторое число равных частей.</p>
+<p><strong>Квартили</strong> — 3 квантиля, которые делят распределение на 4 равные части.</p>
+<p><strong>Box plot</strong> (ящик с усами/боксплот) — график, компактно представляющий одномерное распределение вероятностей.<br>
+Он показывает:</p>
+<ul>
+<li>Медиану (средний квартиль на уровне 50%);</li>
+<li>Верхний квартиль (на уровне 75%);</li>
+<li>Нижний квартиль (на уровне 25%);</li>
+<li>Межквартильный размах (МКР — разница между верхним и нижним квартилями);</li>
+<li>Выбросы, т.е. те значения, которые выходят из промежутка [нижний квартиль - 1,5 * МКР; верхний квартиль + 1,5 * МКР]</li>
+</ul>
+<p><img loading="lazy" src="/posts/_notes/basics_of_statistics/images/box%20plot.jpg" alt="/posts/_notes/basics_of_statistics/images/box%20plot.jpg" srcset="/posts/_notes/basics_of_statistics/images/box%20plot.jpg?size=small, /posts/_notes/basics_of_statistics/images/box%20plot.jpg?size=medium 1.5x, /posts/_notes/basics_of_statistics/images/box%20plot.jpg?size=large 2x" data-title="/posts/_notes/basics_of_statistics/images/box%20plot.jpg" style="--width: 800px;--aspect-ratio: 800 / 600;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<hr>
+<h2 id="нормальное-распределение" class="heading-element"><span>Нормальное распределение</span>
+  <a href="#%d0%bd%d0%be%d1%80%d0%bc%d0%b0%d0%bb%d1%8c%d0%bd%d0%be%d0%b5-%d1%80%d0%b0%d1%81%d0%bf%d1%80%d0%b5%d0%b4%d0%b5%d0%bb%d0%b5%d0%bd%d0%b8%d0%b5" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Нормальное распределение (распределение Гаусса) — унимодальное и симметричное распределение, в котором отклонения значений от стандартного равновероятны и подчиняются следующему вероятностному закону:</p>
+<ul>
+<li>в диапазоне \(\pm\sigma\) стандартных отклонений от среднего значения находится  34.1*2 ≈ 64% наблюдений</li>
+<li>в диапазоне \(\pm2\sigma\) стандартных отклонений от среднего значения (34.1 + 13.6)*2 ≈ 95% наблюдений</li>
+<li>в диапазоне \(\pm3\sigma\) стандартных отклонений от среднего значения находится (34.1 + 13.6 + 2.1)*2 ≈ 100% наблюдений</li>
+<li>за последним диапазоном находится ≈ 0.1% наблюдений</li>
+</ul>
+<p><img loading="lazy" src="/posts/_notes/basics_of_statistics/images/standard-deviation.jpg" alt="/posts/_notes/basics_of_statistics/images/standard-deviation.jpg" srcset="/posts/_notes/basics_of_statistics/images/standard-deviation.jpg?size=small, /posts/_notes/basics_of_statistics/images/standard-deviation.jpg?size=medium 1.5x, /posts/_notes/basics_of_statistics/images/standard-deviation.jpg?size=large 2x" data-title="/posts/_notes/basics_of_statistics/images/standard-deviation.jpg" style="--width: 1920px;--aspect-ratio: 1920 / 960;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p><strong>Z-преобразование</strong> (стандартизация) — преобразование распределения таким образом, чтобы его среднее значение стало равно 0, а среднеквадратичное отклонение — 1.</p>
+<p>Осуществляется преобразование следующим образом:<br>
+$$
+z_i = \frac{x_i - \bar{x}}{\sigma}
+$$</p>
+<p>При Z-преобразовании форма распределения никак не меняется:</p>
+<p><img loading="lazy" src="/posts/_notes/basics_of_statistics/images/standartization.png" alt="/posts/_notes/basics_of_statistics/images/standartization.png" srcset="/posts/_notes/basics_of_statistics/images/standartization.png?size=small, /posts/_notes/basics_of_statistics/images/standartization.png?size=medium 1.5x, /posts/_notes/basics_of_statistics/images/standartization.png?size=large 2x" data-title="/posts/_notes/basics_of_statistics/images/standartization.png" style="--width: 1463px;--aspect-ratio: 1463 / 902;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>Другими словами, преобразование дает понять в скольких стандартных отклонениях находится отдельно взятое значение. Например, человек с ростом 186,2 находится примерно в 1.4 стандартных отклонениях от среднего (1.4*8 = 11,2, именно на столько отличается рост этого человека от среднего).</p>
+<p>Z-преобразование позволяет найти процент наблюдений, находящийся в произвольном диапазоне. Пусть \(\bar{x}=150\), \(sd=8\). Требуется найти долю значений, превышающих 154. В таком случае \(z = \frac{154 - 150}{8} = 0,5\). Воспользуемся следующей таблицей. В ней Значения z представлены для значений <strong>не больших чем z</strong>, но нам нужно как раз обратное, поэтому вычитаем найденное число из единицы, получаем ≈ 0.3.</p>
+<p><img loading="lazy" src="/posts/_notes/basics_of_statistics/images/table.png" alt="/posts/_notes/basics_of_statistics/images/table.png" srcset="/posts/_notes/basics_of_statistics/images/table.png?size=small, /posts/_notes/basics_of_statistics/images/table.png?size=medium 1.5x, /posts/_notes/basics_of_statistics/images/table.png?size=large 2x" data-title="/posts/_notes/basics_of_statistics/images/table.png" style="--width: 680px;--aspect-ratio: 680 / 767;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>Для нахождения долей также можно воспользоваться <a href="https://gallery.shinyapps.io/dist_calc/"target="_blank" rel="external nofollow noopener noreferrer">калькулятором<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></p>
+<hr>
+<h2 id="центральная-предельная-теорема" class="heading-element"><span>Центральная предельная теорема</span>
+  <a href="#%d1%86%d0%b5%d0%bd%d1%82%d1%80%d0%b0%d0%bb%d1%8c%d0%bd%d0%b0%d1%8f-%d0%bf%d1%80%d0%b5%d0%b4%d0%b5%d0%bb%d1%8c%d0%bd%d0%b0%d1%8f-%d1%82%d0%b5%d0%be%d1%80%d0%b5%d0%bc%d0%b0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Центральная предельная теорема (ЦПТ) утверждает, что, при условии достаточного размера выборки, распределение выборочных средних приблизительно нормально со средним равным среднему признака в ГС, даже если распределение генеральной совокупности не является нормальным.</p>
+<p><a href="https://gallery.shinyapps.io/CLT_mean/"target="_blank" rel="external nofollow noopener noreferrer">Сайт<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a> с симуляцией данных для центральной предельной теоремы.</p>
+<p>Предположим, что некоторый признак распределён нормально в ГС и имеет \(\mu = 15\)</p>
+<p><img loading="lazy" src="/posts/_notes/basics_of_statistics/images/CLT0.png" alt="/posts/_notes/basics_of_statistics/images/CLT0.png" srcset="/posts/_notes/basics_of_statistics/images/CLT0.png?size=small, /posts/_notes/basics_of_statistics/images/CLT0.png?size=medium 1.5x, /posts/_notes/basics_of_statistics/images/CLT0.png?size=large 2x" data-title="/posts/_notes/basics_of_statistics/images/CLT0.png" style="--width: 1256px;--aspect-ratio: 1256 / 492;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>Многократно извлечём выборки по 50 наблюдений в каждой из ГС и взглянем на них. Внутри каждой рассчитано среднее значение и стандартное отклонение. Как видно, оба показателя варьируются от выборки к выборке, причём довольно сильно.</p>
+<p><img loading="lazy" src="/posts/_notes/basics_of_statistics/images/CLT1.png" alt="/posts/_notes/basics_of_statistics/images/CLT1.png" srcset="/posts/_notes/basics_of_statistics/images/CLT1.png?size=small, /posts/_notes/basics_of_statistics/images/CLT1.png?size=medium 1.5x, /posts/_notes/basics_of_statistics/images/CLT1.png?size=large 2x" data-title="/posts/_notes/basics_of_statistics/images/CLT1.png" style="--width: 1250px;--aspect-ratio: 1250 / 592;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>Теперь построим распределение выборочных средних значений. Взглянем на следующую картинку. Наше среднее выборочных средних (да-да) достаточно близко к среднему ГС.</p>
+<p><img loading="lazy" src="/posts/_notes/basics_of_statistics/images/CLT2.png" alt="/posts/_notes/basics_of_statistics/images/CLT2.png" srcset="/posts/_notes/basics_of_statistics/images/CLT2.png?size=small, /posts/_notes/basics_of_statistics/images/CLT2.png?size=medium 1.5x, /posts/_notes/basics_of_statistics/images/CLT2.png?size=large 2x" data-title="/posts/_notes/basics_of_statistics/images/CLT2.png" style="--width: 1239px;--aspect-ratio: 1239 / 422;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>Стандартное отклонение такого распределения называется ошибкой среднего и показывает, насколько в среднем выборочное значение отклоняется от среднего в ГС.</p>
+<p>Теперь увеличим объём каждой выборки до 500 наблюдений. Видим, что, во-первых, распределение в каждой выборке стало напоминать распределение в ГС, а во-вторых, выборочные оценки стали гораздо точнее.</p>
+<p><img loading="lazy" src="/posts/_notes/basics_of_statistics/images/CLT3.png" alt="/posts/_notes/basics_of_statistics/images/CLT3.png" srcset="/posts/_notes/basics_of_statistics/images/CLT3.png?size=small, /posts/_notes/basics_of_statistics/images/CLT3.png?size=medium 1.5x, /posts/_notes/basics_of_statistics/images/CLT3.png?size=large 2x" data-title="/posts/_notes/basics_of_statistics/images/CLT3.png" style="--width: 1241px;--aspect-ratio: 1241 / 589;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>Снова вернёмся к распределению выборочных средних показателей. Как и ожидалось, стандартная ошибка значительно уменьшилась.</p>
+<p><img loading="lazy" src="/posts/_notes/basics_of_statistics/images/CLT4.png" alt="/posts/_notes/basics_of_statistics/images/CLT4.png" srcset="/posts/_notes/basics_of_statistics/images/CLT4.png?size=small, /posts/_notes/basics_of_statistics/images/CLT4.png?size=medium 1.5x, /posts/_notes/basics_of_statistics/images/CLT4.png?size=large 2x" data-title="/posts/_notes/basics_of_statistics/images/CLT4.png" style="--width: 1252px;--aspect-ratio: 1252 / 422;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p><strong>Стандартная ошибка</strong> — мера оценки математического ожидания генеральной совокупности \(\mu\) на основании выборочного среднего \(\bar{x}\). Вычисляется она по следующей формуле:
+$$
+se = \frac{\sigma}{\sqrt{N}}
+$$
+, где N — число наблюдений ГС.</p>
+<p>Очевидно, что при увеличении количества наблюдений в выборке и уменьшении стандартного отклонения ГС, стандартная ошибка будет уменьшаться.</p>
+<p>Для репрезентативных (элементы отобраны случайно) выборок с числом наблюдений больше 30 стандартная ошибка вычисляется похожим образом (при этом будет равна стандартной ошибке ГС):
+$$
+se_x = \frac{sd_x}{\sqrt{n}}
+$$
+, где n — число наблюдений выборки.</p>
+<p>Таким образом, имея на руках только одну выборку, возможно предсказать, как бы вели себя все выборочные средние — они бы распределились вокруг среднего генеральной совокупности со стандартным отклонением равным \(se\).</p>
+<p>Обозначение стандартной ошибки: \(se\)</p>
+<hr>
+<h2 id="доверительные-интервалы-для-среднего" class="heading-element"><span>Доверительные интервалы для среднего</span>
+  <a href="#%d0%b4%d0%be%d0%b2%d0%b5%d1%80%d0%b8%d1%82%d0%b5%d0%bb%d1%8c%d0%bd%d1%8b%d0%b5-%d0%b8%d0%bd%d1%82%d0%b5%d1%80%d0%b2%d0%b0%d0%bb%d1%8b-%d0%b4%d0%bb%d1%8f-%d1%81%d1%80%d0%b5%d0%b4%d0%bd%d0%b5%d0%b3%d0%be" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Доверительный интервал — интервал, в пределах которого с заданной вероятностью лежат выборочные оценки статистических характеристик ГС (в данном случае — среднее значение).</p>
+<p>Разберём статистическую задачу. Нужно найти среднее значение (интервал, в котором оно будет с опред. долей вероятности) генеральной совокупности, о которой ничего не известно, зато есть выборка из 64 наблюдений, выборочное среднее которой равно 100, а среднеквадратичное отклонение — 4.</p>
+<p>Если бы эксперимент повторялся многократно, то все выборочные средние равномерно распределились бы относительно среднего ГС со стандартным отклонением \(se\). 95% всех выборочных средних лежали бы в диапазоне: \(\bar{x}\pm 1,96 * \sigma\). Так как выборка у нас всего одна, заменим \(\sigma\) на \(se\) — стандартную ошибку среднего.</p>
+<p><img loading="lazy" src="/posts/_notes/basics_of_statistics/images/confidence_interval.png" alt="/posts/_notes/basics_of_statistics/images/confidence_interval.png" srcset="/posts/_notes/basics_of_statistics/images/confidence_interval.png?size=small, /posts/_notes/basics_of_statistics/images/confidence_interval.png?size=medium 1.5x, /posts/_notes/basics_of_statistics/images/confidence_interval.png?size=large 2x" data-title="/posts/_notes/basics_of_statistics/images/confidence_interval.png" style="--width: 709px;--aspect-ratio: 709 / 410;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>Неизвестно, где находится выборочное среднее, но известно, что среднее ГС располагается прямо по центру (вспоминаем центральную предельную теорему). Попробуем случайно поставить несколько выборочных средних и просчитать интервалы. Получим, что с вероятностью 0,95 имеющееся выборочное среднее будет включать среднее ГС.</p>
+<p>Вычислим границы интервала, в центре которого — выборочное среднее: \(a = 100 + 1,96 * \frac{4}{\sqrt{64}} = 100,98\) — правая граница; \(b = 100 - 1,96 * \frac{4}{\sqrt{64}} = 99,02\) — левая граница.</p>
+<p>И-так, рассчитав интервал таким образом, можно быть на 95% уверенным, что он содержит среднее значение ГС. Увеличивая степень уверенности, расширяется интервал.</p>
+<hr>
+<h2 id="p-уровень-значимости" class="heading-element"><span>P-уровень значимости</span>
+  <a href="#p-%d1%83%d1%80%d0%be%d0%b2%d0%b5%d0%bd%d1%8c-%d0%b7%d0%bd%d0%b0%d1%87%d0%b8%d0%bc%d0%be%d1%81%d1%82%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p><strong>Нулевая гипотеза</strong> (обозн. \(H_0\)) — предположение о том, что не существует связи между двумя наблюдаемыми событиями.</p>
+<p><strong>P-value</strong> (p-уровень значимости) — вероятность получить для распределения случайной величины значений такое же или более экстремальное значение (медиана, среднее и т.д.), по сравнению с ранее наблюдаемым, при условии, что нулевая гипотеза верна. Неформально, p-value — вероятность ошибки в случае отклонении нулевой гипотезы.<br>
+Чем меньше уровень значимости, тем больше оснований отклонить нулевую гипотезу. Считается, что при \(p &lt; 0,05\) (что весьма и весьма спорно), можно принимать альтернативную гипотезу. В ином случае — оснований для отклонения нулевой гипотезы недостаточно.</p>
+<p><strong>Идея статистического вывода</strong> — допустим, нулевая гипотеза верна, т.е. никаких различий или взаимосвязей в ГС нет. Теперь можно рассчитать вероятность того, что имеющиеся отклонения были получены абсолютно случайно.</p>
+<ul>
+<li>
+<p>Рассмотрим пример. Предположим, что на выздоровление при некотором заболевании в среднем требуется 20 дней, однако был разработали новый препарат, и нужно проверить, можно ли сократить этот срок. Была набрана выборка из 64 пациентов, на которых опробовали новый метод лечения. Оказалось, что средний срок выздоровления сократился до 18,5 дней при стандартном отклонении равным 4. Какой вывод можно сделать основываясь на данных?</p>
+<p>Нулевая гипотеза \(H_0\) — на самом деле никого воздействия новый препарат не оказывает, и среднее значение ГС тех пациентов, кто использует препарат, на самом деле не отличается от 20.</p>
+<p>Альтернативная гипотеза \(H_1\) — препарат влияет на скорость выздоровления, а среднее значение ГС тех, кто использует препарат, не равняется 20.</p>
+<p>Предположим, что верна нулевая гипотеза, тогда в соответствии с ЦПТ, при многократном повторении эксперимента выборочные средние распределились бы нормальным образом вокруг среднего ГС со стандартной ошибкой среднего \(se=4/\sqrt{64}=0.5\). Выясним, насколько далеко имеющееся выборочное среднее отклонилось от предполагаемого среднего ГС в единицах стандартного отклонения через z-преобразование: \(z=\frac{\bar{x}-\Mu}{se}=\frac{18.5 - 20}{0.5}=-3\).</p>
+<p>Таким образом, если бы в ГС среднее значение на самом деле равнялось 20, то имеющееся выборочное среднее отклонилось бы от него на \(-3\sigma\) в левую сторону. Воспользуемся свойством нормального распределения, чтобы рассчитать в <a href="https://gallery.shinyapps.io/dist_calc/"target="_blank" rel="external nofollow noopener noreferrer">калькуляторе<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a> вероятность такого или еще больше выраженного отклонения от среднего значения.</p>
+<p><img loading="lazy" src="/posts/_notes/basics_of_statistics/images/p-value.png" alt="/posts/_notes/basics_of_statistics/images/p-value.png" srcset="/posts/_notes/basics_of_statistics/images/p-value.png?size=small, /posts/_notes/basics_of_statistics/images/p-value.png?size=medium 1.5x, /posts/_notes/basics_of_statistics/images/p-value.png?size=large 2x" data-title="/posts/_notes/basics_of_statistics/images/p-value.png" style="--width: 1896px;--aspect-ratio: 1896 / 924;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>Получается, вероятность отклониться от среднего больше чем на 3 стандартных отклонения равняется приблизительно 0,0027, а значит, можно смело отвергать нулевую гипотезу.</p>
+</li>
+</ul>
+<p><strong>Ошибка первого рода</strong> (\(\alpha\)-ошибка, ложноположительное заключение) — ситуация, когда отвергнута верная нулевая гипотеза.<br>
+<strong>Ошибка второго рода</strong> (\(\beta\)-ошибка, ложноотрицательное заключение) — ситуация, когда принята неверная нулевая гипотеза.</p>
+<hr></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="Oбновлена 2024-09-15 17:00:00">Oбновлена 15-09-2024&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="Поделиться в X" data-sharer="twitter" data-url="http://localhost:1313/posts/_notes/basics_of_statistics/" data-title="Основы статистики" data-hashtags="math"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/posts/_notes/basics_of_statistics/" data-title="Основы статистики" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в VK" data-sharer="vk" data-url="http://localhost:1313/posts/_notes/basics_of_statistics/" data-title="Основы статистики"><i class="fa-brands fa-vk fa-fw" aria-hidden="true"></i></a>
+  <a href="//mix.com/add?url=http%3a%2f%2flocalhost%3a1313%2fposts%2f_notes%2fbasics_of_statistics%2f&amp;description=%d0%9e%d1%81%d0%bd%d0%be%d0%b2%d1%8b%20%d1%81%d1%82%d0%b0%d1%82%d0%b8%d1%81%d1%82%d0%b8%d0%ba%d0%b8" target="_blank" title="Поделиться в Mix"><i class="fa-brands fa-mix fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/math/" class="post-tag" title="Тэги - Math">Math</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">Назад</a></span>&nbsp;|&nbsp;<span><a href="/">Домой</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/posts/_notes/memory_python/" class="post-nav-item" rel="prev" title="Устройство памяти в Python"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Устройство памяти в Python</a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="Содержание"><h2 class="toc-title">Содержание&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://t.me/noisy_cake"target="_blank" rel="external nofollow noopener noreferrer">NoisyCake</a></span></div><div class="footer-line statistics"><span class="site-time" title='Website running ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Дней жизни:</span><span class="run-times ms-1">Website running ...</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='Всего посетителей'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='Всего посещений'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Наверх"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><div class="reading-progress-bar" style="--fi-progress-start: left; top: 0; --fi-progress-bg: #8581dd; --fi-progress-bg-dark: #fff;"></div><noscript>
+    <div class="noscript-warning"></div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"Копировать в буфер обмена","editLockTitle":"Заблокировать редактируемый кодовый блок","editUnLockTitle":"Разблокировать редактируемый блок кода","editable":true,"maxShownLines":50},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Окей","link":"Узнать больше","message":"Сайт использует куки"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"Результатов не найдено","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2024-11-15T16:15:22","version":"v0.3.14"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>

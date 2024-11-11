@@ -8,21 +8,7 @@
     <language>ru</language>
     <managingEditor>darkgxd@vk.com (NoisyCake)</managingEditor>
     <webMaster>darkgxd@vk.com (NoisyCake)</webMaster>
-    <lastBuildDate>Sun, 15 Sep 2024 17:00:00 +0000</lastBuildDate>
+    <lastBuildDate></lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Конспекты</title>
-      <link>http://localhost:1313/posts/notes/</link>
-      <pubDate>Sun, 15 Sep 2024 17:00:00 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
-      <guid>http://localhost:1313/posts/notes/</guid>
-      <description>Конспекты</description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/posts/articles/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
-      <guid>http://localhost:1313/posts/articles/</guid>
-      <description></description>
-    </item>
   </channel>
 </rss>
