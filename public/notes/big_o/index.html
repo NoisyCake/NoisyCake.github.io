@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="ru">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Big O | HFK</title><meta name="author" content="NoisyCake">
+<meta name="description" content="Всё про нотацию Big O на примерах базовых коллекций в Python
+"><meta name="keywords" content='big O, algorithms, python'>
+  <meta itemprop="name" content="Big O">
+  <meta itemprop="description" content="Всё про нотацию Big O на примерах базовых коллекций в Python">
+  <meta itemprop="datePublished" content="2024-05-20T13:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-05-20T13:00:00+00:00">
+  <meta itemprop="wordCount" content="999">
+  <meta itemprop="keywords" content="Big O,Algorithms,Python"><meta property="og:url" content="http://localhost:1313/notes/big_o/">
+  <meta property="og:site_name" content="HFK">
+  <meta property="og:title" content="Big O">
+  <meta property="og:description" content="Всё про нотацию Big O на примерах базовых коллекций в Python">
+  <meta property="og:locale" content="ru">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2024-05-20T13:00:00+00:00">
+    <meta property="article:modified_time" content="2024-05-20T13:00:00+00:00">
+    <meta property="article:tag" content="Big O">
+    <meta property="article:tag" content="Algorithms">
+    <meta property="article:tag" content="Python">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Big O">
+  <meta name="twitter:description" content="Всё про нотацию Big O на примерах базовых коллекций в Python">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/big_o/" title="Big O | HFK" /><link rel="next" type="text/html" href="http://localhost:1313/notes/memory_python/" title="Устройство памяти в Python" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/big_o/index.md" title="Big O | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Big O",
+    "inLanguage": "ru",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/notes\/big_o\/"
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "big O, algorithms, python","wordcount":  999 ,
+    "url": "http:\/\/localhost:1313\/notes\/big_o\/","datePublished": "2024-05-20T13:00:00+00:00","dateModified": "2024-05-20T13:00:00+00:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "NoisyCake"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item has-children">
+              <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item">
+              <a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Поиск">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Очистить">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="Сменить Тему">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Поиск">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Очистить">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Отменить
+            </a>
+          </li><li class="menu-item"><span class="nested-item">
+                  <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item"><a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item"><a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="Сменить Тему"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/notes/" title="Конспекты">Конспекты</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Big O</li>
+    </ol>
+  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=""></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Big O</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisy_cake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+    NoisyCake</a></span><span class="post-included-in">&nbsp;включен в <a href="/categories/python/" class="post-category" title="Категория - Python"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Python</a></span></div><div class="post-meta-line"><span title="Опубликовано 2024-05-20 13:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="20-05-2024">20-05-2024</time></span>&nbsp;<span title="999 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 1000 слов</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>5 минут</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>Содержание</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#centerграфик-сложностей-алгоритмовcenter"><!-- raw HTML omitted -->График сложностей алгоритмов<!-- raw HTML omitted --></a></li>
+        <li><a href="#несущественное-не-учитывается">Несущественное не учитывается</a></li>
+      </ol>
+    </li>
+    <li><a href="#centerсложность-операций-в-pythoncenter"><!-- raw HTML omitted -->Сложность операций в Python<!-- raw HTML omitted --></a>
+      <ol>
+        <li><a href="#списки">Списки:</a></li>
+        <li><a href="#кортежи">Кортежи:</a></li>
+        <li><a href="#множества">Множества:</a></li>
+        <li><a href="#неизменяемые-множества">Неизменяемые множества</a></li>
+        <li><a href="#словари">Словари</a></li>
+      </ol>
+    </li>
+    <li><a href="#centerдругие-обозначенияcenter"><!-- raw HTML omitted -->Другие обозначения<!-- raw HTML omitted --></a></li>
+  </ol>
+</nav></div>
+      </div><div class="content" id="content"><p>Всё про нотацию Big O на примерах базовых коллекций в Python</p>
+<p><img loading="lazy" src="/notes/big_o/images/feature.png" alt="/notes/big_o/images/feature.png" srcset="/notes/big_o/images/feature.png?size=small, /notes/big_o/images/feature.png?size=medium 1.5x, /notes/big_o/images/feature.png?size=large 2x" data-title="/notes/big_o/images/feature.png" style="--width: 950px;--aspect-ratio: 950 / 470;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>Big O — нотация, использующаяся в программировании, информатике для описания сложности алгоритмов. Она характеризует скорость роста времени выполнения алгоритма с ростом объёма входных данных, используя для оценки верхнюю границу (наихудший исход).</p>
+<p>Примеры нотаций Big O в порядке убывания скорости выполнения соответствующих им алгоритмов:</p>
+<ul>
+<li>
+<p><code>O(1)</code>: Константная сложность. Читается как &ldquo;сложность порядка 1&rdquo;. Время выполнения алгоритма не зависит от размера входных данных, то есть если даже алгоритм выполняется постоянно в 3 шага, то он будет не O(3), а <strong>O(1)</strong>. Является идеальной с точки зрения производительности, однако зачастую недостижима.<br>
+Примеры:</p>
+<ul>
+<li>Доступ к элементу в массиве по индексу;</li>
+<li>Вставка или удаление элемента в конец списка (очереди) фиксированной длины.</li>
+</ul>
+</li>
+<li>
+<p><code>O(log n)</code>: Логарифмическая сложность. Время выполнения алгоритма растет медленно с увеличением размера входных данных. Например, бинарный поиск в отсортированном массиве.<br>
+Пример:</p>
+<ul>
+<li>Бинарный поиск. В этом алгоритме на каждом шаге половина данных отсекается, и поиск продолжается в оставшейся половине. Это означает, что при увеличении размера входных данных вдвое, бинарный поиск требует всего одного дополнительного шага.</li>
+</ul>
+</li>
+<li>
+<p><code>O(n)</code>: Линейная сложность. Читается как &ldquo;сложность порядка n&rdquo;. Время выполнения алгоритма пропорционально размеру входных данных.<br>
+Пример:</p>
+<ul>
+<li>Поиск максимального значения в списке:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">find_max</span><span class="p">(</span><span class="n">my_list</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">max_num</span> <span class="o">=</span> <span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">my_list</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">my_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">max_num</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">max_num</span> <span class="o">=</span> <span class="n">my_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">max_num</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>O(n log n)</code>: Линейно-логарифмическая сложность. Время выполнения алгоритма растет быстрее, чем линейно, но медленнее, чем квадратично.<br>
+Пример:</p>
+<ul>
+<li>Сортировка слиянием.</li>
+</ul>
+</li>
+<li>
+<p><code>O(n^2)</code>: Квадратичная сложность.<br>
+Примеры:</p>
+<ul>
+<li>Сортировка пузырём;</li>
+<li>Поиск суммы всех пар элементов списка:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">pairs_sum</span><span class="p">(</span><span class="n">my_list</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">summ</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">my_list</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">my_list</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">summ</span> <span class="o">+=</span> <span class="n">my_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">my_list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">summ</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>O(n^3)</code>: Кубическая сложность.<br>
+Пример:</p>
+<ul>
+<li>Алгоритмы, имеющие три вложенных цикла.</li>
+</ul>
+</li>
+<li>
+<p><code>O(2^n)</code>: Экспоненциальная сложность. Она обычно не является оптимальным решением из-за своей высокой вычислительной нагрузки при увеличении размера входных данных.<br>
+Пример:</p>
+<ul>
+<li>Алгоритмы, использующие рекурсию без оптимизации (рекурсивное вычисление чисел Фибоначчи).</li>
+</ul>
+</li>
+<li>
+<p><code>O(n!)</code>: Факториальная сложность. Это самая высокая степень роста времени выполнения алгоритма. Этот тип сложности встречается, например, при переборе всех возможных комбинаций элементов, что делает его чрезвычайно неэффективным для больших значений n.<br>
+Пример:</p>
+<ul>
+<li>Перебор всех перестановок элементов массива.</li>
+</ul>
+</li>
+</ul>
+<h3 id="centerграфик-сложностей-алгоритмовcenter" class="heading-element"><span><!-- raw HTML omitted -->График сложностей алгоритмов<!-- raw HTML omitted --></span>
+  <a href="#center%d0%b3%d1%80%d0%b0%d1%84%d0%b8%d0%ba-%d1%81%d0%bb%d0%be%d0%b6%d0%bd%d0%be%d1%81%d1%82%d0%b5%d0%b9-%d0%b0%d0%bb%d0%b3%d0%be%d1%80%d0%b8%d1%82%d0%bc%d0%be%d0%b2center" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><img loading="lazy" src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/973/455/cf3/973455cf3bb354f49113562838372900.jpg" alt="https://habrastorage.org/r/w1560/getpro/habr/upload_files/973/455/cf3/973455cf3bb354f49113562838372900.jpg" srcset="https://habrastorage.org/r/w1560/getpro/habr/upload_files/973/455/cf3/973455cf3bb354f49113562838372900.jpg?size=small, https://habrastorage.org/r/w1560/getpro/habr/upload_files/973/455/cf3/973455cf3bb354f49113562838372900.jpg?size=medium 1.5x, https://habrastorage.org/r/w1560/getpro/habr/upload_files/973/455/cf3/973455cf3bb354f49113562838372900.jpg?size=large 2x" data-title="https://habrastorage.org/r/w1560/getpro/habr/upload_files/973/455/cf3/973455cf3bb354f49113562838372900.jpg" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<hr>
+<h3 id="несущественное-не-учитывается" class="heading-element"><span>Несущественное не учитывается</span>
+  <a href="#%d0%bd%d0%b5%d1%81%d1%83%d1%89%d0%b5%d1%81%d1%82%d0%b2%d0%b5%d0%bd%d0%bd%d0%be%d0%b5-%d0%bd%d0%b5-%d1%83%d1%87%d0%b8%d1%82%d1%8b%d0%b2%d0%b0%d0%b5%d1%82%d1%81%d1%8f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>При оценке сложности алгоритмов лучше игнорировать константы и несущественные части, от которых скорость выполнения практически не зависит.</p>
+<p>Например, при оценке 5n^2 + 3n + 2 можно откинуть 5, 3n, 2. В результате мы получим <code>O(n^2)</code>.<br>
+Или при оценке n^2 + n + log(n) оставляем самую значимую часть (перемененную с наибольшей степенью) и получаем тот же<code>O(n^2)</code>.</p>
+<hr>
+<h2 id="centerсложность-операций-в-pythoncenter" class="heading-element"><span><!-- raw HTML omitted -->Сложность операций в Python<!-- raw HTML omitted --></span>
+  <a href="#center%d1%81%d0%bb%d0%be%d0%b6%d0%bd%d0%be%d1%81%d1%82%d1%8c-%d0%be%d0%bf%d0%b5%d1%80%d0%b0%d1%86%d0%b8%d0%b9-%d0%b2-pythoncenter" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Рассмотрим некоторые операции, которые часто используют для базовых структур в языке программирования Python.
+n — размер структуры данных</p>
+<h3 id="списки" class="heading-element"><span>Списки:</span>
+  <a href="#%d1%81%d0%bf%d0%b8%d1%81%d0%ba%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Операция</th>
+          <th style="text-align: left">Пример</th>
+          <th style="text-align: left">Сложность</th>
+          <th style="text-align: left">Примечание</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Получение элемента</td>
+          <td style="text-align: left"><code>l[i]</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Присваивание значения элементу</td>
+          <td style="text-align: left"><code>l[i] = 0</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Размер списка</td>
+          <td style="text-align: left"><code>len(l)</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Добавление элемента в конец списка</td>
+          <td style="text-align: left"><code>l.append(5)</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td style="text-align: left"><strong>Скорее всего это неверно</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Удаление последнего элемента</td>
+          <td style="text-align: left"><code>l.pop()</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td style="text-align: left">Аналогично <code>l.pop(-1)</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Очищение списка</td>
+          <td style="text-align: left"><code>l.clear()</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td style="text-align: left">Аналогично <code>l = []</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Добавление нескольких элементов</td>
+          <td style="text-align: left"><code>l1.extend(l2)</code></td>
+          <td style="text-align: left">O(len(n))</td>
+          <td style="text-align: left">Прямая зависимость с размером l2</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Создание списка</td>
+          <td style="text-align: left"><code>list(l)</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td style="text-align: left">Прямая зависимость с разером l</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Получение среза</td>
+          <td style="text-align: left"><code>l[a:b]</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td style="text-align: left">O(a - b)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Сравнение списков</td>
+          <td style="text-align: left"><code>l1 == l2</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Вставка через срез</td>
+          <td style="text-align: left"><code>l[a:b]</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Проверка наличия элемента в списке</td>
+          <td style="text-align: left"><code>x is/not in l</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td style="text-align: left">Тот же перебор элементов</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Поверхностное копирование списка</td>
+          <td style="text-align: left"><code>l.copy()</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td style="text-align: left">Аналогично <code>l[:]</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Удаление элемента через <code>del</code></td>
+          <td style="text-align: left"><code>del l[i]</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td style="text-align: left">Перебор до совпадения индексов, <!-- raw HTML omitted -->а значит зависит от <code>i</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Удаление элемента через <code>remove</code></td>
+          <td style="text-align: left"><code>l.remove(...)</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Удаление элемента через <code>pop</code></td>
+          <td style="text-align: left"><code>l.pop(i)</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td style="text-align: left">O(n-i)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Получение крайнего значения</td>
+          <td style="text-align: left"><code>min(l)/max(l)</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td style="text-align: left">Снова перебор элементов</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Получение обратного списка</td>
+          <td style="text-align: left"><code>l.reverse()</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Перебор</td>
+          <td style="text-align: left"><code>for i in l:</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Сортировка</td>
+          <td style="text-align: left"><code>l.sort()</code></td>
+          <td style="text-align: left">O(n * log(n))</td>
+          <td style="text-align: left">Или <code>sorted(l)</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Умножение списка на константу</td>
+          <td style="text-align: left"><code>k*l</code></td>
+          <td style="text-align: left">O(k*n)</td>
+          <td style="text-align: left"><code>5*l</code> =&gt; O(n), <code>len(l)*l</code> =&gt; O(n^2)</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h3 id="кортежи" class="heading-element"><span>Кортежи:</span>
+  <a href="#%d0%ba%d0%be%d1%80%d1%82%d0%b5%d0%b6%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Кортежи — те же самые списки, только неизменяемые. Поэтому к ним применимы все операции, не изменяющие структуру данных, и они имеют такие же нотации сложности, как и списки.</p>
+<hr>
+<h3 id="множества" class="heading-element"><span>Множества:</span>
+  <a href="#%d0%bc%d0%bd%d0%be%d0%b6%d0%b5%d1%81%d1%82%d0%b2%d0%b0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Операция</th>
+          <th style="text-align: left">Пример</th>
+          <th style="text-align: left">Сложность</th>
+          <th style="text-align: left">Примечание</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Размер множества</td>
+          <td style="text-align: left"><code>len(s)</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Добавление элемента</td>
+          <td style="text-align: left"><code>s.add(5)</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Проверка наличия элемента в множестве</td>
+          <td style="text-align: left"><code>x is/not in s</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Удаления элемента через <code>discard</code></td>
+          <td style="text-align: left"><code>s.discard(...)</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Удаления элемента через <code>remove</code></td>
+          <td style="text-align: left"><code>s.remove(...)</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Удаления элемента через <code>pop</code></td>
+          <td style="text-align: left"><code>s.pop()</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td style="text-align: left">Удаляемый элемент выбирается случайно</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Очищение множества</td>
+          <td style="text-align: left"><code>s.clear()</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td style="text-align: left">Аналогично <code>s = set()</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Создание множества</td>
+          <td style="text-align: left"><code>set(...)</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Сравнение множеств через <code>==</code>, <code>!=</code></td>
+          <td style="text-align: left"><code>s != t</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Сравнение множеств через <code>&lt;=</code>, <code>&lt;</code></td>
+          <td style="text-align: left"><code>s &lt;= t</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td style="text-align: left">Аналогично <code>s.issubset(t)</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Сравнение множеств через <code>&gt;=</code>, <code>&gt;</code></td>
+          <td style="text-align: left"><code>s &gt;= t</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td style="text-align: left">Аналогично <code>s.issuperset(t)</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Объединение</td>
+          <td style="text-align: left"><code>s | t</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td style="text-align: left">Аналогично <code>s.union(t)</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Пересечение</td>
+          <td style="text-align: left"><code>s &amp; t</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td style="text-align: left">Аналогично <code>s.intersection(t)</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Разность</td>
+          <td style="text-align: left"><code>s - t</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td style="text-align: left">Аналогично <code>s.difference(t)</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Симметрическая разность</td>
+          <td style="text-align: left"><code>s ^ t</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td style="text-align: left">Аналогично <code>s.symmetric_difference(t)</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Перебор</td>
+          <td style="text-align: left"><code>for i in s:</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Копирование</td>
+          <td style="text-align: left"><code>s.copy()</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h3 id="неизменяемые-множества" class="heading-element"><span>Неизменяемые множества</span>
+  <a href="#%d0%bd%d0%b5%d0%b8%d0%b7%d0%bc%d0%b5%d0%bd%d1%8f%d0%b5%d0%bc%d1%8b%d0%b5-%d0%bc%d0%bd%d0%be%d0%b6%d0%b5%d1%81%d1%82%d0%b2%d0%b0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Поддерживают все операции обычного множества за исключением тех, который изменяют структуру данных, и имеют те же нотации сложности, как у изменяемых множеств.</p>
+<hr>
+<h3 id="словари" class="heading-element"><span>Словари</span>
+  <a href="#%d1%81%d0%bb%d0%be%d0%b2%d0%b0%d1%80%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Операция</th>
+          <th style="text-align: left">Пример</th>
+          <th style="text-align: left">Сложность</th>
+          <th style="text-align: left">Примечание</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Получение элемента</td>
+          <td style="text-align: left"><code>d[key]</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Добавление элемента/<!-- raw HTML omitted -->Изменение значения</td>
+          <td style="text-align: left"><code>d[key] = val</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Размер словаря</td>
+          <td style="text-align: left"><code>len(d)</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Удаление элемента через <code>del</code></td>
+          <td style="text-align: left"><code>del d[key]</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Удаление элемента через <code>popitem</code></td>
+          <td style="text-align: left"><code>d.popitem()</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td style="text-align: left">Удаляемый элемент выбирается случайно</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Удаление элемента через <code>pop</code></td>
+          <td style="text-align: left"><code>d.pop(key)</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>get()</code> и <code>setdefault()</code></td>
+          <td style="text-align: left"><code>d.get(key)</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Очищение словаря</td>
+          <td style="text-align: left"><code>d.clear</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td style="text-align: left">Аналогично <code>s = {}</code> или <code>s = dict()</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Получение списка ключей/значений</td>
+          <td style="text-align: left"><code>d.keys()</code></td>
+          <td style="text-align: left">O(1)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Создание словаря</td>
+          <td style="text-align: left"><code>dict(...)</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Перебор элементов</td>
+          <td style="text-align: left"><code>for key in d:</code></td>
+          <td style="text-align: left">O(n)</td>
+          <td style="text-align: left">Для <code>.keys()</code>, <code>.values()</code>, <code>.items()</code></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="centerдругие-обозначенияcenter" class="heading-element"><span><!-- raw HTML omitted -->Другие обозначения<!-- raw HTML omitted --></span>
+  <a href="#center%d0%b4%d1%80%d1%83%d0%b3%d0%b8%d0%b5-%d0%be%d0%b1%d0%be%d0%b7%d0%bd%d0%b0%d1%87%d0%b5%d0%bd%d0%b8%d1%8fcenter" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Кроме обозначения &ldquo;Big O&rdquo;, существуют другие обозначения для оценки сложности алгоритмов:</p>
+<ul>
+<li><strong>Big Theta (Θ)</strong>: Big Theta также оценивает верхнюю и нижнюю границы временной сложности алгоритма, но описывает точную сложность, а не только наихудший случай, как Big O. Θ(f(n)) обозначает, что время выполнения алгоритма ограничено функцией f(n) как сверху, так и снизу.</li>
+<li><strong>Big Omega (Ω)</strong>: Big Omega оценивает нижнюю границу временной сложности алгоритма. Ω(f(n)) говорит о том, что алгоритм выполнится не быстрее, чем функция f(n).</li>
+<li><strong>Little O (o)</strong>: Little O представляет собой верхнюю границу, которая строже, чем Big O. Если f(n) является o(g(n)), это означает, что время выполнения алгоритма ограничивается функцией g(n), но алгоритм работает быстрее, чем g(n).</li>
+<li><strong>Little Omega (ω)</strong>: Little Omega представляет собой нижнюю границу, которая строже, чем Big Omega. Если f(n) является ω(g(n)), это означает, что алгоритм работает медленнее, чем g(n), но не медленнее, чем f(n).</li>
+</ul></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="Oбновлена 2024-05-20 13:00:00">Oбновлена 20-05-2024&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="Поделиться в X" data-sharer="twitter" data-url="http://localhost:1313/notes/big_o/" data-title="Big O" data-hashtags="big O,algorithms,python"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/notes/big_o/" data-title="Big O" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в VK" data-sharer="vk" data-url="http://localhost:1313/notes/big_o/" data-title="Big O"><i class="fa-brands fa-vk fa-fw" aria-hidden="true"></i></a>
+  <a href="//mix.com/add?url=http%3a%2f%2flocalhost%3a1313%2fnotes%2fbig_o%2f&amp;description=Big%20O" target="_blank" title="Поделиться в Mix"><i class="fa-brands fa-mix fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/big-o/" class="post-tag" title="Тэги - Big O">Big O</a><a href="/tags/algorithms/" class="post-tag" title="Тэги - Algorithms">Algorithms</a><a href="/tags/python/" class="post-tag" title="Тэги - Python">Python</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">Назад</a></span>&nbsp;|&nbsp;<span><a href="/">Домой</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/notes/memory_python/" class="post-nav-item" rel="next" title="Устройство памяти в Python">Устройство памяти в Python<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="Содержание"><h2 class="toc-title">Содержание&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://t.me/noisy_cake"target="_blank" rel="external nofollow noopener noreferrer">NoisyCake</a></span></div><div class="footer-line statistics"><span class="site-time" title='Website running ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Дней жизни:</span><span class="run-times ms-1">Website running ...</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='Всего посетителей'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='Всего посещений'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Наверх"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><div class="reading-progress-bar" style="--fi-progress-start: left; top: 0; --fi-progress-bg: #8581dd; --fi-progress-bg-dark: #fff;"></div><noscript>
+    <div class="noscript-warning"></div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"Копировать в буфер обмена","editLockTitle":"Заблокировать редактируемый кодовый блок","editUnLockTitle":"Разблокировать редактируемый блок кода","editable":true,"maxShownLines":50},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Окей","link":"Узнать больше","message":"Сайт использует куки"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"Результатов не найдено","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2024-11-15T16:15:22","version":"v0.3.14"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>

@@ -1,3 +1,4 @@
 http://localhost:1313/about/
 http://localhost:1313/notes/basics_of_statistics/
 http://localhost:1313/notes/memory_python/
+http://localhost:1313/notes/big_o/

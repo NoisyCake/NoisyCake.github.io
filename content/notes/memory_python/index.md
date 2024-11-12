@@ -1,6 +1,6 @@
 ---
 title: "Устройство памяти в Python"
-date: 2024-09-08 17:00:00
+date: 2024-07-18 16:50:57
 type: posts
 tags:
   - python
