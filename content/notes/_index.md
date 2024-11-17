@@ -5,4 +5,5 @@ keywords:
   - Конспекты
   - Записи
   - Посты
+wordCount: true
 ---

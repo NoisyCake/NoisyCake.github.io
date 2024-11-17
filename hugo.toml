@@ -136,14 +136,14 @@ theme = 'FixIt'
 
   [params.header]
     desktopMode = "sticky"
-    mobileMode = "auto"
+    mobileMode = "normal"
     [params.header.title]
       logo = "/img/logo_transparent.png"
       typeit = false
 
   [params.breadcrumb]
     enable = true
-    sticky = true
+    sticky = false
     showHome = false
     separator = "/"
     capitalize = false
@@ -258,6 +258,15 @@ theme = 'FixIt'
       # the maximum number of lines of displayed code by default
       maxShownLines = 50
 
+    [params.page.reward]
+      enable = true
+      animation = false
+      position = 'after'
+      comment = 'Поддержать автора'
+      mode = 'fixed'
+      [params.page.reward.ways]
+        sbp = ''
+
     [params.page.share]
       enable = true
       Twitter = true
@@ -325,6 +334,28 @@ theme = 'FixIt'
     lineNumbersInTable = true
     noClasses = false
     guessSyntax = true
+
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = "github"
+      wrapStandAloneImageWithinParagraph = true
+      [goldmark.parser.attribute]
+        block = true
+        title = true
+    [markup.goldmark.renderer]
+      # By default, Goldmark ignores newlines within a paragraph. Set to true to render newlines as <br> elements.
+      hardWraps = false
+      # whether to use HTML tags directly in the document
+      unsafe = true
 
 
 

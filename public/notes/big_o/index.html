@@ -12,7 +12,7 @@
   <meta itemprop="description" content="Всё про нотацию Big O на примерах базовых коллекций в Python">
   <meta itemprop="datePublished" content="2024-05-20T13:00:00+00:00">
   <meta itemprop="dateModified" content="2024-05-20T13:00:00+00:00">
-  <meta itemprop="wordCount" content="999">
+  <meta itemprop="wordCount" content="1000">
   <meta itemprop="keywords" content="Big O,Algorithms,Python"><meta property="og:url" content="http://localhost:1313/notes/big_o/">
   <meta property="og:site_name" content="HFK">
   <meta property="og:title" content="Big O">
@@ -41,7 +41,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/notes\/big_o\/"
-    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "big O, algorithms, python","wordcount":  999 ,
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "big O, algorithms, python","wordcount":  1000 ,
     "url": "http:\/\/localhost:1313\/notes\/big_o\/","datePublished": "2024-05-20T13:00:00+00:00","dateModified": "2024-05-20T13:00:00+00:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -50,7 +50,7 @@
       },"description": ""
   }
   </script><script src="/js/head/color-scheme.min.js"></script></head>
-  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <body data-header-desktop="sticky" data-header-mobile="normal"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
   <div class="header-wrapper">
     <div class="header-title">
       <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
@@ -128,7 +128,7 @@
   </div>
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
-  </div><nav aria-label="breadcrumb" class="breadcrumb-container sticky">
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container">
     <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/notes/" title="Конспекты">Конспекты</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Big O</li>
     </ol>
   </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=""></aside>
@@ -137,7 +137,7 @@
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Big O</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisy_cake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-    NoisyCake</a></span><span class="post-included-in">&nbsp;включен в <a href="/categories/python/" class="post-category" title="Категория - Python"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Python</a></span></div><div class="post-meta-line"><span title="Опубликовано 2024-05-20 13:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="20-05-2024">20-05-2024</time></span>&nbsp;<span title="999 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 1000 слов</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>5 минут</span>&nbsp;</div>
+    NoisyCake</a></span><span class="post-included-in">&nbsp;включен в <a href="/categories/python/" class="post-category" title="Категория - Python"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Python</a></span></div><div class="post-meta-line"><span title="Опубликовано 2024-05-20 13:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="20-05-2024">20-05-2024</time></span>&nbsp;<span title="1000 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 1100 слов</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>5 минут</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>Содержание</span>
@@ -147,11 +147,11 @@
   <ol>
     <li>
       <ol>
-        <li><a href="#centerграфик-сложностей-алгоритмовcenter"><!-- raw HTML omitted -->График сложностей алгоритмов<!-- raw HTML omitted --></a></li>
+        <li><a href="#график-сложностей-алгоритмов">График сложностей алгоритмов</a></li>
         <li><a href="#несущественное-не-учитывается">Несущественное не учитывается</a></li>
       </ol>
     </li>
-    <li><a href="#centerсложность-операций-в-pythoncenter"><!-- raw HTML omitted -->Сложность операций в Python<!-- raw HTML omitted --></a>
+    <li><a href="#сложность-операций-в-python">Сложность операций в Python</a>
       <ol>
         <li><a href="#списки">Списки:</a></li>
         <li><a href="#кортежи">Кортежи:</a></li>
@@ -160,7 +160,7 @@
         <li><a href="#словари">Словари</a></li>
       </ol>
     </li>
-    <li><a href="#centerдругие-обозначенияcenter"><!-- raw HTML omitted -->Другие обозначения<!-- raw HTML omitted --></a></li>
+    <li><a href="#прочие-обозначения">Прочие обозначения</a></li>
   </ol>
 </nav></div>
       </div><div class="content" id="content"><p>Всё про нотацию Big O на примерах базовых коллекций в Python</p>
@@ -261,8 +261,8 @@
 </ul>
 </li>
 </ul>
-<h3 id="centerграфик-сложностей-алгоритмовcenter" class="heading-element"><span><!-- raw HTML omitted -->График сложностей алгоритмов<!-- raw HTML omitted --></span>
-  <a href="#center%d0%b3%d1%80%d0%b0%d1%84%d0%b8%d0%ba-%d1%81%d0%bb%d0%be%d0%b6%d0%bd%d0%be%d1%81%d1%82%d0%b5%d0%b9-%d0%b0%d0%bb%d0%b3%d0%be%d1%80%d0%b8%d1%82%d0%bc%d0%be%d0%b2center" class="heading-mark">
+<h3 id="график-сложностей-алгоритмов" class="heading-element"><span>График сложностей алгоритмов</span>
+  <a href="#%d0%b3%d1%80%d0%b0%d1%84%d0%b8%d0%ba-%d1%81%d0%bb%d0%be%d0%b6%d0%bd%d0%be%d1%81%d1%82%d0%b5%d0%b9-%d0%b0%d0%bb%d0%b3%d0%be%d1%80%d0%b8%d1%82%d0%bc%d0%be%d0%b2" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h3><p><img loading="lazy" src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/973/455/cf3/973455cf3bb354f49113562838372900.jpg" alt="https://habrastorage.org/r/w1560/getpro/habr/upload_files/973/455/cf3/973455cf3bb354f49113562838372900.jpg" srcset="https://habrastorage.org/r/w1560/getpro/habr/upload_files/973/455/cf3/973455cf3bb354f49113562838372900.jpg?size=small, https://habrastorage.org/r/w1560/getpro/habr/upload_files/973/455/cf3/973455cf3bb354f49113562838372900.jpg?size=medium 1.5x, https://habrastorage.org/r/w1560/getpro/habr/upload_files/973/455/cf3/973455cf3bb354f49113562838372900.jpg?size=large 2x" data-title="https://habrastorage.org/r/w1560/getpro/habr/upload_files/973/455/cf3/973455cf3bb354f49113562838372900.jpg" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
@@ -275,8 +275,8 @@
 <p>Например, при оценке 5n^2 + 3n + 2 можно откинуть 5, 3n, 2. В результате мы получим <code>O(n^2)</code>.<br>
 Или при оценке n^2 + n + log(n) оставляем самую значимую часть (перемененную с наибольшей степенью) и получаем тот же<code>O(n^2)</code>.</p>
 <hr>
-<h2 id="centerсложность-операций-в-pythoncenter" class="heading-element"><span><!-- raw HTML omitted -->Сложность операций в Python<!-- raw HTML omitted --></span>
-  <a href="#center%d1%81%d0%bb%d0%be%d0%b6%d0%bd%d0%be%d1%81%d1%82%d1%8c-%d0%be%d0%bf%d0%b5%d1%80%d0%b0%d1%86%d0%b8%d0%b9-%d0%b2-pythoncenter" class="heading-mark">
+<h2 id="сложность-операций-в-python" class="heading-element"><span>Сложность операций в Python</span>
+  <a href="#%d1%81%d0%bb%d0%be%d0%b6%d0%bd%d0%be%d1%81%d1%82%d1%8c-%d0%be%d0%bf%d0%b5%d1%80%d0%b0%d1%86%d0%b8%d0%b9-%d0%b2-python" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><p>Рассмотрим некоторые операции, которые часто используют для базовых структур в языке программирования Python.
@@ -377,7 +377,7 @@ n — размер структуры данных</p>
           <td style="text-align: left">Удаление элемента через <code>del</code></td>
           <td style="text-align: left"><code>del l[i]</code></td>
           <td style="text-align: left">O(n)</td>
-          <td style="text-align: left">Перебор до совпадения индексов, <!-- raw HTML omitted -->а значит зависит от <code>i</code></td>
+          <td style="text-align: left">Перебор до совпадения индексов, <br>а значит зависит от <code>i</code></td>
       </tr>
       <tr>
           <td style="text-align: left">Удаление элемента через <code>remove</code></td>
@@ -576,7 +576,7 @@ n — размер структуры данных</p>
           <td></td>
       </tr>
       <tr>
-          <td style="text-align: left">Добавление элемента/<!-- raw HTML omitted -->Изменение значения</td>
+          <td style="text-align: left">Добавление элемента/<br>Изменение значения</td>
           <td style="text-align: left"><code>d[key] = val</code></td>
           <td style="text-align: left">O(1)</td>
           <td></td>
@@ -638,8 +638,8 @@ n — размер структуры данных</p>
   </tbody>
 </table>
 <hr>
-<h2 id="centerдругие-обозначенияcenter" class="heading-element"><span><!-- raw HTML omitted -->Другие обозначения<!-- raw HTML omitted --></span>
-  <a href="#center%d0%b4%d1%80%d1%83%d0%b3%d0%b8%d0%b5-%d0%be%d0%b1%d0%be%d0%b7%d0%bd%d0%b0%d1%87%d0%b5%d0%bd%d0%b8%d1%8fcenter" class="heading-mark">
+<h2 id="прочие-обозначения" class="heading-element"><span>Прочие обозначения</span>
+  <a href="#%d0%bf%d1%80%d0%be%d1%87%d0%b8%d0%b5-%d0%be%d0%b1%d0%be%d0%b7%d0%bd%d0%b0%d1%87%d0%b5%d0%bd%d0%b8%d1%8f" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><p>Кроме обозначения &ldquo;Big O&rdquo;, существуют другие обозначения для оценки сложности алгоритмов:</p>
@@ -673,7 +673,12 @@ n — размер структуры данных</p>
     </section>
   </div><div class="post-nav"><a href="/notes/memory_python/" class="post-nav-item" rel="next" title="Устройство памяти в Python">Устройство памяти в Python<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
-</article>
+<div class="post-reward">
+    <div class="comment">Поддержать автора</div>
+    <input type="checkbox" class="reward-input" name="reward" id="fi-reward" hidden />
+    <label class="reward-button" for="fi-reward"><i class="fa-solid fa-qrcode fa-fw" aria-hidden="true"></i></label>
+    <div class="reward-ways" data-mode="fixed"></div>
+  </div></article>
 
   <aside class="toc" id="toc-auto" aria-label="Содержание"><h2 class="toc-title">Содержание&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
       <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
