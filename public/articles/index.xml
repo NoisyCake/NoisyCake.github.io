@@ -8,14 +8,7 @@
     <language>ru</language>
     <managingEditor>darkgxd@vk.com (NoisyCake)</managingEditor>
     <webMaster>darkgxd@vk.com (NoisyCake)</webMaster>
-    <lastBuildDate>Wed, 13 Nov 2024 16:50:57 +0000</lastBuildDate>
+    <lastBuildDate></lastBuildDate>
     <atom:link href="http://localhost:1313/articles/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Анонимность в сети</title>
-      <link>http://localhost:1313/articles/anonymity/</link>
-      <pubDate>Wed, 13 Nov 2024 16:50:57 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
-      <guid>http://localhost:1313/articles/anonymity/</guid>
-      <description>&lt;p&gt;Дисклеймер: Материл носит исключительно информационный характер. Автор не призывает к каким-либо действиям.&lt;/p&gt;&#xA;&lt;p&gt;В этой статье разберём:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Как делать анонимные запросы&lt;/li&gt;&#xA;&lt;li&gt;Как общаться безлично&lt;/li&gt;&#xA;&lt;li&gt;Как поставить безопасную ОС на свой пк&lt;/li&gt;&#xA;&lt;li&gt;Как оплачивать товары/услуги, не оставляя о себе информации&lt;/li&gt;&#xA;&lt;li&gt;Человеческие ошибки, деанонимизирующие пользователя&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
-    </item>
   </channel>
 </rss>
