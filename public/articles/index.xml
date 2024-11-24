@@ -8,7 +8,14 @@
     <language>ru</language>
     <managingEditor>darkgxd@vk.com (NoisyCake)</managingEditor>
     <webMaster>darkgxd@vk.com (NoisyCake)</webMaster>
-    <lastBuildDate></lastBuildDate>
+    <lastBuildDate>Wed, 13 Nov 2024 16:50:57 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/articles/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Анонимность в сети. Часть I</title>
+      <link>http://localhost:1313/articles/anonymity/</link>
+      <pubDate>Wed, 13 Nov 2024 16:50:57 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/articles/anonymity/</guid>
+      <description>&lt;p&gt;Дисклеймер: Материл носит исключительно информационный характер. Автор не призывает к каким-либо действиям.&lt;/p&gt;&#xA;&lt;p&gt;В этой статье разберём способы анонимизации пользователя, то есть подмены IP-адреса и скрытия трафика при выходе в интернет. Уверен, большинство посетителей и-так знают о Proxy/VPN/Tor, но если хотите поподробнее ознакомиться с каждым из них, то добро пожаловать. В ином случае ждите второй части статьи, где мы поговорим о способах анонимного общения, покупок и плат за услуги, а также узнаем, как установить лучшую (субъективно) ОС для анонимизации.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

@@ -213,7 +213,7 @@ theme = 'FixIt'
       paginate = 6
 
   [params.social]
-    Telegram = 'noisy_cake'
+    Telegram = 'noisycake'
     VK = 'darkgxd'
     RSS = false
 
@@ -262,10 +262,10 @@ theme = 'FixIt'
       enable = true
       animation = false
       position = 'after'
-      comment = 'Поддержать автора'
+      comment = 'На печеньки к чаю'
       mode = 'fixed'
       [params.page.reward.ways]
-        sbp = ''
+        CloudTips = '/img/CloudTips.png'
 
     [params.page.share]
       enable = true
