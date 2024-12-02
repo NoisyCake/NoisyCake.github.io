@@ -8,12 +8,12 @@
     <language>ru</language>
     <managingEditor>darkgxd@vk.com (NoisyCake)</managingEditor>
     <webMaster>darkgxd@vk.com (NoisyCake)</webMaster>
-    <lastBuildDate>Sat, 02 Nov 2024 01:50:12 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Dec 2024 01:50:12 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/tor/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Анонимность в сети. Часть I</title>
       <link>http://localhost:1313/articles/anonymity/</link>
-      <pubDate>Sat, 02 Nov 2024 01:50:12 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <pubDate>Mon, 02 Dec 2024 01:50:12 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
       <guid>http://localhost:1313/articles/anonymity/</guid>
       <description>&lt;center&gt;&lt;a class=&#34;lightgallery&#34; href=&#34;http://localhost:1313/articles/anonymity/images/preview.png?size=large&#34; data-thumbnail=&#34;/articles/anonymity/images/preview.png?size=small&#34; data-sub-html=&#34;&lt;h2&gt;/articles/anonymity/images/preview.png&lt;/h2&gt;&#34;&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/articles/anonymity/images/preview.png&#34; alt=&#34;/articles/anonymity/images/preview.png&#34; srcset=&#34;http://localhost:1313/articles/anonymity/images/preview.png?size=small, http://localhost:1313/articles/anonymity/images/preview.png?size=medium 1.5x, http://localhost:1313/articles/anonymity/images/preview.png?size=large 2x&#34; data-title=&#34;/articles/anonymity/images/preview.png&#34; style=&#34;--width: 1890px;--aspect-ratio: 1890 / 1080;background: url(/images/loading.min.svg) no-repeat center;&#34; onload=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}this.dataset.lazyloaded=&#39;&#39;;&#34; onerror=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}&#34;/&gt;&lt;/a&gt;&lt;/center&gt;&#xD;&#xA;&lt;p&gt;Дисклеймер: Материал носит исключительно информационный характер. Автор не призывает к каким-либо действиям.&lt;/p&gt;&#xA;&lt;p&gt;В этой статье разберём способы анонимизации пользователя. Также поговорим о доступе к &amp;lt;здесь слово с корнем &amp;ldquo;блок&amp;rdquo;&amp;gt; в РФ ресурсам. Уверен, большинство посетителей и так знают о Proxy/VPN/Tor, но если хотите поподробнее ознакомиться с каждым из них, то добро пожаловать. В ином случае ждите второй части статьи, где мы поговорим о способах анонимного общения, неотслеживаемых платежах, а также узнаем, как установить лучшую (субъективно) ОС для анонимизации.&lt;/p&gt;</description>
     </item>
