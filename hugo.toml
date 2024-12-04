@@ -80,7 +80,8 @@ theme = 'FixIt'
 
 
 [params]
-  keywords = ["NoisyCake", "HFK"]
+  description = "Hungry for Knowledge – онлайн-ресурс, содержащий конспекты, статьи и проекты автора, охватывающие спектр тем, связанных с программированием и не только."
+  keywords = ["NoisyCake", "HFK", "анонимность", "блог"]
   defaultTheme = 'dark'
   dateFormat = '02-01-2006'
   enablePWA = true
