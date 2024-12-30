@@ -1,6 +1,6 @@
 ---
 title: "Свой VPN для самых маленьких | 3X-UI + VLESS"
-date: 2024-12-05 13:52:02
+date: 2024-12-30 23:00:02
 type: posts
 tags:
   - vpn
