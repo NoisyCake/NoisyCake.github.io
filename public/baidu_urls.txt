@@ -1,3 +1,4 @@
+http://localhost:1313/articles/vpn_server/
 http://localhost:1313/articles/anonymity/
 http://localhost:1313/about/
 http://localhost:1313/notes/basics_of_statistics/
