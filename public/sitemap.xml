@@ -2,31 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2024-12-05T13:52:02+00:00</lastmod>
+    <lastmod>2024-12-30T20:00:02+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2024-12-05T13:52:02+00:00</lastmod>
+    <lastmod>2024-12-30T20:00:02+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://localhost:1313/tags/vpn/</loc>
-    <lastmod>2024-12-05T13:52:02+00:00</lastmod>
+    <lastmod>2024-12-30T20:00:02+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/articles/hiddify_manager/</loc>
+    <lastmod>2024-12-30T20:00:02+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://localhost:1313/articles/vpn_server/</loc>
-    <lastmod>2024-12-05T13:52:02+00:00</lastmod>
+    <lastmod>2024-12-30T20:00:02+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://localhost:1313/articles/</loc>
-    <lastmod>2024-12-05T13:52:02+00:00</lastmod>
+    <lastmod>2024-12-30T20:00:02+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

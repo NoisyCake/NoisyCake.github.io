@@ -14,7 +14,7 @@
 В этой статье разберём способы анонимизации пользователя. Также поговорим о доступе к &lt;здесь слово с корнем “блок”&gt; в РФ ресурсам. Уверен, большинство посетителей и так знают о Proxy/VPN/Tor, но если хотите поподробнее ознакомиться с каждым из них, то добро пожаловать. В ином случае ждите второй части статьи, где мы поговорим о способах анонимного общения, неотслеживаемых платежах, а также узнаем, как установить лучшую (субъективно) ОС для анонимизации.">
   <meta itemprop="datePublished" content="2024-12-02T01:50:12+00:00">
   <meta itemprop="dateModified" content="2024-12-02T01:50:12+00:00">
-  <meta itemprop="wordCount" content="4255">
+  <meta itemprop="wordCount" content="4247">
   <meta itemprop="keywords" content="Anonymity,Tor,Vpn"><meta property="og:url" content="http://localhost:1313/articles/anonymity/">
   <meta property="og:site_name" content="HFK">
   <meta property="og:title" content="Анонимность в сети. Часть I">
@@ -45,7 +45,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/articles\/anonymity\/"
-    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "anonymity, tor, vpn","wordcount":  4255 ,
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "anonymity, tor, vpn","wordcount":  4247 ,
     "url": "http:\/\/localhost:1313\/articles\/anonymity\/","datePublished": "2024-12-02T01:50:12+00:00","dateModified": "2024-12-02T01:50:12+00:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -141,7 +141,7 @@
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Анонимность в сети. Часть I</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisy_cake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-    NoisyCake</a></span></div><div class="post-meta-line"><span title="Опубликовано 2024-12-02 01:50:12"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="02-12-2024">02-12-2024</time></span>&nbsp;<span title="4255 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 4300 слов</span>&nbsp;</div>
+    NoisyCake</a></span></div><div class="post-meta-line"><span title="Опубликовано 2024-12-02 01:50:12"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="02-12-2024">02-12-2024</time></span>&nbsp;<span title="4247 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 4300 слов</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>Содержание</span>
@@ -201,7 +201,7 @@
 <li>Shadowsocks — частично рабочий, особенно хорош при использовании через клиент <a href="https://getoutline.org/ru/"target="_blank" rel="external nofollow noopener noreferrer">Outline<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a>, но его трафик уникален, поэтому также довольно просто детектируется. Недавно был отличным протоколом для обхода &lt;слово с корнем &ldquo;блок&rdquo;&gt;, но сегодня уже не рекомендуется его использовать.</li>
 <li>VLESS — вкупе с XTLS-Reality является наиболее актуальным решением на сегодняшний день, поскольку умеет маскировать трафик под другой <u>выбранный</u> сайт. Пока РКН блокировать его не научился.</li>
 </ul>
-<p>В статье <a href="">по настройке своего VPN</a> (выйдет в ближайшие дни) мы разберём, как запустить собственный сервер с протоколом VLESS.</p>
+<p>В статье <a href="/articles/vpn_server/">по настройке своего VPN</a> мы разберём, как запустить собственный сервер с протоколом VLESS.</p>
 <div class="details admonition warning open">
   <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-exclamation-triangle" aria-hidden="true"></i>Предупреждение<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
   <div class="details-content">
@@ -275,7 +275,7 @@
   </a>
 </h2><p>Кратко обсудим тему собственного VPN&rsquo;а. Данный способ посложнее предыдущих и требует базовых навыков администрирования.</p>
 <p>Существуют такие штуки как VPS (Virtual Private Server) и VDS (Virtual Dedicated Server) — по сути синонимичные вещи, а именно <strong>виртуальные машины</strong> — эмулируемые сервера, работающие на физической машине. Собственно, когда вы покупаете VPS/VDS, вы получаете сервер, которым можете управлять удалённо.</p>
-<p>На форумах есть множество гайдов по поднятию своего VPN-сервера, но я сделал и <a href="">свой</a> (выйдет в ближайшие дни), в котором рассказано об установке VPN с помощью панели 3X-UI и протокола VLESS. Всё описано пошагово, доступно, прописаны все команды, в общем справиться должен каждый.</p>
+<p>На форумах есть множество гайдов по поднятию своего VPN-сервера, но я сделал и <a href="/articles/vpn_server/">свой</a>, в котором рассказано об установке VPN с помощью панели 3X-UI и протокола VLESS. Всё описано пошагово, доступно, прописаны все команды, в общем справиться должен каждый.</p>
 <blockquote>
 <p>- Какой профит-то от своего VPN? Лучше уж не париться и купить подписку на готовое решение.<br>
 - Когда вы подключаетесь к VPN-серверу через провайдера, параллельно с вами с этого же IP работают и другие люди (сотни, тысячи&hellip;), поэтому из-за огромного количества запросов сайты начинают относиться к адресу с недоверием. Следовательно главный плюс: отсутствие бесконечных капч, проверок и блокировок со стороны веб-сервисов. Более того, РКН постоянно блокирует существующие бесплатные (и даже платные) сервера или занижает их пропускную способность, поскольку их адреса находятся в общем доступе, в то время как ваш личный VPN-сервер будет детектироваться куда сложнее.<br>
