@@ -2,6 +2,12 @@
 
 
 
+## 2025
+
+
+
+- 01-03 [Свой VPN v2.0 | 3x-ui](http://localhost:1313/articles/vpn_server2/ "2025-01-03 20:00:02")
+
 ## 2024
 
 
