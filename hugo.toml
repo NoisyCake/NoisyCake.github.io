@@ -202,7 +202,7 @@ theme = 'FixIt'
     paginate = 10
     [params.home.profile]
       enable = true
-      avatarURL = "/images/avatar.jpg"
+      avatarURL = "/img/avatar.jpg"
       avatarMenu = "about"
       title = "Hungry for Knowledge"
       subtitle = "Сайт-проект-блог. Тематика: в основном IT"
