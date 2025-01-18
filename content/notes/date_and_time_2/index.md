@@ -12,7 +12,6 @@ categories:
   - python
 collections:
   - Date&Time
-collections_weight: 2
 draft: false
 ---
 
