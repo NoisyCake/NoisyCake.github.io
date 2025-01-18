@@ -155,6 +155,6 @@ n — размер структуры данных
 
 ---
 
-> Автор: [NoisyCake](https://t.me/noisy_cake)  
+> Автор: [NoisyCake](https://t.me/noisycake)  
 > URL: http://localhost:1313/notes/big_o/  
 

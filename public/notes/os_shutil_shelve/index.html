@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="ru">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Модули os, shutil и shelve | HFK</title><meta name="author" content="NoisyCake">
+<meta name="description" content="
+Конспект посвящён модулям os и shutil, которые могут быть полезны для работы с операционной системой, управлением каталогами и файлами, а также модулю shelve, позволяющему сериализовывать объекты Python
+"><meta name="keywords" content='python, modules, os, shutil, shelve'>
+  <meta itemprop="name" content="Модули os, shutil и shelve">
+  <meta itemprop="description" content="Конспект посвящён модулям os и shutil, которые могут быть полезны для работы с операционной системой, управлением каталогами и файлами, а также модулю shelve, позволяющему сериализовывать объекты Python">
+  <meta itemprop="datePublished" content="2024-07-12T00:00:01+00:00">
+  <meta itemprop="dateModified" content="2024-07-12T00:00:01+00:00">
+  <meta itemprop="wordCount" content="1618">
+  <meta itemprop="image" content="http://localhost:1313/notes/os_shutil_shelve/feature.png">
+  <meta itemprop="keywords" content="Python,Modules,Os,Shutil,Shelve"><meta property="og:url" content="http://localhost:1313/notes/os_shutil_shelve/">
+  <meta property="og:site_name" content="HFK">
+  <meta property="og:title" content="Модули os, shutil и shelve">
+  <meta property="og:description" content="Конспект посвящён модулям os и shutil, которые могут быть полезны для работы с операционной системой, управлением каталогами и файлами, а также модулю shelve, позволяющему сериализовывать объекты Python">
+  <meta property="og:locale" content="ru">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2024-07-12T00:00:01+00:00">
+    <meta property="article:modified_time" content="2024-07-12T00:00:01+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Modules">
+    <meta property="article:tag" content="Os">
+    <meta property="article:tag" content="Shutil">
+    <meta property="article:tag" content="Shelve">
+    <meta property="og:image" content="http://localhost:1313/notes/os_shutil_shelve/feature.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/notes/os_shutil_shelve/feature.png">
+  <meta name="twitter:title" content="Модули os, shutil и shelve">
+  <meta name="twitter:description" content="Конспект посвящён модулям os и shutil, которые могут быть полезны для работы с операционной системой, управлением каталогами и файлами, а также модулю shelve, позволяющему сериализовывать объекты Python">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/os_shutil_shelve/" title="Модули os, shutil и shelve | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/notes/zip_pkl/" title="Работа с zip и pkl файлами в Python" /><link rel="next" type="text/html" href="http://localhost:1313/notes/deep_bool_oper_python/" title="Углубление в логические операторы Python" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/os_shutil_shelve/index.md" title="Модули os, shutil и shelve | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Модули os, shutil и shelve",
+    "inLanguage": "ru",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/notes\/os_shutil_shelve\/"
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "python, modules, os, shutil, shelve","wordcount":  1618 ,
+    "url": "http:\/\/localhost:1313\/notes\/os_shutil_shelve\/","datePublished": "2024-07-12T00:00:01+00:00","dateModified": "2024-07-12T00:00:01+00:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "NoisyCake"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="normal"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item has-children">
+              <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item">
+              <a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Поиск">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Очистить">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="Сменить Тему">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Поиск">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Очистить">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Отменить
+            </a>
+          </li><li class="menu-item"><span class="nested-item">
+                  <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item"><a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item"><a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="Сменить Тему"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/notes/" title="Конспекты">Конспекты</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Модули os, shutil и shelve</li>
+    </ol>
+  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=""></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Модули os, shutil и shelve</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisycake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+    NoisyCake</a></span><span class="post-included-in">&nbsp;включен в <a href="/categories/python/" class="post-category" title="Категория - Python"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Python</a></span></div><div class="post-meta-line"><span title="Опубликовано 2024-07-12 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="12-07-2024">12-07-2024</time></span>&nbsp;<span title="1618 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 1700 слов</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>Содержание</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ol>
+    <li><a href="#модуль-os">Модуль os</a>
+      <ol>
+        <li><a href="#подмодуль-ospath">Подмодуль os.path</a></li>
+      </ol>
+    </li>
+    <li><a href="#модуль-shutil">Модуль shutil</a></li>
+    <li><a href="#модуль-shelve">Модуль shelve</a>
+      <ol>
+        <li><a href="#функция-shelveopen">Функция <code>shelve.open()</code></a></li>
+      </ol>
+    </li>
+  </ol>
+</nav></div>
+      </div><div class="content" id="content"><p><img loading="lazy" src="/notes/os_shutil_shelve/feature.png" alt="/notes/os_shutil_shelve/feature.png" srcset="/notes/os_shutil_shelve/feature.png?size=small, /notes/os_shutil_shelve/feature.png?size=medium 1.5x, /notes/os_shutil_shelve/feature.png?size=large 2x" data-title="/notes/os_shutil_shelve/feature.png" style="--width: 1200px;--aspect-ratio: 1200 / 600;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>Конспект посвящён модулям <code>os</code> и <code>shutil</code>, которые могут быть полезны для работы с операционной системой, управлением каталогами и файлами, а также модулю <code>shelve</code>, позволяющему сериализовывать объекты Python</p>
+<h2 id="модуль-os" class="heading-element"><span>Модуль os</span>
+  <a href="#%d0%bc%d0%be%d0%b4%d1%83%d0%bb%d1%8c-os" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Для использования: <code>import os</code></p>
+<p>Модуль <code>os</code> позволяет взаимодействовать с операционной системой. Например, мы можем перемещаться по папкам, получить информацию о файле, посмотреть и изменить переменные среды (окружения), переместить файлы и так далее. Посмотрим на некоторые функции и объекты, которые мы можем использовать.</p>
+<ul>
+<li>
+<p><code>os.getcwd()</code> возвращает рабочий каталог (тот, в котором пользователь сейчас находится).</p>
+</li>
+<li>
+<p><code>os.chdir(path)</code> перемещает пользователя в директорию, которая была передана в функцию.</p>
+</li>
+<li>
+<p><code>os.listdir(path)</code> возвращает случайно упорядоченный список файлов и каталогов, которые находятся в текущем каталоге (если ничего не было передано), либо список объектов в директории по переданному пути.</p>
+</li>
+<li>
+<p><code>os.scandir(path)</code> возвращает итератор объектов <code>os.DirEntry</code>, представленные в виде записей каталога <code>path</code>.<br>
+<code>os.DirEntry</code> — класс, объекты которого являются файлами или каталогами. Рассмотрим некоторые атрибуты и методы.</p>
+<ul>
+<li><code>obj.name</code> — имя файла/каталога;</li>
+<li><code>obj.path</code> — путь к файлу/каталогу, который будет начинаться с папки, переданной в пути <code>os.scandir()</code> первой;</li>
+<li><code>obj.is_dir()</code> возвращает <code>True</code>, если <code>obj</code> является папкой, иначе — <code>False</code>;</li>
+<li><code>obj.is_file()</code> возвращает <code>True</code>, если <code>obj</code> является файлом, иначе — <code>False</code>;</li>
+<li><code>obj.stat()</code> возвращает объект <code>os.stat_result</code> (см. ниже) для <code>obj</code>, как если бы была вызвана <code>os.stat(path)</code> (см. ниже), где <code>obj</code> является конечным в <code>path</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>os.mkdir(path)</code> создаёт одну(!) папку, путь которой был передан в функцию.</p>
+</li>
+</ul>
+<div class="details admonition danger open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-bolt" aria-hidden="true"></i>Опасность<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">При попытке создать папку, которая уже присутствует в текущем каталоге, возвращает ошибку (исключение) <code>FileExistsError</code>, а если путь не найден, ошибку (исключение) <code>FileNotFoundError</code>. В дальнейшем упоминания об этих ошибках будут зачастую опускаться, где это совсем очевидно</div>
+  </div>
+</div>
+<ul>
+<li>
+<p><code>os.makedirs(path, exist_ok=False)</code> рекурсивно создаёт папки, путь которых был передан в качестве аргумента, то есть в отличии от <code>mkdir()</code>, функция <code>makedirs()</code> создаёт все папки промежуточного уровня, которые должны содержать конечный каталог. Параметр <code>exist_ok</code> имеет значение <code>False</code> по умолчанию, при котором в случае наличия одноимённой папки в рабочей директории функция вернёт ошибку <code>FileExistsError</code>, но если задать <code>exist_ok=True</code>, функция проигнорирует создание папки и не вернёт ошибку.</p>
+</li>
+<li>
+<p><code>os.rm_dir(path)</code> удаляет папку по переданному пути, если она пуста. В ином случае вернёт ошибку, зависящую от ОС , внутри которой ведётся работа (<code>OSError</code>).</p>
+</li>
+<li>
+<p><code>os.removedirs(path)</code> рекурсивно удаляет каталоги, начиная с последнего указанного в пути. Если какая-то из папок в пути окажется непустой, вызывает ошибку <code>OSError</code>, которая <strong>игнорируется</strong>.</p>
+</li>
+<li>
+<p><code>os.remove(path)</code> удаляет файл в пути <code>path</code>. Если передана папка, или файл не существует, возвращает соответствующие ошибки.</p>
+</li>
+<li>
+<p><code>os.rename(src, dst)</code> переименовывает файл или пустую папку с <code>src</code> на <code>dst</code> (могут быть представлены как пути), причём если указать файлу другой путь, он будет перемещён в него.</p>
+</li>
+<li>
+<p><code>os.replace(src, dst)</code> по функционалу аналогичен <code>os.rename()</code>, но для поддержки кроссплатформенности рекомендуется использовать именно <code>os.replace()</code>.</p>
+</li>
+<li>
+<p><code>os.chown(path, uid, gid)</code> меняет идентификатор владельца объекта по пути <code>path</code> на числовые <code>uid</code>, <code>gid</code>. Чтобы изменить владельца по имени пользователя/группы, обратитесь к функции <code>shutil.chown()</code> модуля <a href="#center%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8C-shutilcenter">shutil</a></p>
+</li>
+<li>
+<p><code>os.stat(path)</code> возвращает объект <code>stat_result</code>, который содержит разного рода информацию о файле или папке. Рассмотрим атрибуты этого объекта:</p>
+<ul>
+<li><code>st_mode</code>: Режим файла: тип файла и биты режима файла (разрешения).</li>
+<li><code>st_ino</code>: Зависит от платформы, но если значение не равно нулю, однозначно идентифицирует файл по заданному значению <code>st_dev</code>. <code>inode</code> номер для Unix; индекс файла для Windows.</li>
+<li><code>st_dev</code>: Идентификатор устройства, в котором находится файл.</li>
+<li><code>st_nlink</code>: Количество жёстких ссылок.</li>
+<li><code>st_uid</code>: Идентификатор пользователя владельца файла.</li>
+<li><code>st_gid</code>: Идентификатор группы пользователей владельцев файла.</li>
+<li><code>st_size</code>: Размер файла в байтах, если это обычный файл или символьная ссылка. Размер символьной ссылки - это длина пути, который она содержит, без завершающего нулевого байта.</li>
+<li><code>st_atime</code>: Время последнего доступа в секундах.</li>
+<li><code>st_mtime</code>: Время последней модификации содержимого в секундах.</li>
+<li><code>st_ctime</code>: Время последнего изменения метаданных в секундах.</li>
+<li><code>st_birthtime</code>: Время создания файла. Атрибут доступен не всегда и может вызвать ошибку (исключение) <code>AttributeError</code>.</li>
+<li>и другие.</li>
+</ul>
+</li>
+<li>
+<p><code>os.walk(top, topdown=True, onerror=False)</code> генерирует дерево каталогов, начиная с <code>top</code> (либо с конца до <code>top</code>, если <code>topdown=False</code>). Для каждого каталога в дереве возвращает кортеж <code>(dirpath, dirnames, filenames)</code>, где <code>dirpath</code> — путь к каталогу, <code>dirnames</code> — список имён подкаталогов в <code>dirpath</code> и <code>filenames</code> — список имён файлов в <code>dirpath</code>.</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">dirpath</span><span class="p">,</span> <span class="n">dirnames</span><span class="p">,</span> <span class="n">filenames</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s2">&#34;Test_walk&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Current path:&#34;</span><span class="p">,</span> <span class="n">dirpath</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Directories:&#34;</span><span class="p">,</span> <span class="n">dirnames</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Files:&#34;</span><span class="p">,</span> <span class="n">filenames</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">()</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">Current path: Test_walk
+</span></span><span class="line"><span class="cl">Directories: [&#39;P&#39;, &#39;R&#39;]
+</span></span><span class="line"><span class="cl">Files: [&#39;Risunok.bmp&#39;]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Current path: Test_walk\P
+</span></span><span class="line"><span class="cl">Directories: []
+</span></span><span class="line"><span class="cl">Files: [&#39;kek.txt&#39;, &#39;L.txt&#39;]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Current path: Test_walk\R
+</span></span><span class="line"><span class="cl">Directories: []
+</span></span><span class="line"><span class="cl">Files: []</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p><code>os.system(command)</code> выполняет переданную команду <code>command</code>, будто она написана в терминале. Таким образом можно создавать файлы папки, перемещаться по каталогам и т.д. Если команда сгенерирует какой-либо вывод, он будет перенаправлен в поток вывода интерпретатора. В Windows возвращаемое значение равно значению, возвращаемому системной оболочкой после выполнения команды (задаётся переменной среды <code>COMSPEC</code>: обычно cmd.exe)</p>
+</li>
+<li>
+<p><code>os.environ</code> — объект, подобный словарю (<a href="https://docs.python.org/3/glossary.html#term-mapping"target="_blank" rel="external nofollow noopener noreferrer">mapping object<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a>), содержащий переменные среды окружения системы.</p>
+</li>
+<li>
+<p><code>os.sep</code> — разделитель пути в операционной системе. <code>'/'</code> для POSIX и <code>'\\'</code> для Windows</p>
+</li>
+</ul>
+<h3 id="подмодуль-ospath" class="heading-element"><span>Подмодуль os.path</span>
+  <a href="#%d0%bf%d0%be%d0%b4%d0%bc%d0%be%d0%b4%d1%83%d0%bb%d1%8c-ospath" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li>
+<p><code>os.path.split(path)</code> разбивает переданный путь на парный кортеж <code>(head, tail)</code>, где <code>tail</code> — последний компонент пути (всегда без косой черты), а <code>head</code> — всё остальное. При этом: если <code>path</code> завершился косой чертой, <code>tail</code> будет пуст; если в <code>path</code> нет ни одной косой черты, <code>head</code> будет пуст; если <code>path</code> пуст, оба элемента кортежа будут пустыми.</p>
+</li>
+<li>
+<p><code>os.path.splitext(path)</code> разбивает переданный путь на парный кортеж <code>(root, ext)</code>, где <code>root + ext = path</code> и <code>ext</code> — расширение файла с точкой, а <code>root</code> — всё остальное.</p>
+</li>
+<li>
+<p><code>os.path.dirname(path)</code> возвращает первый элемент кортежа от функции <code>os.path.split()</code>, то есть путь до конечного файла/каталога не включая.</p>
+</li>
+<li>
+<p><code>os.path.basename(path)</code> возвращает второй элемент кортежа от функции <code>os.path.split()</code>, то есть имя конечного файла/каталога.</p>
+</li>
+<li>
+<p><code>os.path.join(path, *paths)</code> объединяет один или несколько сегментов пути. Возвращает строку, состоящую из объединения <code>path</code> и всех элементов <code>*paths</code>, которые разделяются <code>os.sep</code>, кроме последнего (если тот не пуст).</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os.path</span>
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">,</span> <span class="s1">&#39;User&#39;</span><span class="p">,</span> <span class="s1">&#39;Desktop&#39;</span><span class="p">,</span> <span class="s1">&#39;file.txt&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &#39;home/User/Desktop/file.txt&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;/home&#39;</span><span class="p">,</span> <span class="s1">&#39;User/Desktop&#39;</span><span class="p">,</span> <span class="s1">&#39;file.txt&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &#39;/home/User/Desktop/file.txt&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;/home&#39;</span><span class="p">,</span> <span class="s1">&#39;/User/Desktop&#39;</span><span class="p">,</span> <span class="s1">&#39;file.txt&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &#39;/User/Desktop/file.txt&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;User/Desktop&#39;</span><span class="p">,</span> <span class="s1">&#39;/home&#39;</span><span class="p">,</span> <span class="s1">&#39;file.txt&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &#39;/home/file.txt&#39;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p><code>os.path.exists(path)</code> возвращает <code>True</code>, если <code>path</code> ссылается на существующий путь, иначе — <code>False</code>.</p>
+</li>
+<li>
+<p><code>os.path.isabs(path)</code> возвращает <code>True</code>, если путь является абсолютным, иначе — <code>False</code>. В случае отсутствия пути возвращает исключение <code>OSError</code>.</p>
+</li>
+<li>
+<p><code>os.path.isdir(path)</code> возвращает <code>True</code>, если путь существует и является каталогом, иначе — <code>False</code>.</p>
+</li>
+<li>
+<p><code>os.path.isfile(path)</code> возвращает <code>True</code>, если путь существует и является файлом, иначе — <code>False</code>.</p>
+</li>
+<li>
+<p><code>os.path.abspath(path)</code> возвращает абсолютный путь.</p>
+</li>
+</ul>
+<hr>
+<h2 id="модуль-shutil" class="heading-element"><span>Модуль shutil</span>
+  <a href="#%d0%bc%d0%be%d0%b4%d1%83%d0%bb%d1%8c-shutil" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Модуль <code>shutil</code> предлагает ряд высокоуровневых операций с файлами и коллекциями файлов. Например функции, которые поддерживают копирование и удаление файлов. Разберём основные возможности этого модуля.</p>
+<div class="details admonition warning open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-exclamation-triangle" aria-hidden="true"></i>Предупреждение<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Даже функции копирования файлов более высокого уровня (<code>shutil.copy()</code>, <code>shutil.copy2()</code>) не могут скопировать все метаданные файла. Например в Windows, владельцы файлов, списки контроля доступа и альтернативные потоки данных не копируются.</div>
+  </div>
+</div>
+<ul>
+<li>
+<p><code>shutil.copy(src, dst)</code> копирует файла <code>src</code> в файл или директорию <code>dst</code>, при этом оба аргумента передаются как пути.</p>
+</li>
+<li>
+<p><code>shutil.copy2(src, dst)</code> идентична функции <code>copy()</code>, за исключением того, что функция <code>copy2()</code> также пытается сохранить метаданные файла.</p>
+</li>
+<li>
+<p><code>shutil.copyfileobj(fsrc, fdst)</code> копирует содержимое файла <code>src</code> — <code>fsrc</code> (получается, например, при открытии файла с помощью <code>open()</code>) в объект файла <code>fdst</code>.</p>
+</li>
+<li>
+<p><code>shutil.ignore_patterns(*patterns)</code> создаёт функцию, которая может быть использована в качестве аргумента для параметра <code>ignore</code> функции <code>shutil.copytree()</code> (см. ниже). В результате файлы и каталоги, подходящие под (хотя бы) один из переданных шаблонов будут игнорироваться при копировании.</p>
+</li>
+<li>
+<p><code>shutil.copytree(src, dst, dirs_exist_ok=False, ignore=None)</code> рекурсивно копирует дерево каталогов из папки <code>src</code> в папку <code>dst</code> и возвращает <code>dst</code>.
+Если установить <code>dirs_exist_ok=True</code>, исключение вызвано НЕ БУДЕТ, если целевой каталог с именем <code>dst</code> уже существует.<br>
+Если задано значение <code>ignore</code>, то это должен быть вызываемый объект, который получит в качестве своих аргументов текущий каталог, посещаемый функцией <code>copytree()</code>, и список его содержимого, возвращаемый функцией <code>os.listdir()</code>, например функция, возвращаемая <code>shutil.ignore_patterns()</code> или самописная функция.</p>
+</li>
+<li>
+<p><code>shutil.rmtree(path)</code> удаляет дерево каталогов по переданному пути.</p>
+</li>
+<li>
+<p><code>shutil.copymode(src, dst)</code> копирует права доступа с файла по пути <code>src</code> в файл <code>dst</code>.</p>
+</li>
+<li>
+<p><code>shutil.copystat(src, dst)</code> копирует время последнего доступа, время последнего изменения и флаги(чтение, запись и т.д.) из <code>src</code> в <code>dst</code>.</p>
+</li>
+<li>
+<p><code>shutil.move(src, dst, copy_function=copy2)</code> рекурсивно перемещает файл или директорию <code>src</code> в директорию <code>dst</code> и возвращает <code>dst</code>. Если место назначения <code>dst</code> находится в текущей файловой системе, тогда неявно используется функция <code>os.rename()</code>. В противном случае <code>src</code> копируется в <code>dst</code> с помощью функции, переданной в аргумент <code>copy_function</code>, а затем удаляется.</p>
+</li>
+<li>
+<p><code>shutil.which(path)</code> возвращает абсолютный путь к исполняемому файлу, путь которых прописан в PATH (переменные среды)</p>
+</li>
+<li>
+<p><code>shutil.disk_usage(path)</code> возвращает статистику использования диска по указанному пути в виде именованного кортежа с атрибутами <code>total</code> — общий объём диска, <code>used</code> — используемый объём и <code>free</code> — свободное пространство в байтах.</p>
+</li>
+<li>
+<p><code>shutil.chown(path, user=None, group=None)</code> меняет владельца объекта по пути <code>path</code> на <code>user</code> и <code>group</code>. <code>user</code> может быть системным именем пользователя или uid; то же самое относится и к <code>group</code>. Требуется как минимум один аргумент.</p>
+</li>
+<li>
+<p><code>shutil.make_archive(name, format, root_dir)</code> создаёт архивный файл папки/файла <code>root_dir</code> с именем <code>name</code> (может быть указан как путь) в формате <code>format</code> и возвращает <code>name</code>.</p>
+</li>
+<li>
+<p><code>shutil.unpack_archive(filename, extract_dir)</code> распаковывает архив с именем <code>filename</code> в папку <code>extract_dir</code>.</p>
+</li>
+<li>
+<p><code>shutil.get_archive_formats()</code> возвращает список всех поддерживаемых форматов архивов.</p>
+</li>
+</ul>
+<hr>
+<h2 id="модуль-shelve" class="heading-element"><span>Модуль shelve</span>
+  <a href="#%d0%bc%d0%be%d0%b4%d1%83%d0%bb%d1%8c-shelve" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Модуль <code>shelve</code> сохраняет произвольные объекты Python в файл с определенным ключом (типа <code>str</code>), т.е. такие объекты, которые может обработать модуль <a href="https://noisycake.ru/notes/zip_pkl/#%d0%bc%d0%be%d0%b4%d1%83%d0%bb%d1%8c-pickle"target="_blank" rel="external nofollow noopener noreferrer">pickle<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a> (большинство экземпляров классов, рекурсивных типов данных и объектов, содержащих множество общих подобъектов). Затем по этому ключу может извлечь ранее сохраненный объект из файла. В отличии от <code>pickle</code>, <code>shelve</code> более удобен, когда требуется сериализовать множество объектов.</p>
+<h3 id="функция-shelveopen" class="heading-element"><span>Функция <code>shelve.open()</code></span>
+  <a href="#%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-shelveopen" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><code>shelve.open(filename, flag='c')</code> возвращает объект key-value хранилища, похожий на словарь (объект называется <code>shelf</code>). В <code>filename</code> передаётся имя открываемого/создаваемого файла, <code>flag</code> принимает одно из следующих значений:</p>
+<ul>
+<li><code>'c'</code> — файл открывается для чтения и записи. Если файл отсутствует, он создаётся;</li>
+<li><code>'r'</code> — файл открывается для чтения;</li>
+<li><code>'w'</code> — файл открывается для записи;</li>
+<li><code>'n'</code> — файл открывается для для записи. Если файл отсутствует, он создаётся. Если существует, перезаписывается.</li>
+</ul>
+<p>Объекты <code>shelf</code> поддерживают большинство методов и операций, поддерживаемых словарями (за исключением копирования, конструкторов и операторов | и |=). Запись/чтение данных <code>shelf</code> также происходит подобно записи/чтению данных словаря. Посмотрим пример:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">shelve</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="n">shelve</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">db</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">db</span><span class="p">[</span><span class="s1">&#39;func&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span>
+</span></span><span class="line"><span class="cl">    <span class="n">db</span><span class="p">[</span><span class="s1">&#39;not_string&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;this_is_not_string_LOL&#34;</span><span class="p">:</span> <span class="mi">80085</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;not_string&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: {&#39;this_is_not_string_LOL&#39;: 80085}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Программа создаёт три файла разных расширений: <code>dat</code>, <code>bak</code>, <code>dir</code>, в которых содержится одна и та же сериализованная протоколом <code>pickle</code> информация.</p>
+<div class="details admonition warning open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-exclamation-triangle" aria-hidden="true"></i>Предупреждение<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Не стоит открывать незнакомые <code>pkl</code> файлы и файлы, которые создаются <code>shelve</code>, поскольку они могут содержать самовыполняющийся код</div>
+  </div>
+</div></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="Oбновлена 2024-07-12 00:00:01">Oбновлена 12-07-2024&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="Поделиться в X" data-sharer="twitter" data-url="http://localhost:1313/notes/os_shutil_shelve/" data-title="Модули os, shutil и shelve" data-hashtags="python,modules,os,shutil,shelve"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/notes/os_shutil_shelve/" data-title="Модули os, shutil и shelve" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в VK" data-sharer="vk" data-url="http://localhost:1313/notes/os_shutil_shelve/" data-title="Модули os, shutil и shelve"><i class="fa-brands fa-vk fa-fw" aria-hidden="true"></i></a>
+  <a href="//mix.com/add?url=http%3a%2f%2flocalhost%3a1313%2fnotes%2fos_shutil_shelve%2f&amp;description=%d0%9c%d0%be%d0%b4%d1%83%d0%bb%d0%b8%20os%2c%20shutil%20%d0%b8%20shelve" target="_blank" title="Поделиться в Mix"><i class="fa-brands fa-mix fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/python/" class="post-tag" title="Тэги - Python">Python</a><a href="/tags/modules/" class="post-tag" title="Тэги - Modules">Modules</a><a href="/tags/os/" class="post-tag" title="Тэги - Os">Os</a><a href="/tags/shutil/" class="post-tag" title="Тэги - Shutil">Shutil</a><a href="/tags/shelve/" class="post-tag" title="Тэги - Shelve">Shelve</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">Назад</a></span>&nbsp;|&nbsp;<span><a href="/">Домой</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/notes/zip_pkl/" class="post-nav-item" rel="prev" title="Работа с zip и pkl файлами в Python"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Работа с zip и pkl файлами в Python</a><a href="/notes/deep_bool_oper_python/" class="post-nav-item" rel="next" title="Углубление в логические операторы Python">Углубление в логические операторы Python<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div class="post-reward">
+    <div class="comment">На печеньки к чаю</div>
+    <input type="checkbox" class="reward-input" name="reward" id="fi-reward" hidden />
+    <label class="reward-button" for="fi-reward"><i class="fa-solid fa-qrcode fa-fw" aria-hidden="true"></i></label>
+    <div class="reward-ways" data-mode="fixed"><div><img loading="lazy" src="/img/CloudTips.png" alt="NoisyCake cloudtips" data-title="NoisyCake cloudtips" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span>cloudtips</span>
+          </div></div>
+  </div></article>
+
+  <aside class="toc" id="toc-auto" aria-label="Содержание"><h2 class="toc-title">Содержание&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://t.me/noisycake"target="_blank" rel="external nofollow noopener noreferrer">NoisyCake</a></span></div><div class="footer-line statistics"><span class="site-time" title='Website running ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Дней жизни:</span><span class="run-times ms-1">Website running ...</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='Всего посетителей'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='Всего посещений'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Наверх"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><div class="reading-progress-bar" style="--fi-progress-start: left; top: 0; --fi-progress-bg: #8581dd; --fi-progress-bg-dark: #fff;"></div><noscript>
+    <div class="noscript-warning"></div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"Копировать в буфер обмена","editLockTitle":"Заблокировать редактируемый кодовый блок","editUnLockTitle":"Разблокировать редактируемый блок кода","editable":true,"maxShownLines":50},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Окей","link":"Узнать больше","message":"Сайт использует куки"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"Результатов не найдено","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2024-11-15T16:15:22","version":"v0.3.14"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>

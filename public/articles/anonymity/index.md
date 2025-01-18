@@ -295,6 +295,6 @@ VPN&#43;VPN, VPN&#43;Tor, VPN&#43;Tor&#43;VPN... Вариантов куча, н
 
 ---
 
-> Автор: [NoisyCake](https://t.me/noisy_cake)  
+> Автор: [NoisyCake](https://t.me/noisycake)  
 > URL: http://localhost:1313/articles/anonymity/  
 

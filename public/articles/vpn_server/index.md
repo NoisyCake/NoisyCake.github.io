@@ -309,6 +309,6 @@ docker-compose up -d
 
 ---
 
-> Автор: [NoisyCake](https://t.me/noisy_cake)  
+> Автор: [NoisyCake](https://t.me/noisycake)  
 > URL: http://localhost:1313/articles/vpn_server/  
 

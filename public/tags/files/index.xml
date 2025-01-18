@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Files - Тэг | HFK</title>
+    <link>http://localhost:1313/tags/files/</link>
+    <description>Hungry for Knowledge – онлайн-ресурс, содержащий конспекты, статьи и проекты автора, охватывающие спектр тем, связанных с программированием и не только.</description>
+    <generator>Hugo 0.138.0 &amp; FixIt v0.3.14</generator>
+    <language>ru</language>
+    <managingEditor>darkgxd@vk.com (NoisyCake)</managingEditor>
+    <webMaster>darkgxd@vk.com (NoisyCake)</webMaster>
+    <lastBuildDate>Thu, 11 Jul 2024 00:00:01 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/files/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Работа с zip и pkl файлами в Python</title>
+      <link>http://localhost:1313/notes/zip_pkl/</link>
+      <pubDate>Thu, 11 Jul 2024 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/zip_pkl/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>&lt;p&gt;Управление файлами формата &lt;code&gt;zip, pkl&lt;/code&gt; в языке программирования Python&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Работа с csv и json файлами в Python</title>
+      <link>http://localhost:1313/notes/csv_json/</link>
+      <pubDate>Tue, 09 Jul 2024 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/csv_json/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>&lt;p&gt;Управление текстовыми файлами формата &lt;code&gt;csv, tsv, dtv, json&lt;/code&gt; в языке программирования Python&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Работа с txt файлами в Python</title>
+      <link>http://localhost:1313/notes/work_with_files/</link>
+      <pubDate>Fri, 17 May 2024 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/work_with_files/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>&lt;p&gt;Управление текстовыми и бинарными файлами в языке программирования Python&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

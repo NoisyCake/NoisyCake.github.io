@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="ru">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Коллекции в Python. Часть I | HFK</title><meta name="author" content="NoisyCake">
+<meta name="description" content="Списки (кратко), кортежи (кратко), множества, словари и всё, что с ними связано
+"><meta name="keywords" content='python, datatypes'>
+  <meta itemprop="name" content="Коллекции в Python. Часть I">
+  <meta itemprop="description" content="Списки (кратко), кортежи (кратко), множества, словари и всё, что с ними связано">
+  <meta itemprop="datePublished" content="2024-05-12T00:00:01+00:00">
+  <meta itemprop="dateModified" content="2024-05-12T00:00:01+00:00">
+  <meta itemprop="wordCount" content="3582">
+  <meta itemprop="keywords" content="Python,Datatypes"><meta property="og:url" content="http://localhost:1313/notes/collections/">
+  <meta property="og:site_name" content="HFK">
+  <meta property="og:title" content="Коллекции в Python. Часть I">
+  <meta property="og:description" content="Списки (кратко), кортежи (кратко), множества, словари и всё, что с ними связано">
+  <meta property="og:locale" content="ru">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2024-05-12T00:00:01+00:00">
+    <meta property="article:modified_time" content="2024-05-12T00:00:01+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Datatypes">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Коллекции в Python. Часть I">
+  <meta name="twitter:description" content="Списки (кратко), кортежи (кратко), множества, словари и всё, что с ними связано">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/collections/" title="Коллекции в Python. Часть I | HFK" /><link rel="next" type="text/html" href="http://localhost:1313/notes/random_string/" title="Модули random и string" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/collections/index.md" title="Коллекции в Python. Часть I | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Коллекции в Python. Часть I",
+    "inLanguage": "ru",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/notes\/collections\/"
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "python, datatypes","wordcount":  3582 ,
+    "url": "http:\/\/localhost:1313\/notes\/collections\/","datePublished": "2024-05-12T00:00:01+00:00","dateModified": "2024-05-12T00:00:01+00:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "NoisyCake"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="normal"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item has-children">
+              <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item">
+              <a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Поиск">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Очистить">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="Сменить Тему">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Поиск">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Очистить">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Отменить
+            </a>
+          </li><li class="menu-item"><span class="nested-item">
+                  <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item"><a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item"><a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="Сменить Тему"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/notes/" title="Конспекты">Конспекты</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Коллекции в Python. Часть I</li>
+    </ol>
+  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=""></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Коллекции в Python. Часть I</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisycake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+    NoisyCake</a></span><span class="post-included-in">&nbsp;включен в <a href="/categories/python/" class="post-category" title="Категория - Python"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Python</a></span></div><div class="post-meta-line"><span title="Опубликовано 2024-05-12 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="12-05-2024">12-05-2024</time></span>&nbsp;<span title="3582 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 3600 слов</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>Содержание</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ol>
+    <li><a href="#just-notes">Just notes</a></li>
+    <li><a href="#списки"><strong>Списки</strong></a>
+      <ol>
+        <li><a href="#матрицы"><strong>Матрицы</strong></a></li>
+      </ol>
+    </li>
+    <li><a href="#кортежи"><strong>Кортежи</strong></a></li>
+    <li><a href="#множества"><strong>Множества</strong></a>
+      <ol>
+        <li><a href="#общая-информация">Общая информация</a></li>
+        <li><a href="#методы-множеств">Методы множеств</a>
+          <ol>
+            <li><a href="#методы-не-изменяющие-сами-множества">Методы, НЕ изменяющие сами множества</a></li>
+            <li><a href="#методы-изменяющие-множества">Методы, ИЗМЕНЯЮЩИЕ множества</a></li>
+            <li><a href="#другие-методы">Другие методы</a></li>
+          </ol>
+        </li>
+        <li><a href="#генератор-множеств">Генератор множеств</a></li>
+        <li><a href="#frozenset">Frozenset</a></li>
+      </ol>
+    </li>
+    <li><a href="#словари"><strong>Словари</strong></a>
+      <ol>
+        <li><a href="#общая-информация-1">Общая информация</a></li>
+        <li><a href="#пустой-словарь">Пустой словарь</a></li>
+        <li><a href="#основы-работы-со-словарями">Основы работы со словарями</a></li>
+        <li><a href="#перебор-элементов-словаря">Перебор элементов словаря</a></li>
+        <li><a href="#методы-и-операторы-словарей">Методы и операторы словарей</a></li>
+        <li><a href="#вложенные-словари">Вложенные словари</a></li>
+        <li><a href="#генераторы-словарей">Генераторы словарей</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav></div>
+      </div><div class="content" id="content"><p>Списки (кратко), кортежи (кратко), множества, словари и всё, что с ними связано</p>
+<h2 id="just-notes" class="heading-element"><span>Just notes</span>
+  <a href="#just-notes" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p><strong>Здесь опишу не совсем очевидные для меня вещи (на момент, когда я о них узнал).</strong></p>
+<p>Если в функцию <code>filter()</code> передаётся <code>lambda</code>-функция, то она работает медленнее <code>list comprehensions</code>. В случае же, когда в <code>filter()</code> помещаются встроенные методы (например <code>str.alpha</code>), то, наоборот, <code>filter()</code> работает быстрее, чем списочные выражения.</p>
+<p>Следующие строки кода являются эквивалентными: <code>'Super' 'sonic'</code>, <code>'Super' + 'sonic'</code>. Согласно документации, строковые литералы, которые являются частью одного выражения и имеют только пробелы между ними, будут неявно преобразованы в один строковый литерал.</p>
+<p><strong>Синглтон</strong> - это паттерн проектирования, гарантирующий, что у класса будет только один экземпляр.<br>
+Функция-критерий, которая возвращает значение True или False, называется <strong>предикатом</strong>.<br>
+<strong>Итератор</strong> - итерируемый объект (например <code>&lt;map object at 0x...&gt;</code>).<br>
+<strong>Коллекциями</strong> в языке Python принято называть типы данных, в том или ином виде хранящие ссылки на ряд других объектов.</p>
+<p>Сравнение строк происходит по старшинству в алфавите, а старше та буква, которая ближе к концу алфавита.</p>
+<p><code>print((&quot;NO&quot;, &quot;YES&quot;)[num1.issuperset(num2)])</code> - в квадратных скобках мы получаем результат логического выражения (<code>True</code> - 1 или <code>False</code> - 0). Значит после кортежа будет либо <code>[0]</code>, либо <code>[1]</code> - индекс элемента, который мы выберем из самого кортежа.</p>
+<p>Чтобы не использовать экранирование при работе с текстом, можно воспользоваться <strong>raw strings</strong>, т.е. вместо такого кода: <code>path = 'C:\\new\\text.txt'</code>, использовать код: <code>path = r'C:\new\text.txt'</code>.</p>
+<p>При вызове метода мы используем скобки: (например) <code>close()</code>, а при вызове свойства (атрибута) скобок нет <code>closed</code>. Методы совершают действия, а свойства возвращают информацию об объекте.</p>
+<p>При конвертации строки в число, функция <code>int()</code> игнорирует пробелы и символы табуляции, перевода строки и т.п.</p>
+<p>Если использовать строчные методы <code>islower()</code>/<code>isupper()</code> для строки, состоящей только из небуквенных символов, вернётся <code>False</code>.</p>
+<hr>
+<h2 id="списки" class="heading-element"><span><strong>Списки</strong></span>
+  <a href="#%d1%81%d0%bf%d0%b8%d1%81%d0%ba%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p><strong>Списки изменяемы</strong>; в них допускается выход на границы, просто возьмется весь список до конца; список может содержать элементы <strong>разных типов данных</strong>; <u>списки - ссылочный тип даных</u>.</p>
+<p>Если мы хотим копировать список <code>letters = ['a', 'b', 'c', 'd']</code>, мы можем сделать это следующими способами:</p>
+<ol>
+<li><code>new_letters = letters[:]</code></li>
+<li><code>new_letters = list(letters)</code></li>
+<li><code>new_letters = letters.copy()</code></li>
+</ol>
+<div class="details admonition tip open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-regular fa-lightbulb" aria-hidden="true"></i>Совет<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Чтобы вывести список в одну строку, можно воспользоваться методом <code>join()</code> или распаковать <code>print(*student)</code></div>
+  </div>
+</div>
+<p>Списочные методы и операторы:</p>
+<ul>
+<li>метод <code>append()</code> добавляет новый элемент в конец списка;</li>
+<li>метод <code>extend()</code> расширяет один список другим списком;</li>
+<li>метод <code>insert()</code> вставляет значение в список в заданной позиции;</li>
+<li>метод <code>index()</code> возвращает индекс первого элемента, значение которого равняется переданному в метод значению;</li>
+<li>метод <code>remove()</code> удаляет первый элемент, значение которого равняется переданному в метод значению;</li>
+<li>метод <code>pop()</code> удаляет элемент по указанному индексу и возвращает его;</li>
+<li>метод <code>count()</code> возвращает количество элементов в списке, значения которых равны переданному в метод значению;</li>
+<li>метод <code>reverse()</code> инвертирует порядок следования значений в списке, то есть меняет его на противоположный;</li>
+<li>метод <code>copy()</code> создает поверхностную копию списка.;</li>
+<li>метод <code>clear()</code> удаляет все элементы из списка;</li>
+<li>оператор <code>del</code> позволяет удалять элементы списка по определенному индексу.</li>
+</ul>
+<p>Методы строк, работающие со списками:</p>
+<ul>
+<li>Метод <code>split()</code> разбивает строку на слова, используя в качестве разделителя последовательность пробельных символов, символ табуляции (<code>\t</code>) или символ новой строки (<code>\n</code>).</li>
+<li>Метод <code>join()</code> собирает строку из элементов списка, используя в качестве разделителя строку, к которой применяется метод.</li>
+</ul>
+<div class="details admonition tip open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-regular fa-lightbulb" aria-hidden="true"></i>Совет<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Если нужно получить очищенную от знаков препинания и заглавных букв строку, можно воспользоваться следующей конструкцией: <code>text = [word.strip('.,!?:;-') for word in input().lower().split()]</code></div>
+  </div>
+</div>
+<h3 id="матрицы" class="heading-element"><span><strong>Матрицы</strong></span>
+  <a href="#%d0%bc%d0%b0%d1%82%d1%80%d0%b8%d1%86%d1%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Индексы i и j элементов на главной диагонали квадратной матрицы связаны соотношением i = j. На побочной диагонали: i + j + 1 = n (или  j = n - i - 1), где n — размерность матрицы.<br>
+Заметим также, что:</p>
+<ul>
+<li>если элемент находится выше главной диагонали, то i &lt; j, если ниже – i &gt; j.</li>
+<li>если элемент находится выше побочной диагонали, то i + j + 1 &lt; n, если ниже - i + j + 1 &gt; n.</li>
+</ul>
+<p>Если мы вводим элементы построчно, то может задать матрицу так:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+</span></span><span class="line"><span class="cl"><span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span></span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="кортежи" class="heading-element"><span><strong>Кортежи</strong></span>
+  <a href="#%d0%ba%d0%be%d1%80%d1%82%d0%b5%d0%b6%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Кортежи являются неизменяемыми списками. В литеральной форме кортеж записывается в виде последовательности элементов в круглых скобках, а список – в квадратных.<br>
+Для создания кортежа с единственным элементом после значения элемента ставят замыкающую запятую: <code>my_tuple = (1,)</code>.<br>
+Важно понимать: список внутри кортежа можно изменить. Списки являются ссылочными типами данных, поэтому в кортеже хранится ссылка на список, которая не меняется при изменении самого списка.</p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Функции, возвращающие несколько значений, возвращают кортеж.</div>
+  </div>
+</div>
+<p>Кортежи поддерживают:</p>
+<ul>
+<li>доступ к элементу по индексу (только для получения значений элементов);</li>
+<li>методы, в частности <code>index()</code>, <code>count()</code>;</li>
+<li>встроенные функции, в частности <code>len()</code>, <code>sum()</code>, <code>min()</code> и <code>max()</code>;</li>
+<li>срезы;</li>
+<li>оператор принадлежности <code>in</code>;</li>
+<li>операторы конкатенации (<code>+</code>) и повторения (<code>*</code>).</li>
+</ul>
+<p>Чтобы присвоить переменным значения элементов кортежа, можно воспользоваться следующим кодом (кол-во переменных должно совпадать с кол-вом элементов кортежа):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;cyan&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="o">=</span> <span class="n">colors</span> <span class="c1"># Скобки можно опустить</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Однако, если необходимо получить лишь какие-то отдельные значения, то в качестве &ldquo;ненужных&rdquo; переменных позволено использовать символ нижнего подчеркивания <code>_</code>.</p>
+<p>Есть способ собрать сразу несколько значений в одну переменную. Это делается при помощи звездочки перед именем переменной.<br>
+<code>a, b, *tail = 1, 2, 3, 4, 5, 6</code> - в этом случае в переменной <code>a</code> будет записана единица, в переменной <code>b</code> — двойка, а в переменной <code>tail</code> — <strong>список</strong>, состоящий из всех аргументов, которые не попали в предыдущие переменные. В данном случае <code>tail</code> будет равен <code>[3, 4, 5, 6]</code>. <strong><code>tail</code> всегда будет списком, даже когда в него попадает лишь один элемент или даже ноль.</strong><br>
+Звездочка может быть только у одного аргумента, но необязательно у последнего.</p>
+<p>Если нужно распаковать единственное значение в кортеже, после имени переменной должна идти запятая. Приведенный ниже код:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>    <span class="c1"># не распаковка, а просто присвоение</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span><span class="p">,</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>   <span class="c1"># распаковка</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">(1,)
+</span></span><span class="line"><span class="cl">1</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Таким же образом можно распаковывать и список, и строку</div>
+  </div>
+</div>
+<hr>
+<h2 id="множества" class="heading-element"><span><strong>Множества</strong></span>
+  <a href="#%d0%bc%d0%bd%d0%be%d0%b6%d0%b5%d1%81%d1%82%d0%b2%d0%b0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="общая-информация" class="heading-element"><span>Общая информация</span>
+  <a href="#%d0%be%d0%b1%d1%89%d0%b0%d1%8f-%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d0%b8%d1%8f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Множество – структура данных, организованная так же, как математические множества.</p>
+<p>Особенности:</p>
+<ul>
+<li>все элементы множества различны (уникальны), два элемента не могут иметь одинаковое значение;</li>
+<li>множества неупорядочены, то есть элементы не хранятся в каком-то определенном порядке;</li>
+<li>элементы множества должны относиться к неизменяемым типам данных;</li>
+<li>хранящиеся в множестве элементы могут иметь разные типы данных.</li>
+</ul>
+<p>Чтобы создать множество, нужно перечислить его элементы через запятую в фигурных скобках:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">languages</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;Python&#34;</span><span class="p">,</span> <span class="s2">&#34;C#&#34;</span><span class="p">,</span> <span class="s2">&#34;C++&#34;</span><span class="p">,</span> <span class="s2">&#34;Java&#34;</span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Пустое множество создаётся, например, через <code>set()</code>.<br>
+При выводе множества порядок элементов может отличаться от существовавшего при его создании, поскольку множества — <u>неупорядоченные коллекции данных</u>.</p>
+<p>Встроенная функция <code>set()</code> помимо создания пустого множества может преобразовывать некоторые типы объектов в множества.<br>
+В неё можно передать один аргумент, который, в свою очередь, должен быть итерируемым объектом (таким как список, кортеж или строковое значение). Отдельные элементы объекта, передаваемого в качестве аргумента, становятся элементами множества:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">myset1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>         <span class="c1"># множество из элементов последовательности</span>
+</span></span><span class="line"><span class="cl"><span class="n">myset2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>   <span class="c1"># множество из элементов списка</span>
+</span></span><span class="line"><span class="cl"><span class="n">myset3</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;abcd&#39;</span><span class="p">)</span>            <span class="c1"># множество из элементов строки</span>
+</span></span><span class="line"><span class="cl"><span class="n">myset4</span> <span class="o">=</span> <span class="nb">set</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">))</span>  <span class="c1"># множество из элементов кортежа</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition danger open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-bolt" aria-hidden="true"></i>Опасность<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Попытка добавить в множество кортеж со списком приведёт к ошибке!</div>
+  </div>
+</div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">mytuple</span> <span class="o">=</span> <span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">myset</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">mytuple</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">TypeError: unhashable type: &#39;list&#39;</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Если требуется создать множество, в котором каждый элемент — строковое значение, содержащее более одного символа, то используем код: <code>myset = set(['aaa', 'bbbb', 'cc'])</code>.</p>
+<p>Проверить принадлежит ли какой-либо объект множеству можно с помощью оператора <code>in</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">tremendously_huge_set</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;red&#34;</span><span class="p">,</span> <span class="s2">&#34;green&#34;</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="s2">&#34;green&#34;</span> <span class="ow">in</span> <span class="n">tremendously_huge_set</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Green is there!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Unfortunately, there is no green...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: Green is there!</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Индексация, конкатенация, умножение на число и срезы недоступны для множеств</strong>, а значит перебор элементов по индексу не получится, поэтому, например, в цикле, мы должны перебирать сами элементы из множества.<br>
+Чтобы вывести все элементы множества, мы можем его распаковать (при этом не гарантируется, что вывод будет упорядоченным):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">numbers</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: 0 1 1 2 3 3 3 5 6 7 7</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Если мы хотим упорядочить вывод множества, можем воспользоваться встроенной функцией <code>sorted()</code> (возвращает список):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">sorted_numbers</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">sorted_numbers</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Встроенная функция <code>sorted()</code> имеет опциональный параметр <code>reverse</code>. Если установить этот параметр в значение <code>True</code>, произойдет сортировка по убыванию.<br>
+Также есть второй параметр <code>key</code>, с помощью которого можно указать функцию, по которой будет происходить сортировка (например, <code>int</code> или <code>len</code>). Важно, что функция при этом пишется без скобок, как это обычно происходит.</p>
+<hr>
+<h3 id="методы-множеств" class="heading-element"><span>Методы множеств</span>
+  <a href="#%d0%bc%d0%b5%d1%82%d0%be%d0%b4%d1%8b-%d0%bc%d0%bd%d0%be%d0%b6%d0%b5%d1%81%d1%82%d0%b2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li>Для добавления нового элемента в множество используется метод <code>add()</code>;</li>
+<li>Метод <code>remove()</code> удаляет элемент из множества с генерацией исключения (ошибки) в случае, если такого элемента нет;</li>
+<li>Метод <code>discard()</code> удаляет элемент из множества без генерации исключения (ошибки), если элемент отсутствует;</li>
+<li>Метод <code>pop()</code> удаляет и возвращает случайный элемент из множества с генерацией исключения (ошибки) при попытке удаления из пустого множества;</li>
+<li>Метод <code>clear()</code> удаляет все элементы из множества.</li>
+</ul>
+<h4 id="методы-не-изменяющие-сами-множества" class="heading-element"><span>Методы, НЕ изменяющие сами множества</span>
+  <a href="#%d0%bc%d0%b5%d1%82%d0%be%d0%b4%d1%8b-%d0%bd%d0%b5-%d0%b8%d0%b7%d0%bc%d0%b5%d0%bd%d1%8f%d1%8e%d1%89%d0%b8%d0%b5-%d1%81%d0%b0%d0%bc%d0%b8-%d0%bc%d0%bd%d0%be%d0%b6%d0%b5%d1%81%d1%82%d0%b2%d0%b0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><ol>
+<li><code>union()</code> - объединение множеств.</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">myset1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">myset2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">myset3</span> <span class="o">=</span> <span class="n">myset1</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">myset2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">myset3</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Для объединения двух множеств можно также использовать оператор <code>|</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">myset1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">myset2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">myset3</span> <span class="o">=</span> <span class="n">myset1</span> <span class="o">|</span> <span class="n">myset2</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">myset3</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>
+<p><code>intersection()</code> - пересечение множеств.<br>
+Альтернатива: оператор <code>&amp;</code>.</p>
+</li>
+<li>
+<p><code>difference()</code> - разность множеств.<br>
+Альтернатива: оператор <code>-</code>.</p>
+</li>
+<li>
+<p><code>symmetric_difference()</code> - симметрическая разность множеств.<br>
+Альтернатива: оператор <code>^</code>.</p>
+</li>
+</ol>
+<h4 id="методы-изменяющие-множества" class="heading-element"><span>Методы, ИЗМЕНЯЮЩИЕ множества</span>
+  <a href="#%d0%bc%d0%b5%d1%82%d0%be%d0%b4%d1%8b-%d0%b8%d0%b7%d0%bc%d0%b5%d0%bd%d1%8f%d1%8e%d1%89%d0%b8%d0%b5-%d0%bc%d0%bd%d0%be%d0%b6%d0%b5%d1%81%d1%82%d0%b2%d0%b0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><ol>
+<li>
+<p><code>update()</code> - изменяет исходное множество по объединению.<br>
+Аналогичный результат получается, если использовать оператор <code>|=</code>.</p>
+</li>
+<li>
+<p><code>intersection_update()</code> - изменяет исходное множество по пересечению.<br>
+Аналогичный результат получается, если использовать оператор <code>&amp;=</code>.</p>
+</li>
+<li>
+<p><code>difference_update()</code> - изменяет исходное множество по разности.<br>
+Аналогичный результат получается, если использовать оператор <code>-=</code>.</p>
+</li>
+<li>
+<p><code>symmetric_difference_update()</code> - изменяет исходное множество по симметрической разности.<br>
+Аналогичный результат получается, если использовать оператор <code>^=</code>.</p>
+</li>
+</ol>
+<p>Все основные операции над множествами выполняются двумя способами: при помощи метода или соответствующего ему оператора. Различие заключается в том, что метод может принимать в качестве аргумента не только множество (тип данных <code>set</code>), но и любой итерируемый объект (список, строку, кортеж и т.д.)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">2019</span><span class="p">,</span> <span class="mi">2018</span><span class="p">,</span> <span class="mi">2017</span><span class="p">,</span> <span class="mi">2016</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">mytuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">2016</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">mystr</span> <span class="o">=</span> <span class="s1">&#39;abcd&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">myset</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2009</span><span class="p">,</span> <span class="mi">2010</span><span class="p">,</span> <span class="mi">2016</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">myset</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">mystr</span><span class="p">))</span>            <span class="c1"># объединяем со строкой</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">myset</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">mylist</span><span class="p">))</span>    <span class="c1"># пересекаем со списком</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">myset</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">mytuple</span><span class="p">))</span>     <span class="c1"># находим разность с кортежем</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">{2016, &#39;c&#39;, &#39;b&#39;, &#39;a&#39;, &#39;d&#39;, 2009, 2010}
+</span></span><span class="line"><span class="cl">{2016}
+</span></span><span class="line"><span class="cl">{2009, 2010}</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Некоторые методы (<code>union()</code>, <code>intersection()</code>, <code>difference()</code>) и операторы (<code>|</code>, <code>&amp;</code>, <code>-</code>, <code>^</code>) позволяют совершать операции над несколькими множествами сразу.<br>
+Оператор <code>^</code> симметрической разности позволяет использовать несколько множеств, а метод <code>symmetric_difference()</code> – нет.</p>
+<p>Приоритет операторов в порядке убывания (верхние операторы имеют более высокий приоритет, чем нижние):</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Оператор</th>
+          <th style="text-align: center">Описание</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><code>-</code></td>
+          <td style="text-align: center">разность</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>&amp;</code></td>
+          <td style="text-align: center">пересечение</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>^</code></td>
+          <td style="text-align: center">симметрическая разность</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>|</code></td>
+          <td style="text-align: center">объединение</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="другие-методы" class="heading-element"><span>Другие методы</span>
+  <a href="#%d0%b4%d1%80%d1%83%d0%b3%d0%b8%d0%b5-%d0%bc%d0%b5%d1%82%d0%be%d0%b4%d1%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><ul>
+<li><code>issubset()</code> - используется для определения, является ли одно из множеств подмножеством другого. Возвращает <code>True</code> или <code>False</code>.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">set1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">set2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">set1</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">set2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: True</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Для определения, является ли одно из множеств подмножеством другого, также применяются операторы <code>&lt;=</code> (нестрогое подмножество) и <code>&lt;</code> (строгое подмножество). Следующий код аналогичен предыдущему по функционалу:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">set1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">set2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">set1</span> <span class="o">&lt;=</span> <span class="n">set2</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p><code>issuperset()</code> - используется для определения, является ли одно из множеств надмножеством другого. Возвращает <code>True</code> или <code>False</code>.<br>
+В качестве альтернативы используются операторы <code>&gt;=</code> (нестрогое надмножество) и <code>&gt;</code> (строгое надмножество).</p>
+</li>
+<li>
+<p><code>isdisjoint()</code> - используется для определения отсутствия общих элементов в множествах. Возвращает <code>True</code> или <code>False</code>.</p>
+</li>
+</ul>
+<p>Данные методы могут принимать в качестве аргумента не только <code>set()</code>, но и любой итерируемый объект (список, строку, кортеж&hellip;). В то же время они могут применяться только к <code>set()</code> или неизменяемому множеству (тип данных <code>frozenset</code>). При этом операторы <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code> требуют наличия в качестве операндов множества.</p>
+<hr>
+<h3 id="генератор-множеств" class="heading-element"><span>Генератор множеств</span>
+  <a href="#%d0%b3%d0%b5%d0%bd%d0%b5%d1%80%d0%b0%d1%82%d0%be%d1%80-%d0%bc%d0%bd%d0%be%d0%b6%d0%b5%d1%81%d1%82%d0%b2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Чтобы создать множество, содержащее цифры введённого числа, можно воспользоваться следующей конструкцией: <code>digits = {int(c) for c in input()}</code><br>
+Общий вид генератора множеств следующий:</p>
+<p><code>{выражение for переменная in последовательность}</code>,</p>
+<p>где  выражение – некоторое выражение, как правило, зависящее от использованной в списочном выражении переменной, которым будут заполнены элементы множества; переменная – имя некоторой переменной; последовательность – последовательность значений, которые она принимает (любой итерируемый объект).</p>
+<p>В генераторах множеств можно использовать условный оператор. Например, если требуется создать множество, заполненное только цифрами некоторой строки, то мы можем написать такой код: <code>digits = {int(d) for d in 'abcd12ef78ghj90' if d.isdigit()}</code><br>
+Если же нужно включить <code>else</code>, то используется тернарный условный оператор:<br>
+<code>alnums = {int(d) if d.isdigit() else ord(d) for d in 'abcd12ef78ghj90'}</code></p>
+<hr>
+<h3 id="frozenset" class="heading-element"><span>Frozenset</span>
+  <a href="#frozenset" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Тип коллекций <code>frozenset()</code> - это неизменяемое множество. Создание неизменяемых множеств:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">myset1</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span>                         <span class="c1"># на основе множества</span>
+</span></span><span class="line"><span class="cl"><span class="n">myset2</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>    <span class="c1"># на основе списка</span>
+</span></span><span class="line"><span class="cl"><span class="n">myset3</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span><span class="s1">&#39;aabcccddee&#39;</span><span class="p">)</span>                      <span class="c1"># на основе строки</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Над замороженными множествами можно производить все операции, которые можно производить над обычными множествами (само собой, если операция не изменяет исходное множество). Результатом операций над замороженными множествами будут также замороженные множества.<br>
+Будучи изменяемыми, обычные множества не могут быть элементами других множеств. Замороженные множества являются неизменяемыми, а значит могут быть элементами других множеств.</p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Сравнивать обычные и неизменяемые множества <strong>можно</strong>.</div>
+  </div>
+</div>
+<hr>
+<h2 id="словари" class="heading-element"><span><strong>Словари</strong></span>
+  <a href="#%d1%81%d0%bb%d0%be%d0%b2%d0%b0%d1%80%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="общая-информация-1" class="heading-element"><span>Общая информация</span>
+  <a href="#%d0%be%d0%b1%d1%89%d0%b0%d1%8f-%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%86%d0%b8%d1%8f-1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Словари (тип данных <code>dict</code>) – изменяемые коллекции элементов с произвольными индексами – <strong>ключами</strong>. Если в списках элементы индексируются целыми числами, начиная с 0, то в словарях — уникальными ключами, в том числе в виде строк.</p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Словарь — реализация структуры данных &ldquo;ассоциативный массив&rdquo; или &ldquo;хеш таблица&rdquo;.</div>
+  </div>
+</div>
+<p>В словарях <strong>нет</strong> привычных индексов (0, 1, 2, &hellip;)!</p>
+<p>Ключи должны быть <strong>неизменяемым</strong> типом данных, а тип данных значения - произволен.</p>
+<p>Словари принципиально отличаются от списков по структуре хранения в памяти. Список — последовательная область памяти, то есть все его элементы (указатели на элементы) действительно хранятся в указанном порядке, расположены последовательно. Благодаря этому и можно быстро «прыгнуть» к элементу по его индексу. В словаре же используется специальная структура данных — хеш-таблица. Она позволяет вычислять числовой хеш от ключа и использовать обычные списки, где в качестве индекса элемента берется этот хеш.</p>
+<p>Чтобы создать словарь, нужно перечислить его элементы (пары ключ-значение) через запятую в фигурных скобках, как и элементы множества. Первым указывается ключ, после двоеточия – значение, доступное в словаре по этому ключу. Приведенный ниже код создает словарь, в котором ключом служит строка – название языка программирования, а значением – имя создателя языка.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">languages</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Python&#39;</span><span class="p">:</span> <span class="s1">&#39;Гвидо ван Россум&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">             <span class="s1">&#39;C#&#39;</span><span class="p">:</span> <span class="s1">&#39;Андерс Хейлсберг&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">             <span class="s1">&#39;Java&#39;</span><span class="p">:</span> <span class="s1">&#39;Джеймс Гослинг&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">             <span class="s1">&#39;C++&#39;</span><span class="p">:</span> <span class="s1">&#39;Бьёрн Страуструп&#39;</span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Извлекать значение словаря слудует также, как если бы мы извлекали элемент списка, но вместо индекса пишем ключ в квадратных скобках:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Создателем языка C# является&#39;</span><span class="p">,</span> <span class="n">languages</span><span class="p">[</span><span class="s1">&#39;C#&#39;</span><span class="p">])</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>В качестве ключа можно указать выражение. Python вычислит его значение и обратится к искомому элементу:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Создателем языка C# является&#39;</span><span class="p">,</span> <span class="n">languages</span><span class="p">[</span><span class="s1">&#39;C&#39;</span> <span class="o">+</span> <span class="s1">&#39;#&#39;</span><span class="p">])</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Если ключи словаря – строки без каких-либо специальных символов, то для создания словаря можно использовать функцию <code>dict()</code>. Приведённый ниже код создает словарь с тремя элементами, ключами которого служат строки &rsquo;name&rsquo;, &lsquo;age&rsquo;, &lsquo;job&rsquo;, а значениями – &lsquo;Timur&rsquo;, 28, &lsquo;Teacher&rsquo;.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">info</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Timur&#39;</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">28</span><span class="p">,</span> <span class="n">job</span> <span class="o">=</span> <span class="s1">&#39;Teacher&#39;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Создавать словари можно на основе списков кортежей или кортежей списков. Первый элемент списка или кортежа станет ключом, второй — значением.</p>
+<p>Если необходимо создать словарь, каждому ключу которого соответствует одно и то же значение, можно воспользоваться методом <code>fromkeys()</code>. Приведенный ниже код создает словарь с тремя элементами, где ключи — строки &rsquo;name&rsquo;, &lsquo;age&rsquo;, &lsquo;job&rsquo;, а соответствующие им значения: &lsquo;Missed information&rsquo;, &lsquo;Missed information&rsquo;, &lsquo;Missed information&rsquo;.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">dict1</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">([</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;job&#39;</span><span class="p">],</span> <span class="s1">&#39;Missed information&#39;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Если методу <code>fromkeys()</code> не передать второй параметр, то по умолчанию присваивается значение <code>None</code>.</p>
+<hr>
+<h3 id="пустой-словарь" class="heading-element"><span>Пустой словарь</span>
+  <a href="#%d0%bf%d1%83%d1%81%d1%82%d0%be%d0%b9-%d1%81%d0%bb%d0%be%d0%b2%d0%b0%d1%80%d1%8c" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Пустой словарь можно создать так:</p>
+<ul>
+<li><code>dict1 = {}</code></li>
+<li><code>dict2 = dict()</code></li>
+</ul>
+<p>Начиная с версии Python 3.6, словари являются упорядоченными, то есть сохраняют порядок следования ключей в порядке их внесения в словарь.</p>
+<hr>
+<h3 id="основы-работы-со-словарями" class="heading-element"><span>Основы работы со словарями</span>
+  <a href="#%d0%be%d1%81%d0%bd%d0%be%d0%b2%d1%8b-%d1%80%d0%b0%d0%b1%d0%be%d1%82%d1%8b-%d1%81%d0%be-%d1%81%d0%bb%d0%be%d0%b2%d0%b0%d1%80%d1%8f%d0%bc%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li>Оператор <code>in</code> позволяет проверить, содержит ли словарь заданный <strong>ключ</strong>;</li>
+<li>Встроенная функция <code>sum()</code> принимает в качестве аргумента словарь с числовыми ключами и вычисляет сумму его ключей;</li>
+<li>Встроенные функции <code>min()</code> и <code>max()</code> принимают в качестве аргумента словарь и находят минимальный и максимальный ключ соответственно, при этом ключ может принадлежать к любому типу данных, для которого возможны операции порядка <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> (числа, строки, и т.д.);</li>
+<li>Словари можно сравнивать между собой операторами <code>==</code> и <code>!=</code>. Равные словари имеют одинаковое количество элементов и содержат равные элементы (ключ: значение);</li>
+<li>Срезы, операция конкатенации и умножения на число недоступны для словарей.</li>
+</ul>
+<hr>
+<h3 id="перебор-элементов-словаря" class="heading-element"><span>Перебор элементов словаря</span>
+  <a href="#%d0%bf%d0%b5%d1%80%d0%b5%d0%b1%d0%be%d1%80-%d1%8d%d0%bb%d0%b5%d0%bc%d0%b5%d0%bd%d1%82%d0%be%d0%b2-%d1%81%d0%bb%d0%be%d0%b2%d0%b0%d1%80%d1%8f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Вывод ключей:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">capitals</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;Россия&#34;</span><span class="p">:</span> <span class="s2">&#34;Москва&#34;</span><span class="p">,</span> <span class="s2">&#34;Франция&#34;</span><span class="p">:</span> <span class="s2">&#34;Париж&#34;</span><span class="p">,</span> <span class="s2">&#34;Чехия&#34;</span><span class="p">:</span> <span class="s2">&#34;Прага&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">capitals</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Вывод значений:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">capitals</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">capitals</span><span class="p">[</span><span class="n">key</span><span class="p">])</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Словарный метод <code>keys()</code> возвращает список ключей всех элементов словаря:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">capitals</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>  <span class="c1"># итерируем по списку [&#34;Россия&#34;, &#34;Франция&#34;, &#34;Чехия&#34;]</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">Россия
+</span></span><span class="line"><span class="cl">Франция
+</span></span><span class="line"><span class="cl">Чехия</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>Словарный метод <code>values()</code> возвращает список значений всех элементов словаря.</p>
+</li>
+<li>
+<p>Словарный метод <code>items()</code> возвращает список всех элементов словаря, состоящий из кортежей пар (ключ, значение).</p>
+</li>
+</ul>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Словарные методы <code>items()</code>, <code>keys()</code>, <code>values()</code> возвращают не совсем обычные списки. Типы этих списков называются <strong>итераторами</strong> – <code>dict_items</code>, <code>dict_keys</code>, <code>dict_values</code>, соответственно, в отличие от обычных списков <code>list</code>. Методы обычных списков недоступны для списков типа <code>dict_items</code>, <code>dict_keys</code>, <code>dict_values</code>. Нужно использовать явное преобразование с помощью функции <code>list()</code> для получения доступа к методам списков.</div>
+  </div>
+</div>
+<p>Если требуется вывести только ключи словаря, то мы так же можем использовать операцию распаковки словаря: <code>print(*capitals, sep=&quot;\n&quot;)</code></p>
+<p>Сортировка по ключам выполняется с использованием функции <code>sorted()</code> (возвращает отсортированный список ключей, а не словарь):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">capitals</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Для сортировки словаря по значениям можно использовать функцию <code>sorted()</code> вместе с методом <code>items()</code> (возвращает не словарь, а отсортированный по значениям список кортежей):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">capitals</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="методы-и-операторы-словарей" class="heading-element"><span>Методы и операторы словарей</span>
+  <a href="#%d0%bc%d0%b5%d1%82%d0%be%d0%b4%d1%8b-%d0%b8-%d0%be%d0%bf%d0%b5%d1%80%d0%b0%d1%82%d0%be%d1%80%d1%8b-%d1%81%d0%bb%d0%be%d0%b2%d0%b0%d1%80%d0%b5%d0%b9" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Чтобы изменить значение по определенному ключу в словаре, достаточно использовать индексацию вместе с оператором присваивания. При этом если ключ уже присутствует в словаре, его значение заменяется новым, если же ключ отсутствует – то в словарь будет добавлен новый элемент.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Sam&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;job&#39;</span><span class="p">:</span> <span class="s1">&#39;Teacher&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">info</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Timur&#39;</span>                  <span class="c1"># изменяем значение по ключу name</span>
+</span></span><span class="line"><span class="cl"><span class="n">info</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;timyr-guev@yandex.ru&#39;</span>  <span class="c1"># добавляем в словарь элемент с ключом email</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Для того чтобы избежать возникновения ошибки в случае отсутствия ключа в словаре, можно использовать метод <code>get()</code>, способный кроме ключа принимать и второй аргумент – значение, которое вернется, если заданного ключа нет. Когда второй аргумент не указан, то метод в случае отсутствия ключа возвращает <code>None</code>.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;job&#39;</span><span class="p">:</span> <span class="s1">&#39;Dev&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">item1</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;salary&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">item2</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;salary&#39;</span><span class="p">,</span> <span class="s1">&#39;Информации о зарплате нет&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">item1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">item2</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">None
+</span></span><span class="line"><span class="cl">Информации о зарплате нет</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Метод <code>update()</code> реализует своеобразную операцию конкатенации для словарей. Он объединяет ключи и значения одного словаря с ключами и значениями другого. При совпадении ключей в итоге сохранится значение словаря, указанного в качестве аргумента метода <code>update()</code>.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">info1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;job&#39;</span><span class="p">:</span> <span class="s1">&#39;Dev&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">info2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;New York&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;bob@web.com&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">info1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">info2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">info1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: {&#39;name&#39;: &#39;Bob&#39;, &#39;age&#39;: 30, &#39;job&#39;: &#39;Dev&#39;, &#39;city&#39;: &#39;New York&#39;, &#39;email&#39;: &#39;bob@web.com&#39;}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">В Python 3.9 появились операторы | и |=, которые реализуют операцию конкатенации словарей.</div>
+  </div>
+</div>
+<ul>
+<li>Метод <code>setdefault()</code> позволяет получить значение из словаря по заданному ключу, автоматически добавляя элемент словаря, если он отсутствует.<br>
+Метод принимает два аргумента:</li>
+</ul>
+<ol>
+<li>key: ключ, значение по которому следует получить, если таковое имеется в словаре, либо создать.</li>
+<li>default: значение, которое будет использовано при добавлении нового элемента в словарь.</li>
+</ol>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content"><strong>Важно!</strong> <code>get()</code> только получает значение, не меняя словарь, в то время как <code>setdefault()</code> не только получает значение, но и изменяет словарь.</div>
+  </div>
+</div>
+<ul>
+<li>С помощью оператора <code>del</code> можно удалять элементы словаря по ключу: <code>del info['email']</code> (если удаляемого ключа в словаре нет, возникнет ошибка <code>KeyError</code>).</li>
+<li>Метод <code>pop()</code> удаляет элемент словаря по ключу, возвращая его значение: <code>email = info.pop('email')</code> (при отсутствии ключа также возвращает ошибку, если не передать второй аргумент).</li>
+<li>Метод <code>popitem()</code> удаляет из словаря последний добавленный элемент и возвращает удаляемый элемент в виде кортежа (ключ, значение).</li>
+<li>Метод <code>clear()</code> удаляет все элементы из словаря: <code>info.clear()</code>.</li>
+<li>Метод <code>copy()</code> создает <u>поверхностную</u> копию словаря: <code>info_copy = info.copy()</code> (оператор присваивания (=) не копирует словарь, а лишь присваивает ссылку на старый словарь новой переменной.).</li>
+</ul>
+<hr>
+<h3 id="вложенные-словари" class="heading-element"><span>Вложенные словари</span>
+  <a href="#%d0%b2%d0%bb%d0%be%d0%b6%d0%b5%d0%bd%d0%bd%d1%8b%d0%b5-%d1%81%d0%bb%d0%be%d0%b2%d0%b0%d1%80%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Чтобы обратиться к элементу вложенного словаря, нужно указать ключи в нескольких квадратных скобках (подобно спискам).</p>
+<hr>
+<h3 id="генераторы-словарей" class="heading-element"><span>Генераторы словарей</span>
+  <a href="#%d0%b3%d0%b5%d0%bd%d0%b5%d1%80%d0%b0%d1%82%d0%be%d1%80%d1%8b-%d1%81%d0%bb%d0%be%d0%b2%d0%b0%d1%80%d0%b5%d0%b9" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Общий вид: <code>{ключ: значение for переменная in последовательность}</code></p>
+<p><strong>Примеры использования:</strong></p>
+<ul>
+<li>Чтобы создать словарь, где ключи – числа от 0 до 5, а значения – квадраты ключей, можем воспользоваться следующим кодом: <code>squares = {i: i**2 for i in range(6)}</code>;</li>
+<li>Для вычисления ключа и значения в генераторе словаря могут быть использованы выражения:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ReD&#39;</span><span class="p">,</span> <span class="s1">&#39;GrEeN&#39;</span><span class="p">,</span> <span class="s1">&#39;BlUe&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">dct</span> <span class="o">=</span> <span class="p">{</span><span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span> <span class="n">c</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">dct</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: {&#39;red&#39;: &#39;RED&#39;, &#39;green&#39;: &#39;GREEN&#39;, &#39;blue&#39;: &#39;BLUE&#39;}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Извлечение из словаря элементов с определенными ключами:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;F&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">selected_keys</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">dict2</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">dict1</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">selected_keys</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">dict2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: {0: &#39;A&#39;, 2: &#39;C&#39;, 5: &#39;F&#39;}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Мы также можем использовать генераторы словарей для создания вложенных словарей:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">squares</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="p">{</span><span class="n">j</span><span class="p">:</span> <span class="n">j</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)}</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">squares</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">{0: 0}
+</span></span><span class="line"><span class="cl">{0: 0, 1: 1}
+</span></span><span class="line"><span class="cl">{0: 0, 1: 1, 2: 4}
+</span></span><span class="line"><span class="cl">{0: 0, 1: 1, 2: 4, 3: 9}
+</span></span><span class="line"><span class="cl">{0: 0, 1: 1, 2: 4, 3: 9, 4: 16}</span></span></code></pre></td></tr></table>
+</div>
+</div><p>В генераторах словарей можно использовать условный оператор. Приведенный ниже код создает словарь, ключами которого являются четные числа от 0 до 9, а значениями – квадраты ключей: <code>squares = {i: i**2 for i in range(10) if i % 2 == 0}</code> (можно обойтись и без условного оператора, установив параметр <code>step</code> в функции <code>range()</code>).</p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="Oбновлена 2024-05-12 00:00:01">Oбновлена 12-05-2024&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="Поделиться в X" data-sharer="twitter" data-url="http://localhost:1313/notes/collections/" data-title="Коллекции в Python. Часть I" data-hashtags="python,datatypes"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/notes/collections/" data-title="Коллекции в Python. Часть I" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в VK" data-sharer="vk" data-url="http://localhost:1313/notes/collections/" data-title="Коллекции в Python. Часть I"><i class="fa-brands fa-vk fa-fw" aria-hidden="true"></i></a>
+  <a href="//mix.com/add?url=http%3a%2f%2flocalhost%3a1313%2fnotes%2fcollections%2f&amp;description=%d0%9a%d0%be%d0%bb%d0%bb%d0%b5%d0%ba%d1%86%d0%b8%d0%b8%20%d0%b2%20Python.%20%d0%a7%d0%b0%d1%81%d1%82%d1%8c%20I" target="_blank" title="Поделиться в Mix"><i class="fa-brands fa-mix fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/python/" class="post-tag" title="Тэги - Python">Python</a><a href="/tags/datatypes/" class="post-tag" title="Тэги - Datatypes">Datatypes</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">Назад</a></span>&nbsp;|&nbsp;<span><a href="/">Домой</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/notes/random_string/" class="post-nav-item" rel="next" title="Модули random и string">Модули random и string<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div class="post-reward">
+    <div class="comment">На печеньки к чаю</div>
+    <input type="checkbox" class="reward-input" name="reward" id="fi-reward" hidden />
+    <label class="reward-button" for="fi-reward"><i class="fa-solid fa-qrcode fa-fw" aria-hidden="true"></i></label>
+    <div class="reward-ways" data-mode="fixed"><div><img loading="lazy" src="/img/CloudTips.png" alt="NoisyCake cloudtips" data-title="NoisyCake cloudtips" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span>cloudtips</span>
+          </div></div>
+  </div></article>
+
+  <aside class="toc" id="toc-auto" aria-label="Содержание"><h2 class="toc-title">Содержание&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://t.me/noisycake"target="_blank" rel="external nofollow noopener noreferrer">NoisyCake</a></span></div><div class="footer-line statistics"><span class="site-time" title='Website running ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Дней жизни:</span><span class="run-times ms-1">Website running ...</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='Всего посетителей'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='Всего посещений'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Наверх"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><div class="reading-progress-bar" style="--fi-progress-start: left; top: 0; --fi-progress-bg: #8581dd; --fi-progress-bg-dark: #fff;"></div><noscript>
+    <div class="noscript-warning"></div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"Копировать в буфер обмена","editLockTitle":"Заблокировать редактируемый кодовый блок","editUnLockTitle":"Разблокировать редактируемый блок кода","editable":true,"maxShownLines":50},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Окей","link":"Узнать больше","message":"Сайт использует куки"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"Результатов не найдено","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2024-11-15T16:15:22","version":"v0.3.14"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>

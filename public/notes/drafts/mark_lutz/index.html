@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="ru">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Марк Лутц &#34;Изучаем Python&#34; | HFK</title><meta name="author" content="NoisyCake">
+<meta name="description" content="В этом конспекте в первую очередь представлены ответы на вопросы по книге, а также новые для меня вещи, которые я вынес после прочтения каждой главы. Какие-то главы, части или вопросы опускаются, если из них не извлечено ничего до момента прочтения мне неизвестного или за ненадобностью (субъективно).
+Конспект будет пополняться по ходу прочтения книги
+"><meta name="keywords" content='python'>
+  <meta itemprop="name" content="Марк Лутц &#34;Изучаем Python&#34;">
+  <meta itemprop="description" content="В этом конспекте в первую очередь представлены ответы на вопросы по книге, а также новые для меня вещи, которые я вынес после прочтения каждой главы. Какие-то главы, части или вопросы опускаются, если из них не извлечено ничего до момента прочтения мне неизвестного или за ненадобностью (субъективно).
+Конспект будет пополняться по ходу прочтения книги">
+  <meta itemprop="datePublished" content="2024-07-15T00:00:01+00:00">
+  <meta itemprop="dateModified" content="2024-07-15T00:00:01+00:00">
+  <meta itemprop="wordCount" content="1496">
+  <meta itemprop="image" content="http://localhost:1313/notes/drafts/mark_lutz/feature.png">
+  <meta itemprop="keywords" content="Python"><meta property="og:url" content="http://localhost:1313/notes/drafts/mark_lutz/">
+  <meta property="og:site_name" content="HFK">
+  <meta property="og:title" content="Марк Лутц &#34;Изучаем Python&#34;">
+  <meta property="og:description" content="В этом конспекте в первую очередь представлены ответы на вопросы по книге, а также новые для меня вещи, которые я вынес после прочтения каждой главы. Какие-то главы, части или вопросы опускаются, если из них не извлечено ничего до момента прочтения мне неизвестного или за ненадобностью (субъективно).
+Конспект будет пополняться по ходу прочтения книги">
+  <meta property="og:locale" content="ru">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2024-07-15T00:00:01+00:00">
+    <meta property="article:modified_time" content="2024-07-15T00:00:01+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="og:image" content="http://localhost:1313/notes/drafts/mark_lutz/feature.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/notes/drafts/mark_lutz/feature.png">
+  <meta name="twitter:title" content="Марк Лутц &#34;Изучаем Python&#34;">
+  <meta name="twitter:description" content="В этом конспекте в первую очередь представлены ответы на вопросы по книге, а также новые для меня вещи, которые я вынес после прочтения каждой главы. Какие-то главы, части или вопросы опускаются, если из них не извлечено ничего до момента прочтения мне неизвестного или за ненадобностью (субъективно).
+Конспект будет пополняться по ходу прочтения книги">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/drafts/mark_lutz/" title="Марк Лутц &#34;Изучаем Python&#34; | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/notes/deep_bool_oper_python/" title="Углубление в логические операторы Python" /><link rel="next" type="text/html" href="http://localhost:1313/notes/variables_python/" title="Переменные и объекты в Python" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/drafts/mark_lutz/index.md" title="Марк Лутц \"Изучаем Python\" | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Марк Лутц \"Изучаем Python\"",
+    "inLanguage": "ru",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/notes\/drafts\/mark_lutz\/"
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "python","wordcount":  1496 ,
+    "url": "http:\/\/localhost:1313\/notes\/drafts\/mark_lutz\/","datePublished": "2024-07-15T00:00:01+00:00","dateModified": "2024-07-15T00:00:01+00:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "NoisyCake"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="normal"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item has-children">
+              <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item">
+              <a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Поиск">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Очистить">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="Сменить Тему">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Поиск">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Очистить">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Отменить
+            </a>
+          </li><li class="menu-item"><span class="nested-item">
+                  <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item"><a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item"><a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="Сменить Тему"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/notes/" title="Конспекты">Конспекты</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Марк Лутц &#34;Изучаем Python&#34;</li>
+    </ol>
+  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=""></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Марк Лутц &#34;Изучаем Python&#34;</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisycake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+    NoisyCake</a></span><span class="post-included-in">&nbsp;включен в <a href="/categories/python/" class="post-category" title="Категория - Python"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Python</a></span></div><div class="post-meta-line"><span title="Опубликовано 2024-07-15 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="15-07-2024">15-07-2024</time></span>&nbsp;<span title="1496 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 1500 слов</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>Содержание</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ol>
+    <li><a href="#глава-2-как-python-выполняет-программы">Глава 2. Как Python выполняет программы</a></li>
+    <li><a href="#глава-3-как-пользователь-выполняет-программы">Глава 3. Как пользователь выполняет программы</a>
+      <ol>
+        <li><a href="#что-нового">Что нового</a></li>
+        <li><a href="#ответы-на-вопросы">Ответы на вопросы</a></li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#глава-4-введение-в-типы-объектов-python">Глава 4. Введение в типы объектов Python</a>
+      <ol>
+        <li><a href="#что-нового-1">Что нового</a></li>
+        <li><a href="#ответы-на-вопросы-1">Ответы на вопросы</a></li>
+      </ol>
+    </li>
+    <li><a href="#глава-5-числовые-типы">Глава 5. Числовые типы</a>
+      <ol>
+        <li><a href="#что-нового-2">Что нового</a></li>
+        <li><a href="#ответы-на-вопросы-2">Ответы на вопросы</a></li>
+      </ol>
+    </li>
+    <li><a href="#глава-7-фундаментальные-основы-строк">Глава 7. Фундаментальные основы строк</a>
+      <ol>
+        <li><a href="#что-нового-3">Что нового</a></li>
+        <li><a href="#ответы-на-вопросы-3">Ответы на вопросы</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav></div>
+      </div><div class="content" id="content"><p>В этом конспекте в первую очередь представлены ответы на вопросы по книге, а также новые для меня вещи, которые я вынес после прочтения каждой главы. Какие-то главы, части или вопросы опускаются, если из них не извлечено ничего до момента прочтения мне неизвестного или за ненадобностью (субъективно).</p>
+<p>Конспект будет пополняться по ходу прочтения книги</p>
+<p>Общие вопросы, которые возникали по ходу прочтения, и на которые я находил ответы на просторах интернета:</p>
+<ul>
+<li>
+<p>JIT-компилятор (just in time) — компилятор, выполняющий команды по ходу исполнения самой программы, в отличии от AOT-компилятора (ahead-of-time), который компилирует программу перед её непосредственным исполнением.</p>
+</li>
+<li>
+<p>Python REPL (read-evaluate-print loop) — интерактивный режим, в котором интерпретатор считывает команды построчно и сразу же выполняет их (выводя результат на экран, если нужно)</p>
+</li>
+<li>
+<p>Различия IDLE и IDE: IDE (integrated development environment — интегрированная среда разработки) — программа, в которой разработчики пишут, тестируют и запускают код. Например VS Code. IDLE (Integrated Development and Learning Environment) — стандартная среда разработки Python. Обычно поставляется вместе с самим ЯП. Низкая функциональность, по сравнению с тем же VS Code.</p>
+</li>
+<li>
+<p>Файл с расширением <code>.pyw</code> — тот же самый <code>.py</code>, но при выполнении <code>*.pyw</code> терминал/консоль не открывается. При этом, файлы с расширением <code>.pyw</code> выполняются программой <code>pythonw.exe</code>, в то время как файлы с расширением <code>.py</code> выполняются <code>python.exe</code>.</p>
+</li>
+<li>
+<p>Есть очередной способ форматирования строки, где вместо %s подставляется строковый объект из скобок. По функционалу один в один <code>format()</code>, полагаю.</p>
+</li>
+</ul>
+<h2 id="часть-1-начало-работы" class="heading-element"><span>Часть 1. Начало работы</span>
+  <a href="#%d1%87%d0%b0%d1%81%d1%82%d1%8c-1-%d0%bd%d0%b0%d1%87%d0%b0%d0%bb%d0%be-%d1%80%d0%b0%d0%b1%d0%be%d1%82%d1%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h2 id="глава-2-как-python-выполняет-программы" class="heading-element"><span>Глава 2. Как Python выполняет программы</span>
+  <a href="#%d0%b3%d0%bb%d0%b0%d0%b2%d0%b0-2-%d0%ba%d0%b0%d0%ba-python-%d0%b2%d1%8b%d0%bf%d0%be%d0%bb%d0%bd%d1%8f%d0%b5%d1%82-%d0%bf%d1%80%d0%be%d0%b3%d1%80%d0%b0%d0%bc%d0%bc%d1%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><ol>
+<li>
+<p>Интерпретатор Python — программа, выполняющая написанные программы на Python</p>
+</li>
+<li>
+<p>Исходный код — последовательность операторов, записанная в текстовом файле с расширением <code>.py</code></p>
+</li>
+<li>
+<p>Байт-код — форма кода, полученная путём компиляции исходного кода для последующей интерпретации. Не пересоздаётся, если программа была запущена повторно без изменения исходного кода и если версии Python при создании и запуске совпадают. Хранится в файле расширений <code>.pyc</code>.</p>
+</li>
+<li>
+<p>PVM — Python virtual machine (виртуальная машина Python). Нужна для интерпретации (исполнения) скомпилированного байт-кода.</p>
+</li>
+<li>
+<p>CPython, Jython, IronPython, PyPy, Stackless и т.д.</p>
+</li>
+<li>
+<p>CPython — стандартная реализация. Jython — реализация Python для интеграции с Java, а IronPython для интеграции с .NET.</p>
+</li>
+<li>
+<p>Stackless — реализация Python, направленная на обеспечение параллелизма, PyPy — реализация Python, направленная на обеспечение высокой скорости выполнения. PyPy также является преемником Psyco, включает в себя концепции JIT-компилятора и поддержку Stackless.</p>
+</li>
+</ol>
+<hr>
+<h2 id="глава-3-как-пользователь-выполняет-программы" class="heading-element"><span>Глава 3. Как пользователь выполняет программы</span>
+  <a href="#%d0%b3%d0%bb%d0%b0%d0%b2%d0%b0-3-%d0%ba%d0%b0%d0%ba-%d0%bf%d0%be%d0%bb%d1%8c%d0%b7%d0%be%d0%b2%d0%b0%d1%82%d0%b5%d0%bb%d1%8c-%d0%b2%d1%8b%d0%bf%d0%be%d0%bb%d0%bd%d1%8f%d0%b5%d1%82-%d0%bf%d1%80%d0%be%d0%b3%d1%80%d0%b0%d0%bc%d0%bc%d1%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="что-нового" class="heading-element"><span>Что нового</span>
+  <a href="#%d1%87%d1%82%d0%be-%d0%bd%d0%be%d0%b2%d0%be%d0%b3%d0%be" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li>Узнал больше про IDLE, научился им пользоваться;</li>
+<li>Узнал как использовать интерактивный интерпретатор.</li>
+</ul>
+<h3 id="ответы-на-вопросы" class="heading-element"><span>Ответы на вопросы</span>
+  <a href="#%d0%be%d1%82%d0%b2%d0%b5%d1%82%d1%8b-%d0%bd%d0%b0-%d0%b2%d0%be%d0%bf%d1%80%d0%be%d1%81%d1%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ol>
+<li>
+<p>Сеанс интерактивного интерпретатора можно запустить следующими способами:</p>
+<ul>
+<li>В командной строке (Windows), терминале (Unix) путём введения команды <code>python</code> (или <code>py</code>)</li>
+<li>Найти значок запуска &ldquo;Python &lt;v&gt;&rdquo; в меню пуск</li>
+<li>Запуск среды IDLE</li>
+</ul>
+</li>
+<li>
+<p>В командной строке (Windows) или терминале (Unix).</p>
+</li>
+<li>
+<p>Модули можно запускать следующими способами:</p>
+<ul>
+<li>С помощью командной строки: <code>python &lt;filename.py&gt;</code></li>
+<li>Щёлкнуть на значок файла</li>
+<li>Импортирования и перезагрузки:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">reload</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">Studying</span>
+</span></span><span class="line"><span class="cl"><span class="n">reload</span><span class="p">(</span><span class="n">Studying</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">Hello World!
+</span></span><span class="line"><span class="cl">Hello World!</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Использовать встроенную функцию <code>exec()</code>: <code>exec(open(&quot;Studying.py&quot;).read())</code></li>
+<li>С помощью IDE</li>
+</ul>
+</li>
+<li>
+<p>При открытии файла <code>.py</code> щелчком, после завершения программы окно моментально закрывается, из-за чего становится проблематичным рассмотреть вывод и сообщения об ошибках.</p>
+</li>
+<li>
+<p>По умолчанию Python импортирует модуль единожды за сеанс (так как операция импорта довольно затратна), поэтому если исходный код был изменён и требуется выполнить новую версию, не перезапуская Python, на помощь приходит перезагрузка модуля командой <code>reload()</code>.</p>
+</li>
+<li>
+<p>Чтобы запустить модуль в IDLE, нужно, для начала, находиться непосредственно в текстовом редакторе IDLE с открытым файлом модуля, там нажать <em>Run Module</em>.</p>
+</li>
+<li>
+<p>IDLE виснет и не сильно надёжный.</p>
+</li>
+<li>
+<p>Пространство имён — пакет переменных (имён). Каждый файл модуля автоматически является пространством имён, то есть пакетом переменных, которые отражают присваивания, сделанные на верхнем уровне файла.</p>
+</li>
+</ol>
+<hr>
+<h2 id="часть-2-типы-и-операции" class="heading-element"><span>Часть 2. Типы и операции</span>
+  <a href="#%d1%87%d0%b0%d1%81%d1%82%d1%8c-2-%d1%82%d0%b8%d0%bf%d1%8b-%d0%b8-%d0%be%d0%bf%d0%b5%d1%80%d0%b0%d1%86%d0%b8%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h2 id="глава-4-введение-в-типы-объектов-python" class="heading-element"><span>Глава 4. Введение в типы объектов Python</span>
+  <a href="#%d0%b3%d0%bb%d0%b0%d0%b2%d0%b0-4-%d0%b2%d0%b2%d0%b5%d0%b4%d0%b5%d0%bd%d0%b8%d0%b5-%d0%b2-%d1%82%d0%b8%d0%bf%d1%8b-%d0%be%d0%b1%d1%8a%d0%b5%d0%ba%d1%82%d0%be%d0%b2-python" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="что-нового-1" class="heading-element"><span>Что нового</span>
+  <a href="#%d1%87%d1%82%d0%be-%d0%bd%d0%be%d0%b2%d0%be%d0%b3%d0%be-1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li>
+<p>Unicode — это стандарт, который определяет уникальные числовые коды (code points) для каждого символа в различных письменных системах мира; UTF-8 (Unicode Transformation Format) — кодировка, представляющая эти числовые коды в последовательности байтов.</p>
+</li>
+<li>
+<p>Существует стиль форматирования строк, в котором используются <code>%</code>. Лично я не вижу смысла им пользоваться, так как существуют более свежие и быстрые альтернативы (<code>f-strings</code>, <code>format()</code>), но полезно для общего развития. Пример:</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;Ivan&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">, my friend </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод: 
+</span></span><span class="line"><span class="cl">Hello, Ivan
+</span></span><span class="line"><span class="cl">Hello, my friend Ivan</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Забывшееся: в один принт можно читабельно (без прописывания литералов) уместить многострочный текст, обрамляя его тремя парами кавычек:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;&#34;&#34;Hello and welcome to the Los Pollos Hermanos family.
+</span></span></span><span class="line"><span class="cl"><span class="s2">My name is Gustavo,
+</span></span></span><span class="line"><span class="cl"><span class="s2">but you can call me Gus.&#34;&#34;&#34;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Существует тип данных <code>bytes</code> — байтовый объект (строка байтов). Как и <code>str</code>, является неизменяемым. Также есть изменяемый эквивалент — массив байтов <code>bytearray</code>.</li>
+</ul>
+<h3 id="ответы-на-вопросы-1" class="heading-element"><span>Ответы на вопросы</span>
+  <a href="#%d0%be%d1%82%d0%b2%d0%b5%d1%82%d1%8b-%d0%bd%d0%b0-%d0%b2%d0%be%d0%bf%d1%80%d0%be%d1%81%d1%8b-1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ol>
+<li>
+<p>Основными типами данных в Python являются <code>None</code>, булевские значения, числа (целые, с плавающей точкой и комплексные), строки (текстовые и байтовые), списки, кортежи, множества, словари и файлы.</p>
+</li>
+<li>
+<p>&ldquo;Основными&rdquo; они называются, так как для их использования не нужно импортировать модули, да и просто их используют чаще всего.</p>
+</li>
+<li>
+<p>В Python есть три основных неизменяемых (то есть без возможности модификации после создания) типа данных: числа, строки, кортежи.</p>
+</li>
+<li>
+<p>&ldquo;Последовательность&rdquo; — позиционно упорядоченная коллекция объектов. Ими являются строки, списки и кортежи.</p>
+</li>
+<li>
+<p>&ldquo;Отображение&rdquo; — объект, состоящий из пар &ldquo;ключ-значение&rdquo;. В Python им является словарь.</p>
+</li>
+<li>
+<p>Полиморфизм в Python представляет из себя разное поведение одного и того же метода/оператора в разных классах.</p>
+</li>
+</ol>
+<hr>
+<h2 id="глава-5-числовые-типы" class="heading-element"><span>Глава 5. Числовые типы</span>
+  <a href="#%d0%b3%d0%bb%d0%b0%d0%b2%d0%b0-5-%d1%87%d0%b8%d1%81%d0%bb%d0%be%d0%b2%d1%8b%d0%b5-%d1%82%d0%b8%d0%bf%d1%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="что-нового-2" class="heading-element"><span>Что нового</span>
+  <a href="#%d1%87%d1%82%d0%be-%d0%bd%d0%be%d0%b2%d0%be%d0%b3%d0%be-2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li>
+<p>Целые числа могут кодироваться в десятичной, шестнадцатеричной (запись начинается с <code>0x</code> или <code>0X</code>), восьмеричной (<code>0o</code> или <code>0O</code>) и двоичной (<code>0b</code> или <code>0B</code>) системах счисления. Не зависимо от того, в какой системе счисления представлено число, в памяти оно хранится одинаково.</p>
+</li>
+<li>
+<p>Комплексные числа имеют вещественную и мнимую часть. Вторая записывается с литералом <code>j</code> или <code>J</code> на конце. Внутренне этот тип данных реализован в виде суммы пары чисел с плавающей точкой. Создать их можно с помощью функции <code>complex(real, imag)</code>. Комплексные числа поддерживают атрибуты, которые извлекают части числа, математические выражения и работу с функциями модуля <code>cmath</code> (аналог модуля <code>math</code> для комплексных чисел).</p>
+</li>
+<li>
+<p>Побитовые операции используются в основном в более низкоуровневых языках, но в Python они тоже есть. Вообще, если в программе приходится их использовать, стоит задуматься, тот ли язык вы используете.</p>
+<p>В побитовых операциях Python работает с числами в их бинарном представлении. Рассмотрим основные битовые операторы: <code>&amp;</code>, <code>|</code>, <code>^</code>, <code>~</code>, <code>&lt;&lt;</code> и <code>&gt;&gt;</code>.</p>
+<p><code>&amp;</code> — сравнивает биты попарно и вставляет 1, если 1 присутствует в обоих числах:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="mi">12</span> <span class="o">&amp;</span> <span class="mi">15</span><span class="p">)</span>  <span class="c1">#0b1100 &amp; 0b1111 = 1100</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: 12</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>|</code> — сравнивает биты попарно и вставляет 1, если 1 присутствует хотя бы в одном из чисел:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="mi">9</span> <span class="o">|</span> <span class="mi">13</span><span class="p">)</span>  <span class="c1">#0b1001 | 0b1101 = 0b1101</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: 13</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>^</code> — сравнивает биты попарно и вставляет 1, если сравниваемые биты совпадают, в противном случае — 0:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="mi">90</span> <span class="o">^</span> <span class="mi">22</span><span class="p">)</span>  <span class="c1">#0b1011010 ^ 0b10110 = 0b1001100</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: 76</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>~</code> — побитово инвертирует число, таким образом положительное число становится отрицательным со смещением -1. Также отрицательное число становится положительным со смещением на -1.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="o">~-</span><span class="mi">80</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: 79</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>&lt;&lt;</code> и <code>&gt;&gt;</code> — сдвиги влево и вправо соответственно. Справа от операторов пишется число — количество бит, на которые нужно сдвинуть левый операнд:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1">#0b0001 &lt;&lt; 2 = 0b0100</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: 4</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1">#0b0101 &gt;&gt; 1 = 0b0010</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: 2</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p><strong>Примечание.</strong> Марк Лутц относит множества к числовому типу данных, с чем я категорически не согласен как минимум потому что множество — это коллекция. Лично я считаю, что к числовому типу данных следует относить только следующие типы: целые числа, числа с плавающей точкой, комплексные числа и другие вариации этих типов, такие как Decimal, Fraction и т.д.</p>
+<h3 id="ответы-на-вопросы-2" class="heading-element"><span>Ответы на вопросы</span>
+  <a href="#%d0%be%d1%82%d0%b2%d0%b5%d1%82%d1%8b-%d0%bd%d0%b0-%d0%b2%d0%be%d0%bf%d1%80%d0%be%d1%81%d1%8b-2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ol start="4">
+<li>
+<p>Для нахождения квадратного корня и квадрата числа можно использовать оператор <code>**</code>, встроенную функцию <code>pow()</code> или функции <code>pow()</code> (возведение в степень) и <code>sqrt()</code> (вычисление квадратного корня) из модуля <code>math</code>.</p>
+</li>
+<li>
+<p>Усекать и округлять число с плавающей точкой можно следующими способами:</p>
+</li>
+</ol>
+<ul>
+<li><code>int(x)</code> — отбрасывает дробную часть;</li>
+<li><code>math.trunc(num)</code> — действует аналогично предыдущему варианту;</li>
+<li><code>round(num, n)</code> — округляет число к ближайшему чётному с точностью до <code>n</code> знаков после запятой;</li>
+<li><code>math.floor(num)</code> — округляет число вниз;</li>
+<li><code>math.ceil(num)</code> — округляет число вверх:</li>
+<li>и т.д.</li>
+</ul>
+<ol start="7">
+<li>
+<p>Целое число можно преобразовать в число с плавающей точкой с помощью функции <code>float(num)</code>, смешивания целых чисел и чисел с плавающей точкой в выражениях, операцией <code>/</code>.</p>
+</li>
+<li>
+<p>Чтобы отобразить целое число в двоичном, восьмеричном и шестнадцатеричном представлениях, можно воспользоваться встроенными функциями <code>bin()</code>, <code>oct()</code> и <code>hex()</code> соответственно.</p>
+</li>
+<li>
+<p>Если нужно преобразовать строку, содержащую число, представленное в другой системе счисления, нужно использовать функцию <code>int(string, base=10)</code>, передав ей в качестве второго аргумента число, обозначающее основание системы счисления.</p>
+</li>
+</ol>
+<hr>
+<h2 id="глава-7-фундаментальные-основы-строк" class="heading-element"><span>Глава 7. Фундаментальные основы строк</span>
+  <a href="#%d0%b3%d0%bb%d0%b0%d0%b2%d0%b0-7-%d1%84%d1%83%d0%bd%d0%b4%d0%b0%d0%bc%d0%b5%d0%bd%d1%82%d0%b0%d0%bb%d1%8c%d0%bd%d1%8b%d0%b5-%d0%be%d1%81%d0%bd%d0%be%d0%b2%d1%8b-%d1%81%d1%82%d1%80%d0%be%d0%ba" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="что-нового-3" class="heading-element"><span>Что нового</span>
+  <a href="#%d1%87%d1%82%d0%be-%d0%bd%d0%be%d0%b2%d0%be%d0%b3%d0%be-3" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li>Неформатированную строку (<code>r''</code>) нельзя оканчивать косой чертой</li>
+</ul>
+<h3 id="ответы-на-вопросы-3" class="heading-element"><span>Ответы на вопросы</span>
+  <a href="#%d0%be%d1%82%d0%b2%d0%b5%d1%82%d1%8b-%d0%bd%d0%b0-%d0%b2%d0%be%d0%bf%d1%80%d0%be%d1%81%d1%8b-3" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ol>
+<li>
+<p>Метод <code>find()</code> может использоваться только для строк.</p>
+</li>
+<li>
+<p>Срез можно применять как к строкам, так и к спискам.</p>
+</li>
+<li>
+<p>Чтобы преобразовать символ в его целочисленный код ASCII, можно воспользоваться функцией <code>ord()</code>. Обратное преобразование проводится через функцию <code>chr()</code>.</p>
+</li>
+<li>
+<p>Строка — неизменяемый объект в Python.</p>
+</li>
+<li>
+<p>Допустим, нужно извлечь два символа между запятыми из след. строки: <code>&quot;s,pa,m&quot;</code>. Это можно сделать как минимум двумя способами. 1 — разделить по запятым и извлечь из полученного списка элемент по индексу 1. 2 — срез <code>[2:4]</code>.</p>
+</li>
+<li>
+<p>Следующая строка содержит шесть символов: <code>'a\nb\x1f\000d'</code>, а конкретно: символ <code>'a'</code>, символ перевода строки <code>'\n'</code>, шестнадцатеричную последовательность <code>'\x1f'</code>, восьмеричную последовательность <code>'\000'</code> и символ <code>'d'</code>.</p>
+</li>
+</ol></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="Oбновлена 2024-07-15 00:00:01">Oбновлена 15-07-2024&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="Поделиться в X" data-sharer="twitter" data-url="http://localhost:1313/notes/drafts/mark_lutz/" data-title="Марк Лутц &#34;Изучаем Python&#34;" data-hashtags="python"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/notes/drafts/mark_lutz/" data-title="Марк Лутц &#34;Изучаем Python&#34;" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в VK" data-sharer="vk" data-url="http://localhost:1313/notes/drafts/mark_lutz/" data-title="Марк Лутц &#34;Изучаем Python&#34;"><i class="fa-brands fa-vk fa-fw" aria-hidden="true"></i></a>
+  <a href="//mix.com/add?url=http%3a%2f%2flocalhost%3a1313%2fnotes%2fdrafts%2fmark_lutz%2f&amp;description=%d0%9c%d0%b0%d1%80%d0%ba%20%d0%9b%d1%83%d1%82%d1%86%20%22%d0%98%d0%b7%d1%83%d1%87%d0%b0%d0%b5%d0%bc%20Python%22" target="_blank" title="Поделиться в Mix"><i class="fa-brands fa-mix fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/python/" class="post-tag" title="Тэги - Python">Python</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">Назад</a></span>&nbsp;|&nbsp;<span><a href="/">Домой</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/notes/deep_bool_oper_python/" class="post-nav-item" rel="prev" title="Углубление в логические операторы Python"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Углубление в логические операторы Python</a><a href="/notes/variables_python/" class="post-nav-item" rel="next" title="Переменные и объекты в Python">Переменные и объекты в Python<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div class="post-reward">
+    <div class="comment">На печеньки к чаю</div>
+    <input type="checkbox" class="reward-input" name="reward" id="fi-reward" hidden />
+    <label class="reward-button" for="fi-reward"><i class="fa-solid fa-qrcode fa-fw" aria-hidden="true"></i></label>
+    <div class="reward-ways" data-mode="fixed"><div><img loading="lazy" src="/img/CloudTips.png" alt="NoisyCake cloudtips" data-title="NoisyCake cloudtips" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span>cloudtips</span>
+          </div></div>
+  </div></article>
+
+  <aside class="toc" id="toc-auto" aria-label="Содержание"><h2 class="toc-title">Содержание&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://t.me/noisycake"target="_blank" rel="external nofollow noopener noreferrer">NoisyCake</a></span></div><div class="footer-line statistics"><span class="site-time" title='Website running ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Дней жизни:</span><span class="run-times ms-1">Website running ...</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='Всего посетителей'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='Всего посещений'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Наверх"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><div class="reading-progress-bar" style="--fi-progress-start: left; top: 0; --fi-progress-bg: #8581dd; --fi-progress-bg-dark: #fff;"></div><noscript>
+    <div class="noscript-warning"></div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"Копировать в буфер обмена","editLockTitle":"Заблокировать редактируемый кодовый блок","editUnLockTitle":"Разблокировать редактируемый блок кода","editable":true,"maxShownLines":50},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Окей","link":"Узнать больше","message":"Сайт использует куки"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"Результатов не найдено","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2024-11-15T16:15:22","version":"v0.3.14"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>

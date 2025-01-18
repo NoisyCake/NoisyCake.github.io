@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="ru">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Работа с датой и временем. Часть II | HFK</title><meta name="author" content="NoisyCake">
+<meta name="description" content="Больше модулей для работы с временем и датой, измерение времени выполнения программы
+"><meta name="keywords" content='python, time, calendar, modules, datatypes'>
+  <meta itemprop="name" content="Работа с датой и временем. Часть II">
+  <meta itemprop="description" content="Больше модулей для работы с временем и датой, измерение времени выполнения программы">
+  <meta itemprop="datePublished" content="2024-06-30T00:00:01+00:00">
+  <meta itemprop="dateModified" content="2024-06-30T00:00:01+00:00">
+  <meta itemprop="wordCount" content="3495">
+  <meta itemprop="keywords" content="Python,Time,Calendar,Modules,Datatypes"><meta property="og:url" content="http://localhost:1313/notes/date_and_time_2/">
+  <meta property="og:site_name" content="HFK">
+  <meta property="og:title" content="Работа с датой и временем. Часть II">
+  <meta property="og:description" content="Больше модулей для работы с временем и датой, измерение времени выполнения программы">
+  <meta property="og:locale" content="ru">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2024-06-30T00:00:01+00:00">
+    <meta property="article:modified_time" content="2024-06-30T00:00:01+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Time">
+    <meta property="article:tag" content="Calendar">
+    <meta property="article:tag" content="Modules">
+    <meta property="article:tag" content="Datatypes">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Работа с датой и временем. Часть II">
+  <meta name="twitter:description" content="Больше модулей для работы с временем и датой, измерение времени выполнения программы">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/date_and_time_2/" title="Работа с датой и временем. Часть II | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/notes/date_and_time_1/" title="Работа с датой и временем. Часть I" /><link rel="next" type="text/html" href="http://localhost:1313/notes/stdin_stdout/" title="Потоковый ввод и вывод" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/date_and_time_2/index.md" title="Работа с датой и временем. Часть II | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Работа с датой и временем. Часть II",
+    "inLanguage": "ru",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/notes\/date_and_time_2\/"
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "python, time, calendar, modules, datatypes","wordcount":  3495 ,
+    "url": "http:\/\/localhost:1313\/notes\/date_and_time_2\/","datePublished": "2024-06-30T00:00:01+00:00","dateModified": "2024-06-30T00:00:01+00:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "NoisyCake"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="normal"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item has-children">
+              <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item">
+              <a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Поиск">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Очистить">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="Сменить Тему">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Поиск">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Очистить">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Отменить
+            </a>
+          </li><li class="menu-item"><span class="nested-item">
+                  <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item"><a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item"><a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="Сменить Тему"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/notes/" title="Конспекты">Конспекты</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Работа с датой и временем. Часть II</li>
+    </ol>
+  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=""><div class="details collection-details open">
+      <div class="details-summary collection-summary">
+        <i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i>
+        <span class="collection-name" data-collections="">Date&amp;Time</span>
+        <span class="collection-count">2</span><i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+      <div class="details-content collection-content">
+        <nav>
+          <ul class="collection-list"><li class="collection-item"><a href="/notes/date_and_time_1/" title="Работа с датой и временем. Часть I">Работа с датой и временем. Часть I</a></li><li class="collection-item"><span class="active" title="Работа с датой и временем. Часть II">Работа с датой и временем. Часть II</span></li></ul>
+          <div class="collection-nav-simple"><a href="/notes/date_and_time_1/" class="collection-nav-item" rel="prev" title="Работа с датой и временем. Часть I"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i></a><span class="text-secondary">2/2</span><i class="fa-solid fa-angle-right fa-fw collection-nav-item text-secondary" aria-hidden="true"></i></div>
+        </nav>
+      </div>
+    </div></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Работа с датой и временем. Часть II</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisycake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+    NoisyCake</a></span><span class="post-included-in">&nbsp;включен в <a href="/categories/python/" class="post-category" title="Категория - Python"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Python</a> и <a href="/collections/datetime/" class="post-collection" title=" - Date&Time"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> Date&Time</a></span></div><div class="post-meta-line"><span title="Опубликовано 2024-06-30 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="30-06-2024">30-06-2024</time></span>&nbsp;<span title="3495 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 3500 слов</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>Содержание</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ol>
+    <li><a href="#модуль-time">Модуль <code>time</code></a>
+      <ol>
+        <li><a href="#функция-time">Функция <code>time()</code></a></li>
+        <li><a href="#функция-ctime">Функция <code>ctime()</code></a></li>
+        <li><a href="#функция-sleep">Функция <code>sleep()</code></a></li>
+      </ol>
+    </li>
+    <li><a href="#измерение-времени-выполнения-программы">Измерение времени выполнения программы</a>
+      <ol>
+        <li><a href="#функция-monotonic">Функция <code>monotonic()</code></a></li>
+        <li><a href="#функция-perf_counter">Функция <code>perf_counter()</code></a></li>
+        <li><a href="#замечания">Замечания</a></li>
+        <li><a href="#тип-данных-struct_time">Тип данных <code>struct_time</code></a>
+          <ol>
+            <li><a href="#функция-localtime">Функция <code>localtime()</code></a></li>
+            <li><a href="#функция-gmtime">Функция <code>gmtime()</code></a></li>
+            <li><a href="#функция-mktime">Функция <code>mktime()</code></a></li>
+            <li><a href="#функция-asctime">Функция <code>asctime()</code></a></li>
+          </ol>
+        </li>
+        <li><a href="#форматированный-вывод">Форматированный вывод</a></li>
+      </ol>
+    </li>
+    <li><a href="#модуль-calendar">Модуль <code>calendar</code></a>
+      <ol>
+        <li><a href="#атрибуты-calendar">Атрибуты <code>calendar</code></a></li>
+        <li><a href="#функции-calendar">Функции <code>calendar</code></a></li>
+      </ol>
+    </li>
+  </ol>
+</nav></div>
+      </div><div class="content" id="content"><p>Больше модулей для работы с временем и датой, измерение времени выполнения программы</p>
+<h2 id="модуль-time" class="heading-element"><span>Модуль <code>time</code></span>
+  <a href="#%d0%bc%d0%be%d0%b4%d1%83%d0%bb%d1%8c-time" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Для использования: <code>import time</code></p>
+<p>В Python помимо встроенного модуля <code>datetime</code> есть еще модуль <code>time</code>, который обычно используется для работы с текущим временем.</p>
+<p>Его работа основывается на общепринятой системе описания времени. Согласно ее концепции, текущее время представляется в виде обыкновенного вещественного значения в секундах, прошедших с момента начала эпохи (полночь 1 января 1970 года) и до сегодняшнего дня.</p>
+<p>Возможности модуля:</p>
+<ul>
+<li>отображает информацию о времени, прошедшем с начала эпохи</li>
+<li>преобразовывает значение системного времени в удобный вид</li>
+<li>прерывает выполнение программы на заданное количество секунд</li>
+<li>измеряет время выполнения программы или её отдельных модулей</li>
+</ul>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content"><code>datetime.time</code> и модуль <code>time</code> – не одно и то же!</div>
+  </div>
+</div>
+<h3 id="функция-time" class="heading-element"><span>Функция <code>time()</code></span>
+  <a href="#%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-time" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Возвращает количество секунд, прошедших с начала эпохи:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">seconds</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>  <span class="c1"># получаем количество прошедших секунд в виде float числа</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Количество секунд с начала эпохи =&#39;</span><span class="p">,</span> <span class="n">seconds</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: Количество секунд с начала эпохи = 1630387918.354396</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="функция-ctime" class="heading-element"><span>Функция <code>ctime()</code></span>
+  <a href="#%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-ctime" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Для того чтобы получить текущую дату в более удобном для человека виде, нужно использовать функцию <code>ctime()</code>, которая принимает в качестве аргумента количество секунд, прошедших с начала эпохи, и возвращает строку, представляющую собой локальное время:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">local_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>  <span class="c1"># аналогично local_time = time.ctime()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">local_time</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: текущая дата и время на вашем пк</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Если вызвать <code>ctime()</code> без аргументов, результат будет аналогичным</div>
+  </div>
+</div>
+<hr>
+<h3 id="функция-sleep" class="heading-element"><span>Функция <code>sleep()</code></span>
+  <a href="#%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-sleep" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Используется для добавления задержки в выполнение программы. В качестве аргумента принимает количество секунд (<code>secs</code>) – задержка в секундах. <code>secs</code> может быть как <code>int</code>, так и <code>float</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Before the sleep statement&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;After the sleep statement&#39;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Функция <code>sleep()</code> нередко используется для тестирования кода и намеренного внесения задержек на различных этапах выполнения программы</div>
+  </div>
+</div>
+<hr>
+<h2 id="измерение-времени-выполнения-программы" class="heading-element"><span>Измерение времени выполнения программы</span>
+  <a href="#%d0%b8%d0%b7%d0%bc%d0%b5%d1%80%d0%b5%d0%bd%d0%b8%d0%b5-%d0%b2%d1%80%d0%b5%d0%bc%d0%b5%d0%bd%d0%b8-%d0%b2%d1%8b%d0%bf%d0%be%d0%bb%d0%bd%d0%b5%d0%bd%d0%b8%d1%8f-%d0%bf%d1%80%d0%be%d0%b3%d1%80%d0%b0%d0%bc%d0%bc%d1%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Чтобы найти время выполнения программы или её части, достаточно посчитать разницу времени в секундах между точкой старта и местом, где она завершается.
+Пример:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Время работы программы = </span><span class="si">{</span><span class="n">elapsed_time</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: Время работы программы = 5.022884845733643</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Несмотря на простоту вышеописанного подхода, использовать его в серьезных целях, где требуется точный и независимый от операционной системы (ОС) результат, не рекомендуется. Всё дело в том, что числовое значение времени, получаемое таким образом, может иметь погрешности за счет внутренних особенностей работы компьютера, в среде которого выполняется программа. Более того, системные часы могут быть подкорректированы вручную пользователем во время выполнения программы.</p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Бывает так, что очередной вызов функции <code>time()</code> вернет значение меньше, чем значение, полученное при предыдущем вызове.</div>
+  </div>
+</div>
+<h3 id="функция-monotonic" class="heading-element"><span>Функция <code>monotonic()</code></span>
+  <a href="#%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-monotonic" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Для измерения времени выполнения программы идеально подходит функция <code>monotonic()</code>, так как ее результат не зависит от корректировки системных часов и других внешних условий.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Время работы программы = </span><span class="si">{</span><span class="n">elapsed_time</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: Время работы программы = 5.0</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="функция-perf_counter" class="heading-element"><span>Функция <code>perf_counter()</code></span>
+  <a href="#%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-perf_counter" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Для самого точного измерения времени выполнения программы следует использовать функцию <code>perf_counter()</code>. Данная функция использует таймер с наибольшим доступным разрешением, что делает эту функцию отличным инструментом для измерения времени выполнения кода на коротких интервалах.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Время работы программы = </span><span class="si">{</span><span class="n">elapsed_time</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: Время работы программы = 5.042140900040977</span></span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="замечания" class="heading-element"><span>Замечания</span>
+  <a href="#%d0%b7%d0%b0%d0%bc%d0%b5%d1%87%d0%b0%d0%bd%d0%b8%d1%8f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>При сравнении разных способов выполнить одно и то же действие, было замерено время выполнения каждого. Вот некоторые интересные замечания, которые мне хотелось бы выделить:</p>
+<ul>
+<li>По сравнению с собственными реализациями, функция <code>factorial()</code> из модуля <code>math</code> выполняется быстрее, так как реализована на языке C.</li>
+<li>Списочные выражения (или же list comprehensions) выполняются быстрее, чем использование цикла <code>for</code> на пару с методом <code>append</code>.</li>
+<li>В случае если требуется создать список на основе итерируемого объекта или коллекции без какого-либо изменения элементов, то лучшим вариантом будет функция <code>list()</code>.</li>
+</ul>
+<hr>
+<h3 id="тип-данных-struct_time" class="heading-element"><span>Тип данных <code>struct_time</code></span>
+  <a href="#%d1%82%d0%b8%d0%bf-%d0%b4%d0%b0%d0%bd%d0%bd%d1%8b%d1%85-struct_time" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Единственный тип данных, который имеется в модуле <code>time</code> – <code>struct_time</code>. Он представляет собой именованный кортеж, содержащий информацию о времени. Структура представления времени <code>struct_time</code> чем-то похожа на уже изученный тип <code>datetime</code>.</p>
+<div class="details admonition todo open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-list-check" aria-hidden="true"></i>Сделать<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Именованные кортежи будут описаны подробнее в следующих конспектах</div>
+  </div>
+</div>
+<p>Именованный кортеж <code>struct_time</code> состоит из следующих атрибутов:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Номер индекса</th>
+          <th style="text-align: center">Атрибут</th>
+          <th style="text-align: center">Значение</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">0</td>
+          <td style="text-align: center"><code>tm_year</code></td>
+          <td style="text-align: center">диапазон от 0000 до 9999</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center"><code>tm_mon</code></td>
+          <td style="text-align: center">диапазон от 1 до 12</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center"><code>tm_mday</code></td>
+          <td style="text-align: center">диапазон от 1 до 31</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">3</td>
+          <td style="text-align: center"><code>tm_hour</code></td>
+          <td style="text-align: center">диапазон от 0 до 23</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">4</td>
+          <td style="text-align: center"><code>tm_min</code></td>
+          <td style="text-align: center">диапазон от 0 до 59</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">5</td>
+          <td style="text-align: center"><code>tm_sec</code></td>
+          <td style="text-align: center">диапазон от 0 до 61 (<a href="https://ru.wikipedia.org/wiki/%D0%94%D0%BE%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D1%81%D0%B5%D0%BA%D1%83%D0%BD%D0%B4%D0%B0"target="_blank" rel="external nofollow noopener noreferrer">високосная секунда<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a>)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">6</td>
+          <td style="text-align: center"><code>tm_wday</code></td>
+          <td style="text-align: center">диапазон от 0 до 6, понедельник=0</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">7</td>
+          <td style="text-align: center"><code>tm_yday</code></td>
+          <td style="text-align: center">диапазон от 1 до 366</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">8</td>
+          <td style="text-align: center"><code>tm_isdst</code></td>
+          <td style="text-align: center">значения -1, 0, 1</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">N/A</td>
+          <td style="text-align: center"><code>tm_zone</code></td>
+          <td style="text-align: center">сокращение названия часового пояса</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">N/A</td>
+          <td style="text-align: center"><code>tm_gmtoff</code></td>
+          <td style="text-align: center">смещение к востоку от UTC в секундах</td>
+      </tr>
+  </tbody>
+</table>
+<p>Создавать объекты типа <code>struct_time</code> можно на основе кортежа:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">time_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">243</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">time_obj</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">struct_time</span><span class="p">(</span><span class="n">time_tuple</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>На практике же редко приходится собственноручно создавать объекты этого типа. Обычно используют функции модуля <code>time</code>, которые сами создают и оперируют ими.</p>
+<h4 id="функция-localtime" class="heading-element"><span>Функция <code>localtime()</code></span>
+  <a href="#%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-localtime" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p><code>localtime()</code> принимает в качестве аргумента количество секунд, прошедших с начала эпохи, и возвращает кортеж <code>struct_time</code> в <strong>локальном времени</strong>.</p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Если функции <code>localtime()</code> передан аргумент <code>None</code>, вернется значение <code>time()</code></div>
+  </div>
+</div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="mi">1630387918</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Результат:&#39;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Год:&#39;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">tm_year</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Месяц:&#39;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">tm_mon</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;День:&#39;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">tm_mday</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Час:&#39;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">tm_hour</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">Результат: time.struct_time(tm_year=2021, tm_mon=8, tm_mday=31, tm_hour=8, tm_min=31, tm_sec=58, tm_wday=1, tm_yday=243, tm_isdst=0)
+</span></span><span class="line"><span class="cl">Год: 2021
+</span></span><span class="line"><span class="cl">Месяц: 8
+</span></span><span class="line"><span class="cl">День: 31
+</span></span><span class="line"><span class="cl">Час: 8</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Также мы могли бы обращаться к данным именованного кортежа по индексам. К примеру, <code>print('Год:', result[0])</code>, вывел бы ту же строку, что и <code>print('Год:', result.tm_year)</code> в коде выше.</p>
+<hr>
+<h4 id="функция-gmtime" class="heading-element"><span>Функция <code>gmtime()</code></span>
+  <a href="#%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-gmtime" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p><code>gmtime()</code> принимает в качестве аргумента количество секунд, прошедших с начала эпохи, и возвращает кортеж <code>struct_time</code> в <strong>UTC</strong>.</p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Если функции <code>gmtime()</code> передан аргумент <code>None</code>, также вернется значение <code>time()</code></div>
+  </div>
+</div>
+<hr>
+<h4 id="функция-mktime" class="heading-element"><span>Функция <code>mktime()</code></span>
+  <a href="#%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-mktime" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p><code>mktime()</code> принимает <code>struct_time</code> (или кортеж, содержащий 9 значений, относящихся к этому типу) в качестве аргумента и возвращает количество секунд, прошедших с начала эпохи, в местном времени.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">time_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">243</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">time_obj</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">time_tuple</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Локальное время в секундах:&#39;</span><span class="p">,</span> <span class="n">time_obj</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: Локальное время в секундах: 1630377118.0</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Функция <code>mktime()</code> является обратной к функции <code>localtime()</code>. Посмотрим на пример этой связи:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">seconds</span> <span class="o">=</span> <span class="mi">1630377118</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">time_obj</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span>    <span class="c1"># возвращает struct_time</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">time_obj</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">time_seconds</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">time_obj</span><span class="p">)</span>  <span class="c1"># возвращает секунды из struct_time</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">time_seconds</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">time.struct_time(tm_year=2021, tm_mon=8, tm_mday=31, tm_hour=5, tm_min=31, tm_sec=58, tm_wday=1, tm_yday=243, tm_isdst=0)
+</span></span><span class="line"><span class="cl">1630377118.0</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition danger open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-bolt" aria-hidden="true"></i>Опасность<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Если кортеж с неправильной длиной или имеющий элементы неправильного типа передаётся функции, ожидающей <code>struct_time</code>, возникает ошибка <code>TypeError</code>!</div>
+  </div>
+</div>
+<hr>
+<h4 id="функция-asctime" class="heading-element"><span>Функция <code>asctime()</code></span>
+  <a href="#%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-asctime" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p><code>asctime()</code> принимает <code>struct_time</code> (или кортеж, содержащий 9 значений, относящихся к этому типу) в качестве аргумента и возвращает строку, представляющую собой дату и время.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">time_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">243</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">asctime</span><span class="p">(</span><span class="n">time_tuple</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Результат:&#39;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: Результат: Tue Aug 31 05:31:58 2021</span></span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="форматированный-вывод" class="heading-element"><span>Форматированный вывод</span>
+  <a href="#%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%82%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%bd%d1%8b%d0%b9-%d0%b2%d1%8b%d0%b2%d0%be%d0%b4" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Функции <code>ctime()</code> и <code>asctime()</code> имеют практически одинаковый функционал, за тем исключением, что первая функция принимает количество прошедших от начала эпохи секунд, а вторая принимает <code>struct_time</code> (или соответствующий кортеж). Обе функции представляют время в более удобном виде, благодаря автоматическому форматированию.
+Однако, автоматическое форматирование не всегда то, что нужно, поскольку может показаться чересчур сложным для восприятия, либо же недостаточно информативным. Именно поэтому функции <code>strftime()</code> и <code>strptime()</code> модуля <code>time</code> позволяют создавать свои уникальные типы форматирования.</p>
+<ul>
+<li><code>strftime()</code> принимает строку с некоторым набором правил для форматирования и объект <code>struct_time</code> (или соответствующий кортеж) в качестве аргументов и возвращает строку с датой в зависимости от использованного формата:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">time_obj</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">.%m.%Y, %H:%M:%S&#39;</span><span class="p">,</span> <span class="n">time_obj</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: 01.09.2021, 08:50:32</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>strptime()</code> делает разбор строки в зависимости от использованного формата и возвращает объект <code>struct_time</code>:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">time_string</span> <span class="o">=</span> <span class="s1">&#39;1 September, 2021&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">time_string</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> %B, %Y&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: time.struct_time(tm_year=2021, tm_mon=9, tm_mday=1, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=2, tm_yday=244, tm_isdst=-1)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition danger open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-bolt" aria-hidden="true"></i>Опасность<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">При этом строка <code>time_string</code> должна полностью соответствовать формату <code>%d %B, %Y</code>, в противном случае возникнет исключение <code>ValueError</code>!</div>
+  </div>
+</div>
+<hr>
+<h2 id="модуль-calendar" class="heading-element"><span>Модуль <code>calendar</code></span>
+  <a href="#%d0%bc%d0%be%d0%b4%d1%83%d0%bb%d1%8c-calendar" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Для использования: <code>import calendar</code></p>
+<p>По умолчанию модуль <code>calendar</code> следует григорианскому календарю, где понедельник является первым днём недели (номер 0), а воскресенье – последним (номер 6). В отличии от предыдущих модулей <code>date</code> и <code>time</code>, которые также предоставляют функции, связанные с календарём, модуль <code>calendar</code> предоставляет основные функции, связанные с отображением и манипулированием календарями.</p>
+<h3 id="атрибуты-calendar" class="heading-element"><span>Атрибуты <code>calendar</code></span>
+  <a href="#%d0%b0%d1%82%d1%80%d0%b8%d0%b1%d1%83%d1%82%d1%8b-calendar" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li>Атрибут <code>calendar.day_name</code> возвращает итерируемый объект, содержащий названия дней недели на английском языке:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">calendar</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">calendar</span><span class="o">.</span><span class="n">day_name</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">Monday
+</span></span><span class="line"><span class="cl">Tuesday
+</span></span><span class="line"><span class="cl">Wednesday
+</span></span><span class="line"><span class="cl">Thursday
+</span></span><span class="line"><span class="cl">Friday
+</span></span><span class="line"><span class="cl">Saturday
+</span></span><span class="line"><span class="cl">Sunday</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Атрибут <code>calendar.day_abbr</code> возвращает итерируемый объект, содержащий сокращенные названия дней недели:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">calendar</span><span class="o">,</span> <span class="nn">locale</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">calendar</span><span class="o">.</span><span class="n">day_abbr</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">locale</span><span class="o">.</span><span class="n">setlocale</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="s1">&#39;ru_RU.UTF-8&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">calendar</span><span class="o">.</span><span class="n">day_abbr</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">Mon Tue Wed Thu Fri Sat Sun
+</span></span><span class="line"><span class="cl">Пн Вт Ср Чт Пт Сб Вс</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Атрибут <code>calendar.month_name</code> возвращает итерируемый объект, содержащий названия месяцев года:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">calendar</span><span class="o">,</span> <span class="nn">locale</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">english_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">month_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">english_names</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">locale</span><span class="o">.</span><span class="n">setlocale</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="s1">&#39;ru_RU.UTF-8&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">russian_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">month_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">russian_names</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">[&#39;&#39;, &#39;January&#39;, &#39;February&#39;, &#39;March&#39;, &#39;April&#39;, &#39;May&#39;, &#39;June&#39;, &#39;July&#39;, &#39;August&#39;, &#39;September&#39;, &#39;October&#39;, &#39;November&#39;, &#39;December&#39;]
+</span></span><span class="line"><span class="cl">[&#39;&#39;, &#39;Январь&#39;, &#39;Февраль&#39;, &#39;Март&#39;, &#39;Апрель&#39;, &#39;Май&#39;, &#39;Июнь&#39;, &#39;Июль&#39;, &#39;Август&#39;, &#39;Сентябрь&#39;, &#39;Октябрь&#39;, &#39;Ноябрь&#39;, &#39;Декабрь&#39;]</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Атрибут <code>month_name</code> соответствует обычному соглашению, что январь – это месяц номер 1, поэтому список имеет длину в 13 элементов, первый из которых – пустая строка</div>
+  </div>
+</div>
+<ul>
+<li>Атрибут <code>calendar.month_abbr</code> возвращает итерируемый объект, содержащий сокращенные названия месяцев года:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">calendar</span><span class="o">,</span> <span class="nn">locale</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">english_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">month_abbr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">english_names</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">locale</span><span class="o">.</span><span class="n">setlocale</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="s1">&#39;ru_RU.UTF-8&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">russian_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">month_abbr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">russian_names</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">[&#39;&#39;, &#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;, &#39;Apr&#39;, &#39;May&#39;, &#39;Jun&#39;, &#39;Jul&#39;, &#39;Aug&#39;, &#39;Sep&#39;, &#39;Oct&#39;, &#39;Nov&#39;, &#39;Dec&#39;]
+</span></span><span class="line"><span class="cl">[&#39;&#39;, &#39;янв&#39;, &#39;фев&#39;, &#39;мар&#39;, &#39;апр&#39;, &#39;май&#39;, &#39;июн&#39;, &#39;июл&#39;, &#39;авг&#39;, &#39;сен&#39;, &#39;окт&#39;, &#39;ноя&#39;, &#39;дек&#39;]</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Объекты, доступные по атрибутам <code>day_name</code>, <code>day_abbr</code>, <code>month_name</code> и <code>month_abbr</code>, поддерживают индексацию</div>
+  </div>
+</div>
+<ul>
+<li>Для получения номеров дней недели можно использовать атрибуты: <code>MONDAY, TUESDAY, ..., SUNDAY</code>. К примеру, <code>print(calendar.MONDAY)</code> выведет <code>0</code>.</li>
+</ul>
+<hr>
+<h3 id="функции-calendar" class="heading-element"><span>Функции <code>calendar</code></span>
+  <a href="#%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d0%b8-calendar" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li>Функция <code>setfirstweekday()</code> устанавливает заданный день недели в качестве начала недели. Например, чтобы установить первый будний день воскресенье, мы используем код:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">calendar</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">calendar</span><span class="o">.</span><span class="n">setfirstweekday</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">SUNDAY</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Функция <code>firstweekday()</code> возвращает целое число, означающее день недели, установленное в качестве начала недели:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">calendar</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">firstweekday</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">calendar</span><span class="o">.</span><span class="n">setfirstweekday</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">SUNDAY</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">firstweekday</span><span class="p">())</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">0
+</span></span><span class="line"><span class="cl">6</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>Функция <code>isleap()</code> возвращает <code>True</code>, если год високосен, иначе – <code>False</code>.</p>
+</li>
+<li>
+<p>Функция <code>leapdays(y1, y2)</code> возвращает количество високосных лет в диапазоне от <code>y1</code> до <code>y2</code> (не включая), где <code>y1</code> и <code>y2</code> – годы:</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">calendar</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">leapdays</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">2025</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: 2</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Функция <code>weekday(year, month, day)</code> возвращает день недели в виде целого числа (где 0 – понедельник, 6 – воскресенье) для заданной даты. Аргументы функции <code>year</code> – год начиная с 1970, <code>month</code> – месяц в диапазоне 1-12, <code>day</code> – число в диапазоне 1-31:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">calendar</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">weekday</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># среда</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">weekday</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>  <span class="c1"># четверг</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">2
+</span></span><span class="line"><span class="cl">3</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Функция <code>monthrange(year, month)</code> возвращает день недели первого дня месяца и количество дней в месяце в виде кортежа для указанного года <code>year</code> и месяца <code>month</code></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">calendar</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">monthrange</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># январь 2022 года</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">monthrange</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>  <span class="c1"># сентябрь 2021 года</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">(5, 31)
+</span></span><span class="line"><span class="cl">(2, 30)</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Функция <code>monthcalendar(year, month)</code> возвращает матрицу, представляющую календарь на месяц. Каждая строка матрицы представляет неделю:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">calendar</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">calendar</span><span class="o">.</span><span class="n">monthcalendar</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">[0, 0, 1, 2, 3, 4, 5]
+</span></span><span class="line"><span class="cl">[6, 7, 8, 9, 10, 11, 12]
+</span></span><span class="line"><span class="cl">[13, 14, 15, 16, 17, 18, 19]
+</span></span><span class="line"><span class="cl">[20, 21, 22, 23, 24, 25, 26]
+</span></span><span class="line"><span class="cl">[27, 28, 29, 30, 0, 0, 0]</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Дни, которые не входят в указанный месяц, представлены нулями. При этом каждая неделя начинается с понедельника, если не установлено другое функцией <code>​​setfirstweekday()</code></div>
+  </div>
+</div>
+<ul>
+<li>Функция <code>month(year, month, w=0, l=0)</code> возвращает календарь на месяц в многострочной строке. Аргументами функции являются: <code>year</code> (год), <code>month</code> (месяц), <code>w</code> (ширина столбца даты) и <code>l</code> (количество строк, отводимые на неделю).</li>
+</ul>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Аргументы <code>w</code> и <code>l</code> имеют значения по умолчанию, поэтому их можно не передавать явно при вызове функции</div>
+  </div>
+</div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">calendar</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">month</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">month</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">month</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">month</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">month</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">   September 2021
+</span></span><span class="line"><span class="cl">Mo Tu We Th Fr Sa Su
+</span></span><span class="line"><span class="cl">       1  2  3  4  5
+</span></span><span class="line"><span class="cl"> 6  7  8  9 10 11 12
+</span></span><span class="line"><span class="cl">13 14 15 16 17 18 19
+</span></span><span class="line"><span class="cl">20 21 22 23 24 25 26
+</span></span><span class="line"><span class="cl">27 28 29 30
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    October 2021
+</span></span><span class="line"><span class="cl">Mo Tu We Th Fr Sa Su
+</span></span><span class="line"><span class="cl">             1  2  3
+</span></span><span class="line"><span class="cl"> 4  5  6  7  8  9 10
+</span></span><span class="line"><span class="cl">11 12 13 14 15 16 17
+</span></span><span class="line"><span class="cl">18 19 20 21 22 23 24
+</span></span><span class="line"><span class="cl">25 26 27 28 29 30 31
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       September 2021
+</span></span><span class="line"><span class="cl">Mon Tue Wed Thu Fri Sat Sun
+</span></span><span class="line"><span class="cl">          1   2   3   4   5
+</span></span><span class="line"><span class="cl">  6   7   8   9  10  11  12
+</span></span><span class="line"><span class="cl"> 13  14  15  16  17  18  19
+</span></span><span class="line"><span class="cl"> 20  21  22  23  24  25  26
+</span></span><span class="line"><span class="cl"> 27  28  29  30
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   September 2021
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Mo Tu We Th Fr Sa Su
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       1  2  3  4  5
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> 6  7  8  9 10 11 12
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">13 14 15 16 17 18 19
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">20 21 22 23 24 25 26
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">27 28 29 30
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">              September 2021
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> Mon   Tue   Wed   Thu   Fri   Sat   Sun
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">               1     2     3     4     5
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   6     7     8     9    10    11    12
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  13    14    15    16    17    18    19
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  20    21    22    23    24    25    26
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  27    28    29    30</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Функция <code>calendar(year, w=2, l=1, c=6, m=3)</code> возвращает календарь на весь год в виде многострочной строки. Аргументами функции являются: <code>year</code> (год),  <code>w</code> (ширина столбца даты), <code>l</code> (количество строк, отводимые на неделю), <code>c</code> (количество пробелов между столбцом месяца) и  <code>m</code> (количество столбцов).</li>
+</ul>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Аргументы <code>w, l, c, m</code> имеют значения по умолчанию, поэтому их можно не передавать явно при вызове функции</div>
+  </div>
+</div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">calendar</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">calendar</span><span class="p">(</span><span class="mi">2021</span><span class="p">))</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">                                  2021
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      January                   February                   March
+</span></span><span class="line"><span class="cl">Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su
+</span></span><span class="line"><span class="cl">             1  2  3       1  2  3  4  5  6  7       1  2  3  4  5  6  7
+</span></span><span class="line"><span class="cl"> 4  5  6  7  8  9 10       8  9 10 11 12 13 14       8  9 10 11 12 13 14
+</span></span><span class="line"><span class="cl">11 12 13 14 15 16 17      15 16 17 18 19 20 21      15 16 17 18 19 20 21
+</span></span><span class="line"><span class="cl">18 19 20 21 22 23 24      22 23 24 25 26 27 28      22 23 24 25 26 27 28
+</span></span><span class="line"><span class="cl">25 26 27 28 29 30 31                                29 30 31
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       April                      May                       June
+</span></span><span class="line"><span class="cl">Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su
+</span></span><span class="line"><span class="cl">          1  2  3  4                      1  2          1  2  3  4  5  6
+</span></span><span class="line"><span class="cl"> 5  6  7  8  9 10 11       3  4  5  6  7  8  9       7  8  9 10 11 12 13
+</span></span><span class="line"><span class="cl">12 13 14 15 16 17 18      10 11 12 13 14 15 16      14 15 16 17 18 19 20
+</span></span><span class="line"><span class="cl">19 20 21 22 23 24 25      17 18 19 20 21 22 23      21 22 23 24 25 26 27
+</span></span><span class="line"><span class="cl">26 27 28 29 30            24 25 26 27 28 29 30      28 29 30
+</span></span><span class="line"><span class="cl">                          31
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        July                     August                  September
+</span></span><span class="line"><span class="cl">Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su
+</span></span><span class="line"><span class="cl">          1  2  3  4                         1             1  2  3  4  5
+</span></span><span class="line"><span class="cl"> 5  6  7  8  9 10 11       2  3  4  5  6  7  8       6  7  8  9 10 11 12
+</span></span><span class="line"><span class="cl">12 13 14 15 16 17 18       9 10 11 12 13 14 15      13 14 15 16 17 18 19
+</span></span><span class="line"><span class="cl">19 20 21 22 23 24 25      16 17 18 19 20 21 22      20 21 22 23 24 25 26
+</span></span><span class="line"><span class="cl">26 27 28 29 30 31         23 24 25 26 27 28 29      27 28 29 30
+</span></span><span class="line"><span class="cl">                          30 31
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      October                   November                  December
+</span></span><span class="line"><span class="cl">Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su
+</span></span><span class="line"><span class="cl">             1  2  3       1  2  3  4  5  6  7             1  2  3  4  5
+</span></span><span class="line"><span class="cl"> 4  5  6  7  8  9 10       8  9 10 11 12 13 14       6  7  8  9 10 11 12
+</span></span><span class="line"><span class="cl">11 12 13 14 15 16 17      15 16 17 18 19 20 21      13 14 15 16 17 18 19
+</span></span><span class="line"><span class="cl">18 19 20 21 22 23 24      22 23 24 25 26 27 28      20 21 22 23 24 25 26
+</span></span><span class="line"><span class="cl">25 26 27 28 29 30 31      29 30                     27 28 29 30 31</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Функция <code>prmonth(theyear, themonth, w=0, l=0)</code> печатает календарь на месяц, возвращенный функцией <code>month(theyear, themonth, w=0, l=0)</code>.</li>
+</ul>
+<p>Функция <code>prcal(year, w=0, l=0, c=6, m=3)</code> печатает календарь на весь год, возвращенный функцией <code>calendar(year, w=0, l=0, c=6, m=3)</code></p>
+<p>Следующие два блока кода эквиваленты:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">calendar</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">calendar</span><span class="o">.</span><span class="n">prmonth</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">calendar</span><span class="o">.</span><span class="n">prcal</span><span class="p">(</span><span class="mi">2021</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">calendar</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">month</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">calendar</span><span class="o">.</span><span class="n">calendar</span><span class="p">(</span><span class="mi">2021</span><span class="p">))</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Они выводят:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">   September 2021
+</span></span><span class="line"><span class="cl">Mo Tu We Th Fr Sa Su
+</span></span><span class="line"><span class="cl">       1  2  3  4  5
+</span></span><span class="line"><span class="cl"> 6  7  8  9 10 11 12
+</span></span><span class="line"><span class="cl">13 14 15 16 17 18 19
+</span></span><span class="line"><span class="cl">20 21 22 23 24 25 26
+</span></span><span class="line"><span class="cl">27 28 29 30
+</span></span><span class="line"><span class="cl">                                  2021
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      January                   February                   March
+</span></span><span class="line"><span class="cl">Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su
+</span></span><span class="line"><span class="cl">             1  2  3       1  2  3  4  5  6  7       1  2  3  4  5  6  7
+</span></span><span class="line"><span class="cl"> 4  5  6  7  8  9 10       8  9 10 11 12 13 14       8  9 10 11 12 13 14
+</span></span><span class="line"><span class="cl">11 12 13 14 15 16 17      15 16 17 18 19 20 21      15 16 17 18 19 20 21
+</span></span><span class="line"><span class="cl">18 19 20 21 22 23 24      22 23 24 25 26 27 28      22 23 24 25 26 27 28
+</span></span><span class="line"><span class="cl">25 26 27 28 29 30 31                                29 30 31
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       April                      May                       June
+</span></span><span class="line"><span class="cl">Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su
+</span></span><span class="line"><span class="cl">          1  2  3  4                      1  2          1  2  3  4  5  6
+</span></span><span class="line"><span class="cl"> 5  6  7  8  9 10 11       3  4  5  6  7  8  9       7  8  9 10 11 12 13
+</span></span><span class="line"><span class="cl">12 13 14 15 16 17 18      10 11 12 13 14 15 16      14 15 16 17 18 19 20
+</span></span><span class="line"><span class="cl">19 20 21 22 23 24 25      17 18 19 20 21 22 23      21 22 23 24 25 26 27
+</span></span><span class="line"><span class="cl">26 27 28 29 30            24 25 26 27 28 29 30      28 29 30
+</span></span><span class="line"><span class="cl">                          31
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        July                     August                  September
+</span></span><span class="line"><span class="cl">Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su
+</span></span><span class="line"><span class="cl">          1  2  3  4                         1             1  2  3  4  5
+</span></span><span class="line"><span class="cl"> 5  6  7  8  9 10 11       2  3  4  5  6  7  8       6  7  8  9 10 11 12
+</span></span><span class="line"><span class="cl">12 13 14 15 16 17 18       9 10 11 12 13 14 15      13 14 15 16 17 18 19
+</span></span><span class="line"><span class="cl">19 20 21 22 23 24 25      16 17 18 19 20 21 22      20 21 22 23 24 25 26
+</span></span><span class="line"><span class="cl">26 27 28 29 30 31         23 24 25 26 27 28 29      27 28 29 30
+</span></span><span class="line"><span class="cl">                          30 31
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      October                   November                  December
+</span></span><span class="line"><span class="cl">Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su      Mo Tu We Th Fr Sa Su
+</span></span><span class="line"><span class="cl">             1  2  3       1  2  3  4  5  6  7             1  2  3  4  5
+</span></span><span class="line"><span class="cl"> 4  5  6  7  8  9 10       8  9 10 11 12 13 14       6  7  8  9 10 11 12
+</span></span><span class="line"><span class="cl">11 12 13 14 15 16 17      15 16 17 18 19 20 21      13 14 15 16 17 18 19
+</span></span><span class="line"><span class="cl">18 19 20 21 22 23 24      22 23 24 25 26 27 28      20 21 22 23 24 25 26
+</span></span><span class="line"><span class="cl">25 26 27 28 29 30 31      29 30                     27 28 29 30 31</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="collection-card">
+      <div class="collection-title text-secondary">Включен в <a href="/collections/datetime/"><i class="fa-solid fa-layer-group fa-fw" aria-hidden="true"></i> <span>・Date&Time</span></span></a> 2</div>
+      <div class="collection-nav">
+        <a href="/notes/date_and_time_1/" class="collection-nav-item" rel="prev" title="Работа с датой и временем. Часть I"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i><span>Работа с датой и временем. Часть I</span>
+          </a></div>
+    </div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="Oбновлена 2024-06-30 00:00:01">Oбновлена 30-06-2024&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="Поделиться в X" data-sharer="twitter" data-url="http://localhost:1313/notes/date_and_time_2/" data-title="Работа с датой и временем. Часть II" data-hashtags="python,time,calendar,modules,datatypes"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/notes/date_and_time_2/" data-title="Работа с датой и временем. Часть II" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в VK" data-sharer="vk" data-url="http://localhost:1313/notes/date_and_time_2/" data-title="Работа с датой и временем. Часть II"><i class="fa-brands fa-vk fa-fw" aria-hidden="true"></i></a>
+  <a href="//mix.com/add?url=http%3a%2f%2flocalhost%3a1313%2fnotes%2fdate_and_time_2%2f&amp;description=%d0%a0%d0%b0%d0%b1%d0%be%d1%82%d0%b0%20%d1%81%20%d0%b4%d0%b0%d1%82%d0%be%d0%b9%20%d0%b8%20%d0%b2%d1%80%d0%b5%d0%bc%d0%b5%d0%bd%d0%b5%d0%bc.%20%d0%a7%d0%b0%d1%81%d1%82%d1%8c%20II" target="_blank" title="Поделиться в Mix"><i class="fa-brands fa-mix fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/python/" class="post-tag" title="Тэги - Python">Python</a><a href="/tags/time/" class="post-tag" title="Тэги - Time">Time</a><a href="/tags/calendar/" class="post-tag" title="Тэги - Calendar">Calendar</a><a href="/tags/modules/" class="post-tag" title="Тэги - Modules">Modules</a><a href="/tags/datatypes/" class="post-tag" title="Тэги - Datatypes">Datatypes</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">Назад</a></span>&nbsp;|&nbsp;<span><a href="/">Домой</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/notes/date_and_time_1/" class="post-nav-item" rel="prev" title="Работа с датой и временем. Часть I"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Работа с датой и временем. Часть I</a><a href="/notes/stdin_stdout/" class="post-nav-item" rel="next" title="Потоковый ввод и вывод">Потоковый ввод и вывод<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div class="post-reward">
+    <div class="comment">На печеньки к чаю</div>
+    <input type="checkbox" class="reward-input" name="reward" id="fi-reward" hidden />
+    <label class="reward-button" for="fi-reward"><i class="fa-solid fa-qrcode fa-fw" aria-hidden="true"></i></label>
+    <div class="reward-ways" data-mode="fixed"><div><img loading="lazy" src="/img/CloudTips.png" alt="NoisyCake cloudtips" data-title="NoisyCake cloudtips" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span>cloudtips</span>
+          </div></div>
+  </div></article>
+
+  <aside class="toc" id="toc-auto" aria-label="Содержание"><h2 class="toc-title">Содержание&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://t.me/noisycake"target="_blank" rel="external nofollow noopener noreferrer">NoisyCake</a></span></div><div class="footer-line statistics"><span class="site-time" title='Website running ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Дней жизни:</span><span class="run-times ms-1">Website running ...</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='Всего посетителей'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='Всего посещений'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Наверх"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><div class="reading-progress-bar" style="--fi-progress-start: left; top: 0; --fi-progress-bg: #8581dd; --fi-progress-bg-dark: #fff;"></div><noscript>
+    <div class="noscript-warning"></div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"Копировать в буфер обмена","editLockTitle":"Заблокировать редактируемый кодовый блок","editUnLockTitle":"Разблокировать редактируемый блок кода","editable":true,"maxShownLines":50},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Окей","link":"Узнать больше","message":"Сайт использует куки"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"Результатов не найдено","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2024-11-15T16:15:22","version":"v0.3.14"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>

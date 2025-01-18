@@ -8,23 +8,94 @@
     <language>ru</language>
     <managingEditor>darkgxd@vk.com (NoisyCake)</managingEditor>
     <webMaster>darkgxd@vk.com (NoisyCake)</webMaster>
-    <lastBuildDate>Sun, 15 Sep 2024 17:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jul 2024 00:00:01 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Основы статистики</title>
-      <link>http://localhost:1313/notes/basics_of_statistics/</link>
-      <pubDate>Sun, 15 Sep 2024 17:00:00 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
-      <guid>http://localhost:1313/notes/basics_of_statistics/</guid>
-      <category domain="http://localhost:1313/categories/math/">Math</category>
-      <description>&lt;p&gt;Попытка объяснить основы математической статистики на простом языке&lt;/p&gt;&#xA;&lt;div class=&#34;details admonition warning open&#34;&gt;&#xD;&#xA;  &lt;div class=&#34;details-summary admonition-title&#34;&gt;&lt;i class=&#34;icon fa-fw fa-solid fa-exclamation-triangle&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;Предупреждение&lt;i class=&#34;details-icon fa-solid fa-angle-right fa-fw&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;&lt;/div&gt;&#xD;&#xA;  &lt;div class=&#34;details-content&#34;&gt;&#xD;&#xA;    &lt;div class=&#34;admonition-content&#34;&gt;В процессе написания&lt;/div&gt;&#xD;&#xA;  &lt;/div&gt;&#xD;&#xA;&lt;/div&gt;</description>
+      <title>Коллекции в Python. Часть II</title>
+      <link>http://localhost:1313/notes/collections2/</link>
+      <pubDate>Wed, 24 Jul 2024 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/collections2/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/notes/collections2/feature.png&#34; alt=&#34;/notes/collections2/feature.png&#34; srcset=&#34;http://localhost:1313/notes/collections2/feature.png?size=small, http://localhost:1313/notes/collections2/feature.png?size=medium 1.5x, http://localhost:1313/notes/collections2/feature.png?size=large 2x&#34; data-title=&#34;/notes/collections2/feature.png&#34; style=&#34;--width: 1920px;--aspect-ratio: 1920 / 1113;background: url(/images/loading.min.svg) no-repeat center;&#34; onload=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}this.dataset.lazyloaded=&#39;&#39;;&#34; onerror=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}&#34;/&gt;&lt;/p&gt;&#xA;&lt;p&gt;Конспект посвящён модулю collections и его составляющим, а именно именованному кортежу, специфическим типам словарей и т.п. Вторая часть конспектов про типы данных в Python&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Переменные и объекты в Python</title>
+      <link>http://localhost:1313/notes/variables_python/</link>
+      <pubDate>Thu, 18 Jul 2024 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/variables_python/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>&lt;p&gt;Конспект посвящён переменным в Python: как они устроены, чем отличаются от переменных в других ЯП и т.д., а также интернированию, неизменяемым и изменяемым типам данных, поверхностному и глубокому копированию.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Устройство памяти в Python</title>
       <link>http://localhost:1313/notes/memory_python/</link>
-      <pubDate>Thu, 18 Jul 2024 16:50:57 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <pubDate>Thu, 18 Jul 2024 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
       <guid>http://localhost:1313/notes/memory_python/</guid>
       <category domain="http://localhost:1313/categories/python/">Python</category>
       <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/notes/memory_python/images/feature.png&#34; alt=&#34;/notes/memory_python/images/feature.png&#34; srcset=&#34;http://localhost:1313/notes/memory_python/images/feature.png?size=small, http://localhost:1313/notes/memory_python/images/feature.png?size=medium 1.5x, http://localhost:1313/notes/memory_python/images/feature.png?size=large 2x&#34; data-title=&#34;/notes/memory_python/images/feature.png&#34; style=&#34;--width: 1376px;--aspect-ratio: 1376 / 768;background: url(/images/loading.min.svg) no-repeat center;&#34; onload=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}this.dataset.lazyloaded=&#39;&#39;;&#34; onerror=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}&#34;/&gt;&lt;/p&gt;&#xA;&lt;p&gt;Конспект посвящён объяснению понятия компьютерной памяти и тому, как эта память устроена в языке программирования Python&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Углубление в логические операторы Python</title>
+      <link>http://localhost:1313/notes/deep_bool_oper_python/</link>
+      <pubDate>Sun, 14 Jul 2024 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/deep_bool_oper_python/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/notes/deep_bool_oper_python/feature.png&#34; alt=&#34;/notes/deep_bool_oper_python/feature.png&#34; srcset=&#34;http://localhost:1313/notes/deep_bool_oper_python/feature.png?size=small, http://localhost:1313/notes/deep_bool_oper_python/feature.png?size=medium 1.5x, http://localhost:1313/notes/deep_bool_oper_python/feature.png?size=large 2x&#34; data-title=&#34;/notes/deep_bool_oper_python/feature.png&#34; style=&#34;--width: 1920px;--aspect-ratio: 1920 / 1030;background: url(/images/loading.min.svg) no-repeat center;&#34; onload=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}this.dataset.lazyloaded=&#39;&#39;;&#34; onerror=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}&#34;/&gt;&lt;/p&gt;&#xA;&lt;p&gt;Конспект посвящён скрытым особенностям и неочевидным деталям логических операторов в Python&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Модули os, shutil и shelve</title>
+      <link>http://localhost:1313/notes/os_shutil_shelve/</link>
+      <pubDate>Fri, 12 Jul 2024 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/os_shutil_shelve/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/notes/os_shutil_shelve/feature.png&#34; alt=&#34;/notes/os_shutil_shelve/feature.png&#34; srcset=&#34;http://localhost:1313/notes/os_shutil_shelve/feature.png?size=small, http://localhost:1313/notes/os_shutil_shelve/feature.png?size=medium 1.5x, http://localhost:1313/notes/os_shutil_shelve/feature.png?size=large 2x&#34; data-title=&#34;/notes/os_shutil_shelve/feature.png&#34; style=&#34;--width: 1200px;--aspect-ratio: 1200 / 600;background: url(/images/loading.min.svg) no-repeat center;&#34; onload=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}this.dataset.lazyloaded=&#39;&#39;;&#34; onerror=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}&#34;/&gt;&lt;/p&gt;&#xA;&lt;p&gt;Конспект посвящён модулям &lt;code&gt;os&lt;/code&gt; и &lt;code&gt;shutil&lt;/code&gt;, которые могут быть полезны для работы с операционной системой, управлением каталогами и файлами, а также модулю &lt;code&gt;shelve&lt;/code&gt;, позволяющему сериализовывать объекты Python&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Работа с zip и pkl файлами в Python</title>
+      <link>http://localhost:1313/notes/zip_pkl/</link>
+      <pubDate>Thu, 11 Jul 2024 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/zip_pkl/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>&lt;p&gt;Управление файлами формата &lt;code&gt;zip, pkl&lt;/code&gt; в языке программирования Python&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Работа с csv и json файлами в Python</title>
+      <link>http://localhost:1313/notes/csv_json/</link>
+      <pubDate>Tue, 09 Jul 2024 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/csv_json/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>&lt;p&gt;Управление текстовыми файлами формата &lt;code&gt;csv, tsv, dtv, json&lt;/code&gt; в языке программирования Python&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Потоковый ввод и вывод</title>
+      <link>http://localhost:1313/notes/stdin_stdout/</link>
+      <pubDate>Wed, 03 Jul 2024 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/stdin_stdout/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>&lt;p&gt;Кратко про потоковый ввод stdin и потоковый вывод stdout. Что это и для чего нужно, как с этим работать&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Работа с датой и временем. Часть II</title>
+      <link>http://localhost:1313/notes/date_and_time_2/</link>
+      <pubDate>Sun, 30 Jun 2024 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/date_and_time_2/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>&lt;p&gt;Больше модулей для работы с временем и датой, измерение времени выполнения программы&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Работа с датой и временем. Часть I</title>
+      <link>http://localhost:1313/notes/date_and_time_1/</link>
+      <pubDate>Sun, 16 Jun 2024 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/date_and_time_1/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>&lt;p&gt;Модули и типы данных для работы со временем, датой и временными промежутками в языке программирования Python. Локализация&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Парадигмы программирования</title>
+      <link>http://localhost:1313/notes/programming_paradigms/</link>
+      <pubDate>Sat, 25 May 2024 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/programming_paradigms/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/notes/programming_paradigms/feature.png&#34; alt=&#34;/notes/programming_paradigms/feature.png&#34; srcset=&#34;http://localhost:1313/notes/programming_paradigms/feature.png?size=small, http://localhost:1313/notes/programming_paradigms/feature.png?size=medium 1.5x, http://localhost:1313/notes/programming_paradigms/feature.png?size=large 2x&#34; data-title=&#34;/notes/programming_paradigms/feature.png&#34; style=&#34;--width: 2062px;--aspect-ratio: 2062 / 1268;background: url(/images/loading.min.svg) no-repeat center;&#34; onload=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}this.dataset.lazyloaded=&#39;&#39;;&#34; onerror=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}&#34;/&gt;&lt;/p&gt;&#xA;&lt;p&gt;Всё о парадигмах программирования: особенности, механизмы, какие языки поддерживают и т.д.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Big O</title>
@@ -33,6 +104,46 @@
       <guid>http://localhost:1313/notes/big_o/</guid>
       <category domain="http://localhost:1313/categories/python/">Python</category>
       <description>&lt;p&gt;Всё про нотацию Big O на примерах базовых коллекций в Python&lt;/p&gt;&#xA;&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/notes/big_o/images/feature.png&#34; alt=&#34;/notes/big_o/images/feature.png&#34; srcset=&#34;http://localhost:1313/notes/big_o/images/feature.png?size=small, http://localhost:1313/notes/big_o/images/feature.png?size=medium 1.5x, http://localhost:1313/notes/big_o/images/feature.png?size=large 2x&#34; data-title=&#34;/notes/big_o/images/feature.png&#34; style=&#34;--width: 950px;--aspect-ratio: 950 / 470;background: url(/images/loading.min.svg) no-repeat center;&#34; onload=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}this.dataset.lazyloaded=&#39;&#39;;&#34; onerror=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}&#34;/&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Работа с txt файлами в Python</title>
+      <link>http://localhost:1313/notes/work_with_files/</link>
+      <pubDate>Fri, 17 May 2024 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/work_with_files/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>&lt;p&gt;Управление текстовыми и бинарными файлами в языке программирования Python&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Функции в Python</title>
+      <link>http://localhost:1313/notes/functions2/</link>
+      <pubDate>Thu, 16 May 2024 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/functions2/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>&lt;p&gt;Вторая часть функций в Python (совсем базу вряд-ли буду выкладывать). Типы аргументов, некоторые встроенные и lambda функции&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Decimal, Fraction и комплексные числа в Python</title>
+      <link>http://localhost:1313/notes/dec_frac_compl/</link>
+      <pubDate>Tue, 14 May 2024 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/dec_frac_compl/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>&lt;p&gt;Точные числа с плавающей точкой, дроби и комплексные числа. Как с ними работать в Python?&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Модули random и string</title>
+      <link>http://localhost:1313/notes/random_string/</link>
+      <pubDate>Mon, 13 May 2024 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/random_string/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>Модули random и string</description>
+    </item>
+    <item>
+      <title>Коллекции в Python. Часть I</title>
+      <link>http://localhost:1313/notes/collections/</link>
+      <pubDate>Sun, 12 May 2024 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/collections/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>&lt;p&gt;Списки (кратко), кортежи (кратко), множества, словари и всё, что с ними связано&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

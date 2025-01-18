@@ -8,15 +8,8 @@
     <language>ru</language>
     <managingEditor>darkgxd@vk.com (NoisyCake)</managingEditor>
     <webMaster>darkgxd@vk.com (NoisyCake)</webMaster>
-    <lastBuildDate>Fri, 03 Jan 2025 20:00:02 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 30 Dec 2024 20:00:02 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/articles/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Свой VPN v2.0 | 3x-ui</title>
-      <link>http://localhost:1313/articles/vpn_server2/</link>
-      <pubDate>Fri, 03 Jan 2025 20:00:02 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
-      <guid>http://localhost:1313/articles/vpn_server2/</guid>
-      <description>&lt;center&gt;&lt;a class=&#34;lightgallery&#34; href=&#34;http://localhost:1313/images/image.png?size=large&#34; data-thumbnail=&#34;/images/image.png?size=small&#34; data-sub-html=&#34;&lt;h2&gt;/images/image.png&lt;/h2&gt;&#34;&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/images/image.png&#34; alt=&#34;/images/image.png&#34; srcset=&#34;http://localhost:1313/images/image.png?size=small, http://localhost:1313/images/image.png?size=medium 1.5x, http://localhost:1313/images/image.png?size=large 2x&#34; data-title=&#34;/images/image.png&#34; style=&#34;background: url(/images/loading.min.svg) no-repeat center;&#34; onload=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}this.dataset.lazyloaded=&#39;&#39;;&#34; onerror=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}&#34;/&gt;&lt;/a&gt;&lt;/center&gt;&#xD;&#xA;&lt;p&gt;Дисклеймер: Материл носит исключительно информационный характер. Автор не призывает к каким-либо действиям.&lt;/p&gt;&#xA;&lt;p&gt;Снова привет :) В предыдущей статье мы узнали, как сделать свой прокси-сервер на VPS хостинге. Сегодня рассмотрим альтернативный способ установки и настройки 3x-ui панели с упором на безопасность.&lt;/p&gt;</description>
-    </item>
     <item>
       <title>Свой VPN для самых маленьких | 3X-UI &#43; VLESS</title>
       <link>http://localhost:1313/articles/vpn_server/</link>

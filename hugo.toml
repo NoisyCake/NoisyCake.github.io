@@ -94,7 +94,7 @@ theme = 'FixIt'
   [params.author]
     name = "NoisyCake"
     email = "darkgxd@vk.com"
-    link = "https://t.me/noisy_cake"
+    link = "https://t.me/noisycake"
     avatar = ""
 
   [params.app]

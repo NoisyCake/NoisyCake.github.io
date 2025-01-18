@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="ru">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Работа с zip и pkl файлами в Python | HFK</title><meta name="author" content="NoisyCake">
+<meta name="description" content="Управление файлами формата zip, pkl в языке программирования Python
+"><meta name="keywords" content='python, files, modules'>
+  <meta itemprop="name" content="Работа с zip и pkl файлами в Python">
+  <meta itemprop="description" content="Управление файлами формата zip, pkl в языке программирования Python">
+  <meta itemprop="datePublished" content="2024-07-11T00:00:01+00:00">
+  <meta itemprop="dateModified" content="2024-07-11T00:00:01+00:00">
+  <meta itemprop="wordCount" content="1615">
+  <meta itemprop="keywords" content="Python,Files,Modules"><meta property="og:url" content="http://localhost:1313/notes/zip_pkl/">
+  <meta property="og:site_name" content="HFK">
+  <meta property="og:title" content="Работа с zip и pkl файлами в Python">
+  <meta property="og:description" content="Управление файлами формата zip, pkl в языке программирования Python">
+  <meta property="og:locale" content="ru">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2024-07-11T00:00:01+00:00">
+    <meta property="article:modified_time" content="2024-07-11T00:00:01+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Files">
+    <meta property="article:tag" content="Modules">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Работа с zip и pkl файлами в Python">
+  <meta name="twitter:description" content="Управление файлами формата zip, pkl в языке программирования Python">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/zip_pkl/" title="Работа с zip и pkl файлами в Python | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/notes/csv_json/" title="Работа с csv и json файлами в Python" /><link rel="next" type="text/html" href="http://localhost:1313/notes/os_shutil_shelve/" title="Модули os, shutil и shelve" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/zip_pkl/index.md" title="Работа с zip и pkl файлами в Python | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Работа с zip и pkl файлами в Python",
+    "inLanguage": "ru",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/notes\/zip_pkl\/"
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "python, files, modules","wordcount":  1615 ,
+    "url": "http:\/\/localhost:1313\/notes\/zip_pkl\/","datePublished": "2024-07-11T00:00:01+00:00","dateModified": "2024-07-11T00:00:01+00:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "NoisyCake"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="normal"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item has-children">
+              <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item">
+              <a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Поиск">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Очистить">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="Сменить Тему">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Поиск">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Очистить">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Отменить
+            </a>
+          </li><li class="menu-item"><span class="nested-item">
+                  <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item"><a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item"><a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="Сменить Тему"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/notes/" title="Конспекты">Конспекты</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Работа с zip и pkl файлами в Python</li>
+    </ol>
+  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=""></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Работа с zip и pkl файлами в Python</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisycake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+    NoisyCake</a></span><span class="post-included-in">&nbsp;включен в <a href="/categories/python/" class="post-category" title="Категория - Python"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Python</a></span></div><div class="post-meta-line"><span title="Опубликовано 2024-07-11 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="11-07-2024">11-07-2024</time></span>&nbsp;<span title="1615 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 1700 слов</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>Содержание</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ol>
+    <li><a href="#формат-zip">Формат zip</a></li>
+    <li><a href="#модуль-zipfile">Модуль <code>zipfile</code></a>
+      <ol>
+        <li><a href="#методы-zipfile">Методы <code>ZipFile</code></a></li>
+        <li><a href="#работы-с-конкретными-файлами-архива">Работы с конкретными файлами архива</a></li>
+        <li><a href="#запись-в-архив">Запись в архив</a></li>
+        <li><a href="#извлечение-содержимого">Извлечение содержимого</a></li>
+      </ol>
+    </li>
+    <li><a href="#сериализация-и-десериализация">Сериализация и десериализация</a></li>
+    <li><a href="#модуль-pickle">Модуль <code>pickle</code></a></li>
+  </ol>
+</nav></div>
+      </div><div class="content" id="content"><p>Управление файлами формата <code>zip, pkl</code> в языке программирования Python</p>
+<h2 id="формат-zip" class="heading-element"><span>Формат zip</span>
+  <a href="#%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%82-zip" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p><code>zip</code> — это формат сжатия без потерь: после распаковки данные будут такими же, как перед сжатием. Алгоритм ищет избыточности в исходных данных и эффективнее представляет информацию.</p>
+<p>Формат zip обладает следующими преимуществами:</p>
+<ul>
+<li>является полностью открытым</li>
+<li>является одним из самых популярных (большинство архивов в Internet – это архивы zip)</li>
+<li>является очень быстрым</li>
+</ul>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Формат сжатия без потерь отличается от сжатия с потерями, который используется в таких форматах, как JPEG и MP3: при сжатии выбрасывается часть информации, которая менее заметна для человеческого глаза или уха.</div>
+  </div>
+</div>
+<p>Сначала разберёмся, как считать степень сжатия файла — коэффициент <em>K</em>, определяемый как отношение объема сжатого файла к объему исходного файла, выраженным в процентах:</p>
+<p>$$
+K = \frac{V_{c}} {V_{o}} * 100\%
+$$</p>
+<p>Степень сжатия зависит от используемой программы, метода сжатия и типа исходного файла. Наиболее хорошо сжимаются файлы графических образов, текстовые файлы и файлы данных, для которых степень сжатия может достигать 5–40%, меньше сжимаются файлы исполняемых программ и загрузочных модулей — 60–90%. Почти не сжимаются архивные файлы.</p>
+<hr>
+<h2 id="модуль-zipfile" class="heading-element"><span>Модуль <code>zipfile</code></span>
+  <a href="#%d0%bc%d0%be%d0%b4%d1%83%d0%bb%d1%8c-zipfile" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>В этом конспекте будет рассмотрен объекты <code>ZipFile</code> и <code>ZipInfo</code>, однако модуль <code>zipfile</code> содержит и другие классы.
+Для использования: <code>from zipfile import ZipFile</code></p>
+<h3 id="методы-zipfile" class="heading-element"><span>Методы <code>ZipFile</code></span>
+  <a href="#%d0%bc%d0%b5%d1%82%d0%be%d0%b4%d1%8b-zipfile" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li><code>printdir()</code> — выводит таблицу с информацией о содержимом архива: полные названия файлов с указанием даты изменения и размера в байтах.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="s1">&#39;test.zip&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">zip_file</span><span class="o">.</span><span class="n">printdir</span><span class="p">()</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">File Name                                             Modified             Size
+</span></span><span class="line"><span class="cl">test/                                          2021-11-27 12:47:10            0
+</span></span><span class="line"><span class="cl">test/Картинки/                                 2021-11-27 12:49:02            0
+</span></span><span class="line"><span class="cl">test/Картинки/1.jpg                            2021-09-02 12:30:20        90156
+</span></span><span class="line"><span class="cl">test/Картинки/avatar.png                       2021-08-20 09:38:44        19053
+</span></span><span class="line"><span class="cl">test/Картинки/certificate.png                  2021-10-23 09:46:36        43699
+</span></span><span class="line"><span class="cl">test/Картинки/py.png                           2021-07-28 17:55:56        33522
+</span></span><span class="line"><span class="cl">test/Картинки/World_Time_Zones_Map.png         2021-11-08 07:30:06      2324421
+</span></span><span class="line"><span class="cl">test/Картинки/Снимок экрана.png                2021-10-01 20:47:02        10878
+</span></span><span class="line"><span class="cl">test/Неравенства.djvu                          2021-08-19 08:39:06      5283010
+</span></span><span class="line"><span class="cl">test/Программы/                                2021-11-27 12:48:20            0
+</span></span><span class="line"><span class="cl">test/Программы/image_util.py                   2021-11-18 12:42:22         4955
+</span></span><span class="line"><span class="cl">test/Программы/sort.py                         2021-11-14 19:31:02           61
+</span></span><span class="line"><span class="cl">test/Разные файлы/                             2021-11-27 12:48:10            0
+</span></span><span class="line"><span class="cl">test/Разные файлы/astros.json                  2021-11-08 09:29:58          505</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">При создании объекта <code>ZipFile</code> мы также можем передать необязательный аргумент <code>mode</code>, который задает режим работы (по аналогии с обычными файлами): <code>r</code> — чтение, <code>w</code> — запись в новый файл, <code>a</code> — запись в конец существующего файла</div>
+  </div>
+</div>
+<ul>
+<li><code>infolist()</code> — позволяет получить информацию о файлах из архива в виде списка объектов <code>ZipInfo</code>, которые содержат дополнительную информацию о каждом файле: <code>file_size</code>, <code>compress_size</code>, <code>filename</code>, <code>date_time</code> и другие.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="s1">&#39;test.zip&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">info</span> <span class="o">=</span> <span class="n">zip_file</span><span class="o">.</span><span class="n">infolist</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">file_size</span><span class="p">)</span>              <span class="c1"># размер начального файла в байтах</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">compress_size</span><span class="p">)</span>          <span class="c1"># размер сжатого файла в байтах</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>               <span class="c1"># имя файла</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">date_time</span><span class="p">)</span>              <span class="c1"># дата изменения файла</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">2324421
+</span></span><span class="line"><span class="cl">2322032
+</span></span><span class="line"><span class="cl">test/Картинки/World_Time_Zones_Map.png
+</span></span><span class="line"><span class="cl">(2021, 11, 8, 7, 30, 6)</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Метод <code>is_dir()</code> объекта <code>ZipInfo</code> нужен, чтобы проверить, является ли этот объект файлом (возвращает <code>False</code>) или папкой (<code>True</code>).</p>
+<ul>
+<li><code>namelist()</code> — возвращает список названий файлов и директорий, содержащихся в архиве.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="s1">&#39;test.zip&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">info</span> <span class="o">=</span> <span class="n">zip_file</span><span class="o">.</span><span class="n">namelist</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">info</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">test/
+</span></span><span class="line"><span class="cl">test/Картинки/
+</span></span><span class="line"><span class="cl">test/Картинки/1.jpg
+</span></span><span class="line"><span class="cl">test/Картинки/avatar.png
+</span></span><span class="line"><span class="cl">test/Картинки/certificate.png
+</span></span><span class="line"><span class="cl">test/Картинки/py.png
+</span></span><span class="line"><span class="cl">test/Картинки/World_Time_Zones_Map.png
+</span></span><span class="line"><span class="cl">test/Картинки/Снимок экрана.png
+</span></span><span class="line"><span class="cl">test/Неравенства.djvu
+</span></span><span class="line"><span class="cl">test/Программы/
+</span></span><span class="line"><span class="cl">test/Программы/image_util.py
+</span></span><span class="line"><span class="cl">test/Программы/sort.py
+</span></span><span class="line"><span class="cl">test/Разные файлы/
+</span></span><span class="line"><span class="cl">test/Разные файлы/astros.json</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>getinfo()</code> — в отличие от метода <code>infolist()</code>, который позволяет получить информацию о всех файлах из архива в виде списка специальных объектов (тип <code>ZipInfo</code>), метод <code>getinfo()</code> позволяет получить информацию о конкретном файле по его имени в архиве.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="s1">&#39;test.zip&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">info</span> <span class="o">=</span> <span class="n">zip_file</span><span class="o">.</span><span class="n">namelist</span><span class="p">()</span>                <span class="c1"># получаем названия всех файлов архива</span>
+</span></span><span class="line"><span class="cl">    <span class="n">last_file</span> <span class="o">=</span> <span class="n">zip_file</span><span class="o">.</span><span class="n">getinfo</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">])</span>    <span class="c1"># получаем информацию об отдельном файле</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">last_file</span><span class="o">.</span><span class="n">file_size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">last_file</span><span class="o">.</span><span class="n">compress_size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">last_file</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">last_file</span><span class="o">.</span><span class="n">date_time</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">4955
+</span></span><span class="line"><span class="cl">1641
+</span></span><span class="line"><span class="cl">test/Программы/image_util.py
+</span></span><span class="line"><span class="cl">(2021, 11, 18, 12, 42, 22)</span></span></code></pre></td></tr></table>
+</div>
+</div><p>При создании объекта <code>ZipFile</code> мы также можем передать еще два необязательных аргумента:</p>
+<ul>
+<li><code>compression</code>, который определяет метод сжатия, который должен использоваться при записи в архив. Он принимает одно из значений: <code>ZIP_STORED, ZIP_DEFLATED, ZIP_BZIP2, ZIP_LZMA</code>. По умолчанию используется значение <code>compression=ZIP_STORED</code></li>
+<li><code>allowZip64</code>, который позволяет разрешить использование расширений <code>zip64</code>, которые дают возможность создавать архивы размером больше 4 гигабайт. По умолчанию равен <code>allowZip64=True</code></li>
+</ul>
+<p>Для того чтобы проверить является ли некоторый файл <code>zip</code> архивом, используется функция <code>zipfile.is_zipfile()</code>, которая принимает на вход путь к файлу (или сам файловый объект) и возвращает значение <code>True</code>, если указанный файл является <code>zip</code> архивом, или <code>False</code> в противном случае.</p>
+<hr>
+<h3 id="работы-с-конкретными-файлами-архива" class="heading-element"><span>Работы с конкретными файлами архива</span>
+  <a href="#%d1%80%d0%b0%d0%b1%d0%be%d1%82%d1%8b-%d1%81-%d0%ba%d0%be%d0%bd%d0%ba%d1%80%d0%b5%d1%82%d0%bd%d1%8b%d0%bc%d0%b8-%d1%84%d0%b0%d0%b9%d0%bb%d0%b0%d0%bc%d0%b8-%d0%b0%d1%80%d1%85%d0%b8%d0%b2%d0%b0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Откроем отдельный файла из архива:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="s1">&#39;test.zip&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">zip_file</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;test/Разные файлы/astros.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">b&#39;{&#34;number&#34;: 10, &#34;people&#34;: [{&#34;craft&#34;: &#34;ISS&#34;, &#34;name&#34;: &#34;Mark Vande Hei&#34;}, {&#34;craft&#34;: &#34;ISS&#34;, &#34;name&#34;: &#34;Pyotr Dubrov&#34;}, {&#34;craft&#34;: &#34;ISS&#34;, &#34;name&#34;: &#34;Thomas Pesquet&#34;}, {&#34;craft&#34;: &#34;ISS&#34;, &#34;name&#34;: &#34;Megan McArthur&#34;}, {&#34;craft&#34;: &#34;ISS&#34;, &#34;name&#34;: &#34;Shane Kimbrough&#34;}, {&#34;craft&#34;: &#34;ISS&#34;, &#34;name&#34;: &#34;Akihiko Hoshide&#34;}, {&#34;craft&#34;: &#34;ISS&#34;, &#34;name&#34;: &#34;Anton Shkaplerov&#34;}, {&#34;craft&#34;: &#34;Shenzhou 13&#34;, &#34;name&#34;: &#34;Zhai Zhigang&#34;}, {&#34;craft&#34;: &#34;Shenzhou 13&#34;, &#34;name&#34;: &#34;Wang Yaping&#34;}, {&#34;craft&#34;: &#34;Shenzhou 13&#34;, &#34;name&#34;: &#34;Ye Guangfu&#34;}], &#34;message&#34;: &#34;success&#34;}&#39;</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Метод <code>ZipFile.open()</code> открывает файл в бинарном виде, поэтому перед выводом стоит символ <code>b</code>, а значит перед нами бинарная строка. Чтобы преобразовать байты в строку, воспользуемся методом <code>decode()</code> с указанием кодировки (<code>'utf-8'</code>):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="s1">&#39;test.zip&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">zip_file</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;test/Разные файлы/astros.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">{&#34;number&#34;: 10, &#34;people&#34;: [{&#34;craft&#34;: &#34;ISS&#34;, &#34;name&#34;: &#34;Mark Vande Hei&#34;}, {&#34;craft&#34;: &#34;ISS&#34;, &#34;name&#34;: &#34;Pyotr Dubrov&#34;}, {&#34;craft&#34;: &#34;ISS&#34;, &#34;name&#34;: &#34;Thomas Pesquet&#34;}, {&#34;craft&#34;: &#34;ISS&#34;, &#34;name&#34;: &#34;Megan McArthur&#34;}, {&#34;craft&#34;: &#34;ISS&#34;, &#34;name&#34;: &#34;Shane Kimbrough&#34;}, {&#34;craft&#34;: &#34;ISS&#34;, &#34;name&#34;: &#34;Akihiko Hoshide&#34;}, {&#34;craft&#34;: &#34;ISS&#34;, &#34;name&#34;: &#34;Anton Shkaplerov&#34;}, {&#34;craft&#34;: &#34;Shenzhou 13&#34;, &#34;name&#34;: &#34;Zhai Zhigang&#34;}, {&#34;craft&#34;: &#34;Shenzhou 13&#34;, &#34;name&#34;: &#34;Wang Yaping&#34;}, {&#34;craft&#34;: &#34;Shenzhou 13&#34;, &#34;name&#34;: &#34;Ye Guangfu&#34;}], &#34;message&#34;: &#34;success&#34;}</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="запись-в-архив" class="heading-element"><span>Запись в архив</span>
+  <a href="#%d0%b7%d0%b0%d0%bf%d0%b8%d1%81%d1%8c-%d0%b2-%d0%b0%d1%80%d1%85%d0%b8%d0%b2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Чтобы записать файл в архив, нужно как минимум открыть его для записи (<code>mode='w'</code> — для записи с удалением уже имеющегося содержимого; или <code>mode='a'</code> — для записи в конец, сохраняя содержимое). Далее, используем метод <code>write()</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="s1">&#39;archive.zip&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">zip_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;program.py&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">zip_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;lse.jpeg&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">zip_file</span><span class="o">.</span><span class="n">namelist</span><span class="p">())</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition danger open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-bolt" aria-hidden="true"></i>Опасность<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Если файлы для записи в архив не будут найдены, то возникнет ошибка (исключение) <code>FileNotFoundError</code></div>
+  </div>
+</div>
+<p>Метод <code>write()</code> может принимать еще один строковый аргумент, задающий новое имя файла в архиве.</p>
+<hr>
+<h3 id="извлечение-содержимого" class="heading-element"><span>Извлечение содержимого</span>
+  <a href="#%d0%b8%d0%b7%d0%b2%d0%bb%d0%b5%d1%87%d0%b5%d0%bd%d0%b8%d0%b5-%d1%81%d0%be%d0%b4%d0%b5%d1%80%d0%b6%d0%b8%d0%bc%d0%be%d0%b3%d0%be" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Если требуется извлечь отдельные файлы, то используется метод <code>extract()</code>, он принимает два аргумента: название файла и путь, по которому требуется извлечь файл. Если путь не указывать, то файл будет извлечен в папку, где находится файл с программой.<br>
+Следующий код извлекает файлы из архива <code>test.zip</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="s1">&#39;test.zip&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">zip_file</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s1">&#39;test/Картинки/avatar.png&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">zip_file</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s1">&#39;test/Программы/image_util.py&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">zip_file</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s1">&#39;lse.jpeg&#39;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Если требуется извлечь все содержимое архива, то используется метод <code>extractall()</code>, он принимает в качестве аргумента путь, по которому требуется извлечь все файлы. Если путь не указывать, то файл будет извлечен в папку, где находится файл с программой.</p>
+<hr>
+<h2 id="сериализация-и-десериализация" class="heading-element"><span>Сериализация и десериализация</span>
+  <a href="#%d1%81%d0%b5%d1%80%d0%b8%d0%b0%d0%bb%d0%b8%d0%b7%d0%b0%d1%86%d0%b8%d1%8f-%d0%b8-%d0%b4%d0%b5%d1%81%d0%b5%d1%80%d0%b8%d0%b0%d0%bb%d0%b8%d0%b7%d0%b0%d1%86%d0%b8%d1%8f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Преобразование переменных программы (Python-объектов) в формат для хранения называется «сериализацией», а обратное преобразование — «десериализацией».</p>
+<p>Сериализация объектов часто используется для:</p>
+<ul>
+<li>сохранения состояния программы (то есть некоторых её объектов) между запусками</li>
+<li>передачи данных между различными программами (например, по сети)</li>
+</ul>
+<p>Главная идея состоит в том, что сериализованный формат — набор байт или строка, которую можно легко сохранить на диск или передать другой программе, в отличие от самого объекта. А значит, задача сохранения объекта/группы объектов при этом сводится к простой задаче сохранения набора байт или строки.</p>
+<hr>
+<h2 id="модуль-pickle" class="heading-element"><span>Модуль <code>pickle</code></span>
+  <a href="#%d0%bc%d0%be%d0%b4%d1%83%d0%bb%d1%8c-pickle" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Помимо сериализации в формат <code>json</code> мы также можем использовать бинарную сериализацию, то есть сериализацию в байты. Для этого в Python используется модуль pickle. Интерфейс взаимодействия с модулем pickle абсолютно такой же, как и для модуля json. Мы будем использовать четыре основных функции: <code>dump(), dumps(), load(), loads()</code>.</p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Модуль <code>pickle</code> сериализует и десериализует данные быстрее чем модуль <code>json</code>.</div>
+  </div>
+</div>
+<p>Модуль <code>pickle</code> может сериализовывать:</p>
+<ol>
+<li>Все встроенные типы данных (<code>bool, int, float, complex, str, None</code>);</li>
+<li>Списки, кортежи, словари и множества, содержащие любую комбинацию встроенных типов данных (но не генераторы);</li>
+<li>Списки, кортежи, словари и множества, содержащие любую комбинацию списков, кортежей, словарей и множеств;</li>
+<li>Функции (но не <code>lambda</code>-функции), классы и экземпляры классов.</li>
+</ol>
+<p>Разберём функции модуля:</p>
+<ul>
+<li>Функция <code>dump()</code> модуля <code>pickle</code> принимает сериализуемый Python объект, сериализует его в бинарный, Python-зависимый формат, используя протокол <code>pickle</code>, и сохраняет его в открытый для записи бинарный файл.</li>
+</ul>
+<p>Следующий код создает файл <code>file.pkl</code>, содержащий бинарное представление объекта <code>obj</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pickle</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">obj</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Python&#39;</span><span class="p">:</span> <span class="mi">1991</span><span class="p">,</span> <span class="s1">&#39;Java&#39;</span><span class="p">:</span> <span class="mi">1995</span><span class="p">,</span> <span class="s1">&#39;C#&#39;</span><span class="p">:</span> <span class="mi">2002</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Функция <code>dumps()</code> выполняет такую же сериализацию, как и функция <code>dump()</code>. Но вместо того чтобы сохранять сериализованные данные в открытый для записи бинарный файл, она просто возвращает эти сериализованные данные.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pickle</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">obj</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Python&#39;</span><span class="p">:</span> <span class="mi">1991</span><span class="p">,</span> <span class="s1">&#39;Java&#39;</span><span class="p">:</span> <span class="mi">1995</span><span class="p">,</span> <span class="s1">&#39;C#&#39;</span><span class="p">:</span> <span class="mi">2002</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">binary_obj</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">binary_obj</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">binary_obj</span><span class="p">))</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">b&#39;\x80\x03}q\x00(X\x06\x00\x00\x00Pythonq\x01M\xc7\x07X\x04\x00\x00\x00Javaq\x02M\xcb\x07X\x02\x00\x00\x00C#q\x03M\xd2\x07u.&#39;
+</span></span><span class="line"><span class="cl">&lt;class &#39;bytes&#39;&gt;</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Поскольку протокол <code>pickle</code> использует бинарный формат данных, функция <code>dumps()</code> возвращает объект типа <code>bytes</code>.</p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Тип данных <code>bytes</code> — это неизменяемые последовательности отдельных байтов. Синтаксис для байтовых литералов в основном такой же, как и для строковых литералов, за исключением того, что добавляется префикс <code>b</code>.</div>
+  </div>
+</div>
+<ul>
+<li>Функция <code>load()</code> принимает файловый объект, читает из него сериализованные данные, десериализует их в Python-объект и возвращает полученный Python-объект.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pickle</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>     <span class="c1"># используется файл полученный на предыдущем шаге</span>
+</span></span><span class="line"><span class="cl">    <span class="n">obj</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">{&#39;Python&#39;: 1991, &#39;Java&#39;: 1995, &#39;C#&#39;: 2002}
+</span></span><span class="line"><span class="cl">&lt;class &#39;dict&#39;&gt;</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Функция <code>loads()</code> выполняет такую же десериализацию, как и функция <code>load()</code>. Но вместо того чтобы принимать файловый объект, она принимает объект типа <code>bytes</code>, содержащий сериализованные данные.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pickle</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">obj</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Python&#39;</span><span class="p">:</span> <span class="mi">1991</span><span class="p">,</span> <span class="s1">&#39;Java&#39;</span><span class="p">:</span> <span class="mi">1995</span><span class="p">,</span> <span class="s1">&#39;C#&#39;</span><span class="p">:</span> <span class="mi">2002</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">binary_obj</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">new_obj</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">binary_obj</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">new_obj</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">obj</span> <span class="o">==</span> <span class="n">new_obj</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">obj</span> <span class="ow">is</span> <span class="n">new_obj</span><span class="p">)</span>       <span class="c1"># проверка на идентичность</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">{&#39;Python&#39;: 1991, &#39;Java&#39;: 1995, &#39;C#&#39;: 2002}
+</span></span><span class="line"><span class="cl">True
+</span></span><span class="line"><span class="cl">False</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Интересно то, что объекты <code>obj</code> и <code>new_obj</code> имеют одинаковое содержимое, но по сути не идентичны.</p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Протокол <code>pickle</code> зависит от Python и не совместим с другими языками программирования. Если необходима совместимость с другими языками программирования, то следует использовать JSON сериализацию.</div>
+  </div>
+</div></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="Oбновлена 2024-07-11 00:00:01">Oбновлена 11-07-2024&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="Поделиться в X" data-sharer="twitter" data-url="http://localhost:1313/notes/zip_pkl/" data-title="Работа с zip и pkl файлами в Python" data-hashtags="python,files,modules"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/notes/zip_pkl/" data-title="Работа с zip и pkl файлами в Python" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в VK" data-sharer="vk" data-url="http://localhost:1313/notes/zip_pkl/" data-title="Работа с zip и pkl файлами в Python"><i class="fa-brands fa-vk fa-fw" aria-hidden="true"></i></a>
+  <a href="//mix.com/add?url=http%3a%2f%2flocalhost%3a1313%2fnotes%2fzip_pkl%2f&amp;description=%d0%a0%d0%b0%d0%b1%d0%be%d1%82%d0%b0%20%d1%81%20zip%20%d0%b8%20pkl%20%d1%84%d0%b0%d0%b9%d0%bb%d0%b0%d0%bc%d0%b8%20%d0%b2%20Python" target="_blank" title="Поделиться в Mix"><i class="fa-brands fa-mix fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/python/" class="post-tag" title="Тэги - Python">Python</a><a href="/tags/files/" class="post-tag" title="Тэги - Files">Files</a><a href="/tags/modules/" class="post-tag" title="Тэги - Modules">Modules</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">Назад</a></span>&nbsp;|&nbsp;<span><a href="/">Домой</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/notes/csv_json/" class="post-nav-item" rel="prev" title="Работа с csv и json файлами в Python"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Работа с csv и json файлами в Python</a><a href="/notes/os_shutil_shelve/" class="post-nav-item" rel="next" title="Модули os, shutil и shelve">Модули os, shutil и shelve<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div class="post-reward">
+    <div class="comment">На печеньки к чаю</div>
+    <input type="checkbox" class="reward-input" name="reward" id="fi-reward" hidden />
+    <label class="reward-button" for="fi-reward"><i class="fa-solid fa-qrcode fa-fw" aria-hidden="true"></i></label>
+    <div class="reward-ways" data-mode="fixed"><div><img loading="lazy" src="/img/CloudTips.png" alt="NoisyCake cloudtips" data-title="NoisyCake cloudtips" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span>cloudtips</span>
+          </div></div>
+  </div></article>
+
+  <aside class="toc" id="toc-auto" aria-label="Содержание"><h2 class="toc-title">Содержание&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://t.me/noisycake"target="_blank" rel="external nofollow noopener noreferrer">NoisyCake</a></span></div><div class="footer-line statistics"><span class="site-time" title='Website running ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Дней жизни:</span><span class="run-times ms-1">Website running ...</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='Всего посетителей'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='Всего посещений'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Наверх"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><div class="reading-progress-bar" style="--fi-progress-start: left; top: 0; --fi-progress-bg: #8581dd; --fi-progress-bg-dark: #fff;"></div><noscript>
+    <div class="noscript-warning"></div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"Копировать в буфер обмена","editLockTitle":"Заблокировать редактируемый кодовый блок","editUnLockTitle":"Разблокировать редактируемый блок кода","editable":true,"maxShownLines":50},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Окей","link":"Узнать больше","message":"Сайт использует куки"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"Результатов не найдено","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2024-11-15T16:15:22","version":"v0.3.14"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>

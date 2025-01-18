@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="ru">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Работа с csv и json файлами в Python | HFK</title><meta name="author" content="NoisyCake">
+<meta name="description" content="Управление текстовыми файлами формата csv, tsv, dtv, json в языке программирования Python
+"><meta name="keywords" content='python, files, modules'>
+  <meta itemprop="name" content="Работа с csv и json файлами в Python">
+  <meta itemprop="description" content="Управление текстовыми файлами формата csv, tsv, dtv, json в языке программирования Python">
+  <meta itemprop="datePublished" content="2024-07-09T00:00:01+00:00">
+  <meta itemprop="dateModified" content="2024-07-09T00:00:01+00:00">
+  <meta itemprop="wordCount" content="2640">
+  <meta itemprop="keywords" content="Python,Files,Modules"><meta property="og:url" content="http://localhost:1313/notes/csv_json/">
+  <meta property="og:site_name" content="HFK">
+  <meta property="og:title" content="Работа с csv и json файлами в Python">
+  <meta property="og:description" content="Управление текстовыми файлами формата csv, tsv, dtv, json в языке программирования Python">
+  <meta property="og:locale" content="ru">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2024-07-09T00:00:01+00:00">
+    <meta property="article:modified_time" content="2024-07-09T00:00:01+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Files">
+    <meta property="article:tag" content="Modules">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Работа с csv и json файлами в Python">
+  <meta name="twitter:description" content="Управление текстовыми файлами формата csv, tsv, dtv, json в языке программирования Python">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/csv_json/" title="Работа с csv и json файлами в Python | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/notes/stdin_stdout/" title="Потоковый ввод и вывод" /><link rel="next" type="text/html" href="http://localhost:1313/notes/zip_pkl/" title="Работа с zip и pkl файлами в Python" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/csv_json/index.md" title="Работа с csv и json файлами в Python | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Работа с csv и json файлами в Python",
+    "inLanguage": "ru",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/notes\/csv_json\/"
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "python, files, modules","wordcount":  2640 ,
+    "url": "http:\/\/localhost:1313\/notes\/csv_json\/","datePublished": "2024-07-09T00:00:01+00:00","dateModified": "2024-07-09T00:00:01+00:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "NoisyCake"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="normal"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item has-children">
+              <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item">
+              <a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Поиск">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Очистить">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="Сменить Тему">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Поиск">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Очистить">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Отменить
+            </a>
+          </li><li class="menu-item"><span class="nested-item">
+                  <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item"><a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item"><a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="Сменить Тему"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/notes/" title="Конспекты">Конспекты</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Работа с csv и json файлами в Python</li>
+    </ol>
+  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=""></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Работа с csv и json файлами в Python</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisycake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+    NoisyCake</a></span><span class="post-included-in">&nbsp;включен в <a href="/categories/python/" class="post-category" title="Категория - Python"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Python</a></span></div><div class="post-meta-line"><span title="Опубликовано 2024-07-09 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="09-07-2024">09-07-2024</time></span>&nbsp;<span title="2640 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 2700 слов</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>Содержание</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ol>
+    <li><a href="#формат-csv">Формат CSV</a></li>
+    <li><a href="#модуль-csv">Модуль <code>csv</code></a>
+      <ol>
+        <li><a href="#чтение-через-reader">Чтение через <code>reader</code></a></li>
+        <li><a href="#чтение-через-dictreader">Чтение через <code>DictReader</code></a></li>
+        <li><a href="#запись-через-writer">Запись через <code>writer</code></a></li>
+        <li><a href="#запись-через-dictwriter">Запись через <code>DictWriter</code></a></li>
+      </ol>
+    </li>
+    <li><a href="#формат-json">Формат json</a></li>
+    <li><a href="#модуль-json">Модуль <code>json</code></a>
+      <ol>
+        <li><a href="#функция-dumps">Функция <code>dumps()</code></a></li>
+        <li><a href="#функция-dump">Функция <code>dump()</code></a>
+          <ol>
+            <li><a href="#indent-sort_keys-и-separators"><code>indent</code>, <code>sort_keys</code> и <code>separators</code></a></li>
+          </ol>
+        </li>
+        <li><a href="#функция-loads">Функция <code>loads()</code></a></li>
+        <li><a href="#функция-load">Функция <code>load()</code></a></li>
+        <li><a href="#типы-данных-в-json">Типы данных в <code>json</code></a></li>
+        <li><a href="#ограничение-по-типам-данных">Ограничение по типам данных</a></li>
+        <li><a href="#кириллические-символы-в-json">Кириллические символы в json</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav></div>
+      </div><div class="content" id="content"><p>Управление текстовыми файлами формата <code>csv, tsv, dtv, json</code> в языке программирования Python</p>
+<h2 id="формат-csv" class="heading-element"><span>Формат CSV</span>
+  <a href="#%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%82-csv" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>CSV (от англ. Comma-Separated Values — значения, разделённые запятыми) — текстовый формат, предназначенный для представления табличных данных. Строка таблицы соответствует строке текста, которая содержит одно или несколько полей, разделенных запятыми.</p>
+<p>К примеру, следующая таблица:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Rank</th>
+          <th style="text-align: center">Language</th>
+          <th style="text-align: center">Share</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">Python</td>
+          <td style="text-align: center">31.17%</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">Java</td>
+          <td style="text-align: center">17.75%</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">3</td>
+          <td style="text-align: center">JavaScript</td>
+          <td style="text-align: center">8%</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">4</td>
+          <td style="text-align: center">C#</td>
+          <td style="text-align: center">7.05%</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">5</td>
+          <td style="text-align: center">PHP</td>
+          <td style="text-align: center">6.09%</td>
+      </tr>
+  </tbody>
+</table>
+<p>в формате <code>csv</code> будет выглядеть следующим образом:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Rank,Language,Share
+</span></span><span class="line"><span class="cl">1,Python,31.17%
+</span></span><span class="line"><span class="cl">2,Java,17.75%
+</span></span><span class="line"><span class="cl">3,JavaScript,8%
+</span></span><span class="line"><span class="cl">4,C#,7.05%
+</span></span><span class="line"><span class="cl">5,PHP,6.09%</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Подобные файлы можно обрабатывать вручную подобно <code>txt</code> — считывать, разделять на строки и отдельные элементы по разделителям с помощью <code>split()</code>, но в Python есть отдельный модуль для работы с файлами формата <code>dsv</code>.</p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content"><code>dsv</code> (англ. delimiter separated values — «значения, разграниченные разделителем») общий формат для форм <code>csv</code>, <code>tsv</code> (англ. tab separated values — «значения, разделенные табуляцией») и других.</div>
+  </div>
+</div>
+<hr>
+<h2 id="модуль-csv" class="heading-element"><span>Модуль <code>csv</code></span>
+  <a href="#%d0%bc%d0%be%d0%b4%d1%83%d0%bb%d1%8c-csv" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Для использования: <code>import csv</code></p>
+<p>В данном модуле есть два основных объекта: <code>reader</code> и <code>writer</code>, созданные, чтобы читать и создавать <code>csv</code> файлы соответственно.</p>
+<h3 id="чтение-через-reader" class="heading-element"><span>Чтение через <code>reader</code></span>
+  <a href="#%d1%87%d1%82%d0%b5%d0%bd%d0%b8%d0%b5-%d1%87%d0%b5%d1%80%d0%b5%d0%b7-reader" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Рассмотрим файл <code>products.csv</code>, содержащий информацию о товарах интернет магазина:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">keywords,price,product_name
+</span></span><span class="line"><span class="cl">Садовый стул,1699,ВЭДДО
+</span></span><span class="line"><span class="cl">Садовый стул,2999,ЭПЛАРО
+</span></span><span class="line"><span class="cl">Садовый табурет,1699,ЭПЛАРО
+</span></span><span class="line"><span class="cl">Садовый стол,1999,ТЭРНО
+</span></span><span class="line"><span class="cl">Складной стол,7499,ЭПЛАРО
+</span></span><span class="line"><span class="cl">Настил,1299,РУННЕН
+</span></span><span class="line"><span class="cl">Стеллаж,1299,ХИЛЛИС
+</span></span><span class="line"><span class="cl">Кружка,39,СТЕЛЬНА
+</span></span><span class="line"><span class="cl">Молочник,299,ВАРДАГЕН
+</span></span><span class="line"><span class="cl">Термос для еды,699,ЭФТЕРФРОГАД
+</span></span><span class="line"><span class="cl">Ситечко,59,ИДЕАЛИСК
+</span></span><span class="line"><span class="cl">Чайник заварочный,499,РИКЛИГ
+</span></span><span class="line"><span class="cl">Кофе-пресс,699,УПХЕТТА
+</span></span><span class="line"><span class="cl">Чашка с блюдцем,249,ИКЕА
+</span></span><span class="line"><span class="cl">Кружка,249,ЭМНТ
+</span></span><span class="line"><span class="cl">Ситечко,199,САККУННИГ
+</span></span><span class="line"><span class="cl">Кружка,199,ФИНСТИЛТ
+</span></span><span class="line"><span class="cl">Тарелка,269,ЭВЕРЕНС</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Код ниже читает содержимое файла и выводит его построчно:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">csv</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;products.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rows</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>  <span class="c1"># создаём reader объект</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">[&#39;keywords&#39;, &#39;price&#39;, &#39;product_name&#39;]
+</span></span><span class="line"><span class="cl">[&#39;Садовый стул&#39;, &#39;1699&#39;, &#39;ВЭДДО&#39;]
+</span></span><span class="line"><span class="cl">[&#39;Садовый стул&#39;, &#39;2999&#39;, &#39;ЭПЛАРО&#39;]
+</span></span><span class="line"><span class="cl">[&#39;Садовый табурет&#39;, &#39;1699&#39;, &#39;ЭПЛАРО&#39;]
+</span></span><span class="line"><span class="cl">[&#39;Садовый стол&#39;, &#39;1999&#39;, &#39;ТЭРНО&#39;]
+</span></span><span class="line"><span class="cl">[&#39;Складной стол&#39;, &#39;7499&#39;, &#39;ЭПЛАРО&#39;]
+</span></span><span class="line"><span class="cl">[&#39;Настил&#39;, &#39;1299&#39;, &#39;РУННЕН&#39;]
+</span></span><span class="line"><span class="cl">[&#39;Стеллаж&#39;, &#39;1299&#39;, &#39;ХИЛЛИС&#39;]
+</span></span><span class="line"><span class="cl">[&#39;Кружка&#39;, &#39;39&#39;, &#39;СТЕЛЬНА&#39;]
+</span></span><span class="line"><span class="cl">[&#39;Молочник&#39;, &#39;299&#39;, &#39;ВАРДАГЕН&#39;]
+</span></span><span class="line"><span class="cl">[&#39;Термос для еды&#39;, &#39;699&#39;, &#39;ЭФТЕРФРОГАД&#39;]
+</span></span><span class="line"><span class="cl">[&#39;Ситечко&#39;, &#39;59&#39;, &#39;ИДЕАЛИСК&#39;]
+</span></span><span class="line"><span class="cl">[&#39;Чайник заварочный&#39;, &#39;499&#39;, &#39;РИКЛИГ&#39;]
+</span></span><span class="line"><span class="cl">[&#39;Кофе-пресс&#39;, &#39;699&#39;, &#39;УПХЕТТА&#39;]
+</span></span><span class="line"><span class="cl">[&#39;Чашка с блюдцем&#39;, &#39;249&#39;, &#39;ИКЕА&#39;]
+</span></span><span class="line"><span class="cl">[&#39;Кружка&#39;, &#39;249&#39;, &#39;ЭМНТ&#39;]
+</span></span><span class="line"><span class="cl">[&#39;Ситечко&#39;, &#39;199&#39;, &#39;САККУННИГ&#39;]
+</span></span><span class="line"><span class="cl">[&#39;Кружка&#39;, &#39;199&#39;, &#39;ФИНСТИЛТ&#39;]
+</span></span><span class="line"><span class="cl">[&#39;Тарелка&#39;, &#39;269&#39;, &#39;ЭВЕРЕНС&#39;]</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Объект <code>reader</code> дает доступ к построчному итератору, полностью аналогичному работе с файлом или списком.</p>
+<p>После выполнения строки <code>rows = csv.reader(file)</code> в переменную <code>rows</code> будет записан итератор, с помощью которого можно «пробежаться» циклом по файлу. В каждой итерации цикла при этом будет доступна соответствующая строка файла, уже разбитая по запятым и представляющая собой список. При этом автоматически будут учтены все нюансы с запятыми внутри кавычек и самими кавычками.</p>
+<p>При создании <code>reader</code> объекта можно указать:</p>
+<ul>
+<li>аргумент <code>delimiter</code> — односимвольная строка, используемая для разделения полей, по умолчанию имеет значение <code>','</code></li>
+<li>аргумент <code>quotechar</code> — односимвольная строка, используемая для кавычек в полях, содержащих специальные символы, по умолчанию имеет значение <code>'&quot;'</code>.</li>
+</ul>
+<hr>
+<h3 id="чтение-через-dictreader" class="heading-element"><span>Чтение через <code>DictReader</code></span>
+  <a href="#%d1%87%d1%82%d0%b5%d0%bd%d0%b8%d0%b5-%d1%87%d0%b5%d1%80%d0%b5%d0%b7-dictreader" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>В модуле <code>csv</code> есть специальный объект <code>DictReader</code>, который поддерживает создание объекта-словаря на основе названий столбцов. С помощью <code>DictReader</code> объекта можно обращаться к полям не по индексу, а по названию, что делает код более понятным.</p>
+<p>Немного поменяем содержимое файла <code>products.csv</code>. Теперь разделителем будет точка с запятой, также заключим текст с запятыми в кавычки во избежание ошибок при разделении строки на элементы:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">keywords;price;product_name
+</span></span><span class="line"><span class="cl">&#34;Садовый стул, стул для дачи&#34;;1699;ВЭДДО
+</span></span><span class="line"><span class="cl">Садовый стул;2999;ЭПЛАРО
+</span></span><span class="line"><span class="cl">Садовый табурет;1699;ЭПЛАРО
+</span></span><span class="line"><span class="cl">Садовый стол;1999;ТЭРНО
+</span></span><span class="line"><span class="cl">&#34;Складной стол, обеденный стол&#34;;7499;ЭПЛАРО
+</span></span><span class="line"><span class="cl">Настил;1299;РУННЕН
+</span></span><span class="line"><span class="cl">Стеллаж;1299;ХИЛЛИС
+</span></span><span class="line"><span class="cl">&#34;Кружка, сосуд, стакан с ручкой&#34;;39;СТЕЛЬНА
+</span></span><span class="line"><span class="cl">Молочник;299;ВАРДАГЕН
+</span></span><span class="line"><span class="cl">Термос для еды;699;ЭФТЕРФРОГАД
+</span></span><span class="line"><span class="cl">Ситечко;59;ИДЕАЛИСК
+</span></span><span class="line"><span class="cl">Чайник заварочный;499;РИКЛИГ
+</span></span><span class="line"><span class="cl">Кофе-пресс;699;УПХЕТТА
+</span></span><span class="line"><span class="cl">Чашка с блюдцем;249;ИКЕА
+</span></span><span class="line"><span class="cl">&#34;Кружка, стакан с ручкой&#34;;249;ЭМНТ
+</span></span><span class="line"><span class="cl">Ситечко;199;САККУННИГ
+</span></span><span class="line"><span class="cl">Кружка;199;ФИНСТИЛТ
+</span></span><span class="line"><span class="cl">&#34;Тарелка, блюдце&#34;;269;ЭВЕРЕНС</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Теперь прочитаем этот файл, используя <code>DictReader</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">csv</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;products.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rows</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&#34;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">{&#39;keywords&#39;: &#39;Садовый стул, стул для дачи&#39;, &#39;price&#39;: &#39;1699&#39;, &#39;product_name&#39;: &#39;ВЭДДО&#39;}
+</span></span><span class="line"><span class="cl">{&#39;keywords&#39;: &#39;Садовый стул&#39;, &#39;price&#39;: &#39;2999&#39;, &#39;product_name&#39;: &#39;ЭПЛАРО&#39;}
+</span></span><span class="line"><span class="cl">{&#39;keywords&#39;: &#39;Садовый табурет&#39;, &#39;price&#39;: &#39;1699&#39;, &#39;product_name&#39;: &#39;ЭПЛАРО&#39;}
+</span></span><span class="line"><span class="cl">{&#39;keywords&#39;: &#39;Садовый стол&#39;, &#39;price&#39;: &#39;1999&#39;, &#39;product_name&#39;: &#39;ТЭРНО&#39;}
+</span></span><span class="line"><span class="cl">{&#39;keywords&#39;: &#39;Складной стол, обеденный стол&#39;, &#39;price&#39;: &#39;7499&#39;, &#39;product_name&#39;: &#39;ЭПЛАРО&#39;}
+</span></span><span class="line"><span class="cl">{&#39;keywords&#39;: &#39;Настил&#39;, &#39;price&#39;: &#39;1299&#39;, &#39;product_name&#39;: &#39;РУННЕН&#39;}
+</span></span><span class="line"><span class="cl">{&#39;keywords&#39;: &#39;Стеллаж&#39;, &#39;price&#39;: &#39;1299&#39;, &#39;product_name&#39;: &#39;ХИЛЛИС&#39;}
+</span></span><span class="line"><span class="cl">{&#39;keywords&#39;: &#39;Кружка, сосуд, стакан с ручкой&#39;, &#39;price&#39;: &#39;39&#39;, &#39;product_name&#39;: &#39;СТЕЛЬНА&#39;}
+</span></span><span class="line"><span class="cl">{&#39;keywords&#39;: &#39;Молочник&#39;, &#39;price&#39;: &#39;299&#39;, &#39;product_name&#39;: &#39;ВАРДАГЕН&#39;}
+</span></span><span class="line"><span class="cl">{&#39;keywords&#39;: &#39;Термос для еды&#39;, &#39;price&#39;: &#39;699&#39;, &#39;product_name&#39;: &#39;ЭФТЕРФРОГАД&#39;}
+</span></span><span class="line"><span class="cl">{&#39;keywords&#39;: &#39;Ситечко&#39;, &#39;price&#39;: &#39;59&#39;, &#39;product_name&#39;: &#39;ИДЕАЛИСК&#39;}
+</span></span><span class="line"><span class="cl">{&#39;keywords&#39;: &#39;Чайник заварочный&#39;, &#39;price&#39;: &#39;499&#39;, &#39;product_name&#39;: &#39;РИКЛИГ&#39;}
+</span></span><span class="line"><span class="cl">{&#39;keywords&#39;: &#39;Кофе-пресс&#39;, &#39;price&#39;: &#39;699&#39;, &#39;product_name&#39;: &#39;УПХЕТТА&#39;}
+</span></span><span class="line"><span class="cl">{&#39;keywords&#39;: &#39;Чашка с блюдцем&#39;, &#39;price&#39;: &#39;249&#39;, &#39;product_name&#39;: &#39;ИКЕА&#39;}
+</span></span><span class="line"><span class="cl">{&#39;keywords&#39;: &#39;Кружка, стакан с ручкой&#39;, &#39;price&#39;: &#39;249&#39;, &#39;product_name&#39;: &#39;ЭМНТ&#39;}
+</span></span><span class="line"><span class="cl">{&#39;keywords&#39;: &#39;Ситечко&#39;, &#39;price&#39;: &#39;199&#39;, &#39;product_name&#39;: &#39;САККУННИГ&#39;}
+</span></span><span class="line"><span class="cl">{&#39;keywords&#39;: &#39;Кружка&#39;, &#39;price&#39;: &#39;199&#39;, &#39;product_name&#39;: &#39;ФИНСТИЛТ&#39;}
+</span></span><span class="line"><span class="cl">{&#39;keywords&#39;: &#39;Тарелка, блюдце&#39;, &#39;price&#39;: &#39;269&#39;, &#39;product_name&#39;: &#39;ЭВЕРЕНС&#39;}</span></span></code></pre></td></tr></table>
+</div>
+</div><p>При создании <code>DictReader</code> объекта значениями по умолчанию для аргументов <code>delimiter</code> и <code>quotechar</code> являются <code>','</code> (символ запятой) и <code>'&quot;'</code> (символ двойной кавычки) соответственно.</p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Названия столбцов сохраняются в атрибуте <code>fieldnames</code> объекта <code>DictReader</code></div>
+  </div>
+</div>
+<hr>
+<h3 id="запись-через-writer" class="heading-element"><span>Запись через <code>writer</code></span>
+  <a href="#%d0%b7%d0%b0%d0%bf%d0%b8%d1%81%d1%8c-%d1%87%d0%b5%d1%80%d0%b5%d0%b7-writer" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Для записи данных в <code>csv</code> файл можно использовать специальный <code>writer</code> объект:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">csv</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;second_name&#39;</span><span class="p">,</span> <span class="s1">&#39;class_number&#39;</span><span class="p">,</span> <span class="s1">&#39;class_letter&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Тимур&#39;</span><span class="p">,</span> <span class="s1">&#39;Гуев&#39;</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;А&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Руслан&#39;</span><span class="p">,</span> <span class="s1">&#39;Чаниев&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;Б&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Артур&#39;</span><span class="p">,</span> <span class="s1">&#39;Харисов&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;В&#39;</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;students.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span>                 <span class="c1"># запись заголовков</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>                         <span class="c1"># запись строк</span>
+</span></span><span class="line"><span class="cl">        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Создаётся файл students.csv с содержимым:
+</span></span><span class="line"><span class="cl">first_name,second_name,class_number,class_letter
+</span></span><span class="line"><span class="cl">Тимур,Гуев,11,А
+</span></span><span class="line"><span class="cl">Руслан,Чаниев,9,Б
+</span></span><span class="line"><span class="cl">Артур,Харисов,10,В</span></span></code></pre></td></tr></table>
+</div>
+</div><p>При открытии файла функцией <code>open()</code> был использован параметр <code>newline</code> со значением <code>''</code> (пустая строка), который отвечает за переводы строк при чтении или записи в текстовый файл. По умолчанию имеет значение <code>None</code>, в этом случае все разделители строк преобразуются в <code>'\n'</code>. Если в файле оказывается лишний перевод строки, то следует использовать этот параметр в режиме <code>newline=''</code>, тогда <code>'\n'</code> будет преобразован в пустую строку.</p>
+<p>При создании <code>writer</code> объекта так же можно его настраивать, задавая <code>delimiter</code> и многие другие параметры.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">csv</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;second_name&#39;</span><span class="p">,</span> <span class="s1">&#39;class_number&#39;</span><span class="p">,</span> <span class="s1">&#39;class_letter&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Тимур&#39;</span><span class="p">,</span> <span class="s1">&#39;Гуев&#39;</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;А&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Руслан&#39;</span><span class="p">,</span> <span class="s1">&#39;Чаниев&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;Б&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Роман&#39;</span><span class="p">,</span> <span class="s1">&#39;Белых&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;В&#39;</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;students.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_NONNUMERIC</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Создаётся файл students.csv с содержимым:
+</span></span><span class="line"><span class="cl">&#34;first_name&#34;;&#34;second_name&#34;;&#34;class_number&#34;;&#34;class_letter&#34;
+</span></span><span class="line"><span class="cl">&#34;Тимур&#34;;&#34;Гуев&#34;;11;&#34;А&#34;
+</span></span><span class="line"><span class="cl">&#34;Руслан&#34;;&#34;Чаниев&#34;;9;&#34;Б&#34;
+</span></span><span class="line"><span class="cl">&#34;Роман&#34;;&#34;Белых&#34;;10;&#34;В&#34;</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Значение аргумента <code>quoting=csv.QUOTE_NONNUMERIC</code> означает, что в кавычки будут браться все нечисловые значения. По умолчанию символом кавычки является <code>&quot;</code>, если нужно поменять символ, используется уже знакомый нам именованный аргумент <code>quotechar</code>.</p>
+<p>Для <code>quoting</code> существуют и другие константы из модуля <code>csv</code>:</p>
+<ul>
+<li><code>QUOTE_ALL</code>: указывает объектам записи указывать все поля</li>
+<li><code>QUOTE_MINIMAL</code>: указывает объектам записи заключать в кавычки только те поля, которые содержат специальные символы, такие как разделитель <code>delimiter</code>, кавычка <code>quotechar</code> или любой из символов в <code>lineterminator</code></li>
+<li><code>QUOTE_NONNUMERIC</code>: указывает объектам записи указывать все нечисловые поля</li>
+<li><code>QUOTE_NONE</code>: указывает объектам записи никогда не заключать в кавычки поля</li>
+</ul>
+<p>Помимо метода <code>writerow()</code> можно использовать и метод <code>writerows()</code>, чтобы записать сразу несколько строк. Единственным аргументом этого метода может быть коллекция коллекций. То есть, каждый элемент списка <code>rows</code> в нашем случае должен быть коллекцией. Если <code>rows</code> будет, например, списком чисел, программа завершится с ошибкой.</p>
+<hr>
+<h3 id="запись-через-dictwriter" class="heading-element"><span>Запись через <code>DictWriter</code></span>
+  <a href="#%d0%b7%d0%b0%d0%bf%d0%b8%d1%81%d1%8c-%d1%87%d0%b5%d1%80%d0%b5%d0%b7-dictwriter" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Для записи данных в <code>csv</code> файл также можно использовать <code>DictWriter</code> объект, который позволяет записывать содержимое словаря в файл.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">csv</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Тимур&#39;</span><span class="p">,</span> <span class="s1">&#39;second_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Гуев&#39;</span><span class="p">,</span> <span class="s1">&#39;class_number&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;class_letter&#39;</span><span class="p">:</span> <span class="s1">&#39;А&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Руслан&#39;</span><span class="p">,</span> <span class="s1">&#39;second_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Чаниев&#39;</span><span class="p">,</span> <span class="s1">&#39;class_number&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;class_letter&#39;</span><span class="p">:</span> <span class="s1">&#39;Б&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Роман&#39;</span><span class="p">,</span> <span class="s1">&#39;second_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Белых&#39;</span><span class="p">,</span> <span class="s1">&#39;class_number&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;class_letter&#39;</span><span class="p">:</span> <span class="s1">&#39;В&#39;</span><span class="p">}]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;second_name&#39;</span><span class="p">,</span> <span class="s1">&#39;class_number&#39;</span><span class="p">,</span> <span class="s1">&#39;class_letter&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;students.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_NONNUMERIC</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>                 <span class="c1"># запись заголовков</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>                     <span class="c1"># запись строк</span>
+</span></span><span class="line"><span class="cl">        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Создаётся файл students.csv с содержимым:
+</span></span><span class="line"><span class="cl">&#34;first_name&#34;;&#34;second_name&#34;;&#34;class_number&#34;;&#34;class_letter&#34;
+</span></span><span class="line"><span class="cl">&#34;Тимур&#34;;&#34;Гуев&#34;;11;&#34;А&#34;
+</span></span><span class="line"><span class="cl">&#34;Руслан&#34;;&#34;Чаниев&#34;;9;&#34;Б&#34;
+</span></span><span class="line"><span class="cl">&#34;Роман&#34;;&#34;Белых&#34;;10;&#34;В&#34;</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition danger open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-bolt" aria-hidden="true"></i>Опасность<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Ключи словарей, которые записываются в файл, должны совпадать с названиями полей, которые переданы в качестве аргумента <code>fieldnames</code>, иначе будет возникать ошибка <code>ValueError</code>.</div>
+  </div>
+</div>
+<hr>
+<h2 id="формат-json" class="heading-element"><span>Формат json</span>
+  <a href="#%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%82-json" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>JSON (англ. JavaScript Object Notation, читается как &ldquo;джЕйсон&rdquo;) — текстовый формат обмена данными, основанный на синтаксисе объекта в языке программирования JavaScript. Как и многие другие текстовые форматы, JSON легко читается людьми. Несмотря на происхождение от JavaScript, формат считается независимым от языка и может использоваться практически с любым языком программирования.</p>
+<p>В отличие от формата <code>csv</code>, данные в формате <code>json</code> не просто разделены запятыми, а чаще всего имеют структуру ключ-значение. Это напоминает словарь Python, но в отличие от словаря, ключи в <code>json</code> могут быть только строками, заключенными в <strong>двойные кавычки</strong>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&#34;firstName&#34;</span><span class="p">:</span> <span class="s2">&#34;Тимур&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&#34;lastName&#34;</span><span class="p">:</span> <span class="s2">&#34;Гуев&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&#34;gender&#34;</span><span class="p">:</span> <span class="s2">&#34;мужской&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Преимущества, которые сделали этот формат популярным:</p>
+<ol>
+<li>не занимает много места, является компактным в написании и быстро компилируется</li>
+<li>создание текстового содержимого понятно человеку, просто в реализации, а чтение со стороны среды разработки не вызывает никаких проблем. Чтение может осуществляться и человеком, поскольку ничего сложного в представлении данных нет</li>
+<li>структура преобразуется для чтения на любых языках программирования</li>
+<li>практически все языки имеют соответствующие библиотеки или другие инструменты для чтения данных JSON</li>
+</ol>
+<p>В качестве значений в JSON могут быть использованы:</p>
+<ul>
+<li>число (целое или вещественное);</li>
+<li>литералы <code>true</code> (истина), <code>false</code> (ложь), <code>null</code> (отсутствие значения);</li>
+<li>строка (последовательность символов, заключенная в двойные кавычки);</li>
+<li>список (заключается в квадратные скобки <code>[ ]</code>, значения разделяются запятыми). Список может быть пустым, значения в пределах одного списка могут иметь разный тип;</li>
+<li>вложенный объект (неупорядоченное множество пар ключ: значение, заключённое в фигурные скобки <code>{ }</code>). Ключ описывается строкой, между ним и значением стоит символ <code>:</code>. Пары ключ-значение отделяются друг от друга запятыми.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&#34;firstName&#34;</span><span class="p">:</span> <span class="s2">&#34;Тимур&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&#34;lastName&#34;</span><span class="p">:</span> <span class="s2">&#34;Гуев&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&#34;age&#34;</span><span class="p">:</span> <span class="mi">29</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&#34;gender&#34;</span><span class="p">:</span> <span class="s2">&#34;мужской&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&#34;smoke&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&#34;address&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="nt">&#34;streetAddress&#34;</span><span class="p">:</span> <span class="s2">&#34;Часовая 25, кв. 127&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="nt">&#34;city&#34;</span><span class="p">:</span> <span class="s2">&#34;Москва&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="nt">&#34;postalCode&#34;</span><span class="p">:</span> <span class="mi">125315</span>
+</span></span><span class="line"><span class="cl">   <span class="p">},</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&#34;phoneNumbers&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;+7 (919) 424-84-34&#34;</span><span class="p">,</span> <span class="s2">&#34;+7 (916) 928-92-34&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Вложенность данных может быть бесконечной</div>
+  </div>
+</div>
+<p>Также, переносы строк и отступы в формате <code>json</code> необязательны. Они нужны только для удобства чтения.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;firstName&#34;</span><span class="p">:</span> <span class="s2">&#34;Тимур&#34;</span><span class="p">,</span> <span class="nt">&#34;lastName&#34;</span><span class="p">:</span> <span class="s2">&#34;Гуев&#34;</span><span class="p">,</span> <span class="nt">&#34;gender&#34;</span><span class="p">:</span> <span class="s2">&#34;мужской&#34;</span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">JSON — это текстовый формат, который может быть представлен не только в виде пар ключ-значение (объектов). Он так же может содержать список, строку, число и т.д. Тем не менее, чаще всего используется структура ключ-значение. При этом, объекты являются неупорядоченными, списки же, наоборот, упорядочены</div>
+  </div>
+</div>
+<hr>
+<h2 id="модуль-json" class="heading-element"><span>Модуль <code>json</code></span>
+  <a href="#%d0%bc%d0%be%d0%b4%d1%83%d0%bb%d1%8c-json" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Для использования: <code>import json</code></p>
+<p>Преобразование переменных программы (Python-объектов) в формат для хранения называется <a href="https://noisycake.ru/notes/zip_pkl"target="_blank" rel="external nofollow noopener noreferrer">«сериализацией»<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a>, а обратное преобразование — «десериализацией». В Python для сериализации и десериализации в формат <code>json</code> есть одноимённый модуль.</p>
+<h3 id="функция-dumps" class="heading-element"><span>Функция <code>dumps()</code></span>
+  <a href="#%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-dumps" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Для сериализации данных в <code>json</code> строку используется функция <code>dumps()</code> из модуля <code>json</code>. Для того, чтобы сериализовать данные с ее помощью, достаточно передать в нее аргументом любой сериализуемый Python-объект.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Russia&#39;</span><span class="p">,</span> <span class="s1">&#39;phone_code&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;capital&#39;</span><span class="p">:</span> <span class="s1">&#39;Moscow&#39;</span><span class="p">,</span> <span class="s1">&#39;currency&#39;</span><span class="p">:</span> <span class="s1">&#39;RUB&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>            <span class="c1"># сериализуем словарь data в json строку</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">json_data</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">&lt;class &#39;str&#39;&gt;
+</span></span><span class="line"><span class="cl">{&#34;name&#34;: &#34;Russia&#34;, &#34;phone_code&#34;: 7, &#34;capital&#34;: &#34;Moscow&#34;, &#34;currency&#34;: &#34;RUB&#34;}</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Независимо от того, какие кавычки использовались в Python-объекте, в результате данные будут в двойных кавычках (стандарт <code>json</code>)</div>
+  </div>
+</div>
+<h3 id="функция-dump" class="heading-element"><span>Функция <code>dump()</code></span>
+  <a href="#%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-dump" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>В отличие от функции <code>dumps()</code>, которая сериализует Python-объект в <code>json</code> строку, функция <code>dump()</code> записывает переданный Python-объект в файл.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Russia&#39;</span><span class="p">,</span> <span class="s1">&#39;phone_code&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;capital&#39;</span><span class="p">:</span> <span class="s1">&#39;Moscow&#39;</span><span class="p">,</span> <span class="s1">&#39;currency&#39;</span><span class="p">:</span> <span class="s1">&#39;RUB&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;countries.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="c1">// Создаётся файл countries.json с содержимым:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span><span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Russia&#34;</span><span class="p">,</span> <span class="nt">&#34;phone_code&#34;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="nt">&#34;capital&#34;</span><span class="p">:</span> <span class="s2">&#34;Moscow&#34;</span><span class="p">,</span> <span class="nt">&#34;currency&#34;</span><span class="p">:</span> <span class="s2">&#34;RUB&#34;</span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Возможно сериализовать любой объект, поддерживаемый форматом <code>json</code>, например число, список, строку и т.д</div>
+  </div>
+</div>
+<h4 id="indent-sort_keys-и-separators" class="heading-element"><span><code>indent</code>, <code>sort_keys</code> и <code>separators</code></span>
+  <a href="#indent-sort_keys-%d0%b8-separators" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>Функции записи <code>dumps()</code> и <code>dump()</code> имеют необязательные аргументы <code>indent</code>, <code>sort_keys</code> и <code>separators</code>, которые можно использовать для более удобного чтения человеком.</p>
+<ul>
+<li>
+<p>Аргумент <code>indent</code> задает отступ от левого края. По умолчанию имеет значение <code>None</code> для более компактного представления без отступов. Если значением <code>indent</code> является строка, то она используется в качестве отступа.</p>
+</li>
+<li>
+<p>Аргумент <code>sort_keys</code> задает сортировку ключей в результирующем <code>json</code>. По умолчанию имеет значение <code>False</code> для более быстрого выполнения. Если установить значение аргумента в <code>True</code>, то ключи будут отсортированы в алфавитном порядке, что особенно удобно, когда ключей много.</p>
+</li>
+<li>
+<p>Аргумент <code>separators</code> задает кортеж, состоящий из двух элементов <code>(item_separator, key_separator)</code>, которые представляют разделители для элементов и ключей. По умолчанию аргумент имеет значение <code>(', ', ': ')</code>.</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Russia&#39;</span><span class="p">,</span> <span class="s1">&#39;phone_code&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;capital&#39;</span><span class="p">:</span> <span class="s1">&#39;Moscow&#39;</span><span class="p">,</span> <span class="s1">&#39;currency&#39;</span><span class="p">:</span> <span class="s1">&#39;RUB&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">json_data1</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">json_data2</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">separators</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="s1">&#39; = &#39;</span><span class="p">),</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">json_data1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">json_data2</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">{&#34;name&#34;: &#34;Russia&#34;, &#34;phone_code&#34;: 7, &#34;capital&#34;: &#34;Moscow&#34;, &#34;currency&#34;: &#34;RUB&#34;}
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">   &#34;capital&#34; = &#34;Moscow&#34;;
+</span></span><span class="line"><span class="cl">   &#34;currency&#34; = &#34;RUB&#34;;
+</span></span><span class="line"><span class="cl">   &#34;name&#34; = &#34;Russia&#34;;
+</span></span><span class="line"><span class="cl">   &#34;phone_code&#34; = 7
+</span></span><span class="line"><span class="cl">}</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="функция-loads" class="heading-element"><span>Функция <code>loads()</code></span>
+  <a href="#%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-loads" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Для десериализации данных нужно использовать функцию <code>loads()</code>. Ее аргумент — это строка с данными в формате <code>json</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">json_data</span> <span class="o">=</span> <span class="s1">&#39;{&#34;name&#34;: &#34;Russia&#34;, &#34;phone_code&#34;: 7, &#34;capital&#34;: &#34;Moscow&#34;, &#34;currency&#34;: &#34;RUB&#34;}&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">&lt;class &#39;dict&#39;&gt;
+</span></span><span class="line"><span class="cl">{&#39;name&#39;: &#39;Russia&#39;, &#39;phone_code&#39;: 7, &#39;capital&#39;: &#39;Moscow&#39;, &#39;currency&#39;: &#39;RUB&#39;}</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition danger open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-bolt" aria-hidden="true"></i>Опасность<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">В случае если строка для десериализации содержит данные с ошибкой, то модуль <code>json</code> не сможет правильно прочитать такую строку, и программа завершится с ошибкой <code>json.decoder.JSONDecodeError</code></div>
+  </div>
+</div>
+<hr>
+<h3 id="функция-load" class="heading-element"><span>Функция <code>load()</code></span>
+  <a href="#%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-load" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>В отличие от функции <code>loads()</code>, которая в качестве аргумента принимает строку с данными в формате <code>json</code>, функция <code>load()</code> принимает файловый объект и возвращает его десериализованное содержимое.</p>
+<p>Пусть файл <code>data.json</code> имеет следующее содержимое:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Russia&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;phone_code&#34;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;capital&#34;</span><span class="p">:</span> <span class="s2">&#34;Moscow&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;cities&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;Abakan&#34;</span><span class="p">,</span> <span class="s2">&#34;Almetyevsk&#34;</span><span class="p">,</span> <span class="s2">&#34;Anadyr&#34;</span><span class="p">,</span> <span class="s2">&#34;Anapa&#34;</span><span class="p">,</span> <span class="s2">&#34;Arkhangelsk&#34;</span><span class="p">,</span> <span class="s2">&#34;Astrakhan&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;currency&#34;</span><span class="p">:</span> <span class="s2">&#34;RUB&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Тогда следующий код преобразует <code>data.json</code> в словарь <code>data</code> и выведет его элементы:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>                <span class="c1"># передаем файловый объект</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="s2">&#34;, &#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">name: Russia
+</span></span><span class="line"><span class="cl">phone_code: 7
+</span></span><span class="line"><span class="cl">capital: Moscow
+</span></span><span class="line"><span class="cl">cities: Abakan, Almetyevsk, Anadyr, Anapa, Arkhangelsk, Astrakhan
+</span></span><span class="line"><span class="cl">currency: RUB</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="типы-данных-в-json" class="heading-element"><span>Типы данных в <code>json</code></span>
+  <a href="#%d1%82%d0%b8%d0%bf%d1%8b-%d0%b4%d0%b0%d0%bd%d0%bd%d1%8b%d1%85-%d0%b2-json" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Модуль <code>json</code> автоматически определяет тип значения при десериализации. Такая автоматическая работа с типами данных выгодно отличает <code>json</code> от <code>csv</code>, при работе с которым таких автоматических преобразований нет.</p>
+<p>Важно также понимать, что при преобразовании данных в формат JSON, данные не всегда будут того же типа, что исходные данные в Python. Например, кортежи при записи в JSON превращаются в списки. Так происходит из-за того, что в JSON используются другие типы данных, и не для всех типов данных Python есть соответствия.</p>
+<p>Таблица конвертации типов данных Python в JSON:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Python</th>
+          <th style="text-align: center">JSON</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><code>dict</code></td>
+          <td style="text-align: center"><code>object</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>list, tuple</code></td>
+          <td style="text-align: center"><code>array</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>str</code></td>
+          <td style="text-align: center"><code>string</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>int, float</code></td>
+          <td style="text-align: center"><code>number</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>True</code></td>
+          <td style="text-align: center"><code>true</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>False</code></td>
+          <td style="text-align: center"><code>false</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>None</code></td>
+          <td style="text-align: center"><code>null</code></td>
+      </tr>
+  </tbody>
+</table>
+<p>Таблица конвертации JSON в типы данных Python:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">JSON</th>
+          <th style="text-align: center">Python</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><code>object</code></td>
+          <td style="text-align: center"><code>dict</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>array</code></td>
+          <td style="text-align: center"><code>list</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>string</code></td>
+          <td style="text-align: center"><code>str</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>number (int)</code></td>
+          <td style="text-align: center">int</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>number (real)</code></td>
+          <td style="text-align: center"><code>float</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>true</code></td>
+          <td style="text-align: center"><code>True</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>false</code></td>
+          <td style="text-align: center"><code>False</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>null</code></td>
+          <td style="text-align: center"><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="ограничение-по-типам-данных" class="heading-element"><span>Ограничение по типам данных</span>
+  <a href="#%d0%be%d0%b3%d1%80%d0%b0%d0%bd%d0%b8%d1%87%d0%b5%d0%bd%d0%b8%d0%b5-%d0%bf%d0%be-%d1%82%d0%b8%d0%bf%d0%b0%d0%bc-%d0%b4%d0%b0%d0%bd%d0%bd%d1%8b%d1%85" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>В формат JSON нельзя записать словарь, у которого ключи – кортежи. Поэтому есть необязательный аргумент <code>skipkeys</code>, который игнорирует элементы с подобными ключами:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;beegeek&#39;</span><span class="p">:</span> <span class="mi">2018</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="s1">&#39;Timur&#39;</span><span class="p">,</span> <span class="s1">&#39;Guev&#39;</span><span class="p">):</span> <span class="mi">29</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="s1">&#39;Arthur&#39;</span><span class="p">,</span> <span class="s1">&#39;Kharisov&#39;</span><span class="p">):</span> <span class="mi">20</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;stepik&#39;</span><span class="p">:</span> <span class="mi">2013</span>
+</span></span><span class="line"><span class="cl">       <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">skipkeys</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>        <span class="c1"># преобразуем dict в json</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">{&#34;beegeek&#34;: 2018, &#34;stepik&#34;: 2013}</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">В JSON ключами словаря могут быть только строки. Но, если в словаре Python использовались числа, булевы значения или <code>None</code>, то ошибки не будет, вместо этого они будут преобразованы в строки.</div>
+  </div>
+</div>
+<h3 id="кириллические-символы-в-json" class="heading-element"><span>Кириллические символы в json</span>
+  <a href="#%d0%ba%d0%b8%d1%80%d0%b8%d0%bb%d0%bb%d0%b8%d1%87%d0%b5%d1%81%d0%ba%d0%b8%d0%b5-%d1%81%d0%b8%d0%bc%d0%b2%d0%be%d0%bb%d1%8b-%d0%b2-json" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Вывод следующего кода может вызвать смущение:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;firstName&#39;</span><span class="p">:</span> <span class="s1">&#39;Иван&#39;</span><span class="p">,</span> <span class="s1">&#39;lastName&#39;</span><span class="p">:</span> <span class="s1">&#39;Иванов&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">{&#34;firstName&#34;: &#34;\u0418\u0432\u0430\u043d&#34;, &#34;lastName&#34;: &#34;\u0418\u0432\u0430\u043d\u043e\u0432&#34;}</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Каждая буква из строк <code>Иван</code> и <code>Иванов</code> будет заменена на её код. Эти коды стандартны, и код для каждой из букв индивидуален. Например <code>0438</code> — код буквы <code>и</code>. Обратное преобразование из строки в словарь вернет закодированное значение в первоначальный вид.</p>
+<p>С помощью необязательного аргумента <code>ensure_ascii</code> функций <code>dumps()</code> и <code>dump()</code> можно отказаться от такого кодирования:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;firstName&#39;</span><span class="p">:</span> <span class="s1">&#39;Тимур&#39;</span><span class="p">,</span> <span class="s1">&#39;lastName&#39;</span><span class="p">:</span> <span class="s1">&#39;Гуев&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">{&#34;firstName&#34;: &#34;Тимур&#34;, &#34;lastName&#34;: &#34;Гуев&#34;}
+</span></span><span class="line"><span class="cl">{&#39;firstName&#39;: &#39;Тимур&#39;, &#39;lastName&#39;: &#39;Гуев&#39;}</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Python преобразует такую строку обратно в словарь без проблем (поскольку использует Unicode по умолчанию), но нужно помнить, что это может привести к проблемам с преобразованием в программах, написанных на других языках программирования.</p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="Oбновлена 2024-07-09 00:00:01">Oбновлена 09-07-2024&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="Поделиться в X" data-sharer="twitter" data-url="http://localhost:1313/notes/csv_json/" data-title="Работа с csv и json файлами в Python" data-hashtags="python,files,modules"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/notes/csv_json/" data-title="Работа с csv и json файлами в Python" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в VK" data-sharer="vk" data-url="http://localhost:1313/notes/csv_json/" data-title="Работа с csv и json файлами в Python"><i class="fa-brands fa-vk fa-fw" aria-hidden="true"></i></a>
+  <a href="//mix.com/add?url=http%3a%2f%2flocalhost%3a1313%2fnotes%2fcsv_json%2f&amp;description=%d0%a0%d0%b0%d0%b1%d0%be%d1%82%d0%b0%20%d1%81%20csv%20%d0%b8%20json%20%d1%84%d0%b0%d0%b9%d0%bb%d0%b0%d0%bc%d0%b8%20%d0%b2%20Python" target="_blank" title="Поделиться в Mix"><i class="fa-brands fa-mix fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/python/" class="post-tag" title="Тэги - Python">Python</a><a href="/tags/files/" class="post-tag" title="Тэги - Files">Files</a><a href="/tags/modules/" class="post-tag" title="Тэги - Modules">Modules</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">Назад</a></span>&nbsp;|&nbsp;<span><a href="/">Домой</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/notes/stdin_stdout/" class="post-nav-item" rel="prev" title="Потоковый ввод и вывод"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Потоковый ввод и вывод</a><a href="/notes/zip_pkl/" class="post-nav-item" rel="next" title="Работа с zip и pkl файлами в Python">Работа с zip и pkl файлами в Python<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div class="post-reward">
+    <div class="comment">На печеньки к чаю</div>
+    <input type="checkbox" class="reward-input" name="reward" id="fi-reward" hidden />
+    <label class="reward-button" for="fi-reward"><i class="fa-solid fa-qrcode fa-fw" aria-hidden="true"></i></label>
+    <div class="reward-ways" data-mode="fixed"><div><img loading="lazy" src="/img/CloudTips.png" alt="NoisyCake cloudtips" data-title="NoisyCake cloudtips" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span>cloudtips</span>
+          </div></div>
+  </div></article>
+
+  <aside class="toc" id="toc-auto" aria-label="Содержание"><h2 class="toc-title">Содержание&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://t.me/noisycake"target="_blank" rel="external nofollow noopener noreferrer">NoisyCake</a></span></div><div class="footer-line statistics"><span class="site-time" title='Website running ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Дней жизни:</span><span class="run-times ms-1">Website running ...</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='Всего посетителей'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='Всего посещений'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Наверх"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><div class="reading-progress-bar" style="--fi-progress-start: left; top: 0; --fi-progress-bg: #8581dd; --fi-progress-bg-dark: #fff;"></div><noscript>
+    <div class="noscript-warning"></div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"Копировать в буфер обмена","editLockTitle":"Заблокировать редактируемый кодовый блок","editUnLockTitle":"Разблокировать редактируемый блок кода","editable":true,"maxShownLines":50},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Окей","link":"Узнать больше","message":"Сайт использует куки"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"Результатов не найдено","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2024-11-15T16:15:22","version":"v0.3.14"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>

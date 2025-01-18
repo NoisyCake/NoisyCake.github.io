@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fractions - Тэг | HFK</title>
+    <link>http://localhost:1313/tags/fractions/</link>
+    <description>Hungry for Knowledge – онлайн-ресурс, содержащий конспекты, статьи и проекты автора, охватывающие спектр тем, связанных с программированием и не только.</description>
+    <generator>Hugo 0.138.0 &amp; FixIt v0.3.14</generator>
+    <language>ru</language>
+    <managingEditor>darkgxd@vk.com (NoisyCake)</managingEditor>
+    <webMaster>darkgxd@vk.com (NoisyCake)</webMaster>
+    <lastBuildDate>Tue, 14 May 2024 00:00:01 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/fractions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Decimal, Fraction и комплексные числа в Python</title>
+      <link>http://localhost:1313/notes/dec_frac_compl/</link>
+      <pubDate>Tue, 14 May 2024 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/dec_frac_compl/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>&lt;p&gt;Точные числа с плавающей точкой, дроби и комплексные числа. Как с ними работать в Python?&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

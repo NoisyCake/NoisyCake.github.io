@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="ru">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Decimal, Fraction и комплексные числа в Python | HFK</title><meta name="author" content="NoisyCake">
+<meta name="description" content="Точные числа с плавающей точкой, дроби и комплексные числа. Как с ними работать в Python?
+"><meta name="keywords" content='python, datatypes, decimal, fractions'>
+  <meta itemprop="name" content="Decimal, Fraction и комплексные числа в Python">
+  <meta itemprop="description" content="Точные числа с плавающей точкой, дроби и комплексные числа. Как с ними работать в Python?">
+  <meta itemprop="datePublished" content="2024-05-14T00:00:01+00:00">
+  <meta itemprop="dateModified" content="2024-05-14T00:00:01+00:00">
+  <meta itemprop="wordCount" content="1432">
+  <meta itemprop="keywords" content="Python,Datatypes,Decimal,Fractions"><meta property="og:url" content="http://localhost:1313/notes/dec_frac_compl/">
+  <meta property="og:site_name" content="HFK">
+  <meta property="og:title" content="Decimal, Fraction и комплексные числа в Python">
+  <meta property="og:description" content="Точные числа с плавающей точкой, дроби и комплексные числа. Как с ними работать в Python?">
+  <meta property="og:locale" content="ru">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2024-05-14T00:00:01+00:00">
+    <meta property="article:modified_time" content="2024-05-14T00:00:01+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Datatypes">
+    <meta property="article:tag" content="Decimal">
+    <meta property="article:tag" content="Fractions">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Decimal, Fraction и комплексные числа в Python">
+  <meta name="twitter:description" content="Точные числа с плавающей точкой, дроби и комплексные числа. Как с ними работать в Python?">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/dec_frac_compl/" title="Decimal, Fraction и комплексные числа в Python | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/notes/random_string/" title="Модули random и string" /><link rel="next" type="text/html" href="http://localhost:1313/notes/functions2/" title="Функции в Python" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/dec_frac_compl/index.md" title="Decimal, Fraction и комплексные числа в Python | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Decimal, Fraction и комплексные числа в Python",
+    "inLanguage": "ru",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/notes\/dec_frac_compl\/"
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "python, datatypes, decimal, fractions","wordcount":  1432 ,
+    "url": "http:\/\/localhost:1313\/notes\/dec_frac_compl\/","datePublished": "2024-05-14T00:00:01+00:00","dateModified": "2024-05-14T00:00:01+00:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "NoisyCake"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="normal"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item has-children">
+              <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item">
+              <a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Поиск">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Очистить">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="Сменить Тему">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Поиск">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Очистить">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Отменить
+            </a>
+          </li><li class="menu-item"><span class="nested-item">
+                  <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item"><a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item"><a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="Сменить Тему"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/notes/" title="Конспекты">Конспекты</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Decimal, Fraction и комплексные числа в Python</li>
+    </ol>
+  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=""></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Decimal, Fraction и комплексные числа в Python</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisycake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+    NoisyCake</a></span><span class="post-included-in">&nbsp;включен в <a href="/categories/python/" class="post-category" title="Категория - Python"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Python</a></span></div><div class="post-meta-line"><span title="Опубликовано 2024-05-14 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="14-05-2024">14-05-2024</time></span>&nbsp;<span title="1432 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 1500 слов</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>Содержание</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ol>
+    <li><a href="#модуль-decimal"><strong>Модуль decimal</strong></a>
+      <ol>
+        <li><a href="#методы-decimal">Методы decimal</a></li>
+      </ol>
+    </li>
+    <li><a href="#модуль-fractions"><strong>Модуль fractions</strong></a>
+      <ol>
+        <li><a href="#методы-и-свойства">Методы и свойства</a></li>
+      </ol>
+    </li>
+    <li><a href="#комплексные-числа-в-python"><strong>Комплексные числа в Python</strong></a>
+      <ol>
+        <li><a href="#методы-и-свойства-1">Методы и свойства</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav></div>
+      </div><div class="content" id="content"><p>Точные числа с плавающей точкой, дроби и комплексные числа. Как с ними работать в Python?</p>
+<h2 id="модуль-decimal" class="heading-element"><span><strong>Модуль decimal</strong></span>
+  <a href="#%d0%bc%d0%be%d0%b4%d1%83%d0%bb%d1%8c-decimal" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Для использования: <code>from decimal import *</code>.</p>
+<p>Если мы хотим сравнить два числа <code>float</code>, то нужно воспользоваться кодом ниже вместо обычного сравнения <code>==</code>, так как существуют ограничения в сохранении точного значения чисел:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">num</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span>
+</span></span><span class="line"><span class="cl"><span class="n">eps</span> <span class="o">=</span> <span class="mf">0.000000001</span>         <span class="c1"># точность сравнения</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">num</span> <span class="o">-</span> <span class="mf">0.3</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">eps</span><span class="p">:</span>  <span class="c1"># число num отличается от числа 0.3 менее чем 0.000000001</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;YES&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;NO&#39;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Особенности и характеристики:</p>
+<ul>
+<li>Тип данных <code>Decimal</code> - класс из модуля <code>decimal</code>, который тоже представляет собой число с плавающей точкой, и служит для того, чтобы выполнять операции над вещественными числами без ошибок.</li>
+<li>С ними работают все привычные операции (сложение, умножение и т.д., но <u>не рекомендуется</u> оперировать между <code>Decimal</code> и <code>float</code>), их можно передавать как аргумент в математические функции (при этом вернётся <code>float</code>), их можно сравнивать между собой (также допускается точное равенство), можно формировать списки из <code>Decimal</code> и искать среди них <code>min</code> и <code>max</code>.</li>
+<li>Тип данных <code>Decimal</code> является <strong>неизменяемым</strong>.</li>
+</ul>
+<p>Отличие <code>float</code> и <code>Decimal</code>:<br>
+В Python тип данных <code>float</code> реализован по стандарту IEEE-754 как число с плавающей точкой двойной точности (64 бита) с основанием экспоненты равным 2. Так как <code>float</code> поддерживается аппаратно, быстродействие при использовании этого типа данных сравнительно велико.<br>
+Тип данных <code>Decimal</code> – число с плавающей точкой с основанием экспоненты 10 Он реализован по стандарту IBM: General Decimal Arithmetic Specification, в свою очередь основанному на стандартах IEEE. Тип данных <code>Decimal</code> реализован программно, поэтому он в разы медленнее типа данных <code>float</code>. Сам тип данных <code>Decimal</code> написан на языке <code>С</code>.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Характеристика / тип</th>
+          <th style="text-align: center">float</th>
+          <th style="text-align: center">Decimal</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Реализация</td>
+          <td style="text-align: center">аппаратная</td>
+          <td style="text-align: center">программная</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Размер</td>
+          <td style="text-align: center">64 бит</td>
+          <td style="text-align: center">не ограничен</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Основание экспоненты</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">10</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Скорость</td>
+          <td style="text-align: center">✔️</td>
+          <td style="text-align: center">❌</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Настраиваемость</td>
+          <td style="text-align: center">❌</td>
+          <td style="text-align: center">✔️</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Для высокоточных вычислений</td>
+          <td style="text-align: center">❌</td>
+          <td style="text-align: center">✔️</td>
+      </tr>
+  </tbody>
+</table>
+<p>Для типа данных <code>Decimal</code> можно настроить:</p>
+<ul>
+<li>точность выполнения операций в количестве десятичных знаков (по умолчанию - 28);</li>
+<li>режимы округления;</li>
+<li>режимы обработки исключительных ситуаций (деление на ноль, переполнение и т. д).</li>
+</ul>
+<p>Создать <code>Decimal</code> число можно из обычного целого числа (<code>int</code>), из числа с плавающей точкой (<code>float</code>) или из строки (<code>str</code>):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">d1</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">d2</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">567</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">d3</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="o">-</span><span class="mi">93</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">d4</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;12345&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">d5</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;52.198&#39;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>При создании <code>Decimal</code> чисел из чисел с плавающей точкой (<code>float</code>) возникают проблемы, так как <code>float</code> числа округляются внутри до ближайшего возможного, а <code>Decimal</code> об этом ничего не знает и копирует содержимое <code>float</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">num</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: 0.1000000000000000055511151231257827021181583404541015625</span></span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="методы-decimal" class="heading-element"><span>Методы decimal</span>
+  <a href="#%d0%bc%d0%b5%d1%82%d0%be%d0%b4%d1%8b-decimal" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li>У <code>Decimal</code> есть некоторые встроенные математические методы:</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Функция</th>
+          <th style="text-align: left">Описание</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><code>sqrt()</code></td>
+          <td style="text-align: left">вычисляет квадратный корень из <code>Decimal</code> числа</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>exp()</code></td>
+          <td style="text-align: left">возвращает e^x для <code>Decimal</code> числа</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>ln()</code></td>
+          <td style="text-align: left">вычисляет натуральный логарифм <code>Decimal</code> числа</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>log10()</code></td>
+          <td style="text-align: left">вычисляет десятичный логарифм <code>Decimal</code> числа</td>
+      </tr>
+  </tbody>
+</table>
+<ul>
+<li><code>as_tuple()</code> - возвращает кортеж из 3-ёх элементов:
+<ul>
+<li><code>sign</code> – знак числа (0 для положительного числа и 1 для отрицательного числа);</li>
+<li><code>digits</code> – цифры числа (цифра 0 не учитывается, если целая часть равна нулю);</li>
+<li><code>exponent</code> – значение экспоненты (количество цифр после точки, умноженное на −1),</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">num1</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;-1.4568769017&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">num2</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;0.523&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">num_tuple</span> <span class="o">=</span> <span class="n">num</span><span class="o">.</span><span class="n">as_tuple</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">num1</span><span class="o">.</span><span class="n">as_tuple</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">num2</span><span class="o">.</span><span class="n">as_tuple</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">num1_tuple</span><span class="o">.</span><span class="n">sign</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">num1_tuple</span><span class="o">.</span><span class="n">digits</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">num1_tuple</span><span class="o">.</span><span class="n">exponent</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">DecimalTuple(sign=1, digits=(1, 4, 5, 6, 8, 7, 6, 9, 0, 1, 7), exponent=-10)
+</span></span><span class="line"><span class="cl">DecimalTuple(sign=0, digits=(5, 2, 3), exponent=-3)
+</span></span><span class="line"><span class="cl">1
+</span></span><span class="line"><span class="cl">(1, 4, 5, 6, 8, 7, 6, 9, 0, 1, 7)
+</span></span><span class="line"><span class="cl">-10</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>getcontext()</code> - просмотр базовых параметров <code>Decimal</code></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">getcontext</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: Context(prec=28, rounding=ROUND_HALF_EVEN, Emin=-999999, Emax=999999, capitals=1, clamp=0, flags=[], traps=[InvalidOperation, DivisionByZero, Overflow])</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>quantize()</code> - принимает в качестве аргумента объект <code>Decimal</code>, указывающий на формат округления:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">4</span>                  <span class="c1"># устанавливаем точность числа</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">num</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;3.1415926535&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;1.000&#39;</span><span class="p">)))</span>  <span class="c1">#  округление до 3 цифр в дробной части  </span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;1.00&#39;</span><span class="p">)))</span>   <span class="c1">#  округление до 2 цифр в дробной части</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;1.0&#39;</span><span class="p">)))</span>    <span class="c1">#  округление до 1 цифр в дробной части</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition danger open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-bolt" aria-hidden="true"></i>Опасность<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">При этом, если точность числа установлена в 2, а формат округления <code>Decimal('1.00')</code>, то возникнет ошибка.</div>
+  </div>
+</div>
+<p>В качестве второго параметра этот метод принимает стратегию округления:<br>
+<code>ROUND_CEILING</code> – округление в сторону бесконечности (Infinity);<br>
+<code>ROUND_FLOOR</code> – округляет в сторону минус бесконечности (- Infinity);<br>
+<code>ROUND_DOWN</code> – округление в сторону нуля;<br>
+<code>ROUND_HALF_EVEN</code> – округление до ближайшего четного числа, число 6.5 округлится не до 7, а до 6;<br>
+<code>ROUND_HALF_DOWN</code> – округление до ближайшего нуля;<br>
+<code>ROUND_UP</code> – округление от нуля;<br>
+<code>ROUND_05UP</code> – округление от нуля (если последняя цифра после округления до нуля была бы 0 или 5, в противном случае к нулю).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">num</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;3.456&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;1.00&#39;</span><span class="p">),</span> <span class="n">ROUND_CEILING</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;1.00&#39;</span><span class="p">),</span> <span class="n">ROUND_FLOOR</span><span class="p">))</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">3.46
+</span></span><span class="line"><span class="cl">3.45</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="модуль-fractions" class="heading-element"><span><strong>Модуль fractions</strong></span>
+  <a href="#%d0%bc%d0%be%d0%b4%d1%83%d0%bb%d1%8c-fractions" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Для использования: <code>from fractions import Fraction</code></p>
+<p>Тип данных <code>Fraction</code> представляет из себя рациональное число в виде дроби.</p>
+<p>Особенности и характеристики:</p>
+<ul>
+<li><code>Fraction</code>, как и <code>Decimal</code>, реализован программно, поэтому он в разы медленнее встроенных числовых типов данных <code>int</code> и <code>float</code>.</li>
+<li>Тип данных <code>Fraction</code> неизменяемый.</li>
+<li>Операции над данными этого типа приводят к созданию новых объектов, при этом старые не меняются. <code>Fraction</code> числа можно сравнивать между собой точно так же, как и любые другие числа (также можно сравнить <code>Fraction</code> и целые числа без явного приведения типов); с ним работает все арифметические операции (возведение в степень может вернуть <code>float</code>).</li>
+<li>При создании рационального числа Fraction, автоматически происходит сокращение числителя и знаменателя дроби, а если результат - целое число, то оно и будет выведено.</li>
+<li><code>Fraction</code> числа можно передавать как аргументы функций, ожидающих <code>float</code>. Тогда они будут преобразованы во <code>float</code>. К примеру, модуль <code>math</code>, оперирующий <code>float</code> числами, может работать и с <code>Fraction</code> числами (возвращать функции будут <code>float</code>).</li>
+</ul>
+<p>Создать <code>Fraction</code> число можно несколькими способами:</p>
+<ul>
+<li>из целых чисел, передав значения числителя и знаменателя дроби;</li>
+<li>из строки на основании десятичного представления;</li>
+<li>из строки на основании обыкновенной дроби;</li>
+<li>из числа с плавающей точкой (не рекомендуется, так как в <code>Fraction</code> попадет уже неправильно округленное число).</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">num1</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># 3 – числитель, 4 – знаменатель</span>
+</span></span><span class="line"><span class="cl"><span class="n">num2</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="s1">&#39;0.55&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">num3</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="s1">&#39;1/9&#39;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="методы-и-свойства" class="heading-element"><span>Методы и свойства</span>
+  <a href="#%d0%bc%d0%b5%d1%82%d0%be%d0%b4%d1%8b-%d0%b8-%d1%81%d0%b2%d0%be%d0%b9%d1%81%d1%82%d0%b2%d0%b0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li><code>numerator</code> - для получения числителя, <code>denominator</code> - для получения знаменателя:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">num</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="s1">&#39;5/16&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Числитель дроби равен:&#39;</span><span class="p">,</span> <span class="n">num</span><span class="o">.</span><span class="n">numerator</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Знаменатель дроби равен:&#39;</span><span class="p">,</span> <span class="n">num</span><span class="o">.</span><span class="n">denominator</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">Числитель дроби равен: 5
+</span></span><span class="line"><span class="cl">Знаменатель дроби равен: 16</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>as_integer_ratio()</code> – возвращает кортеж, состоящий из числителя и знаменателя данного <code>Fraction</code> числа.</li>
+<li><code>limit_denominator()</code> – возвращает самую близкую к данному числу рациональную дробь, чей знаменатель не превосходит переданного аргумента:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">math</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PI =&#39;</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">num</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No limit =&#39;</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span>  <span class="mi">50</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">limited</span> <span class="o">=</span> <span class="n">num</span><span class="o">.</span><span class="n">limit_denominator</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">limited</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">PI = 3.141592653589793
+</span></span><span class="line"><span class="cl">No limit = 3141592653589793/1000000000000000
+</span></span><span class="line"><span class="cl">3
+</span></span><span class="line"><span class="cl">16/5
+</span></span><span class="line"><span class="cl">22/7
+</span></span><span class="line"><span class="cl">267/85
+</span></span><span class="line"><span class="cl">311/99
+</span></span><span class="line"><span class="cl">355/113
+</span></span><span class="line"><span class="cl">3126535/995207</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">В Python нельзя совершать арифметические операции (+, -, *, /) между типами Decimal и Fraction.</div>
+  </div>
+</div>
+<hr>
+<h2 id="комплексные-числа-в-python" class="heading-element"><span><strong>Комплексные числа в Python</strong></span>
+  <a href="#%d0%ba%d0%be%d0%bc%d0%bf%d0%bb%d0%b5%d0%ba%d1%81%d0%bd%d1%8b%d0%b5-%d1%87%d0%b8%d1%81%d0%bb%d0%b0-%d0%b2-python" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Общая форма представления комплексного числа следующая: <code>real + imag j</code>, где</p>
+<ul>
+<li><code>real</code> – вещественная часть комплексного числа;</li>
+<li><code>imag</code> – мнимая часть комплексного числа, которая завершается символом <code>j</code> или <code>J</code>.</li>
+</ul>
+<p>Особенности и характеристики:</p>
+<ul>
+<li>С <code>complex</code> числами работают все привычные операции: сложение, вычитание, умножение, деление, возведение в степень. Мы также можем совершать арифметические операции над <code>complex</code> и целыми числами (миксовать <code>complex</code>, <code>int</code>, <code>float</code>).</li>
+<li>Для работы с комплексными числами вместо модуля <code>math</code> нужно использовать модуль <code>cmath</code></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">z1</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">7</span><span class="n">j</span>
+</span></span><span class="line"><span class="cl"><span class="n">z2</span> <span class="o">=</span> <span class="mi">1</span><span class="n">j</span>
+</span></span><span class="line"><span class="cl"><span class="n">z3</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">5</span><span class="n">J</span>
+</span></span><span class="line"><span class="cl"><span class="n">z4</span> <span class="o">=</span> <span class="mf">1.5</span> <span class="o">+</span> <span class="mf">3.2</span><span class="n">j</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">z1</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">z3</span><span class="p">,</span> <span class="n">z4</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">z1</span><span class="p">))</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">(5+7j)
+</span></span><span class="line"><span class="cl">1j
+</span></span><span class="line"><span class="cl">(-3+5j)
+</span></span><span class="line"><span class="cl">(1.5+3.2j)
+</span></span><span class="line"><span class="cl">&lt;class &#39;complex&#39;&gt;</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Комплексные числа можно создать с помощью литерала, как выше, а можно с помощью функции <code>complex()</code>, которая принимает два аргумента: вещественную и мнимую часть числа, либо строковое представление числа:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">z1</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="n">j</span>              <span class="c1"># создание на основе литерала</span>
+</span></span><span class="line"><span class="cl"><span class="n">z2</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">)</span>       <span class="c1"># z2 = 6 - 8j</span>
+</span></span><span class="line"><span class="cl"><span class="n">z3</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>      <span class="c1"># z3 = 2.5j</span>
+</span></span><span class="line"><span class="cl"><span class="n">z4</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>        <span class="c1"># z4 = 5 + 0j</span>
+</span></span><span class="line"><span class="cl"><span class="n">z5</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="s1">&#39;3+4j&#39;</span><span class="p">)</span>      <span class="c1"># создание на основе строки</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">z1</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">z3</span><span class="p">,</span> <span class="n">z4</span><span class="p">,</span> <span class="n">z5</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">(-3+2j)
+</span></span><span class="line"><span class="cl">(6-8j)
+</span></span><span class="line"><span class="cl">2.5j
+</span></span><span class="line"><span class="cl">(5+0j)
+</span></span><span class="line"><span class="cl">(3+4j)</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="методы-и-свойства-1" class="heading-element"><span>Методы и свойства</span>
+  <a href="#%d0%bc%d0%b5%d1%82%d0%be%d0%b4%d1%8b-%d0%b8-%d1%81%d0%b2%d0%be%d0%b9%d1%81%d1%82%d0%b2%d0%b0-1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ul>
+<li><code>real</code> - для получения вещественной части, а <code>imag</code> - для мнимой:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">z</span> <span class="o">=</span> <span class="mi">3</span><span class="o">+</span><span class="mi">4</span><span class="n">j</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Действительная часть =&#39;</span><span class="p">,</span> <span class="n">z</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Мнимая часть =&#39;</span><span class="p">,</span> <span class="n">z</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Вывод:
+</span></span><span class="line"><span class="cl">Действительная часть = 3.0
+</span></span><span class="line"><span class="cl">Мнимая часть = 4.0</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>conjugate()</code> - возвращает сопряжённое комплексное число.</li>
+<li>Для нахождения модуля комплексного числа, используется встроенная функция <code>abs()</code>.</li>
+</ul></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="Oбновлена 2024-05-14 00:00:01">Oбновлена 14-05-2024&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="Поделиться в X" data-sharer="twitter" data-url="http://localhost:1313/notes/dec_frac_compl/" data-title="Decimal, Fraction и комплексные числа в Python" data-hashtags="python,datatypes,decimal,fractions"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/notes/dec_frac_compl/" data-title="Decimal, Fraction и комплексные числа в Python" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в VK" data-sharer="vk" data-url="http://localhost:1313/notes/dec_frac_compl/" data-title="Decimal, Fraction и комплексные числа в Python"><i class="fa-brands fa-vk fa-fw" aria-hidden="true"></i></a>
+  <a href="//mix.com/add?url=http%3a%2f%2flocalhost%3a1313%2fnotes%2fdec_frac_compl%2f&amp;description=Decimal%2c%20Fraction%20%d0%b8%20%d0%ba%d0%be%d0%bc%d0%bf%d0%bb%d0%b5%d0%ba%d1%81%d0%bd%d1%8b%d0%b5%20%d1%87%d0%b8%d1%81%d0%bb%d0%b0%20%d0%b2%20Python" target="_blank" title="Поделиться в Mix"><i class="fa-brands fa-mix fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/python/" class="post-tag" title="Тэги - Python">Python</a><a href="/tags/datatypes/" class="post-tag" title="Тэги - Datatypes">Datatypes</a><a href="/tags/decimal/" class="post-tag" title="Тэги - Decimal">Decimal</a><a href="/tags/fractions/" class="post-tag" title="Тэги - Fractions">Fractions</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">Назад</a></span>&nbsp;|&nbsp;<span><a href="/">Домой</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/notes/random_string/" class="post-nav-item" rel="prev" title="Модули random и string"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Модули random и string</a><a href="/notes/functions2/" class="post-nav-item" rel="next" title="Функции в Python">Функции в Python<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div class="post-reward">
+    <div class="comment">На печеньки к чаю</div>
+    <input type="checkbox" class="reward-input" name="reward" id="fi-reward" hidden />
+    <label class="reward-button" for="fi-reward"><i class="fa-solid fa-qrcode fa-fw" aria-hidden="true"></i></label>
+    <div class="reward-ways" data-mode="fixed"><div><img loading="lazy" src="/img/CloudTips.png" alt="NoisyCake cloudtips" data-title="NoisyCake cloudtips" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span>cloudtips</span>
+          </div></div>
+  </div></article>
+
+  <aside class="toc" id="toc-auto" aria-label="Содержание"><h2 class="toc-title">Содержание&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://t.me/noisycake"target="_blank" rel="external nofollow noopener noreferrer">NoisyCake</a></span></div><div class="footer-line statistics"><span class="site-time" title='Website running ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Дней жизни:</span><span class="run-times ms-1">Website running ...</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='Всего посетителей'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='Всего посещений'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Наверх"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><div class="reading-progress-bar" style="--fi-progress-start: left; top: 0; --fi-progress-bg: #8581dd; --fi-progress-bg-dark: #fff;"></div><noscript>
+    <div class="noscript-warning"></div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"Копировать в буфер обмена","editLockTitle":"Заблокировать редактируемый кодовый блок","editUnLockTitle":"Разблокировать редактируемый блок кода","editable":true,"maxShownLines":50},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Окей","link":"Узнать больше","message":"Сайт использует куки"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"Результатов не найдено","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2024-11-15T16:15:22","version":"v0.3.14"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>
