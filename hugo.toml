@@ -208,7 +208,6 @@ theme = 'FixIt'
       subtitle = "Сайт-проект-блог. Тематика: в основном IT"
       typeit = true
       social = true
-      disclaimer = "Вся информация предоставлена для ознакомительных целей. К действиям не призываю"
     [params.home.posts]
       enable = true
       paginate = 6
@@ -263,7 +262,7 @@ theme = 'FixIt'
       enable = true
       animation = false
       position = 'after'
-      comment = 'На печеньки к чаю'
+      comment = 'Поддержать автора'
       mode = 'fixed'
       [params.page.reward.ways]
         CloudTips = '/img/CloudTips.png'
