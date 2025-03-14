@@ -5,46 +5,50 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Свой VPN v2.0 | 3x-ui | HFK</title><meta name="author" content="NoisyCake">
-<meta name="description" content="Дисклеймер: Материл носит исключительно информационный характер. Автор не призывает к каким-либо действиям.
-Снова привет :) В предыдущей статье мы узнали, как сделать свой прокси-сервер на VPS хостинге. Сегодня рассмотрим альтернативный способ установки и настройки 3x-ui панели с упором на безопасность.
+    <title>Свой VPN, но чуть сложнее | 3X-UI | HFK</title><meta name="author" content="NoisyCake">
+<meta name="description" content="Дисклеймер: Материл носит исключительно информационный характер. Автор не призывает к каким-либо действиям.
+Ага.. снова 3X-UI. Неужели тема не исчерпала себя? Не совсем :) В этой статье из нового разберём следующее: как сделать свой сайт для маскировки и для чего это нужно; что такое WARP и как его настроить; как можно объединить ссылки подписок с нескольких разных серверов; и кучу чего ещё!
+Так что устраивайтесь по-удобнее. А начнём, как и в прошлый раз, с настройки сервера.
 "><meta name="keywords" content='vpn'>
-  <meta itemprop="name" content="Свой VPN v2.0 | 3x-ui">
+  <meta itemprop="name" content="Свой VPN, но чуть сложнее | 3X-UI">
   <meta itemprop="description" content="Дисклеймер: Материл носит исключительно информационный характер. Автор не призывает к каким-либо действиям.
-Снова привет :) В предыдущей статье мы узнали, как сделать свой прокси-сервер на VPS хостинге. Сегодня рассмотрим альтернативный способ установки и настройки 3x-ui панели с упором на безопасность.">
-  <meta itemprop="datePublished" content="2025-01-03T20:00:02+00:00">
-  <meta itemprop="dateModified" content="2025-01-03T20:00:02+00:00">
-  <meta itemprop="wordCount" content="131">
+Ага.. снова 3X-UI. Неужели тема не исчерпала себя? Не совсем :) В этой статье из нового разберём следующее: как сделать свой сайт для маскировки и для чего это нужно; что такое WARP и как его настроить; как можно объединить ссылки подписок с нескольких разных серверов; и кучу чего ещё!
+Так что устраивайтесь по-удобнее. А начнём, как и в прошлый раз, с настройки сервера.">
+  <meta itemprop="datePublished" content="2025-02-15T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-02-15T00:00:00+00:00">
+  <meta itemprop="wordCount" content="668">
   <meta itemprop="keywords" content="Vpn"><meta property="og:url" content="http://localhost:1313/articles/vpn_server2/">
   <meta property="og:site_name" content="HFK">
-  <meta property="og:title" content="Свой VPN v2.0 | 3x-ui">
+  <meta property="og:title" content="Свой VPN, но чуть сложнее | 3X-UI">
   <meta property="og:description" content="Дисклеймер: Материл носит исключительно информационный характер. Автор не призывает к каким-либо действиям.
-Снова привет :) В предыдущей статье мы узнали, как сделать свой прокси-сервер на VPS хостинге. Сегодня рассмотрим альтернативный способ установки и настройки 3x-ui панели с упором на безопасность.">
+Ага.. снова 3X-UI. Неужели тема не исчерпала себя? Не совсем :) В этой статье из нового разберём следующее: как сделать свой сайт для маскировки и для чего это нужно; что такое WARP и как его настроить; как можно объединить ссылки подписок с нескольких разных серверов; и кучу чего ещё!
+Так что устраивайтесь по-удобнее. А начнём, как и в прошлый раз, с настройки сервера.">
   <meta property="og:locale" content="ru">
   <meta property="og:type" content="article">
     <meta property="article:section" content="articles">
-    <meta property="article:published_time" content="2025-01-03T20:00:02+00:00">
-    <meta property="article:modified_time" content="2025-01-03T20:00:02+00:00">
+    <meta property="article:published_time" content="2025-02-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-02-15T00:00:00+00:00">
     <meta property="article:tag" content="Vpn">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Свой VPN v2.0 | 3x-ui">
+  <meta name="twitter:title" content="Свой VPN, но чуть сложнее | 3X-UI">
   <meta name="twitter:description" content="Дисклеймер: Материл носит исключительно информационный характер. Автор не призывает к каким-либо действиям.
-Снова привет :) В предыдущей статье мы узнали, как сделать свой прокси-сервер на VPS хостинге. Сегодня рассмотрим альтернативный способ установки и настройки 3x-ui панели с упором на безопасность.">
+Ага.. снова 3X-UI. Неужели тема не исчерпала себя? Не совсем :) В этой статье из нового разберём следующее: как сделать свой сайт для маскировки и для чего это нужно; что такое WARP и как его настроить; как можно объединить ссылки подписок с нескольких разных серверов; и кучу чего ещё!
+Так что устраивайтесь по-удобнее. А начнём, как и в прошлый раз, с настройки сервера.">
 <meta name="application-name" content="FixIt">
-<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/articles/vpn_server2/" title="Свой VPN v2.0 | 3x-ui | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/articles/vpn_server/" title="Свой VPN для самых маленьких | 3X-UI &#43; VLESS" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/articles/vpn_server2/index.md" title="Свой VPN v2.0 | 3x-ui | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/articles/vpn_server2/" title="Свой VPN, но чуть сложнее | 3X-UI | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/articles/ax3000t/" title="VPN на домашнем роутере | Xiaomi AX3000T" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/articles/vpn_server2/index.md" title="Свой VPN, но чуть сложнее | 3X-UI | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "Свой VPN v2.0 | 3x-ui",
+    "headline": "Свой VPN, но чуть сложнее | 3X-UI",
     "inLanguage": "ru",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/articles\/vpn_server2\/"
-    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "vpn","wordcount":  131 ,
-    "url": "http:\/\/localhost:1313\/articles\/vpn_server2\/","datePublished": "2025-01-03T20:00:02+00:00","dateModified": "2025-01-03T20:00:02+00:00","publisher": {
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "vpn","wordcount":  668 ,
+    "url": "http:\/\/localhost:1313\/articles\/vpn_server2\/","datePublished": "2025-02-15T00:00:00+00:00","dateModified": "2025-02-15T00:00:00+00:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
         "@type": "Person",
@@ -131,15 +135,15 @@
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
   </div><nav aria-label="breadcrumb" class="breadcrumb-container">
-    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/articles/" title="Статьи">Статьи</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Свой VPN v2.0 | 3x-ui</li>
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/articles/" title="Статьи">Статьи</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Свой VPN, но чуть сложнее | 3X-UI</li>
     </ol>
   </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=""></aside>
 
   <article class="page single">
-    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Свой VPN v2.0 | 3x-ui</span>
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Свой VPN, но чуть сложнее | 3X-UI</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisy_cake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-    NoisyCake</a></span></div><div class="post-meta-line"><span title="Опубликовано 2025-01-03 20:00:02"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="03-01-2025">03-01-2025</time></span>&nbsp;<span title="Одно слово"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 200 слов</span>&nbsp;</div>
+      <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisycake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+    NoisyCake</a></span></div><div class="post-meta-line"><span title="Опубликовано 2025-02-15 00:00:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="15-02-2025">15-02-2025</time></span>&nbsp;<span title="668 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 700 слов</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>Содержание</span>
@@ -147,34 +151,159 @@
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ol>
-    <li><a href="#установка-3x-ui">Установка 3x-ui</a></li>
+    <li><a href="#настройка-vps">Настройка VPS</a>
+      <ol>
+        <li><a href="#автоматические-обновления">Автоматические обновления</a></li>
+        <li><a href="#настройка-ssh">Настройка SSH</a></li>
+      </ol>
+    </li>
+    <li><a href="#установка-3x-ui">Установка 3x-ui</a>
+      <ol>
+        <li><a href="#установка-сертификата">Установка сертификата</a>
+          <ol>
+            <li><a href="#получение-домена">Получение домена</a></li>
+            <li><a href="#способ-1">Способ 1</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
   </ol>
 </nav></div>
-      </div><div class="content" id="content"><center><a class="lightgallery" href="/images/image.png?size=large" data-thumbnail="/images/image.png?size=small" data-sub-html="<h2>/images/image.png</h2>"><img loading="lazy" src="/images/image.png" alt="/images/image.png" srcset="/images/image.png?size=small, /images/image.png?size=medium 1.5x, /images/image.png?size=large 2x" data-title="/images/image.png" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></a></center>
-<p>Дисклеймер: Материл носит исключительно информационный характер. Автор не призывает к каким-либо действиям.</p>
-<p>Снова привет :) В предыдущей статье мы узнали, как сделать свой прокси-сервер на VPS хостинге. Сегодня рассмотрим альтернативный способ установки и настройки 3x-ui панели с упором на безопасность.</p>
-<blockquote>
-<p>- Упор на безопасность? Разве в прошлый раз мы не защитили панель?<br>
-- Да, защитили, но всё-таки всю настройку производили, подключаясь по http, и теоретически злоумышленник мог перехватывать логин, пароль или другие изменения самой панели. В целом ничего страшного, если прокси вы используете для себя или вместе с друзьями, поскольку через VLESS подключение к сайтам всё равно идёт по https, но если ваша цель — заработать на продаже подписок, то лучше избежать любых вмешательств, которые могут приостановить работу вашего сервиса.</p>
-</blockquote>
+      </div><div class="content" id="content"><p>Дисклеймер: Материл носит исключительно информационный характер. Автор не призывает к каким-либо действиям.</p>
+<p>Ага.. снова 3X-UI. Неужели тема не исчерпала себя? Не совсем :) В этой статье из нового разберём следующее: как сделать свой сайт для маскировки и для чего это нужно; что такое WARP и как его настроить; как можно объединить ссылки подписок с нескольких разных серверов; и кучу чего ещё!</p>
+<p>Так что устраивайтесь по-удобнее. А начнём, как и в прошлый раз, с настройки сервера.</p>
+<div class="details admonition success open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-check" aria-hidden="true"></i>Блог для блога<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Подписывайтесь <a href="https://t.me/hfk_blog"target="_blank" rel="external nofollow noopener noreferrer">на мой тгк<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a>, что бы&hellip; ну чтобы было ^-^</div>
+  </div>
+</div>
+<h2 id="настройка-vps" class="heading-element"><span>Настройка VPS</span>
+  <a href="#%d0%bd%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0-vps" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Да-да, тут тоже есть что изменить. В <a href="https://noisycake.ru/articles/vpn_server/"target="_blank" rel="external nofollow noopener noreferrer">прошлой статье по настройке своего прокси<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a> мы рассмотрели вполне сносный вариант, но совершенству нет предела, ведь так?</p>
+<div class="details admonition warning open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-exclamation-triangle" aria-hidden="true"></i>Предупреждение<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Все действия будут производиться на <strong>Ubuntu 22.04</strong>, поэтому гайд актуален только для неё и ей подобных. Если не в теме, лучшим решением будет установить точно такую же.<br>
+Также хочу сразу предупредить, что это НЕ step-by-step гайд. Большинство действий, которые уже были разобраны в <a href="https://noisycake.ru/articles/vpn_server/"target="_blank" rel="external nofollow noopener noreferrer">предыдущей статье<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a>, здесь не будут описаны столь подробно, дабы излишне не растягивать материал</div>
+  </div>
+</div>
+<p>Входим на наш сервер по SSH и обновляем пакеты: <code>apt update &amp;&amp; apt full-upgrade -y</code>.</p>
+<h3 id="автоматические-обновления" class="heading-element"><span>Автоматические обновления</span>
+  <a href="#%d0%b0%d0%b2%d1%82%d0%be%d0%bc%d0%b0%d1%82%d0%b8%d1%87%d0%b5%d1%81%d0%ba%d0%b8%d0%b5-%d0%be%d0%b1%d0%bd%d0%be%d0%b2%d0%bb%d0%b5%d0%bd%d0%b8%d1%8f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>По-хорошему нужно сделать так, чтобы обновления безопасности устанавливались автоматически. Для этого выполняем следующее:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">apt-get install unattended-upgrades
+</span></span><span class="line"><span class="cl">systemctl status unattended-upgrades <span class="c1">#Если видим &#34;active(running)&#34; — всё работает</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="настройка-ssh" class="heading-element"><span>Настройка SSH</span>
+  <a href="#%d0%bd%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0-ssh" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Для начала создадим нового пользователя, как делали в прошлый раз:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">adduser &lt;имя_пользователя&gt; <span class="c1">#Вводим пароль в соответствующем поле, в остальных вопросах жмём &#34;Enter&#34;</span>
+</span></span><span class="line"><span class="cl">usermod -aG sudo &lt;имя_пользователя&gt;</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Переходим в конфиг: <code>nano /etc/ssh/sshd_config</code> и меняем <code>Port</code>; <code>PermitRootLogin</code> на &ldquo;no&rdquo;; <code>ClientAliveInterval</code> и <code>ClientAliveCountMax</code> по желанию. Напоминаю, что если перед нужными строками стоит символ &ldquo;#&rdquo; — его нужно убрать.</p>
+<p>Сохраним изменения и перезапустим утилиту командой <code>systemctl restart ssh</code>. Отныне вход на сервер будет осуществляться так: <code>ssh &lt;имя_пользователя&gt;@&lt;ip_сервера&gt; -p&lt;порт&gt;</code>.</p>
+<p>Теперь сгенерируем SSH-ключи, чтобы входить на сервер без пароля. Во-первых, переходим в PowerShell и пишем <code>ssh-keygen -t ed25519 -b 4096 -f c:\Users\&lt;имя_пользователя&gt;\.ssh\&lt;имя_ключа&gt;</code>. Создастся два ключа: публичный и приватный. Переходим по указанному пути, открываем файл <code>&lt;имя_ключа&gt;.pub</code> и полностью копируем его содержимое.</p>
+<p>Входим на сервер <strong>под именем созданного пользователя</strong> и выполняем следующие команды:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir .ssh
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> .ssh
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> ssh-ed25519 &lt;скопированный_текст&gt; &gt;&gt; authorized_keys</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Открываем конфиг (&quot;/etc/ssh/sshd_config&quot;) и меняем следующие параметры: <code>PubkeyAuthentication</code> на &ldquo;yes&rdquo;; <code>PasswordAuthentication</code> на &ldquo;no&rdquo;. Снова сохраняем файл и перезапускаем ssh.</p>
+<p>И теперь зайти на сервер можно будет ТОЛЬКО так: <code>ssh -i &lt;путь_до_файла_на_хосте&gt; &lt;имя_пользователя&gt;@&lt;ip_адрес&gt; -p&lt;порт&gt;</code>, причём пароль вводить не придётся.<br>
+Зачем мы это сделали? Чтобы избежать брутфорс-атак, да и вообще все умные бородатые дяди говорят, что это канон в обустройстве сервера. И хотя я считаю, что в нашем случае это лишние заморочки, всегда лучше защищаться по-максимуму.</p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content"><strong>SSH-ключи</strong> — пара файлов, каждый из которых содержит последовательность символов. Один из них, с расширением .pub, является публичным ключом. Он шифрует сообщения, его отправляют на сервера или сетевые службы для дальнейшего взаимодействия. Второй — приватный ключ. Он дешифрует сообщения и хранится на устройстве пользователя.<br>
+Существует несколько криптографических алгоритмов для создания ключей, но сегодня чаще всего используется <em>ed25519</em></div>
+  </div>
+</div>
+<div class="details admonition danger open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-bolt" aria-hidden="true"></i>Опасность<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Будьте внимательны, приватные ключи нельзя никуда отправлять! С ним злоумышленники с лёгкостью получат доступ к вашим сервисам</div>
+  </div>
+</div>
 <h2 id="установка-3x-ui" class="heading-element"><span>Установка 3x-ui</span>
   <a href="#%d1%83%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%ba%d0%b0-3x-ui" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><p>Арендуем сервер с Ubuntu 22.04, настраиваем <a href="https://noisycake.ru/articles/vpn_server/"target="_blank" rel="external nofollow noopener noreferrer">по предыдущему гайду<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></p></div><div class="post-footer" id="post-footer">
+</h2><p>В этот раз будем устанавливать скриптом, поскольку в контейнере Docker возможности настройки панели слегка ограничены.</p>
+<p>Входим под root и устанавливаем 3x-ui:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo -i
+</span></span><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh<span class="o">)</span><span class="sb">`</span>
+</span></span><span class="line"><span class="cl">exit</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Актуальный скрипт всегда можно найти на <a href="https://github.com/MHSanaei/3x-ui?tab=readme-ov-file#install--upgrade"target="_blank" rel="external nofollow noopener noreferrer">Github разработчика<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></div>
+  </div>
+</div>
+<p>Над меню управления находится всё, что нам нужно: адрес к панели, логин и пароль, порт. Но заходить в панель мы пока не будем.</p>
+<h3 id="установка-сертификата" class="heading-element"><span>Установка сертификата</span>
+  <a href="#%d1%83%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%ba%d0%b0-%d1%81%d0%b5%d1%80%d1%82%d0%b8%d1%84%d0%b8%d0%ba%d0%b0%d1%82%d0%b0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>В прошлом гайде мы подключали сертификат уже после того, как настроили панель. Это не есть хорошо. Раз уж мы говорим о безопасности, нужно установить защищённое соединение до ввода каких-либо данных.</p>
+<p>В своём <a href="https://t.me/hfk_blog"target="_blank" rel="external nofollow noopener noreferrer">телеграм-канале<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a> я уже разобрал, как можно провернуть подобный трюк, сейчас же покажу наглядно.</p>
+<h4 id="получение-домена" class="heading-element"><span>Получение домена</span>
+  <a href="#%d0%bf%d0%be%d0%bb%d1%83%d1%87%d0%b5%d0%bd%d0%b8%d0%b5-%d0%b4%d0%be%d0%bc%d0%b5%d0%bd%d0%b0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><h4 id="способ-1" class="heading-element"><span>Способ 1</span>
+  <a href="#%d1%81%d0%bf%d0%be%d1%81%d0%be%d0%b1-1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>Данный вариант у меня не сработал, но, думаю, показать его тоже стоит.</p>
+<p>Входим под рут: <code>sudo -i</code>, вызываем установленную утилиту: <code>x-ui</code>. В выпавшем меню находим &ldquo;SSL Certificate Management&rdquo; и пишем соответствующий номер. Выбираем &ldquo;Get SSL&rdquo; -&gt; В следующем поле вставляем домен, связанный с ip вашего сервера.</p>
+</div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title="Oбновлена 2025-01-03 20:00:02">Oбновлена 03-01-2025&nbsp;</span>
+        <span title="Oбновлена 2025-02-15 00:00:00">Oбновлена 15-02-2025&nbsp;</span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
         <div class="post-info-md"></div>
         <div class="post-info-share">
-          <span><a href="javascript:void(0);" title="Поделиться в X" data-sharer="twitter" data-url="http://localhost:1313/articles/vpn_server2/" data-title="Свой VPN v2.0 | 3x-ui" data-hashtags="vpn"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="Поделиться в WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/articles/vpn_server2/" data-title="Свой VPN v2.0 | 3x-ui" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="Поделиться в VK" data-sharer="vk" data-url="http://localhost:1313/articles/vpn_server2/" data-title="Свой VPN v2.0 | 3x-ui"><i class="fa-brands fa-vk fa-fw" aria-hidden="true"></i></a>
-  <a href="//mix.com/add?url=http%3a%2f%2flocalhost%3a1313%2farticles%2fvpn_server2%2f&amp;description=%d0%a1%d0%b2%d0%be%d0%b9%20VPN%20v2.0%20%7c%203x-ui" target="_blank" title="Поделиться в Mix"><i class="fa-brands fa-mix fa-fw" aria-hidden="true"></i></a>
+          <span><a href="javascript:void(0);" title="Поделиться в X" data-sharer="twitter" data-url="http://localhost:1313/articles/vpn_server2/" data-title="Свой VPN, но чуть сложнее | 3X-UI" data-hashtags="vpn"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/articles/vpn_server2/" data-title="Свой VPN, но чуть сложнее | 3X-UI" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в VK" data-sharer="vk" data-url="http://localhost:1313/articles/vpn_server2/" data-title="Свой VPN, но чуть сложнее | 3X-UI"><i class="fa-brands fa-vk fa-fw" aria-hidden="true"></i></a>
+  <a href="//mix.com/add?url=http%3a%2f%2flocalhost%3a1313%2farticles%2fvpn_server2%2f&amp;description=%d0%a1%d0%b2%d0%be%d0%b9%20VPN%2c%20%d0%bd%d0%be%20%d1%87%d1%83%d1%82%d1%8c%20%d1%81%d0%bb%d0%be%d0%b6%d0%bd%d0%b5%d0%b5%20%7c%203X-UI" target="_blank" title="Поделиться в Mix"><i class="fa-brands fa-mix fa-fw" aria-hidden="true"></i></a>
   </span>
         </div>
       </div></div>
@@ -184,10 +313,10 @@
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">Назад</a></span>&nbsp;|&nbsp;<span><a href="/">Домой</a></span>
     </section>
-  </div><div class="post-nav"><a href="/articles/vpn_server/" class="post-nav-item" rel="prev" title="Свой VPN для самых маленьких | 3X-UI &#43; VLESS"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Свой VPN для самых маленьких | 3X-UI &#43; VLESS</a></div>
+  </div><div class="post-nav"><a href="/articles/ax3000t/" class="post-nav-item" rel="prev" title="VPN на домашнем роутере | Xiaomi AX3000T"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>VPN на домашнем роутере | Xiaomi AX3000T</a></div>
 </div>
 <div class="post-reward">
-    <div class="comment">На печеньки к чаю</div>
+    <div class="comment">Поддержать автора</div>
     <input type="checkbox" class="reward-input" name="reward" id="fi-reward" hidden />
     <label class="reward-button" for="fi-reward"><i class="fa-solid fa-qrcode fa-fw" aria-hidden="true"></i></label>
     <div class="reward-ways" data-mode="fixed"><div><img loading="lazy" src="/img/CloudTips.png" alt="NoisyCake cloudtips" data-title="NoisyCake cloudtips" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span>cloudtips</span>
@@ -198,7 +327,7 @@
       <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
     <div class="footer-container"><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">
-              <a href="https://t.me/noisy_cake"target="_blank" rel="external nofollow noopener noreferrer">NoisyCake</a></span></div><div class="footer-line statistics"><span class="site-time" title='Website running ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Дней жизни:</span><span class="run-times ms-1">Website running ...</span></span></div><div class="footer-line visitor">
+              <a href="https://t.me/noisycake"target="_blank" rel="external nofollow noopener noreferrer">NoisyCake</a></span></div><div class="footer-line statistics"><span class="site-time" title='Website running ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Дней жизни:</span><span class="run-times ms-1">Website running ...</span></span></div><div class="footer-line visitor">
           <span id="busuanzi_container_site_uv" title='Всего посетителей'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='Всего посещений'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
         </div></div>
   </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Наверх"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>

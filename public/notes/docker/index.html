@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="ru">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>База по Docker | HFK</title><meta name="author" content="NoisyCake">
+<meta name="description" content="
+Конспект посвящён основам Docker: установке, командам и т.п. Применимо к Ubuntu 22.04. Теория, а конкретно &ldquo;что такое Docker и для чего он нужен&rdquo; — опускается.
+"><meta name="keywords" content='docker'>
+  <meta itemprop="name" content="База по Docker">
+  <meta itemprop="description" content="Конспект посвящён основам Docker: установке, командам и т.п. Применимо к Ubuntu 22.04. Теория, а конкретно “что такое Docker и для чего он нужен” — опускается.">
+  <meta itemprop="datePublished" content="2025-03-14T00:00:01+00:00">
+  <meta itemprop="dateModified" content="2025-03-14T00:00:01+00:00">
+  <meta itemprop="wordCount" content="2304">
+  <meta itemprop="keywords" content="Docker"><meta property="og:url" content="http://localhost:1313/notes/docker/">
+  <meta property="og:site_name" content="HFK">
+  <meta property="og:title" content="База по Docker">
+  <meta property="og:description" content="Конспект посвящён основам Docker: установке, командам и т.п. Применимо к Ubuntu 22.04. Теория, а конкретно “что такое Docker и для чего он нужен” — опускается.">
+  <meta property="og:locale" content="ru">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2025-03-14T00:00:01+00:00">
+    <meta property="article:modified_time" content="2025-03-14T00:00:01+00:00">
+    <meta property="article:tag" content="Docker">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="База по Docker">
+  <meta name="twitter:description" content="Конспект посвящён основам Docker: установке, командам и т.п. Применимо к Ubuntu 22.04. Теория, а конкретно “что такое Docker и для чего он нужен” — опускается.">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/docker/" title="База по Docker | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/articles/ax3000t/" title="VPN на домашнем роутере | Xiaomi AX3000T" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/docker/index.md" title="База по Docker | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "База по Docker",
+    "inLanguage": "ru",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/notes\/docker\/"
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "docker","wordcount":  2304 ,
+    "url": "http:\/\/localhost:1313\/notes\/docker\/","datePublished": "2025-03-14T00:00:01+00:00","dateModified": "2025-03-14T00:00:01+00:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "NoisyCake"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="normal"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item has-children">
+              <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item">
+              <a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Поиск">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Очистить">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="Сменить Тему">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Поиск">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Очистить">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Отменить
+            </a>
+          </li><li class="menu-item"><span class="nested-item">
+                  <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item"><a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item"><a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="Сменить Тему"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/notes/" title="Конспекты">Конспекты</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">База по Docker</li>
+    </ol>
+  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=""></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>База по Docker</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisycake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+    NoisyCake</a></span></div><div class="post-meta-line"><span title="Опубликовано 2025-03-14 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="14-03-2025">14-03-2025</time></span>&nbsp;<span title="2304 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 2400 слов</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>Содержание</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ol>
+    <li><a href="#установка">Установка</a>
+      <ol>
+        <li><a href="#очистка-перед-установкой">Очистка перед установкой</a></li>
+        <li><a href="#установка-скриптом">Установка скриптом</a></li>
+        <li><a href="#установка-через-пакетный-менеджер-apt">Установка через пакетный менеджер apt</a></li>
+        <li><a href="#удаление-docker">Удаление Docker</a></li>
+      </ol>
+    </li>
+    <li><a href="#термины">Термины</a></li>
+    <li><a href="#устройство-docker">Устройство Docker</a>
+      <ol>
+        <li><a href="#архитектура">Архитектура</a></li>
+        <li><a href="#устройство-контейнеров">Устройство контейнеров</a></li>
+        <li><a href="#устройство-сетей">Устройство сетей</a></li>
+      </ol>
+    </li>
+    <li><a href="#основные-команды">Основные команды</a>
+      <ol>
+        <li><a href="#команды-для-контейнеров">Команды для контейнеров</a></li>
+        <li><a href="#команды-для-образов">Команды для образов</a></li>
+        <li><a href="#команды-для-сетей">Команды для сетей</a></li>
+      </ol>
+    </li>
+    <li><a href="#подробнее-про-docker-run">Подробнее про <code>docker run</code></a>
+      <ol>
+        <li><a href="#проброс-портов">Проброс портов</a></li>
+        <li><a href="#монтирование-директорий">Монтирование директорий</a></li>
+      </ol>
+    </li>
+    <li><a href="#dockerfile">Dockerfile</a>
+      <ol>
+        <li><a href="#инструкции">Инструкции</a></li>
+      </ol>
+    </li>
+    <li><a href="#docker-compose">Docker Compose</a>
+      <ol>
+        <li><a href="#docker-composeyml">docker-compose.yml</a></li>
+        <li><a href="#команды-docker-compose">Команды Docker Compose</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav></div>
+      </div><div class="content" id="content"><p><img loading="lazy" src="/notes/docker/images/docker_logo.png" alt="/notes/docker/images/docker_logo.png" srcset="/notes/docker/images/docker_logo.png?size=small, /notes/docker/images/docker_logo.png?size=medium 1.5x, /notes/docker/images/docker_logo.png?size=large 2x" data-title="/notes/docker/images/docker_logo.png" style="--width: 3840px;--aspect-ratio: 3840 / 2160;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>Конспект посвящён основам Docker: установке, командам и т.п. Применимо к Ubuntu 22.04. Теория, а конкретно &ldquo;что такое Docker и для чего он нужен&rdquo; — опускается.</p>
+<hr>
+<h2 id="установка" class="heading-element"><span>Установка</span>
+  <a href="#%d1%83%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%ba%d0%b0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Вечно актуальная документация: <a href="https://docs.docker.com/engine/install/ubuntu/"target="_blank" rel="external nofollow noopener noreferrer">https://docs.docker.com/engine/install/ubuntu/<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></p>
+<h3 id="очистка-перед-установкой" class="heading-element"><span>Очистка перед установкой</span>
+  <a href="#%d0%be%d1%87%d0%b8%d1%81%d1%82%d0%ba%d0%b0-%d0%bf%d0%b5%d1%80%d0%b5%d0%b4-%d1%83%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%ba%d0%be%d0%b9" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Если уже стоит старая или неофициальная версия Docker или конфликтующие пакеты, нужно их удалить: <code>for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done</code>. При этом уже созданные образы и контейнеры не будут удалены.</p>
+<h3 id="установка-скриптом" class="heading-element"><span>Установка скриптом</span>
+  <a href="#%d1%83%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%ba%d0%b0-%d1%81%d0%ba%d1%80%d0%b8%d0%bf%d1%82%d0%be%d0%bc" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Лучший вариант (субъективно). Работает для debian-based дистрибутивов Linux:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -fsSL https://get.docker.com -o get-docker.sh
+</span></span><span class="line"><span class="cl">sudo sh get-docker.sh</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Если установка проходила этим способом, обновление Docker происходит обновлением пакетов: <code>sudo apt update &amp;&amp; sudo apt upgrade</code></p>
+<h3 id="установка-через-пакетный-менеджер-apt" class="heading-element"><span>Установка через пакетный менеджер apt</span>
+  <a href="#%d1%83%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%ba%d0%b0-%d1%87%d0%b5%d1%80%d0%b5%d0%b7-%d0%bf%d0%b0%d0%ba%d0%b5%d1%82%d0%bd%d1%8b%d0%b9-%d0%bc%d0%b5%d0%bd%d0%b5%d0%b4%d0%b6%d0%b5%d1%80-apt" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Add Docker&#39;s official GPG key:</span>
+</span></span><span class="line"><span class="cl">sudo apt-get update
+</span></span><span class="line"><span class="cl">sudo apt-get install ca-certificates curl
+</span></span><span class="line"><span class="cl">sudo install -m <span class="m">0755</span> -d /etc/apt/keyrings
+</span></span><span class="line"><span class="cl">sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+</span></span><span class="line"><span class="cl">sudo chmod a+r /etc/apt/keyrings/docker.asc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Add the repository to Apt sources:</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;deb [arch=</span><span class="k">$(</span>dpkg --print-architecture<span class="k">)</span><span class="s2"> signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+</span></span></span><span class="line"><span class="cl"><span class="s2">  </span><span class="k">$(</span>. /etc/os-release <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">UBUNTU_CODENAME</span><span class="k">:-</span><span class="nv">$VERSION_CODENAME</span><span class="si">}</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2"> stable&#34;</span> <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+</span></span><span class="line"><span class="cl">sudo apt-get update
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Install the latest version:</span>
+</span></span><span class="line"><span class="cl">sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Verify that the installation is successful:</span>
+</span></span><span class="line"><span class="cl">sudo docker run hello-world</span></span></code></pre></td></tr></table>
+</div>
+</div><p>В таком случае обновиться можно командой <code>sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</code></p>
+<h3 id="удаление-docker" class="heading-element"><span>Удаление Docker</span>
+  <a href="#%d1%83%d0%b4%d0%b0%d0%bb%d0%b5%d0%bd%d0%b8%d0%b5-docker" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Удаление основных компонентов производится командой: <code>sudo apt-get purge docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras</code></p>
+<p>Удаление образов, контейнеров и т.д.:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo rm -rf /var/lib/docker
+</span></span><span class="line"><span class="cl">sudo rm -rf /var/lib/containerd</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Удаление остальных файлов:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo rm /etc/apt/sources.list.d/docker.list
+</span></span><span class="line"><span class="cl">sudo rm /etc/apt/keyrings/docker.asc</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="термины" class="heading-element"><span>Термины</span>
+  <a href="#%d1%82%d0%b5%d1%80%d0%bc%d0%b8%d0%bd%d1%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p><strong>Docker Engine</strong> — клиент-серверное ПО, которое содержит Docker Daemon, Docker Client (Docker CLI) и REST API — интерфейс для программного управления Docker. В общем-то Docker Engine это обычно то, что имеется в виду, когда говорят &ldquo;Docker&rdquo;.</p>
+<p><strong>Docker daemon</strong> (демон) — фоновый процесс, который управляет Docker-объектами: сетями, образами, контейнерами и т.п.</p>
+<p><strong>Docker client</strong> (клиент) — инструмент для взаимодействия с Docker daemon через команды, такие как <code>docker run</code>, <code>docker build</code> и т.п, используя API</p>
+<p><strong>Docker images</strong> (образы) — шаблон в формате read-only с инструкциями для создания контейнера. Образы можно собрать с нуля, загрузить уже готовыми, либо (как это чаще всего бывает) собрать образ на основе другого (базового) образа. Инструкции для создания образа прописываются в специальном файле под названием <strong>Dockerfile</strong>. Образ собирается посредством наслоения, где каждый слой хранит информацию об изменениях состояния образа по сравнению с предыдущим слоем.</p>
+<p><strong>Docker containers</strong> (контейнеры) — запущенный экземпляр Docker образа. Каждый контейнер представляет из себя изолированную платформу для приложений.</p>
+<p><strong>Docker registries</strong> (реестр) — библиотека образов / директория, в которой хранятся образы. Реестр может быть как публичным, так и приватным, может храниться как локально, так и удалённо. Самым большим реестром образов Docker является <strong>Docker Hub</strong>.</p>
+<p><strong>Docker Compose</strong> — инструмент, который упрощает развёртывание приложений, для работы которых требуется несколько контейнеров Docker. Инструкции для Docker Compose описываются в файле <code>docker-compose.yml</code>.</p>
+<hr>
+<h2 id="устройство-docker" class="heading-element"><span>Устройство Docker</span>
+  <a href="#%d1%83%d1%81%d1%82%d1%80%d0%be%d0%b9%d1%81%d1%82%d0%b2%d0%be-docker" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="архитектура" class="heading-element"><span>Архитектура</span>
+  <a href="#%d0%b0%d1%80%d1%85%d0%b8%d1%82%d0%b5%d0%ba%d1%82%d1%83%d1%80%d0%b0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Docker использует клиент-серверную архитектуру. Docker client общается с Docker daemon, который обслуживает тяжеловесную сборку, работу, а также размещение контейнеров. Демон и клиент Docker могут работать на одной системе или же клиент Docker может подключаться к удаленному Docker демону. Клиент и демон Docker взаимодействуют при помощи REST API, через UNIX сокеты или при помощи сетевого интерфейса.</p>
+<p><img loading="lazy" src="/notes/docker/images/docker-architecture.png" alt="/notes/docker/images/docker-architecture.png" srcset="/notes/docker/images/docker-architecture.png?size=small, /notes/docker/images/docker-architecture.png?size=medium 1.5x, /notes/docker/images/docker-architecture.png?size=large 2x" data-title="/notes/docker/images/docker-architecture.png" style="--width: 1233px;--aspect-ratio: 1233 / 651;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Файлы, связанные с docker-контейнерами и образами хранятся в папке <code>/var/lib/docker</code></div>
+  </div>
+</div>
+<h3 id="устройство-контейнеров" class="heading-element"><span>Устройство контейнеров</span>
+  <a href="#%d1%83%d1%81%d1%82%d1%80%d0%be%d0%b9%d1%81%d1%82%d0%b2%d0%be-%d0%ba%d0%be%d0%bd%d1%82%d0%b5%d0%b9%d0%bd%d0%b5%d1%80%d0%be%d0%b2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Образ является шаблоном контейнера, состоящим из нескольких неизменяемых слоёв. При создании контейнера создаётся верхний слой, который позволяет вносить изменения. Если пользователь пытается внести изменения в файлы слоёв образа, они копируются в верхний, и именно там происходят изменения.<br>
+При удалении контейнера верхний слой, а значит и все изменения, удаляются.</p>
+<h3 id="устройство-сетей" class="heading-element"><span>Устройство сетей</span>
+  <a href="#%d1%83%d1%81%d1%82%d1%80%d0%be%d0%b9%d1%81%d1%82%d0%b2%d0%be-%d1%81%d0%b5%d1%82%d0%b5%d0%b9" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>По-умолчанию создаются 3 сети:</p>
+<ol>
+<li>bridge — основная. В ней контейнеры получают свои IP-адреса, чтобы общаться между собой, а обращаться извне к ним можно через проброс портов.</li>
+<li>host — использует сетевой интерфейс хоста. Убирает всю изоляцию между хостом и контейнером.</li>
+<li>none — контейнер не получает сеть вообще, а значит у него нет доступа ни в интернет, ни к другим контейнерам.</li>
+</ol>
+<p>Также есть и другие сети, например:</p>
+<ul>
+<li>overlay — создаёт виртуальную сеть между несколькими хостами, позволяя контейнерам с разных серверов общаться между собой, будто они в одной сети.</li>
+<li>macvlan — даёт контейнерам IP-адреса из подсети роутера, благодаря чему контейнеры выглядят как отдельные устройства в локальной сети.</li>
+<li>3-rd party plugins — кастомные сети, такие как Weave, Calico и т.д.</li>
+</ul>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Узнать, к какой сети принадлежит контейнер, можно с помощью команды <code>docker inspect &lt;container&gt;</code></div>
+  </div>
+</div>
+<p>Иногда требуется, что контейнеры работали в изолированной сети. Тогда можно воспользоваться командой <code>docker network create &lt;net_name&gt; --subnet 182.18.0.0/16</code>, которая создаст пользовательскую сеть типа bridge с заданным диапазоном IP-адресов.</p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Если контейнеры находятся в одной сети, они могут найти друг друга по имени, поскольку Docker имеет встроенный DNS-сервер</div>
+  </div>
+</div>
+<hr>
+<h2 id="основные-команды" class="heading-element"><span>Основные команды</span>
+  <a href="#%d0%be%d1%81%d0%bd%d0%be%d0%b2%d0%bd%d1%8b%d0%b5-%d0%ba%d0%be%d0%bc%d0%b0%d0%bd%d0%b4%d1%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Все команды для Docker начинаются с ключевого слова <code>docker</code>.</p>
+<ul>
+<li><code>docker version</code> — вывод сведений о Docker;</li>
+<li><code>docker login</code> — авторизация в реестре Docker;</li>
+<li><code>docker system prune</code> — удаление неиспользуемых контейнеров, сетей и образов;</li>
+</ul>
+<p>С версии 1.13 стали доступны более логически сгруппированные команды, такие как <code>docker container &lt;command&gt;</code>, <code>docker image &lt;command&gt;</code>, выполняющие те же функции. Так команда <code>docker container start</code> эквивалентна <code>docker start</code>, но является более понятной для пользователей (особенно новичков).</p>
+<h3 id="команды-для-контейнеров" class="heading-element"><span>Команды для контейнеров</span>
+  <a href="#%d0%ba%d0%be%d0%bc%d0%b0%d0%bd%d0%b4%d1%8b-%d0%b4%d0%bb%d1%8f-%d0%ba%d0%be%d0%bd%d1%82%d0%b5%d0%b9%d0%bd%d0%b5%d1%80%d0%be%d0%b2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Флаги команд должны быть прописаны до названия образа</div>
+  </div>
+</div>
+<p>Общая схема команд для управления контейнерами: <code>docker container &lt;command&gt;</code>, где вместо <code>&lt;command&gt;</code> вставляется:</p>
+<ul>
+<li><code>create</code> — создание контейнера из образа.</li>
+<li><code>start</code> — запуск созданного контейнера.</li>
+<li><code>run</code> — создание и запуск контейнера. Если образа для контейнера нет локально, Docker загрузит его из удалённого реестра.<br>
+Флаги:
+<ul>
+<li><code>-d</code> — запуск контейнера в фоновом режиме (detached mode), чтобы логи контейнера не выводились в хост;</li>
+<li><code>-t</code> — создание псевдотерминал для взаимодействия с приложением в контейнере;</li>
+<li><code>-i</code> — создание процесса, позволяющего перенаправлять потоковый ввод из хоста в приложение внутри контейнера;</li>
+<li><code>-p</code> — проброс портов;</li>
+<li><code>-v</code> — монтирование внешней директории;</li>
+<li><code>-e</code> — передача переменных окружения в контейнер;</li>
+<li><code>--name</code> — именование контейнера;</li>
+<li><code>--entrypoint</code> — замена команды, задаваемой инструкцией <code>ENTRYPOINT</code>. Аргументы команды из <code>CMD</code> в этом случае не передаются;</li>
+<li><code>--network</code> — задать сеть, в которой контейнер будет работать;</li>
+<li><code>--cpus=&lt;num_of_CPU&gt;</code> — ограничение в виде процессорной мощности, которую контейнер может использовать. num_of_CPU может быть дробным;</li>
+<li><code>--memory=&lt;RAM&gt;</code> — ограничение потребляемой контейнером памяти.</li>
+</ul>
+</li>
+<li><code>stop</code> — остановка работающего контейнера.</li>
+<li><code>kill</code> — принудительная остановка работающего контейнера.</li>
+<li><code>rm</code> — удаление <u>остановленного</u> контейнера.<br>
+Флаги:
+<ul>
+<li><code>-f</code> — принудительная остановка и удаление. Удаляет даже запущенные контейнеры.</li>
+</ul>
+</li>
+<li><code>ls</code> — вывод списка <u>запущенных</u> контейнеров. Эквивалентно <code>docker ps</code>.<br>
+Флаги:
+<ul>
+<li><code>-a</code> — вывод список <u>всех</u> контейнеров (в том числе незапущенных);</li>
+<li><code>-s</code> — кроме прочего, вывод размера контейнера.</li>
+</ul>
+</li>
+<li><code>inspect</code> — вывод подробной информации о контейнере: переменные окружения, настройки сети, состояние и много чего ещё.</li>
+<li><code>logs</code> — вывод логов.<br>
+Флаги:
+<ul>
+<li><code>-f</code> — вывод логов в реальном времени.</li>
+</ul>
+</li>
+<li><code>stats</code> — выводит текущее использование ресурсов запущенными контейнерами.</li>
+<li><code>exec &lt;container_id/name&gt; &lt;command&gt;</code> — выполняет переданную команду <code>&lt;command&gt;</code> в запущенном контейнере.</li>
+<li><code>attach</code> — подключение к запущенному контейнеру. С помощью этой команды можно просматривать вывод или вводить команды, если поддерживается.</li>
+</ul>
+<div class="details admonition warning open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-exclamation-triangle" aria-hidden="true"></i>Предупреждение<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Перед тем, как удалить контейнер, нужно убедиться, что он неактивен</div>
+  </div>
+</div>
+<h3 id="команды-для-образов" class="heading-element"><span>Команды для образов</span>
+  <a href="#%d0%ba%d0%be%d0%bc%d0%b0%d0%bd%d0%b4%d1%8b-%d0%b4%d0%bb%d1%8f-%d0%be%d0%b1%d1%80%d0%b0%d0%b7%d0%be%d0%b2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Общая схема команд для управления образами: <code>docker image &lt;command&gt;</code>, где вместо <code>&lt;command&gt;</code> вставляется:</p>
+<ul>
+<li><code>build &lt;path&gt;</code> — сборка образа
+Флаги:
+<ul>
+<li><code>-t</code> — именование образа.</li>
+</ul>
+</li>
+<li><code>rm</code> — удаление образа.</li>
+<li><code>pull</code> — скачивание образа из реестра.</li>
+<li><code>push</code> — отправка образа в удалённый реестр.</li>
+<li><code>tag</code> — создание нового тега для существующего образа.</li>
+<li><code>ls</code> — вывод списка образов. Эквивалентно <code>docker images</code>.</li>
+<li><code>inspect</code> — вывод подробной информации об образе.</li>
+<li><code>history</code> — вывод списка слоёв образа и их размеров.</li>
+</ul>
+<div class="details admonition warning open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-exclamation-triangle" aria-hidden="true"></i>Предупреждение<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Перед тем, как удалить образ, нужно убедиться, что все связанные с ним контейнеры удалены</div>
+  </div>
+</div>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Если при использовании команды требуется ввести id контейнера/образа, можно вводить его не полностью, а только несколько первых символов так, чтобы Docker мог однозначно доопределить id</div>
+  </div>
+</div>
+<h3 id="команды-для-сетей" class="heading-element"><span>Команды для сетей</span>
+  <a href="#%d0%ba%d0%be%d0%bc%d0%b0%d0%bd%d0%b4%d1%8b-%d0%b4%d0%bb%d1%8f-%d1%81%d0%b5%d1%82%d0%b5%d0%b9" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Общая схема команд для управления сетями: <code>docker network &lt;command&gt;</code>, где вместо <code>&lt;command&gt;</code> вставляется:</p>
+<ul>
+<li><code>create</code> — создание пользовательской сети.
+Флаги:
+<ul>
+<li><code>-d</code> и <code>--driver</code> — указание на тип (драйвер) сети. Например, bridge;</li>
+<li><code>--subnet</code> — создание подсети с указанным IP-диапазоном;</li>
+<li><code>--gateway</code> — создание шлюза для сети, который контейнеры этой сети будут использовать для связи с внешними сетями.</li>
+</ul>
+</li>
+<li><code>rm</code> — удаление сети.</li>
+<li><code>prune</code> — удаление всех неиспользуемых сетей.</li>
+<li><code>connect &lt;net&gt; &lt;container&gt;</code> — подключение контейнера к существующей сети.</li>
+<li><code>disconnect &lt;net&gt; &lt;container&gt;</code> — отключение контейнера от существующей сети.</li>
+<li><code>ls</code> — вывод списка сетей.</li>
+<li><code>inspect</code> — вывод подробной информации о сети, в которой находится контейнер.</li>
+</ul>
+<hr>
+<h2 id="подробнее-про-docker-run" class="heading-element"><span>Подробнее про <code>docker run</code></span>
+  <a href="#%d0%bf%d0%be%d0%b4%d1%80%d0%be%d0%b1%d0%bd%d0%b5%d0%b5-%d0%bf%d1%80%d0%be-docker-run" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Чтобы загрузить образ и запустить контейнер, как мы уже знаем, нужно прописать <code>docker run</code>. Например, чтобы загрузить официальный образ redis и запустить контейнер на его базе, пишут <code>docker run redis</code>.</p>
+<p>Если требуется специфическая версия (по умолчанию latest-последняя), то нужно указать её <strong>тег</strong> через разделитель &ldquo;:&rdquo;: <code>docker run redis:6.0</code>.</p>
+<p>Если нужно взаимодействовать с контейнером при запуске, нужно прописать комбинацию флагов <code>-it</code>.</p>
+<p>Чтобы выполнить какую-либо команду в контейнере после его запуска, можно прописать её после имени образа. Так, команда <code>docker run alpine:3.8 cat /etc/*rel*</code> выведет информацию об ОС в терминал хоста.</p>
+<h3 id="проброс-портов" class="heading-element"><span>Проброс портов</span>
+  <a href="#%d0%bf%d1%80%d0%be%d0%b1%d1%80%d0%be%d1%81-%d0%bf%d0%be%d1%80%d1%82%d0%be%d0%b2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Допустим, бд работает на дефолтном 3306 порту. Чтобы иметь возможность обращаться к ней из внешнего мира, нужно сопоставить этот порт с каким-либо свободным портом хоста: <code>docker run -p 54100:3306 mysql</code>. Таким образом, когда мы будем обращаться к IP нашего сервера по 54100 порту, нас будет перенаправлять в 3306 порт контейнера.</p>
+<h3 id="монтирование-директорий" class="heading-element"><span>Монтирование директорий</span>
+  <a href="#%d0%bc%d0%be%d0%bd%d1%82%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5-%d0%b4%d0%b8%d1%80%d0%b5%d0%ba%d1%82%d0%be%d1%80%d0%b8%d0%b9" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Предположим, нужно, чтобы данные из контейнера по пути /var/lib/mysql сохранились даже после удаления контейнера. Это можно осуществить, если связать папку контейнера с папкой хоста: <code>docker run -v /opt/datadir/:/var/lib/mysql mysql</code>, где часть после флага и перед двоеточием — путь папки в хосте.</p>
+<hr>
+<h2 id="dockerfile" class="heading-element"><span>Dockerfile</span>
+  <a href="#dockerfile" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>В файлах Dockerfile содержатся инструкции по созданию образа. Инструкции обозначаются заглавными буквами, а после них идут аргументы.</p>
+<p>Согласно документации, слои создаются только инструкциями <code>FROM</code>, <code>RUN</code>, <code>COPY</code> и <code>ADD</code>, но это не совсем так. Слои создаются любыми инструкциями, но слои, созданные не перечисленными, будут весить 0 байт.</p>
+<h3 id="инструкции" class="heading-element"><span>Инструкции</span>
+  <a href="#%d0%b8%d0%bd%d1%81%d1%82%d1%80%d1%83%d0%ba%d1%86%d0%b8%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Instruction</th>
+          <th style="text-align: left">Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><code>FROM</code></td>
+          <td style="text-align: left">Создаёт базовый образ. Первая инструкция в любом Dockerfile</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>RUN</code></td>
+          <td style="text-align: left">Выполняет команду и создаёт слой. Используется для установки пакетов в контейнер, создания файлов и т.п.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>ADD</code></td>
+          <td style="text-align: left">Копирует в контейнер файлы и директории из хоста. Помимо этого умеет распаковывать архивы и загружать файлы по URL.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>COPY</code></td>
+          <td style="text-align: left">Копирует в контейнер файлы и директории из хоста. Рекомендуется использовать вместо <code>ADD</code>, если не требуется дополнительный функционал.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>WORKDIR</code></td>
+          <td style="text-align: left">Задаёт рабочую директорию для дальнейших инструкций. Если директории не существует, она будет создана.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>VOLUME</code></td>
+          <td style="text-align: left">Объявляет точки монтирования для хранения данных вне контейнера.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>ENV</code></td>
+          <td style="text-align: left">Устанавливает постоянные переменные окружения, которые будут доступны в контейнере во время его работы.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>EXPOSE</code></td>
+          <td style="text-align: left">Информирует о портах, которые контейнер будет слушать во время работы. Служит лишь справочной информацией, а не действием.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>ARG</code></td>
+          <td style="text-align: left">Задаёт переменные для передачи Docker во время сборки образа.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>CMD</code></td>
+          <td style="text-align: left">Определяет команду с аргументами, которая будет выполнена по умолчанию при запуске контейнера. Если в одном Dockerfile несколько инструкций <code>CMD</code>, выполнится только последняя. Может быть переопределена, если контейнер запускается с аргументами: <code>docker run &lt;image&gt; &lt;new_command&gt;</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>ENTRYPOINT</code></td>
+          <td style="text-align: left">Определяет команду с аргументами, которая будет выполнена по умолчанию при запуске контейнера. Не может быть переопределена обычным образом. Если при запуске контейнера передаётся команда, она идёт в качестве аргумента в <code>ENTRYPOINT</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>LABEL</code></td>
+          <td style="text-align: left">Добавляет метаданные в образ.</td>
+      </tr>
+  </tbody>
+</table>
+<p>Часто <code>ENTRYPOINT</code> и <code>CMD</code> используют вместе. В этом случае аргументы инструкции <code>CMD</code> становятся аргументами команды, заданной инструкцией <code>ENTRYPOINT</code>.</p>
+<p>Помимо этого, команды в <code>ENTRYPOINT</code> и <code>CMD</code> могут быть написаны в виде:</p>
+<ul>
+<li>shell-команды. Например, <code>CMD sleep 5</code></li>
+<li>json-массива. Например, <code>CMD [&quot;sleep&quot;, &quot;5&quot;]</code></li>
+</ul>
+<p>И-так, если нужна команда по умолчанию при запуске контейнера, имеющая значения по умолчанию, которое можно переопределить, можно воспользоваться следующей последовательностью инструкций:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&#34;sleep&#34;</span><span class="p">]</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;5&#34;</span><span class="p">]</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Таким образом, если выполнить команду <code>docker run &lt;image&gt; 10</code>, контейнер запустится с командой <code>sleep 10</code>. Если ничего не передавать в качестве аргументе, с командой <code>sleep 5</code></p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">При выполнении инструкций, если это возможно, лучше писать несколько команд под одной инструкцией, например: <code>RUN apk update &amp;&amp; apk upgrade &amp;&amp; apk add bash</code>. Таким образом создаётся только один слой вместо трёх, что уменьшает как размер образа, так и скорость разворачивания контейнера.</div>
+  </div>
+</div>
+<p>Dockerfile может выглядеть, к примеру, так:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="c"># Задаём базовый образ</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> python:3.7.2-alpine3.8</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Помечаем контактные сведения создателя</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">LABEL</span> <span class="nv">maintainer</span><span class="o">=</span><span class="s2">&#34;obsidian@gmail.com&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Устанавливаем зависимости</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apk add --update git<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Задаём текущую рабочую директорию</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /usr/src/my_app_directory</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Копируем код из локального контекста в рабочую директорию образа</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Задаём значение по умолчанию для переменной</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ARG</span> <span class="nv">my_var</span><span class="o">=</span>my_default_value
+</span></span><span class="line"><span class="cl"><span class="c"># Настраиваем команду, которая должна быть запущена в контейнере во время его выполнения</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&#34;python&#34;</span><span class="p">,</span> <span class="s2">&#34;./app/my_script.py&#34;</span><span class="p">,</span> <span class="s2">&#34;my_var&#34;</span><span class="p">]</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Открываем порты</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 8000</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Создаём том для хранения данных</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">VOLUME</span><span class="s"> /my_volume</span></span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="docker-compose" class="heading-element"><span>Docker Compose</span>
+  <a href="#docker-compose" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p><strong>Docker Compose</strong> — это инструмент для запуска мульти-контейнерных приложений. Инструкции для него описываются в файле <code>docker-compose.yml</code>.</p>
+<p>Есть две версии Docker Compose. Первая (v1) — устаревшая, запускается командой <code>docker-compose</code>. Вторая (v2) — предпочтительна к использованию, запускается командой <code>docker compose</code> (интегрирована в Docker CLI).</p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Дальнейшие описания касаются Docker Compose v2, использующего yaml с синтаксисом v3</div>
+  </div>
+</div>
+<h3 id="docker-composeyml" class="heading-element"><span>docker-compose.yml</span>
+  <a href="#docker-composeyml" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Файл docker-compose.yml состоит из блоков/разделов. Рассмотрим на примере:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Обычно файлы начинаются с тега версии синтаксиса</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Поле является информативным</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.8&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 1 сервис = 1 контейнер</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Каждый сервис задаётся именем и набором параметров</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">web</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Использует уже собранный образ</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx:1.27</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Проброс портов</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;80:80&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Присваивает сервис сети</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">new_network</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">db</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Собирает новый образ по заданному пути</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l">./db</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Задаёт переменные окружения</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l">user</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l">pass</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Монтирует директории</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"> </span><span class="l">db_data:/var/lib/postgresql/data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">new_network</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Создаёт сеть для взаимодействия между контейнерами</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">new_network</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="команды-docker-compose" class="heading-element"><span>Команды Docker Compose</span>
+  <a href="#%d0%ba%d0%be%d0%bc%d0%b0%d0%bd%d0%b4%d1%8b-docker-compose" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ol>
+<li><code>docker compose up</code> — создание и запуск контейнеров, следуя инструкции из файла <code>docker-compose.yml</code>.<br>
+Флаги:</li>
+</ol>
+<ul>
+<li><code>-d</code> — запуск контейнеров в фоновом режиме (detached mode), чтобы логи не выводились в хост.</li>
+</ul>
+<ol start="2">
+<li><code>docker compose stop</code> — остановка контейнеров без удаления созданных примитивов (образов, контейнеров и т.п., созданных Docker Compose).</li>
+<li><code>docker compose down</code> — остановка контейнеров с последующим удалением созданных примитивов.</li>
+<li><code>docker compose ps</code> — вывод списка контейнеров, запущенных с помощью Docker Compose.</li>
+<li><code>docker compose logs</code> — вывод логов всех запущенных контейнеров.</li>
+</ol></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="Oбновлена 2025-03-14 00:00:01">Oбновлена 14-03-2025&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="Поделиться в X" data-sharer="twitter" data-url="http://localhost:1313/notes/docker/" data-title="База по Docker" data-hashtags="docker"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/notes/docker/" data-title="База по Docker" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в VK" data-sharer="vk" data-url="http://localhost:1313/notes/docker/" data-title="База по Docker"><i class="fa-brands fa-vk fa-fw" aria-hidden="true"></i></a>
+  <a href="//mix.com/add?url=http%3a%2f%2flocalhost%3a1313%2fnotes%2fdocker%2f&amp;description=%d0%91%d0%b0%d0%b7%d0%b0%20%d0%bf%d0%be%20Docker" target="_blank" title="Поделиться в Mix"><i class="fa-brands fa-mix fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/docker/" class="post-tag" title="Тэги - Docker">Docker</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">Назад</a></span>&nbsp;|&nbsp;<span><a href="/">Домой</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/articles/ax3000t/" class="post-nav-item" rel="prev" title="VPN на домашнем роутере | Xiaomi AX3000T"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>VPN на домашнем роутере | Xiaomi AX3000T</a></div>
+</div>
+<div class="post-reward">
+    <div class="comment">Поддержать автора</div>
+    <input type="checkbox" class="reward-input" name="reward" id="fi-reward" hidden />
+    <label class="reward-button" for="fi-reward"><i class="fa-solid fa-qrcode fa-fw" aria-hidden="true"></i></label>
+    <div class="reward-ways" data-mode="fixed"><div><img loading="lazy" src="/img/CloudTips.png" alt="NoisyCake cloudtips" data-title="NoisyCake cloudtips" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span>cloudtips</span>
+          </div></div>
+  </div></article>
+
+  <aside class="toc" id="toc-auto" aria-label="Содержание"><h2 class="toc-title">Содержание&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://t.me/noisycake"target="_blank" rel="external nofollow noopener noreferrer">NoisyCake</a></span></div><div class="footer-line statistics"><span class="site-time" title='Website running ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Дней жизни:</span><span class="run-times ms-1">Website running ...</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='Всего посетителей'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='Всего посещений'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Наверх"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><div class="reading-progress-bar" style="--fi-progress-start: left; top: 0; --fi-progress-bg: #8581dd; --fi-progress-bg-dark: #fff;"></div><noscript>
+    <div class="noscript-warning"></div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"Копировать в буфер обмена","editLockTitle":"Заблокировать редактируемый кодовый блок","editUnLockTitle":"Разблокировать редактируемый блок кода","editable":true,"maxShownLines":50},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Окей","link":"Узнать больше","message":"Сайт использует куки"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"Результатов не найдено","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2024-11-15T16:15:22","version":"v0.3.14"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>
