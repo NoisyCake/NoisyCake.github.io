@@ -81,7 +81,7 @@ theme = 'FixIt'
 
 [params]
   description = "Hungry for Knowledge – онлайн-ресурс, содержащий конспекты, статьи и проекты автора, охватывающие спектр тем, связанных с программированием и не только."
-  keywords = ["NoisyCake", "HFK", "анонимность", "блог", "IT", "Python"]
+  keywords = ["NoisyCake", "noisy cake", "VPN", "HFK", "анонимность", "блог", "IT", "Python"]
   defaultTheme = 'dark'
   dateFormat = '02-01-2006'
   enablePWA = true
@@ -214,6 +214,7 @@ theme = 'FixIt'
 
   [params.social]
     Telegram = 'noisycake'
+    GitHub = 'NoisyCake'
     VK = 'darkgxd'
     RSS = false
 

@@ -13,7 +13,7 @@
   <meta itemprop="description" content="Конспект посвящён основам Docker: установке, командам и т.п. Применимо к Ubuntu 22.04. Теория, а конкретно “что такое Docker и для чего он нужен” — опускается.">
   <meta itemprop="datePublished" content="2025-03-14T00:00:01+00:00">
   <meta itemprop="dateModified" content="2025-03-14T00:00:01+00:00">
-  <meta itemprop="wordCount" content="2304">
+  <meta itemprop="wordCount" content="2312">
   <meta itemprop="keywords" content="Docker"><meta property="og:url" content="http://localhost:1313/notes/docker/">
   <meta property="og:site_name" content="HFK">
   <meta property="og:title" content="База по Docker">
@@ -29,7 +29,7 @@
   <meta name="twitter:title" content="База по Docker">
   <meta name="twitter:description" content="Конспект посвящён основам Docker: установке, командам и т.п. Применимо к Ubuntu 22.04. Теория, а конкретно “что такое Docker и для чего он нужен” — опускается.">
 <meta name="application-name" content="FixIt">
-<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/docker/" title="База по Docker | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/articles/ax3000t/" title="VPN на домашнем роутере | Xiaomi AX3000T" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/docker/index.md" title="База по Docker | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/docker/" title="База по Docker | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/articles/ax3000t/" title="VPN на домашнем роутере | Xiaomi AX3000T" /><link rel="next" type="text/html" href="http://localhost:1313/projects/subs_aggregator/" title="Subscription Aggregator for 3x-ui Proxy Servers" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/docker/index.md" title="База по Docker | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -40,7 +40,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/notes\/docker\/"
-    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "docker","wordcount":  2304 ,
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "docker","wordcount":  2312 ,
     "url": "http:\/\/localhost:1313\/notes\/docker\/","datePublished": "2025-03-14T00:00:01+00:00","dateModified": "2025-03-14T00:00:01+00:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -136,7 +136,7 @@
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>База по Docker</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisycake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-    NoisyCake</a></span></div><div class="post-meta-line"><span title="Опубликовано 2025-03-14 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="14-03-2025">14-03-2025</time></span>&nbsp;<span title="2304 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 2400 слов</span>&nbsp;</div>
+    NoisyCake</a></span></div><div class="post-meta-line"><span title="Опубликовано 2025-03-14 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="14-03-2025">14-03-2025</time></span>&nbsp;<span title="2312 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 2400 слов</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>Содержание</span>
@@ -344,7 +344,7 @@
     <div class="admonition-content">Узнать, к какой сети принадлежит контейнер, можно с помощью команды <code>docker inspect &lt;container&gt;</code></div>
   </div>
 </div>
-<p>Иногда требуется, что контейнеры работали в изолированной сети. Тогда можно воспользоваться командой <code>docker network create &lt;net_name&gt; --subnet 182.18.0.0/16</code>, которая создаст пользовательскую сеть типа bridge с заданным диапазоном IP-адресов.</p>
+<p>Иногда требуется, чтобы контейнеры работали в изолированной сети. Тогда можно воспользоваться командой <code>docker network create &lt;net_name&gt; --subnet 182.18.0.0/16</code>, которая создаст пользовательскую сеть типа bridge с заданным диапазоном IP-адресов.</p>
 <div class="details admonition info open">
   <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
   <div class="details-content">
@@ -381,14 +381,14 @@
 Флаги:
 <ul>
 <li><code>-d</code> — запуск контейнера в фоновом режиме (detached mode), чтобы логи контейнера не выводились в хост;</li>
-<li><code>-t</code> — создание псевдотерминал для взаимодействия с приложением в контейнере;</li>
+<li><code>-t</code> — создание псевдотерминала для взаимодействия с приложением в контейнере;</li>
 <li><code>-i</code> — создание процесса, позволяющего перенаправлять потоковый ввод из хоста в приложение внутри контейнера;</li>
 <li><code>-p</code> — проброс портов;</li>
 <li><code>-v</code> — монтирование внешней директории;</li>
 <li><code>-e</code> — передача переменных окружения в контейнер;</li>
 <li><code>--name</code> — именование контейнера;</li>
 <li><code>--entrypoint</code> — замена команды, задаваемой инструкцией <code>ENTRYPOINT</code>. Аргументы команды из <code>CMD</code> в этом случае не передаются;</li>
-<li><code>--network</code> — задать сеть, в которой контейнер будет работать;</li>
+<li><code>--network</code> — присвоение сети, в которой контейнер будет работать;</li>
 <li><code>--cpus=&lt;num_of_CPU&gt;</code> — ограничение в виде процессорной мощности, которую контейнер может использовать. num_of_CPU может быть дробным;</li>
 <li><code>--memory=&lt;RAM&gt;</code> — ограничение потребляемой контейнером памяти.</li>
 </ul>
@@ -415,7 +415,7 @@
 <li><code>-f</code> — вывод логов в реальном времени.</li>
 </ul>
 </li>
-<li><code>stats</code> — выводит текущее использование ресурсов запущенными контейнерами.</li>
+<li><code>stats</code> — вывод текущего использования ресурсов запущенными контейнерами.</li>
 <li><code>exec &lt;container_id/name&gt; &lt;command&gt;</code> — выполняет переданную команду <code>&lt;command&gt;</code> в запущенном контейнере.</li>
 <li><code>attach</code> — подключение к запущенному контейнеру. С помощью этой команды можно просматривать вывод или вводить команды, если поддерживается.</li>
 </ul>
@@ -431,7 +431,7 @@
   </a>
 </h3><p>Общая схема команд для управления образами: <code>docker image &lt;command&gt;</code>, где вместо <code>&lt;command&gt;</code> вставляется:</p>
 <ul>
-<li><code>build &lt;path&gt;</code> — сборка образа
+<li><code>build &lt;path&gt;</code> — сборка образа<br>
 Флаги:
 <ul>
 <li><code>-t</code> — именование образа.</li>
@@ -463,7 +463,7 @@
   </a>
 </h3><p>Общая схема команд для управления сетями: <code>docker network &lt;command&gt;</code>, где вместо <code>&lt;command&gt;</code> вставляется:</p>
 <ul>
-<li><code>create</code> — создание пользовательской сети.
+<li><code>create</code> — создание пользовательской сети.<br>
 Флаги:
 <ul>
 <li><code>-d</code> и <code>--driver</code> — указание на тип (драйвер) сети. Например, bridge;</li>
@@ -485,8 +485,8 @@
   </a>
 </h2><p>Чтобы загрузить образ и запустить контейнер, как мы уже знаем, нужно прописать <code>docker run</code>. Например, чтобы загрузить официальный образ redis и запустить контейнер на его базе, пишут <code>docker run redis</code>.</p>
 <p>Если требуется специфическая версия (по умолчанию latest-последняя), то нужно указать её <strong>тег</strong> через разделитель &ldquo;:&rdquo;: <code>docker run redis:6.0</code>.</p>
-<p>Если нужно взаимодействовать с контейнером при запуске, нужно прописать комбинацию флагов <code>-it</code>.</p>
-<p>Чтобы выполнить какую-либо команду в контейнере после его запуска, можно прописать её после имени образа. Так, команда <code>docker run alpine:3.8 cat /etc/*rel*</code> выведет информацию об ОС в терминал хоста.</p>
+<p>Если требуется взаимодействовать с контейнером при запуске, нужно прописать комбинацию флагов <code>-it</code>.</p>
+<p>Чтобы выполнить какую-либо команду в контейнере при его запуске, можно прописать её после имени образа. Так, команда <code>docker run alpine:3.8 cat /etc/*rel*</code> выведет информацию об ОС в терминал хоста.</p>
 <h3 id="проброс-портов" class="heading-element"><span>Проброс портов</span>
   <a href="#%d0%bf%d1%80%d0%be%d0%b1%d1%80%d0%be%d1%81-%d0%bf%d0%be%d1%80%d1%82%d0%be%d0%b2" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
@@ -518,7 +518,7 @@
   <tbody>
       <tr>
           <td style="text-align: center"><code>FROM</code></td>
-          <td style="text-align: left">Создаёт базовый образ. Первая инструкция в любом Dockerfile</td>
+          <td style="text-align: left">Создаёт базовый образ. Первая инструкция в любом Dockerfile.</td>
       </tr>
       <tr>
           <td style="text-align: center"><code>RUN</code></td>
@@ -725,7 +725,8 @@
 Флаги:</li>
 </ol>
 <ul>
-<li><code>-d</code> — запуск контейнеров в фоновом режиме (detached mode), чтобы логи не выводились в хост.</li>
+<li><code>-d</code> — запуск контейнеров в фоновом режиме (detached mode), чтобы логи не выводились в хост;</li>
+<li><code>--build</code> — сборка образов, если присутствуют инструкции <code>build:</code>.</li>
 </ul>
 <ol start="2">
 <li><code>docker compose stop</code> — остановка контейнеров без удаления созданных примитивов (образов, контейнеров и т.п., созданных Docker Compose).</li>
@@ -755,7 +756,7 @@
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">Назад</a></span>&nbsp;|&nbsp;<span><a href="/">Домой</a></span>
     </section>
-  </div><div class="post-nav"><a href="/articles/ax3000t/" class="post-nav-item" rel="prev" title="VPN на домашнем роутере | Xiaomi AX3000T"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>VPN на домашнем роутере | Xiaomi AX3000T</a></div>
+  </div><div class="post-nav"><a href="/articles/ax3000t/" class="post-nav-item" rel="prev" title="VPN на домашнем роутере | Xiaomi AX3000T"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>VPN на домашнем роутере | Xiaomi AX3000T</a><a href="/projects/subs_aggregator/" class="post-nav-item" rel="next" title="Subscription Aggregator for 3x-ui Proxy Servers">Subscription Aggregator for 3x-ui Proxy Servers<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div class="post-reward">
     <div class="comment">Поддержать автора</div>

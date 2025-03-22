@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="ru">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>NumPy | HFK</title><meta name="author" content="NoisyCake">
+<meta name="description" content="
+ПредупреждениеВ процессе написания!Конспект посвящён модулю NumPy и основам его применения.
+"><meta name="keywords" content='python, datatypes, modules, collections, numpy'>
+  <meta itemprop="name" content="NumPy">
+  <meta itemprop="description" content="ПредупреждениеВ процессе написания!Конспект посвящён модулю NumPy и основам его применения.">
+  <meta itemprop="datePublished" content="2025-03-18T00:00:01+00:00">
+  <meta itemprop="dateModified" content="2025-03-18T00:00:01+00:00">
+  <meta itemprop="wordCount" content="1610">
+  <meta itemprop="keywords" content="Python,Datatypes,Modules,Collections,Numpy"><meta property="og:url" content="http://localhost:1313/notes/drafts/numpy/">
+  <meta property="og:site_name" content="HFK">
+  <meta property="og:title" content="NumPy">
+  <meta property="og:description" content="ПредупреждениеВ процессе написания!Конспект посвящён модулю NumPy и основам его применения.">
+  <meta property="og:locale" content="ru">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2025-03-18T00:00:01+00:00">
+    <meta property="article:modified_time" content="2025-03-18T00:00:01+00:00">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Datatypes">
+    <meta property="article:tag" content="Modules">
+    <meta property="article:tag" content="Collections">
+    <meta property="article:tag" content="Numpy">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="NumPy">
+  <meta name="twitter:description" content="ПредупреждениеВ процессе написания!Конспект посвящён модулю NumPy и основам его применения.">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/drafts/numpy/" title="NumPy | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/notes/docker/" title="База по Docker" /><link rel="next" type="text/html" href="http://localhost:1313/projects/subs_aggregator/" title="Subscription Aggregator for 3x-ui Proxy Servers" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/drafts/numpy/index.md" title="NumPy | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "NumPy",
+    "inLanguage": "ru",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/notes\/drafts\/numpy\/"
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "python, datatypes, modules, collections, numpy","wordcount":  1610 ,
+    "url": "http:\/\/localhost:1313\/notes\/drafts\/numpy\/","datePublished": "2025-03-18T00:00:01+00:00","dateModified": "2025-03-18T00:00:01+00:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "NoisyCake"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="normal"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item has-children">
+              <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item">
+              <a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Поиск">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Очистить">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="Сменить Тему">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Поиск">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Очистить">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Отменить
+            </a>
+          </li><li class="menu-item"><span class="nested-item">
+                  <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item"><a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item"><a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="Сменить Тему"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/notes/" title="Конспекты">Конспекты</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">NumPy</li>
+    </ol>
+  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=""></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>NumPy</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisycake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+    NoisyCake</a></span><span class="post-included-in">&nbsp;включен в <a href="/categories/python/" class="post-category" title="Категория - Python"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Python</a></span></div><div class="post-meta-line"><span title="Опубликовано 2025-03-18 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="18-03-2025">18-03-2025</time></span>&nbsp;<span title="1610 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 1700 слов</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>Содержание</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ol>
+    <li><a href="#введение">Введение</a></li>
+    <li><a href="#ndarray"><code>ndarray</code></a>
+      <ol>
+        <li><a href="#атрибуты">Атрибуты</a></li>
+      </ol>
+    </li>
+    <li><a href="#создание-массива">Создание массива</a>
+      <ol>
+        <li><a href="#nprandom">np.random</a></li>
+      </ol>
+    </li>
+    <li><a href="#методы-ndarray">Методы <code>ndarray</code></a></li>
+    <li><a href="#операции-над-массивами">Операции над массивами</a>
+      <ol>
+        <li><a href="#арифметические-операции">Арифметические операции</a></li>
+        <li><a href="#другие-операции">Другие операции</a></li>
+      </ol>
+    </li>
+    <li><a href="#срезы">Срезы</a></li>
+    <li><a href="#булева-индексация">Булева индексация</a>
+      <ol>
+        <li><a href="#any-и-all"><code>any()</code> и <code>all()</code></a></li>
+      </ol>
+    </li>
+  </ol>
+</nav></div>
+      </div><div class="content" id="content"><p><img loading="lazy" src="/notes/drafts/numpy/images/feature.png" alt="/notes/drafts/numpy/images/feature.png" srcset="/notes/drafts/numpy/images/feature.png?size=small, /notes/drafts/numpy/images/feature.png?size=medium 1.5x, /notes/drafts/numpy/images/feature.png?size=large 2x" data-title="/notes/drafts/numpy/images/feature.png" style="--width: 1920px;--aspect-ratio: 1920 / 864;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<div class="details admonition warning open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-exclamation-triangle" aria-hidden="true"></i>Предупреждение<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">В процессе написания!</div>
+  </div>
+</div>
+<p>Конспект посвящён модулю NumPy и основам его применения.</p>
+<h2 id="введение" class="heading-element"><span>Введение</span>
+  <a href="#%d0%b2%d0%b2%d0%b5%d0%b4%d0%b5%d0%bd%d0%b8%d0%b5" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Вечно актуальная документация: <a href="https://numpy.org/doc/stable/index.html"target="_blank" rel="external nofollow noopener noreferrer">https://numpy.org/doc/stable/index.html<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></p>
+<p>numpy — библиотека Python, которая предоставляет мощные и универсальные вычисления с многомерными массивами, математическими функциями и другими инструментами. Чаще всего применяется в анализе и машинном обучении.</p>
+<p>Операции с массивами NumPy проходят быстрее и эффективнее обычных Python lists, поскольку все элементы в них имеют одинаковый тип, а сами данные хранятся единым блоком.</p>
+<p>Обычно библиотеку импортируют так:
+<code>import numpy as np</code></p>
+<hr>
+<h2 id="ndarray" class="heading-element"><span><code>ndarray</code></span>
+  <a href="#ndarray" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p><code>ndarray</code> — основной тип данных в NumPy. Он представляет из себя многомерный однородный массив и обладает следующими характеристиками:</p>
+<ul>
+<li><strong>Многомерный.</strong> С помощью библиотеки можно создавать вектора, матрицы, трёхмерные массивы и т.д.</li>
+<li><strong>Однородные типы.</strong> Все элементы <code>ndarray</code> принадлежат одному и тому же типу данных.</li>
+<li><strong>Индексируемый.</strong> К <code>ndarray</code> можно обращаться по индексу. Также поддерживаются многомерные срезы.</li>
+</ul>
+<h3 id="атрибуты" class="heading-element"><span>Атрибуты</span>
+  <a href="#%d0%b0%d1%82%d1%80%d0%b8%d0%b1%d1%83%d1%82%d1%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">attribute</th>
+          <th style="text-align: left">purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><code>shape</code></td>
+          <td style="text-align: left">Содержит форму массива в виде кортежа, где каждое число указывает на количество элементов в соответствующем измерении. Например, для объекта <code>array([[1, 2, 3, 4], [1, 2, 3, 4]])</code> shape будет <code>(2, 4)</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>dtype</code></td>
+          <td style="text-align: left">Тип данных элементов массива</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>size</code></td>
+          <td style="text-align: left">Общее количество элементов в массиве</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>ndim</code></td>
+          <td style="text-align: left">Количество измерений массива</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="создание-массива" class="heading-element"><span>Создание массива</span>
+  <a href="#%d1%81%d0%be%d0%b7%d0%b4%d0%b0%d0%bd%d0%b8%d0%b5-%d0%bc%d0%b0%d1%81%d1%81%d0%b8%d0%b2%d0%b0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>ndarray создаётся различными функциями, например <code>array()</code>, <code>arange()</code>, <code>zeros()</code>, <code>ones()</code> и т.д.</p>
+<ol>
+<li>
+<p><code>np.array()</code>
+Функция <code>np.array(object, dtype=None, copy=True, order='K', subok=False, ndmin=0, like=None)</code> возвращает массив из объекта, такого как список или кортеж.</p>
+<p>Параметры:</p>
+<ul>
+<li><code>object</code>: Исходный объект, являющийся коллекцией Python (списки, кортежи, множества, генераторы и т.п.).</li>
+<li><code>dtype</code>: Тип данных элементов массива. Если не указан, тип данных будет определен автоматически.</li>
+<li><code>copy</code>: Если True, создаёт копию массива.</li>
+<li><code>order</code>: Порядок, в котором будут расположены элементы массива в памяти (&lsquo;C&rsquo; - C-порядок, &lsquo;F&rsquo; - порядок Fortran).</li>
+<li><code>subok</code>: Если True, подклассы будут переданы, если это возможно.</li>
+<li><code>ndmin</code>: Минимальное количество измерений в массиве.</li>
+<li><code>like</code>: Объект, который используется для создания массива, совместимого с другим типом данных. Если переданный объект поддерживает протокол <code>__array_function__</code>, результат будет совместим с этим объектом. Это позволяет создавать массивы, которые не являются массивами NumPy, но поддерживаются другими библиотеками.</li>
+</ul>
+<p>Пример:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Вывод:
+</span></span><span class="line"><span class="cl">array([[1, 2, 3],
+</span></span><span class="line"><span class="cl">       [4, 5, 6]])</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Описание очевидных (субъективно) и уже разобранных параметров функций будут опускаться</div>
+  </div>
+</div>
+</li>
+</ol>
+<hr>
+<ol start="2">
+<li>
+<p><code>np.arange()</code>
+Функция <code>np.arange([start, ]stop, [step, ]dtype=None, *, device=None, like=None)</code> схожа с <code>range()</code> в Python, но возвращает не итерируемый объект, а массив.</p>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Квадратные скобки в описании функции указывают на необязательные параметры</div>
+  </div>
+</div>
+<p>Параметры:</p>
+<ul>
+<li><code>device</code>: Устройство, на котором будет создан массив. Добавлен для совместимости с Array API.</li>
+</ul>
+<p>Пример:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: [ 0 10 20 30 40]</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<hr>
+<ol start="3">
+<li>
+<p><code>np.zeros()</code>
+Функция <code>np.zeros(shape, dtype=float, order='C', *, like=None)</code> возвращает массив указанной формы и заполняет его нулями.</p>
+<p>Параметры:</p>
+<ul>
+<li><code>shape</code>: Форма массива. Задаётся последовательностью из целых чисел.</li>
+</ul>
+<p>Пример:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Вывод:
+</span></span><span class="line"><span class="cl">[[0. 0. 0.]
+</span></span><span class="line"><span class="cl"> [0. 0. 0.]]</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<hr>
+<ol start="4">
+<li>
+<p><code>np.ones()</code>
+Функция <code>np.ones(shape, dtype=None, order='C', *, device=None, like=None)</code> возвращает массив указанной формы и заполняет его единицами.</p>
+<p>Пример:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: [1. 1. 1. 1. 1.]</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<hr>
+<ol start="5">
+<li><code>np.empty()</code>
+Функция <code>np.empty(shape, dtype=float, order='C', *, device=None, like=None)</code> возвращает массив указанной формы, не заполняя его значениями. Элементы будут содержать &ldquo;мусор&rdquo; из выделенной памяти.</li>
+</ol>
+<hr>
+<ol start="6">
+<li><code>np.full()</code>
+Функция <code>np.full(shape, fill_value, dtype=None, order='C', *, device=None, like=None)</code> возвращает массив указанной формы и заполняет его <code>fill_value</code>.</li>
+</ol>
+<hr>
+<ol start="7">
+<li>
+<p><code>np.identity()</code>
+Функция <code>np.identity(n, dtype=None, *, like=None)</code> возвращает квадратную матрицу с единицами на главной диагонали и нулями в остальных местах.</p>
+<p>Параметры:</p>
+<ul>
+<li><code>n</code>: Размер квадратной матрицы.</li>
+</ul>
+<p>Пример:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Вывод:
+</span></span><span class="line"><span class="cl">[[1.,  0.,  0.],
+</span></span><span class="line"><span class="cl"> [0.,  1.,  0.],
+</span></span><span class="line"><span class="cl"> [0.,  0.,  1.]]</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<hr>
+<ol start="8">
+<li>
+<p><code>np.eye()</code>
+Функция <code>np.eye(N, M=None, k=0, dtype=&lt;class 'float'&gt;, order='C', *, device=None, like=None)</code> возвращает матрицу с единицами на главной диагонали и нулями в остальных местах.</p>
+<p>Параметры:</p>
+<ul>
+<li><code>N</code>: Размер квадратной матрицы. Если <code>M</code> не None, количество столбцов.</li>
+<li><code>M</code>: Количество столбцов.</li>
+<li><code>k</code>: Положение диагонали.</li>
+</ul>
+<p>Пример:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Вывод:
+</span></span><span class="line"><span class="cl">[[0.,  1.,  0.],
+</span></span><span class="line"><span class="cl"> [0.,  0.,  1.],
+</span></span><span class="line"><span class="cl"> [0.,  0.,  0.]]</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<hr>
+<ol start="9">
+<li>
+<p><code>np.linspace()</code>
+Функция <code>np.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0, *, device=None)</code> возвращает массив из <code>num</code> равномерно распределённых точек в указанном интервале.</p>
+<p>Параметры:</p>
+<ul>
+<li><code>start</code>: Начало интервала.</li>
+<li><code>stop</code>: Конец интервала.</li>
+<li><code>num</code>: Количество элементов.</li>
+<li><code>endpoint</code>: Если True, <code>stop</code> включается в интервал.</li>
+<li><code>retstep</code>: Если True, возвращает кортеж <code>(samples, step)</code> (samples — итоговый массив).</li>
+<li><code>axis</code>: Ось, в которой размещаются значения (точки).</li>
+</ul>
+<p>Пример:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: [2.  , 2.25, 2.5 , 2.75, 3.  ]</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<hr>
+<ol start="10">
+<li>
+<p><code>np.tile()</code>
+Функция <code>np.tile(A, reps)</code> возвращает массив, созданный путём повторения переданного массива указанное количество раз вдоль определённых осей.</p>
+<p>Параметры:</p>
+<ul>
+<li><code>A</code>: Исходный массив.</li>
+<li><code>reps</code>: Количество повторений. Может быть как числом (повторяет вдоль одной оси), так и кортежем.</li>
+</ul>
+<p>Пример 1:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: [1, 2, 3, 4, 1, 2, 3, 4]</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Пример 2:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Вывод:
+</span></span><span class="line"><span class="cl">[[1, 2, 3, 4],
+</span></span><span class="line"><span class="cl"> [1, 2, 3, 4],
+</span></span><span class="line"><span class="cl"> [1, 2, 3, 4],
+</span></span><span class="line"><span class="cl"> [1, 2, 3, 4]]</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h3 id="nprandom" class="heading-element"><span>np.random</span>
+  <a href="#nprandom" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><code>np.random</code> — модуль библиотеки numpy, предназначенный для работы с генерацией псевдослучайных чисел. Он предоставляет функции для создания массивов со случайными значениями, а также для работы с распределениями вероятностей.</p>
+<ol>
+<li>
+<p><code>np.random.rand()</code>
+Функция <code>np.random.rand(d0, d1, ..., dn)</code></p>
+<p>Параметры:</p>
+<ul>
+<li><code>d0, d1, ..., dn</code>: Размеры массива по каждой из осей.</li>
+</ul>
+<p>Пример:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Вывод:
+</span></span><span class="line"><span class="cl">[[[0.47574577 0.53369332]
+</span></span><span class="line"><span class="cl">  [0.6309306  0.76129442]
+</span></span><span class="line"><span class="cl">  [0.83415841 0.10869505]
+</span></span><span class="line"><span class="cl">  [0.42194621 0.03892143]]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> [[0.85396426 0.18211675]
+</span></span><span class="line"><span class="cl">  [0.56339344 0.46062141]
+</span></span><span class="line"><span class="cl">  [0.23051301 0.07067886]
+</span></span><span class="line"><span class="cl">  [0.09967516 0.89563758]]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> [[0.04364151 0.59463831]
+</span></span><span class="line"><span class="cl">  [0.25770927 0.91701878]
+</span></span><span class="line"><span class="cl">  [0.84273668 0.77615006]
+</span></span><span class="line"><span class="cl">  [0.67179846 0.04092679]]]</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Если посмотреть на атрибут <code>shape</code> созданного объекта, увидим <code>(3, 4, 2)</code>, где первое число указывает на количество &ldquo;слоёв&rdquo;, второе — на количество строк в каждом слое, и третье — на количество столбцов. Итого имеем три измерения в данном массиве</div>
+  </div>
+</div>
+</li>
+<li>
+<p><code>np.random.randint()</code>
+Функция <code>np.random.randint(low, high=None, size=None, dtype=int)</code> возвращает массив случайных <u>целых</u> чисел в указанном диапазоне.</p>
+<p>Параметры:</p>
+<ul>
+<li><code>low</code>: Нижняя граница диапазона.</li>
+<li><code>high</code>: Верхняя граница диапазона.</li>
+<li><code>size</code>: Форма массива. Аналогично <code>shape</code>.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="методы-ndarray" class="heading-element"><span>Методы <code>ndarray</code></span>
+  <a href="#%d0%bc%d0%b5%d1%82%d0%be%d0%b4%d1%8b-ndarray" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><ol>
+<li>
+<p>Метод <code>ndarray.astype(dtype, order='K', casting='unsafe', subok=True, copy=True)</code> изменяет тип данных элементов массива на <code>dtype</code>.</p>
+</li>
+<li>
+<p><code>ndarray.T</code> транспонирует массив, меняя местами элементы разных осей.</p>
+<p>Примеры:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">T</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Вывод:
+</span></span><span class="line"><span class="cl">[[1 2 3]
+</span></span><span class="line"><span class="cl"> [4 5 6]]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[[1 4]
+</span></span><span class="line"><span class="cl"> [2 5]
+</span></span><span class="line"><span class="cl"> [3 6]]</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>ndarray.transpose(*axes)</code> транспонирует массив, позволяя указать порядок осей.</p>
+<p>Пример:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Вывод:
+</span></span><span class="line"><span class="cl">[[1 4]
+</span></span><span class="line"><span class="cl"> [2 5]
+</span></span><span class="line"><span class="cl"> [3 6]]</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>ndarray.reshape(shape, /, *, order='C', copy=None)</code> изменяет форму массива на <code>shape</code>.</p>
+<p>Пример:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">)))</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Вывод:
+</span></span><span class="line"><span class="cl">[[1 2 3]
+</span></span><span class="line"><span class="cl"> [4 5 6]
+</span></span><span class="line"><span class="cl"> [7 8 9]]
+</span></span><span class="line"><span class="cl">[[1 2 3 4 5 6 7 8 9]]</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>ndarray.swapaxes(axis1, axis2)</code> меняем оси массива местами.</p>
+</li>
+</ol>
+<hr>
+<h2 id="операции-над-массивами" class="heading-element"><span>Операции над массивами</span>
+  <a href="#%d0%be%d0%bf%d0%b5%d1%80%d0%b0%d1%86%d0%b8%d0%b8-%d0%bd%d0%b0%d0%b4-%d0%bc%d0%b0%d1%81%d1%81%d0%b8%d0%b2%d0%b0%d0%bc%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="арифметические-операции" class="heading-element"><span>Арифметические операции</span>
+  <a href="#%d0%b0%d1%80%d0%b8%d1%84%d0%bc%d0%b5%d1%82%d0%b8%d1%87%d0%b5%d1%81%d0%ba%d0%b8%d0%b5-%d0%be%d0%bf%d0%b5%d1%80%d0%b0%d1%86%d0%b8%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>В NumPy арифметические операции между массивами выполняются поэлементно.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">operation</th>
+          <th style="text-align: left">description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><code>+</code></td>
+          <td style="text-align: left">Сложение массивов или массива с числом</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>-</code></td>
+          <td style="text-align: left">1. Унарный минус. 2. Разность массивов или массива с числом</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>*</code></td>
+          <td style="text-align: left">Умножение массивов или массива с числом</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>**</code></td>
+          <td style="text-align: left">Возведение в степень (указывается число или массив)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>/</code></td>
+          <td style="text-align: left">Деления массивов или массива с числом</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>//</code></td>
+          <td style="text-align: left">Целочисленное деление массивов или массива с числом</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>%</code></td>
+          <td style="text-align: left">Вычисление остатка от деления (указывается или число или массив)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>@</code></td>
+          <td style="text-align: left">Вычисление матричного произведения</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="другие-операции" class="heading-element"><span>Другие операции</span>
+  <a href="#%d0%b4%d1%80%d1%83%d0%b3%d0%b8%d0%b5-%d0%be%d0%bf%d0%b5%d1%80%d0%b0%d1%86%d0%b8%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ol>
+<li>
+<p><code>np.dot(a, b, out=None)</code>: Возвращает точечное произведение массивов, а конкретно:</p>
+<ul>
+<li>Если оба массива — вектора, возвращает их скалярное произведение;</li>
+<li>Если оба массива — матрицы, возвращает их матричное произведение;</li>
+<li>Если оба массива — скаляры, возвращает их обычное произведение;</li>
+<li>Если один из массивов — вектор, а второй — многомерный, возвращает сумму произведений по последней оси многомерного массива;</li>
+<li>Если оба массива — многомерные, возвращает сумму произведений по последней оси первого массива и предпоследней оси второго.</li>
+</ul>
+<p>Примеры:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">([</span><span class="mi">2</span><span class="n">j</span><span class="p">,</span> <span class="mi">3</span><span class="n">j</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="n">j</span><span class="p">,</span> <span class="mi">3</span><span class="n">j</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Вывод:
+</span></span><span class="line"><span class="cl">(-13+0j)
+</span></span><span class="line"><span class="cl">array([[4, 1],
+</span></span><span class="line"><span class="cl">       [2, 2]])</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<hr>
+<h2 id="срезы" class="heading-element"><span>Срезы</span>
+  <a href="#%d1%81%d1%80%d0%b5%d0%b7%d1%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><ol>
+<li>
+<p>Срезы в векторах аналогичны обычным срезам в Python.</p>
+</li>
+<li>
+<p>Срезы в матрицах происходят по каждому измерению.</p>
+<p>Пример:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                   <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                   <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Выбираем вторую строку</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: [4, 5, 6]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Выбираем второй столбец</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: [2, 5, 8]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Выбираем подматрицу 2x2 в нижнем правом углу</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:])</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># [[5, 6],</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  [8, 9]]</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>При слайсинге можно использовать аналогичные параметры <code>start:stop:step</code> для каждого измерения матрицы</p>
+<p><img loading="lazy" src="/notes/drafts/numpy/images/slices1.png" alt="/notes/drafts/numpy/images/slices1.png" srcset="/notes/drafts/numpy/images/slices1.png?size=small, /notes/drafts/numpy/images/slices1.png?size=medium 1.5x, /notes/drafts/numpy/images/slices1.png?size=large 2x" data-title="/notes/drafts/numpy/images/slices1.png" style="--width: 949px;--aspect-ratio: 949 / 480;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+</li>
+<li>
+<p>Срезы в многомерных массивах происходят аналогично срезам в двумерных, с использованием индексов для каждого измерения.</p>
+</li>
+</ol>
+<hr>
+<h2 id="булева-индексация" class="heading-element"><span>Булева индексация</span>
+  <a href="#%d0%b1%d1%83%d0%bb%d0%b5%d0%b2%d0%b0-%d0%b8%d0%bd%d0%b4%d0%b5%d0%ba%d1%81%d0%b0%d1%86%d0%b8%d1%8f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Индексация по булевым значениям в NumPy — механизм выбора элементов из массива на основе булевых условий. Он позволяет создавать условные выражения для фильтрации данных.<br>
+Если булева индексация используется на многомерном массиве, отбираемые элементы автоматически сворачиваются в вектор.</p>
+<p>Можно создать булев массив такой же формы, что и исходный массив, применяя условные операции к элементам:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">boolean_arr</span> <span class="o">=</span> <span class="n">arr</span> <span class="o">&gt;</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">boolean_arr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: [False, False, False, True, True]</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Булев массив используется для индексации: вернутся элементы, индекс которых соответствует True:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">boolean_arr</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: [4, 5]</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Условия также можно комбинировать, используя логические операторы <code>&amp;</code>, <code>|</code> и <code>~</code> (условия обязательно брать в скобки):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">boolean_arr</span> <span class="o">=</span> <span class="p">(</span><span class="n">arr</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">arr</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">boolean_arr</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: [4]</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="any-и-all" class="heading-element"><span><code>any()</code> и <code>all()</code></span>
+  <a href="#any-%d0%b8-all" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Функция <code>np.any(a, axis=None, out=None, keepdims=&lt;no value&gt;, *, where=&lt;no value&gt;)</code> возвращает True, если хотя бы один элемент переданного массива оценивается как True, иначе — False.</p>
+<p>Параметры:</p>
+<ul>
+<li><code>a</code>: Входной массив или объект, преобразуемый в массив.</li>
+<li><code>axis</code>: Проверяемые оси (в матрицах: 0 — колонки, 1 — строки).</li>
+<li><code>out</code>: Альтернативный массив для сохранения результата.</li>
+<li><code>keepdims</code>: Если True, сохраняет размерность исходного массива.</li>
+<li><code>where</code>: Условие, определяющее, какие элементы включать в проверку.</li>
+</ul>
+<div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Если <code>axis=None</code>, возвращает одно булево значение, если указана ось, возвращает массив булевых значений.</div>
+  </div>
+</div>
+<p>Функция <code>np.all(a, axis=None, out=None, keepdims=&lt;no value&gt;, *, where=&lt;no value&gt;)</code> возвращает True, если все элементы переданного массива оцениваются как True, иначе — False.</p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="Oбновлена 2025-03-18 00:00:01">Oбновлена 18-03-2025&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="Поделиться в X" data-sharer="twitter" data-url="http://localhost:1313/notes/drafts/numpy/" data-title="NumPy" data-hashtags="python,datatypes,modules,collections,numpy"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/notes/drafts/numpy/" data-title="NumPy" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в VK" data-sharer="vk" data-url="http://localhost:1313/notes/drafts/numpy/" data-title="NumPy"><i class="fa-brands fa-vk fa-fw" aria-hidden="true"></i></a>
+  <a href="//mix.com/add?url=http%3a%2f%2flocalhost%3a1313%2fnotes%2fdrafts%2fnumpy%2f&amp;description=NumPy" target="_blank" title="Поделиться в Mix"><i class="fa-brands fa-mix fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/python/" class="post-tag" title="Тэги - Python">Python</a><a href="/tags/datatypes/" class="post-tag" title="Тэги - Datatypes">Datatypes</a><a href="/tags/modules/" class="post-tag" title="Тэги - Modules">Modules</a><a href="/tags/collections/" class="post-tag" title="Тэги - Collections">Collections</a><a href="/tags/numpy/" class="post-tag" title="Тэги - Numpy">Numpy</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">Назад</a></span>&nbsp;|&nbsp;<span><a href="/">Домой</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/notes/docker/" class="post-nav-item" rel="prev" title="База по Docker"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>База по Docker</a><a href="/projects/subs_aggregator/" class="post-nav-item" rel="next" title="Subscription Aggregator for 3x-ui Proxy Servers">Subscription Aggregator for 3x-ui Proxy Servers<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div class="post-reward">
+    <div class="comment">Поддержать автора</div>
+    <input type="checkbox" class="reward-input" name="reward" id="fi-reward" hidden />
+    <label class="reward-button" for="fi-reward"><i class="fa-solid fa-qrcode fa-fw" aria-hidden="true"></i></label>
+    <div class="reward-ways" data-mode="fixed"><div><img loading="lazy" src="/img/CloudTips.png" alt="NoisyCake cloudtips" data-title="NoisyCake cloudtips" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span>cloudtips</span>
+          </div></div>
+  </div></article>
+
+  <aside class="toc" id="toc-auto" aria-label="Содержание"><h2 class="toc-title">Содержание&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://t.me/noisycake"target="_blank" rel="external nofollow noopener noreferrer">NoisyCake</a></span></div><div class="footer-line statistics"><span class="site-time" title='Website running ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Дней жизни:</span><span class="run-times ms-1">Website running ...</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='Всего посетителей'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='Всего посещений'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Наверх"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><div class="reading-progress-bar" style="--fi-progress-start: left; top: 0; --fi-progress-bg: #8581dd; --fi-progress-bg-dark: #fff;"></div><noscript>
+    <div class="noscript-warning"></div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"Копировать в буфер обмена","editLockTitle":"Заблокировать редактируемый кодовый блок","editUnLockTitle":"Разблокировать редактируемый блок кода","editable":true,"maxShownLines":50},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Окей","link":"Узнать больше","message":"Сайт использует куки"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"Результатов не найдено","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2024-11-15T16:15:22","version":"v0.3.14"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>

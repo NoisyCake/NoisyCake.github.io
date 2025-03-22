@@ -8,7 +8,14 @@
     <language>ru</language>
     <managingEditor>darkgxd@vk.com (NoisyCake)</managingEditor>
     <webMaster>darkgxd@vk.com (NoisyCake)</webMaster>
-    <lastBuildDate></lastBuildDate>
+    <lastBuildDate>Sat, 22 Mar 2025 00:00:01 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Subscription Aggregator for 3x-ui Proxy Servers</title>
+      <link>http://localhost:1313/projects/subs_aggregator/</link>
+      <pubDate>Sat, 22 Mar 2025 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/projects/subs_aggregator/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Subscription Aggregator for 3x-ui Proxy Servers&lt;/strong&gt; — это обратный прокси, который объединяет подписки с нескольких прокси-серверов, работающих на платформе 3x-ui, в одну ссылку. Проект расширяет стандартные возможности подписок в 3x-ui и делает их использование более удобным.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>
