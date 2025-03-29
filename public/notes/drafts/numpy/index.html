@@ -13,7 +13,7 @@
   <meta itemprop="description" content="ПредупреждениеВ процессе написания!Конспект посвящён модулю NumPy и основам его применения.">
   <meta itemprop="datePublished" content="2025-03-18T00:00:01+00:00">
   <meta itemprop="dateModified" content="2025-03-18T00:00:01+00:00">
-  <meta itemprop="wordCount" content="1610">
+  <meta itemprop="wordCount" content="2144">
   <meta itemprop="keywords" content="Python,Datatypes,Modules,Collections,Numpy"><meta property="og:url" content="http://localhost:1313/notes/drafts/numpy/">
   <meta property="og:site_name" content="HFK">
   <meta property="og:title" content="NumPy">
@@ -33,7 +33,7 @@
   <meta name="twitter:title" content="NumPy">
   <meta name="twitter:description" content="ПредупреждениеВ процессе написания!Конспект посвящён модулю NumPy и основам его применения.">
 <meta name="application-name" content="FixIt">
-<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/drafts/numpy/" title="NumPy | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/notes/docker/" title="База по Docker" /><link rel="next" type="text/html" href="http://localhost:1313/projects/subs_aggregator/" title="Subscription Aggregator for 3x-ui Proxy Servers" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/drafts/numpy/index.md" title="NumPy | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/drafts/numpy/" title="NumPy | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/notes/docker/" title="База по Docker" /><link rel="next" type="text/html" href="http://localhost:1313/notes/drafts/matplotlib/" title="Matplotlib" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/drafts/numpy/index.md" title="NumPy | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -44,7 +44,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/notes\/drafts\/numpy\/"
-    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "python, datatypes, modules, collections, numpy","wordcount":  1610 ,
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "python, datatypes, modules, collections, numpy","wordcount":  2144 ,
     "url": "http:\/\/localhost:1313\/notes\/drafts\/numpy\/","datePublished": "2025-03-18T00:00:01+00:00","dateModified": "2025-03-18T00:00:01+00:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -140,7 +140,7 @@
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>NumPy</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisycake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-    NoisyCake</a></span><span class="post-included-in">&nbsp;включен в <a href="/categories/python/" class="post-category" title="Категория - Python"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Python</a></span></div><div class="post-meta-line"><span title="Опубликовано 2025-03-18 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="18-03-2025">18-03-2025</time></span>&nbsp;<span title="1610 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 1700 слов</span>&nbsp;</div>
+    NoisyCake</a></span><span class="post-included-in">&nbsp;включен в <a href="/categories/python/" class="post-category" title="Категория - Python"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Python</a></span></div><div class="post-meta-line"><span title="Опубликовано 2025-03-18 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="18-03-2025">18-03-2025</time></span>&nbsp;<span title="2144 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 2200 слов</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>Содержание</span>
@@ -156,6 +156,16 @@
     </li>
     <li><a href="#создание-массива">Создание массива</a>
       <ol>
+        <li><a href="#nparray"><code>np.array()</code></a></li>
+        <li><a href="#nparange"><code>np.arange()</code></a></li>
+        <li><a href="#npzeros"><code>np.zeros()</code></a></li>
+        <li><a href="#npones"><code>np.ones()</code></a></li>
+        <li><a href="#npempty"><code>np.empty()</code></a></li>
+        <li><a href="#npfull"><code>np.full()</code></a></li>
+        <li><a href="#npidentity"><code>np.identity()</code></a></li>
+        <li><a href="#npeye"><code>np.eye()</code></a></li>
+        <li><a href="#nplinspace"><code>np.linspace()</code></a></li>
+        <li><a href="#nptile"><code>np.tile()</code></a></li>
         <li><a href="#nprandom">np.random</a></li>
       </ol>
     </li>
@@ -163,7 +173,13 @@
     <li><a href="#операции-над-массивами">Операции над массивами</a>
       <ol>
         <li><a href="#арифметические-операции">Арифметические операции</a></li>
-        <li><a href="#другие-операции">Другие операции</a></li>
+        <li><a href="#унарные-функции">Унарные функции</a></li>
+        <li><a href="#бинарные-функции">Бинарные функции</a>
+          <ol>
+            <li><a href="#сравнение">Сравнение</a></li>
+            <li><a href="#логические-операции">Логические операции</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#срезы">Срезы</a></li>
@@ -172,6 +188,7 @@
         <li><a href="#any-и-all"><code>any()</code> и <code>all()</code></a></li>
       </ol>
     </li>
+    <li><a href="#npwhere"><code>np.where()</code></a></li>
   </ol>
 </nav></div>
       </div><div class="content" id="content"><p><img loading="lazy" src="/notes/drafts/numpy/images/feature.png" alt="/notes/drafts/numpy/images/feature.png" srcset="/notes/drafts/numpy/images/feature.png?size=small, /notes/drafts/numpy/images/feature.png?size=medium 1.5x, /notes/drafts/numpy/images/feature.png?size=large 2x" data-title="/notes/drafts/numpy/images/feature.png" style="--width: 1920px;--aspect-ratio: 1920 / 864;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
@@ -238,10 +255,11 @@
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><p>ndarray создаётся различными функциями, например <code>array()</code>, <code>arange()</code>, <code>zeros()</code>, <code>ones()</code> и т.д.</p>
-<ol>
-<li>
-<p><code>np.array()</code>
-Функция <code>np.array(object, dtype=None, copy=True, order='K', subok=False, ndmin=0, like=None)</code> возвращает массив из объекта, такого как список или кортеж.</p>
+<h3 id="nparray" class="heading-element"><span><code>np.array()</code></span>
+  <a href="#nparray" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Функция <code>np.array(object, dtype=None, copy=True, order='K', subok=False, ndmin=0, like=None)</code> возвращает массив из объекта, такого как список или кортеж.</p>
 <p>Параметры:</p>
 <ul>
 <li><code>object</code>: Исходный объект, являющийся коллекцией Python (списки, кортежи, множества, генераторы и т.п.).</li>
@@ -279,13 +297,11 @@
     <div class="admonition-content">Описание очевидных (субъективно) и уже разобранных параметров функций будут опускаться</div>
   </div>
 </div>
-</li>
-</ol>
-<hr>
-<ol start="2">
-<li>
-<p><code>np.arange()</code>
-Функция <code>np.arange([start, ]stop, [step, ]dtype=None, *, device=None, like=None)</code> схожа с <code>range()</code> в Python, но возвращает не итерируемый объект, а массив.</p>
+<h3 id="nparange" class="heading-element"><span><code>np.arange()</code></span>
+  <a href="#nparange" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Функция <code>np.arange([start, ]stop, [step, ]dtype=None, *, device=None, like=None)</code> схожа с <code>range()</code> в Python, но возвращает не итерируемый объект, а массив.</p>
 <div class="details admonition info open">
   <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
   <div class="details-content">
@@ -308,13 +324,11 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Вывод: [ 0 10 20 30 40]</span></span></span></code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-<hr>
-<ol start="3">
-<li>
-<p><code>np.zeros()</code>
-Функция <code>np.zeros(shape, dtype=float, order='C', *, like=None)</code> возвращает массив указанной формы и заполняет его нулями.</p>
+</div><h3 id="npzeros" class="heading-element"><span><code>np.zeros()</code></span>
+  <a href="#npzeros" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Функция <code>np.zeros(shape, dtype=float, order='C', *, like=None)</code> возвращает массив указанной формы и заполняет его нулями.</p>
 <p>Параметры:</p>
 <ul>
 <li><code>shape</code>: Форма массива. Задаётся последовательностью из целых чисел.</li>
@@ -338,13 +352,11 @@
 </span></span><span class="line"><span class="cl">[[0. 0. 0.]
 </span></span><span class="line"><span class="cl"> [0. 0. 0.]]</span></span></code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-<hr>
-<ol start="4">
-<li>
-<p><code>np.ones()</code>
-Функция <code>np.ones(shape, dtype=None, order='C', *, device=None, like=None)</code> возвращает массив указанной формы и заполняет его единицами.</p>
+</div><h3 id="npones" class="heading-element"><span><code>np.ones()</code></span>
+  <a href="#npones" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Функция <code>np.ones(shape, dtype=None, order='C', *, device=None, like=None)</code> возвращает массив указанной формы и заполняет его единицами.</p>
 <p>Пример:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -357,23 +369,21 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Вывод: [1. 1. 1. 1. 1.]</span></span></span></code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-<hr>
-<ol start="5">
-<li><code>np.empty()</code>
-Функция <code>np.empty(shape, dtype=float, order='C', *, device=None, like=None)</code> возвращает массив указанной формы, не заполняя его значениями. Элементы будут содержать &ldquo;мусор&rdquo; из выделенной памяти.</li>
-</ol>
-<hr>
-<ol start="6">
-<li><code>np.full()</code>
-Функция <code>np.full(shape, fill_value, dtype=None, order='C', *, device=None, like=None)</code> возвращает массив указанной формы и заполняет его <code>fill_value</code>.</li>
-</ol>
-<hr>
-<ol start="7">
-<li>
-<p><code>np.identity()</code>
-Функция <code>np.identity(n, dtype=None, *, like=None)</code> возвращает квадратную матрицу с единицами на главной диагонали и нулями в остальных местах.</p>
+</div><h3 id="npempty" class="heading-element"><span><code>np.empty()</code></span>
+  <a href="#npempty" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Функция <code>np.empty(shape, dtype=float, order='C', *, device=None, like=None)</code> возвращает массив указанной формы, не заполняя его значениями. Элементы будут содержать &ldquo;мусор&rdquo; из выделенной памяти.</p>
+<h3 id="npfull" class="heading-element"><span><code>np.full()</code></span>
+  <a href="#npfull" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Функция <code>np.full(shape, fill_value, dtype=None, order='C', *, device=None, like=None)</code> возвращает массив указанной формы и заполняет его <code>fill_value</code>.</p>
+<h3 id="npidentity" class="heading-element"><span><code>np.identity()</code></span>
+  <a href="#npidentity" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Функция <code>np.identity(n, dtype=None, *, like=None)</code> возвращает квадратную матрицу с единицами на главной диагонали и нулями в остальных местах.</p>
 <p>Параметры:</p>
 <ul>
 <li><code>n</code>: Размер квадратной матрицы.</li>
@@ -399,13 +409,11 @@
 </span></span><span class="line"><span class="cl"> [0.,  1.,  0.],
 </span></span><span class="line"><span class="cl"> [0.,  0.,  1.]]</span></span></code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-<hr>
-<ol start="8">
-<li>
-<p><code>np.eye()</code>
-Функция <code>np.eye(N, M=None, k=0, dtype=&lt;class 'float'&gt;, order='C', *, device=None, like=None)</code> возвращает матрицу с единицами на главной диагонали и нулями в остальных местах.</p>
+</div><h3 id="npeye" class="heading-element"><span><code>np.eye()</code></span>
+  <a href="#npeye" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Функция <code>np.eye(N, M=None, k=0, dtype=&lt;class 'float'&gt;, order='C', *, device=None, like=None)</code> возвращает матрицу с единицами на главной диагонали и нулями в остальных местах.</p>
 <p>Параметры:</p>
 <ul>
 <li><code>N</code>: Размер квадратной матрицы. Если <code>M</code> не None, количество столбцов.</li>
@@ -433,13 +441,11 @@
 </span></span><span class="line"><span class="cl"> [0.,  0.,  1.],
 </span></span><span class="line"><span class="cl"> [0.,  0.,  0.]]</span></span></code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-<hr>
-<ol start="9">
-<li>
-<p><code>np.linspace()</code>
-Функция <code>np.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0, *, device=None)</code> возвращает массив из <code>num</code> равномерно распределённых точек в указанном интервале.</p>
+</div><h3 id="nplinspace" class="heading-element"><span><code>np.linspace()</code></span>
+  <a href="#nplinspace" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Функция <code>np.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0, *, device=None)</code> возвращает массив из <code>num</code> равномерно распределённых точек в указанном интервале.</p>
 <p>Параметры:</p>
 <ul>
 <li><code>start</code>: Начало интервала.</li>
@@ -461,13 +467,11 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Вывод: [2.  , 2.25, 2.5 , 2.75, 3.  ]</span></span></span></code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-<hr>
-<ol start="10">
-<li>
-<p><code>np.tile()</code>
-Функция <code>np.tile(A, reps)</code> возвращает массив, созданный путём повторения переданного массива указанное количество раз вдоль определённых осей.</p>
+</div><h3 id="nptile" class="heading-element"><span><code>np.tile()</code></span>
+  <a href="#nptile" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Функция <code>np.tile(A, reps)</code> возвращает массив, созданный путём повторения переданного массива указанное количество раз вдоль определённых осей.</p>
 <p>Параметры:</p>
 <ul>
 <li><code>A</code>: Исходный массив.</li>
@@ -512,9 +516,7 @@
 </span></span><span class="line"><span class="cl"> [1, 2, 3, 4],
 </span></span><span class="line"><span class="cl"> [1, 2, 3, 4]]</span></span></code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-<h3 id="nprandom" class="heading-element"><span>np.random</span>
+</div><h3 id="nprandom" class="heading-element"><span>np.random</span>
   <a href="#nprandom" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
@@ -747,11 +749,126 @@
       </tr>
   </tbody>
 </table>
-<h3 id="другие-операции" class="heading-element"><span>Другие операции</span>
-  <a href="#%d0%b4%d1%80%d1%83%d0%b3%d0%b8%d0%b5-%d0%be%d0%bf%d0%b5%d1%80%d0%b0%d1%86%d0%b8%d0%b8" class="heading-mark">
+<h3 id="унарные-функции" class="heading-element"><span>Унарные функции</span>
+  <a href="#%d1%83%d0%bd%d0%b0%d1%80%d0%bd%d1%8b%d0%b5-%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d0%b8" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h3><ol>
+</h3><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">function</th>
+          <th style="text-align: left">purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>np.absolute(x)</code> (<code>np.abs(x)</code>) и <code>np.fabs(x)</code></td>
+          <td style="text-align: left">Вычисляют модули элементов массива. Последняя обычно используется для чисел с плавающей точкой</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>np.sqrt(x)</code></td>
+          <td style="text-align: left">Вычисляет квадратные корни элементов массива</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>np.square(x)</code></td>
+          <td style="text-align: left">Возводит элементы массива в квадрат</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>np.exp(x)</code></td>
+          <td style="text-align: left">Вычисляет экспоненту для каждого элемента массива</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>np.log(x)</code>, <code>np.log10(x)</code>, <code>np.log2(x)</code> и <code>np.log1p(x)</code></td>
+          <td style="text-align: left">Вычисляют натуральный, десятичный, двоичный логарифмы и log(1+x) соответственно</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>np.sign(x)</code></td>
+          <td style="text-align: left">Возвращает массив знаков элементов исходного массива</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>np.ceil(x)</code></td>
+          <td style="text-align: left">Округляет элементы массива в большую сторону</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>np.floor(x)</code></td>
+          <td style="text-align: left">Округляет элементы массива в меньшую сторону</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>np.rint(x)</code></td>
+          <td style="text-align: left">Округляет элементы массива до ближайшего целого числа, сохраняя тип данных</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>np.modf(x)</code></td>
+          <td style="text-align: left">Возвращает кортеж двух массивов, в первом из которых дробная часть числа, во втором — целая</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>np.isnan(x)</code></td>
+          <td style="text-align: left">Возвращает булев массив, отражающий элементы, равные NaN</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>np.isfinite(x)</code></td>
+          <td style="text-align: left">Возвращает булев массив, отражающий конечные элементы</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>np.ininf(x)</code></td>
+          <td style="text-align: left">Возвращает булев массив, отражающий бесконечные элементы</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>np.logical_not(x)</code></td>
+          <td style="text-align: left">Возвращает булев массив, полученный поэлементной логической операцией NOT</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="бинарные-функции" class="heading-element"><span>Бинарные функции</span>
+  <a href="#%d0%b1%d0%b8%d0%bd%d0%b0%d1%80%d0%bd%d1%8b%d0%b5-%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Большинство функция этого раздела требуют, что входные массивы были одинаковой формы</div>
+  </div>
+</div>
+<ol>
+<li>
+<p><code>np.add(x1, x2)</code>: Поэлементно складывает два массива.</p>
+</li>
+<li>
+<p><code>np.subtract(x1, x2)</code>: Поэлементно вычитает второй массив из первого.</p>
+</li>
+<li>
+<p><code>np.multiply(x1, x2)</code>: Поэлементно умножает два массива.</p>
+</li>
+<li>
+<p><code>np.divide(x1, x2)</code>: Поэлементно делит первый массив на второй.</p>
+</li>
+<li>
+<p><code>np.floor_divide(x1, x2)</code>: Поэлементно делит первый массив на второй, округляя результат в меньшую сторону до целого числа.</p>
+</li>
+<li>
+<p><code>np.power(x1, x2)</code>: Поэлементно возводит первый массив в степень второго.</p>
+</li>
+<li>
+<p><code>np.maximum(x1, x2)</code>: Поэлементно вычисляет максимум двух массивов.</p>
+</li>
+<li>
+<p><code>np.fmax(x1, x2)</code>: Поэлементно вычисляет максимум двух массивов. Если один из элементов NaN, в качестве максимума выбирается второй. Если оба NaN — выбирается первый.</p>
+</li>
+<li>
+<p><code>np.minimum(x1, x2)</code>: Поэлементно вычисляет минимум двух массивов.</p>
+</li>
+<li>
+<p><code>np.fmin(x1, x2)</code>: Аналогичен <code>np.fmax()</code>, но выбирает минимум.</p>
+</li>
+<li>
+<p><code>np.mod(x1, x2)</code>: Поэлементно вычисляет остаток от деления первого массива на второй.</p>
+</li>
+<li>
+<p><code>np.copysign(x1, x2)</code>: Поэлементно копирует знак из второго массива в значение первого.</p>
+</li>
+<li>
+<p><code>np.isin(x1, x2)</code>: Возвращает булев массив, отражающий присутствие элементов первого массива во втором.</p>
+</li>
 <li>
 <p><code>np.dot(a, b, out=None)</code>: Возвращает точечное произведение массивов, а конкретно:</p>
 <ul>
@@ -791,6 +908,45 @@
 </span></span><span class="line"><span class="cl">       [2, 2]])</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
+</ol>
+<h4 id="сравнение" class="heading-element"><span>Сравнение</span>
+  <a href="#%d1%81%d1%80%d0%b0%d0%b2%d0%bd%d0%b5%d0%bd%d0%b8%d0%b5" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><ol>
+<li>
+<p><code>np.greater(x1, x2)</code>: Возвращает булев массив, где элемент True, если соответствующий элемент x1 &gt; элемента x2.</p>
+</li>
+<li>
+<p><code>np.greater_equal(x1, x2)</code>: Возвращает булев массив, где элемент True, если соответствующий элемент x1 &gt;= элемента x2.</p>
+</li>
+<li>
+<p><code>np.less(x1, x2)</code>: Возвращает булев массив, где элемент True, если соответствующий элемент x1 &lt; элемента x2.</p>
+</li>
+<li>
+<p><code>np.less_equal(x1, x2)</code>: Возвращает булев массив, где элемент True, если соответствующий элемент x1 &lt;= элемента x2.</p>
+</li>
+<li>
+<p><code>np.equal(x1, x2)</code>: Возвращает булев массив, где элемент True, если соответствующий элемент x1 == элементу x2.</p>
+</li>
+<li>
+<p><code>np.not_equal(x1, x2)</code>: Возвращает булев массив, где элемент True, если соответствующий элемент x1 != элементу x2.</p>
+</li>
+</ol>
+<h4 id="логические-операции" class="heading-element"><span>Логические операции</span>
+  <a href="#%d0%bb%d0%be%d0%b3%d0%b8%d1%87%d0%b5%d1%81%d0%ba%d0%b8%d0%b5-%d0%be%d0%bf%d0%b5%d1%80%d0%b0%d1%86%d0%b8%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><ol>
+<li>
+<p><code>np.logical_and(x1, x2)</code>: Возвращает булев массив, полученный поэлементной логической операцией AND между двумя массивами.</p>
+</li>
+<li>
+<p><code>np.logical_or(x1, x2)</code>: Возвращает булев массив, полученный поэлементной логической операцией OR между двумя массивами.</p>
+</li>
+<li>
+<p><code>np.logical_xor(x1, x2)</code>: Возвращает булев массив, полученный поэлементной логической операцией XOR между двумя массивами.</p>
+</li>
 </ol>
 <hr>
 <h2 id="срезы" class="heading-element"><span>Срезы</span>
@@ -918,7 +1074,70 @@
     <div class="admonition-content">Если <code>axis=None</code>, возвращает одно булево значение, если указана ось, возвращает массив булевых значений.</div>
   </div>
 </div>
-<p>Функция <code>np.all(a, axis=None, out=None, keepdims=&lt;no value&gt;, *, where=&lt;no value&gt;)</code> возвращает True, если все элементы переданного массива оцениваются как True, иначе — False.</p></div><div class="post-footer" id="post-footer">
+<p>Функция <code>np.all(a, axis=None, out=None, keepdims=&lt;no value&gt;, *, where=&lt;no value&gt;)</code> возвращает True, если все элементы переданного массива оцениваются как True, иначе — False.</p>
+<hr>
+<h2 id="npwhere" class="heading-element"><span><code>np.where()</code></span>
+  <a href="#npwhere" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Функция <code>np.where(condition, [x, y, ]/)</code> возвращает элементы из <code>x</code> или <code>y</code> в зависимости от условия (<code>condition</code>).</p>
+<p>Параметры:</p>
+<ul>
+<li><code>condition</code>: Условие / массив условий.</li>
+<li><code>x</code>: Возвращаемое значение, если <code>condition</code> True.</li>
+<li><code>y</code>: Возвращаемое значение, если <code>condition</code> False.</li>
+</ul>
+<p>Примеры использования:</p>
+<ol>
+<li>
+<p>Поиск индексов элементов:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: (array([3, 4], dtype=int64),)</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Замена элементов по условию:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">arr</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: [ 1  2  3 10 10]</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Применение нескольких условий:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">arr</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">arr</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">),</span> <span class="n">arr</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">arr</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Вывод: [ 1  2  3  8 10 12  7  8  9]</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
@@ -941,7 +1160,7 @@
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">Назад</a></span>&nbsp;|&nbsp;<span><a href="/">Домой</a></span>
     </section>
-  </div><div class="post-nav"><a href="/notes/docker/" class="post-nav-item" rel="prev" title="База по Docker"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>База по Docker</a><a href="/projects/subs_aggregator/" class="post-nav-item" rel="next" title="Subscription Aggregator for 3x-ui Proxy Servers">Subscription Aggregator for 3x-ui Proxy Servers<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+  </div><div class="post-nav"><a href="/notes/docker/" class="post-nav-item" rel="prev" title="База по Docker"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>База по Docker</a><a href="/notes/drafts/matplotlib/" class="post-nav-item" rel="next" title="Matplotlib">Matplotlib<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div class="post-reward">
     <div class="comment">Поддержать автора</div>

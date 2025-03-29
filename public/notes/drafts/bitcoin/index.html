@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="ru">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Bitcoin | HFK</title><meta name="author" content="NoisyCake">
+<meta name="description" content="ПредупреждениеВ процессе написания!Статья посвящена объяснению работы криптовалют на примере первой из них — Bitcoin.
+"><meta name="keywords" content='blockchain, cryptocurrency'>
+  <meta itemprop="name" content="Bitcoin">
+  <meta itemprop="description" content="ПредупреждениеВ процессе написания!Статья посвящена объяснению работы криптовалют на примере первой из них — Bitcoin.">
+  <meta itemprop="datePublished" content="2025-03-23T00:00:01+00:00">
+  <meta itemprop="dateModified" content="2025-03-23T00:00:01+00:00">
+  <meta itemprop="wordCount" content="124">
+  <meta itemprop="keywords" content="Blockchain,Cryptocurrency"><meta property="og:url" content="http://localhost:1313/notes/drafts/bitcoin/">
+  <meta property="og:site_name" content="HFK">
+  <meta property="og:title" content="Bitcoin">
+  <meta property="og:description" content="ПредупреждениеВ процессе написания!Статья посвящена объяснению работы криптовалют на примере первой из них — Bitcoin.">
+  <meta property="og:locale" content="ru">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2025-03-23T00:00:01+00:00">
+    <meta property="article:modified_time" content="2025-03-23T00:00:01+00:00">
+    <meta property="article:tag" content="Blockchain">
+    <meta property="article:tag" content="Cryptocurrency">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bitcoin">
+  <meta name="twitter:description" content="ПредупреждениеВ процессе написания!Статья посвящена объяснению работы криптовалют на примере первой из них — Bitcoin.">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/drafts/bitcoin/" title="Bitcoin | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/notes/docker/" title="База по Docker" /><link rel="next" type="text/html" href="http://localhost:1313/projects/subs_aggregator/" title="Subscription Aggregator for 3x-ui Proxy Servers" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/drafts/bitcoin/index.md" title="Bitcoin | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Bitcoin",
+    "inLanguage": "ru",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/notes\/drafts\/bitcoin\/"
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "blockchain, cryptocurrency","wordcount":  124 ,
+    "url": "http:\/\/localhost:1313\/notes\/drafts\/bitcoin\/","datePublished": "2025-03-23T00:00:01+00:00","dateModified": "2025-03-23T00:00:01+00:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "NoisyCake"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="normal"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item has-children">
+              <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item">
+              <a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Поиск">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Очистить">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="Сменить Тему">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Поиск">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Очистить">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Отменить
+            </a>
+          </li><li class="menu-item"><span class="nested-item">
+                  <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item"><a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item"><a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="Сменить Тему"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/notes/" title="Конспекты">Конспекты</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Bitcoin</li>
+    </ol>
+  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=""></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Bitcoin</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisycake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+    NoisyCake</a></span></div><div class="post-meta-line"><span title="Опубликовано 2025-03-23 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="23-03-2025">23-03-2025</time></span>&nbsp;<span title="124 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 200 слов</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>Содержание</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ol>
+    <li><a href="#блокчейн">Блокчейн</a></li>
+  </ol>
+</nav></div>
+      </div><div class="content" id="content"><div class="details admonition warning open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-exclamation-triangle" aria-hidden="true"></i>Предупреждение<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">В процессе написания!</div>
+  </div>
+</div>
+<p>Статья посвящена объяснению работы криптовалют на примере первой из них — Bitcoin.</p>
+<h2 id="блокчейн" class="heading-element"><span>Блокчейн</span>
+  <a href="#%d0%b1%d0%bb%d0%be%d0%ba%d1%87%d0%b5%d0%b9%d0%bd" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Привет! Сегодня я постараюсь объяснить простым языком, как устроены криптовалюты. Начнём с определения блокчейна.</p>
+<p><strong>Блокчейн</strong> в классическом его понимании — это структура данных, представляющая из себя односвязный список. Он состоит из блоков, в каждом из которых присутствует определённая информация и <u>сылка на предыдущий блок</u> (поэтому и односвязный).</p>
+<p>Блокчейн биткоина является частной реализацией упомянутого блокчейна. Отличается он децентрализацией, наличием консенсуса и PoW, о которых мы поговорим чуть позже, а пока посмотрим на содержимое блоков такой системы.</p>
+<p>В контексте битка блокчейн представляет из себя список транзакций, где в каждом блоке содержатся:</p>
+<ol>
+<li>Заголовок
+<ol>
+<li>Хэш предыдущего блока</li>
+<li>Хэш текущего блока</li>
+<li>Метка времени</li>
+<li>Nonce</li>
+<li>Сложность майнинга</li>
+</ol>
+</li>
+<li>Тело
+<ol>
+<li>Транзакция 1</li>
+<li>Транзакция 2</li>
+<li>&hellip;</li>
+</ol>
+</li>
+</ol></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="Oбновлена 2025-03-23 00:00:01">Oбновлена 23-03-2025&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="Поделиться в X" data-sharer="twitter" data-url="http://localhost:1313/notes/drafts/bitcoin/" data-title="Bitcoin" data-hashtags="blockchain,cryptocurrency"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/notes/drafts/bitcoin/" data-title="Bitcoin" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в VK" data-sharer="vk" data-url="http://localhost:1313/notes/drafts/bitcoin/" data-title="Bitcoin"><i class="fa-brands fa-vk fa-fw" aria-hidden="true"></i></a>
+  <a href="//mix.com/add?url=http%3a%2f%2flocalhost%3a1313%2fnotes%2fdrafts%2fbitcoin%2f&amp;description=Bitcoin" target="_blank" title="Поделиться в Mix"><i class="fa-brands fa-mix fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/blockchain/" class="post-tag" title="Тэги - Blockchain">Blockchain</a><a href="/tags/cryptocurrency/" class="post-tag" title="Тэги - Cryptocurrency">Cryptocurrency</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">Назад</a></span>&nbsp;|&nbsp;<span><a href="/">Домой</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/notes/docker/" class="post-nav-item" rel="prev" title="База по Docker"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>База по Docker</a><a href="/projects/subs_aggregator/" class="post-nav-item" rel="next" title="Subscription Aggregator for 3x-ui Proxy Servers">Subscription Aggregator for 3x-ui Proxy Servers<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div class="post-reward">
+    <div class="comment">Поддержать автора</div>
+    <input type="checkbox" class="reward-input" name="reward" id="fi-reward" hidden />
+    <label class="reward-button" for="fi-reward"><i class="fa-solid fa-qrcode fa-fw" aria-hidden="true"></i></label>
+    <div class="reward-ways" data-mode="fixed"><div><img loading="lazy" src="/img/CloudTips.png" alt="NoisyCake cloudtips" data-title="NoisyCake cloudtips" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span>cloudtips</span>
+          </div></div>
+  </div></article>
+
+  <aside class="toc" id="toc-auto" aria-label="Содержание"><h2 class="toc-title">Содержание&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://t.me/noisycake"target="_blank" rel="external nofollow noopener noreferrer">NoisyCake</a></span></div><div class="footer-line statistics"><span class="site-time" title='Website running ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Дней жизни:</span><span class="run-times ms-1">Website running ...</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='Всего посетителей'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='Всего посещений'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Наверх"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><div class="reading-progress-bar" style="--fi-progress-start: left; top: 0; --fi-progress-bg: #8581dd; --fi-progress-bg-dark: #fff;"></div><noscript>
+    <div class="noscript-warning"></div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"Копировать в буфер обмена","editLockTitle":"Заблокировать редактируемый кодовый блок","editUnLockTitle":"Разблокировать редактируемый блок кода","editable":true,"maxShownLines":50},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Окей","link":"Узнать больше","message":"Сайт использует куки"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"Результатов не найдено","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2024-11-15T16:15:22","version":"v0.3.14"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>

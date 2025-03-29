@@ -1,7 +1,7 @@
 # Subscription Aggregator for 3x-ui Proxy Servers
 
 
-**Subscription Aggregator for 3x-ui Proxy Servers** — это обратный прокси, который объединяет подписки с нескольких прокси-серверов, работающих на платформе 3x-ui, в одну ссылку. Проект расширяет стандартные возможности подписок в 3x-ui и делает их использование более удобным.
+**Subscription Aggregator for 3x-ui Proxy Servers** — это обратный прокси, который объединяет подписки с нескольких прокси-серверов, работающих на платформе 3x-ui, в одну ссылку. Проект расширяет стандартные возможности подписок 3x-ui и делает их использование более удобным.
 
 &lt;!--more--&gt;
 
@@ -134,5 +134,5 @@ async def merge_subscriptions(sub_id: str) -&gt; Response:
 ---
 
 > Автор: [NoisyCake](https://t.me/noisycake)  
-> URL: http://localhost:50327/projects/subs_aggregator/  
+> URL: http://localhost:1313/projects/subs_aggregator/  
 

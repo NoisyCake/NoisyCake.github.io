@@ -11,7 +11,7 @@
     <lastBuildDate>Fri, 14 Mar 2025 00:00:01 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>База по Docker</title>
+      <title>Шпаргалка по Docker</title>
       <link>http://localhost:1313/notes/docker/</link>
       <pubDate>Fri, 14 Mar 2025 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
       <guid>http://localhost:1313/notes/docker/</guid>

@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="ru">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Шпаргалка по Git | HFK</title><meta name="author" content="NoisyCake">
+<meta name="description" content="Конспект посвящён основам работы с распределённой системой контроля версиями (Git).
+"><meta name="keywords" content='git'>
+  <meta itemprop="name" content="Шпаргалка по Git">
+  <meta itemprop="description" content="Конспект посвящён основам работы с распределённой системой контроля версиями (Git).">
+  <meta itemprop="datePublished" content="2025-03-28T00:00:01+00:00">
+  <meta itemprop="dateModified" content="2025-03-28T00:00:01+00:00">
+  <meta itemprop="wordCount" content="1362">
+  <meta itemprop="keywords" content="Git"><meta property="og:url" content="http://localhost:1313/notes/git/">
+  <meta property="og:site_name" content="HFK">
+  <meta property="og:title" content="Шпаргалка по Git">
+  <meta property="og:description" content="Конспект посвящён основам работы с распределённой системой контроля версиями (Git).">
+  <meta property="og:locale" content="ru">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2025-03-28T00:00:01+00:00">
+    <meta property="article:modified_time" content="2025-03-28T00:00:01+00:00">
+    <meta property="article:tag" content="Git">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Шпаргалка по Git">
+  <meta name="twitter:description" content="Конспект посвящён основам работы с распределённой системой контроля версиями (Git).">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/git/" title="Шпаргалка по Git | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/notes/docker/" title="Шпаргалка по Docker" /><link rel="next" type="text/html" href="http://localhost:1313/projects/subs_aggregator/" title="Subscription Aggregator for 3x-ui Proxy Servers" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/git/index.md" title="Шпаргалка по Git | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Шпаргалка по Git",
+    "inLanguage": "ru",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/notes\/git\/"
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "git","wordcount":  1362 ,
+    "url": "http:\/\/localhost:1313\/notes\/git\/","datePublished": "2025-03-28T00:00:01+00:00","dateModified": "2025-03-28T00:00:01+00:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "NoisyCake"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="normal"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item has-children">
+              <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item">
+              <a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Поиск">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Очистить">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="Сменить Тему">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Поиск заголовков или содержимого ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Поиск">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Очистить">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Отменить
+            </a>
+          </li><li class="menu-item"><span class="nested-item">
+                  <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu"><li class="menu-item">
+                        <a class="menu-link" href="/notes/"><i class="fa-solid fa-note-sticky"></i> Конспекты</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/articles/"><i class="fa-solid fa-newspaper"></i> Статьи</a>
+                      </li><li class="menu-item">
+                        <a class="menu-link" href="/projects/"><i class="fa-solid fa-briefcase"></i> Проекты</a>
+                      </li></ul></li><li class="menu-item"><a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree"></i> Категории</a></li><li class="menu-item"><a class="menu-link" href="/tags/"><i class="fa-solid fa-tags"></i> Теги</a></li><li class="menu-item"><a class="menu-link" href="/about/"><i class="fa-solid fa-user"></i> Описание</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="Сменить Тему"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><nav aria-label="breadcrumb" class="breadcrumb-container">
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/notes/" title="Конспекты">Конспекты</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Шпаргалка по Git</li>
+    </ol>
+  </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=""></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Шпаргалка по Git</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisycake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+    NoisyCake</a></span></div><div class="post-meta-line"><span title="Опубликовано 2025-03-28 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="28-03-2025">28-03-2025</time></span>&nbsp;<span title="1362 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 1400 слов</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>Содержание</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ol>
+    <li><a href="#о-git">О Git</a>
+      <ol>
+        <li><a href="#состояния">Состояния</a></li>
+        <li><a href="#лог-и-хэш-коммита">Лог и хэш коммита</a></li>
+        <li><a href="#head">HEAD</a></li>
+        <li><a href="#сообщения-к-коммитам">Сообщения к коммитам</a></li>
+        <li><a href="#gitignore">.gitignore</a></li>
+      </ol>
+    </li>
+    <li><a href="#работа-с-git">Работа с Git</a>
+      <ol>
+        <li><a href="#создание-репозитория">Создание репозитория</a></li>
+        <li><a href="#настройки">Настройки</a></li>
+        <li><a href="#работа-с-коммитами-и-индексами">Работа с коммитами и индексами</a></li>
+        <li><a href="#просмотр-изменений">Просмотр изменений</a></li>
+        <li><a href="#клонирование-репозитория">Клонирование репозитория</a></li>
+        <li><a href="#работа-с-ветками">Работа с ветками</a></li>
+        <li><a href="#работа-с-удалёнными-репозиториями">Работа с удалёнными репозиториями</a></li>
+        <li><a href="#прочие-команды">Прочие команды</a></li>
+      </ol>
+    </li>
+    <li><a href="#алгоритмы">Алгоритмы</a>
+      <ol>
+        <li><a href="#коммит-пуш">Коммит-пуш</a></li>
+        <li><a href="#привязка-удалённого-репозитория">Привязка удалённого репозитория</a></li>
+        <li><a href="#форк-репозитория">Форк репозитория</a></li>
+        <li><a href="#создание-ветки-и-слияние-с-основной">Создание ветки и слияние с основной</a></li>
+        <li><a href="#pull-request">Pull request</a></li>
+        <li><a href="#разрешение-конфликта">Разрешение конфликта</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav></div>
+      </div><div class="content" id="content"><p>Конспект посвящён основам работы с распределённой системой контроля версиями (Git).</p>
+<h2 id="о-git" class="heading-element"><span>О Git</span>
+  <a href="#%d0%be-git" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Git — система контроля версий, которая помогает отслеживать изменения в проекте. Он позволяет сохранять изменения локально и при необходимости возвращаться к предыдущим версиям проекта.</p>
+<p>Все файлы, связанные с контролем версий (ну почти все), находятся в директории <code>/.git</code>.</p>
+<h3 id="состояния" class="heading-element"><span>Состояния</span>
+  <a href="#%d1%81%d0%be%d1%81%d1%82%d0%be%d1%8f%d0%bd%d0%b8%d1%8f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Файлы в Git могут быть в четырёх состояниях: untracked (неотслеживаемый), tracked (отслеживаемый), staged (подготовленный) и modified (изменённый)</p>
+<pre class="mermaid">flowchart LR;
+  A[untracked] --> |git add| B(staged);
+  B --> |Some changes| C(modified);
+  C --> |git add| B;
+  B --> |git commit| D[tracked/committed];
+  D --> |Some changes| C;</pre>
+<template>flowchart LR;
+  A[untracked] --> |git add| B(staged);
+  B --> |Some changes| C(modified);
+  C --> |git add| B;
+  B --> |git commit| D[tracked/committed];
+  D --> |Some changes| C;</template><p>В некоторых случаях файл может быть в статусах <code>staged</code> и <code>modified</code> одновременно (вернее было бы сказать, что разные версии этих файлов находятся в разных статусах).</p>
+<h3 id="лог-и-хэш-коммита" class="heading-element"><span>Лог и хэш коммита</span>
+  <a href="#%d0%bb%d0%be%d0%b3-%d0%b8-%d1%85%d1%8d%d1%88-%d0%ba%d0%be%d0%bc%d0%bc%d0%b8%d1%82%d0%b0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Хеш — основной идентификатор коммита. Он позволяет узнать его автора, дату и содержимое закоммиченных файлов. Все хеши, а также таблицу соответствий <code>хеш → информация о коммите</code> Git хранит в папке <code>.git</code>.</p>
+<h3 id="head" class="heading-element"><span>HEAD</span>
+  <a href="#head" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Файл <code>HEAD</code> — один из служебных файлов папки <code>.git</code>. Он указывает на последний коммит или на ветку, которая, в свою очередь, указывает на последний коммит. Внутри <code>HEAD</code> — ссылка на служебный файл: <code>refs/heads/main</code>. Если заглянуть в этот файл, можно увидеть хеш последнего коммита.</p>
+<h3 id="сообщения-к-коммитам" class="heading-element"><span>Сообщения к коммитам</span>
+  <a href="#%d1%81%d0%be%d0%be%d0%b1%d1%89%d0%b5%d0%bd%d0%b8%d1%8f-%d0%ba-%d0%ba%d0%be%d0%bc%d0%bc%d0%b8%d1%82%d0%b0%d0%bc" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Сообщения должны быть:</p>
+<ul>
+<li>Относительно короткими</li>
+<li>Информативными</li>
+<li>На английском языке</li>
+<li>Начинаться с заглавной буквы</li>
+<li>В повелительном наклонении</li>
+<li>В одном стиле</li>
+</ul>
+<h3 id="gitignore" class="heading-element"><span>.gitignore</span>
+  <a href="#gitignore" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Файл <code>.gitignore</code> нужен, чтобы <code>Git</code> не добавлял в репозиторий файлы, указанные в этом файле (файлы останутся &ldquo;untracked&rdquo;). В <code>gitignore</code> можно указать названия файлов, которые не нужны в репозитории. Внутри поддерживаются регулярные выражения.</p>
+<p>Небольшой шаблон <code>.gitignore</code> для Python-проекта:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Byte-compiled
+</span></span><span class="line"><span class="cl">__pycache__/
+</span></span><span class="line"><span class="cl">*.py[cod]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Environments
+</span></span><span class="line"><span class="cl">venv/
+</span></span><span class="line"><span class="cl">.env
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Distribution / packaging
+</span></span><span class="line"><span class="cl">dist/
+</span></span><span class="line"><span class="cl">*.egg-info/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Unit test / coverage reports
+</span></span><span class="line"><span class="cl">.coverage
+</span></span><span class="line"><span class="cl">*.py,cover
+</span></span><span class="line"><span class="cl">.cache/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Jupyter Notebook
+</span></span><span class="line"><span class="cl">.ipynb_checkpoints</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="работа-с-git" class="heading-element"><span>Работа с Git</span>
+  <a href="#%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%b0-%d1%81-git" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="создание-репозитория" class="heading-element"><span>Создание репозитория</span>
+  <a href="#%d1%81%d0%be%d0%b7%d0%b4%d0%b0%d0%bd%d0%b8%d0%b5-%d1%80%d0%b5%d0%bf%d0%be%d0%b7%d0%b8%d1%82%d0%be%d1%80%d0%b8%d1%8f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><code>git init</code> — Инициализация локального репозитория.</p>
+<h3 id="настройки" class="heading-element"><span>Настройки</span>
+  <a href="#%d0%bd%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --global user.name <span class="s2">&#34;Ivan Ivanov&#34;</span>   <span class="c1"># Настройка имени пользователя</span>
+</span></span><span class="line"><span class="cl">git config --global user.email <span class="s2">&#34;user@example.gmail&#34;</span>  <span class="c1"># Настройка почты пользователя</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info open">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-circle-info" aria-hidden="true"></i>Инфо<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></div>
+  <div class="details-content">
+    <div class="admonition-content">Этими параметрами будут подписываться коммиты</div>
+  </div>
+</div>
+<h3 id="работа-с-коммитами-и-индексами" class="heading-element"><span>Работа с коммитами и индексами</span>
+  <a href="#%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%b0-%d1%81-%d0%ba%d0%be%d0%bc%d0%bc%d0%b8%d1%82%d0%b0%d0%bc%d0%b8-%d0%b8-%d0%b8%d0%bd%d0%b4%d0%b5%d0%ba%d1%81%d0%b0%d0%bc%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git add &lt;file_name&gt;  <span class="c1"># Добавить в индекс указанный файл</span>
+</span></span><span class="line"><span class="cl">git add .            <span class="c1"># Добавить в индекс все файлы текущей директории и её поддиректорий</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git restore &lt;file_name&gt;           <span class="c1"># Отменить изменения файла file_name</span>
+</span></span><span class="line"><span class="cl">git restore --staged &lt;file_name&gt;  <span class="c1"># Убрать файл из индекса</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git commit --amend --no-edit            <span class="c1"># Добавить изменения к последнему коммиту и оставить сообщение прежним</span>
+</span></span><span class="line"><span class="cl">git commit --amend -m <span class="s2">&#34;Новое сообщение&#34;</span> <span class="c1"># Изменить сообщение к последнему коммиту</span>
+</span></span><span class="line"><span class="cl">git reset --soft &lt;commit_hash&gt;          <span class="c1"># Отмена коммита с оставлением изменений в staged</span>
+</span></span><span class="line"><span class="cl">gir reset --mixed &lt;commit_hash&gt;         <span class="c1"># Отмена коммита и убираем изменения из staged, не редактируя файлы</span>
+</span></span><span class="line"><span class="cl">git reset --hard &lt;commit_hash&gt;          <span class="c1"># Отмена коммита со сбросом изменений в файлах</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git log           <span class="c1"># Вывести подробную информацию о коммитах</span>
+</span></span><span class="line"><span class="cl">git log --oneline <span class="c1"># Вывести сокращённый хэш и комментарий коммита</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="просмотр-изменений" class="heading-element"><span>Просмотр изменений</span>
+  <a href="#%d0%bf%d1%80%d0%be%d1%81%d0%bc%d0%be%d1%82%d1%80-%d0%b8%d0%b7%d0%bc%d0%b5%d0%bd%d0%b5%d0%bd%d0%b8%d0%b9" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git diff                              <span class="c1"># Вывести изменения файлов в статусе modified</span>
+</span></span><span class="line"><span class="cl">git diff &lt;commit_hash&gt; &lt;commit_hash&gt;  <span class="c1"># Вывести изменения (разницу) между двумя коммитами</span>
+</span></span><span class="line"><span class="cl">git diff --staged                     <span class="c1"># Вывести изменения, имеющиеся в staged-файлах</span>
+</span></span><span class="line"><span class="cl">git diff &lt;branch_name&gt; &lt;commit_hash&gt;  <span class="c1"># Вывести разницу между веткой branch_name и указателем на HEAD</span>
+</span></span><span class="line"><span class="cl">git diff HEAD~2 HEAD                  <span class="c1"># Вывести разницу между последним коммитом и тем, который был два назад</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="клонирование-репозитория" class="heading-element"><span>Клонирование репозитория</span>
+  <a href="#%d0%ba%d0%bb%d0%be%d0%bd%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5-%d1%80%d0%b5%d0%bf%d0%be%d0%b7%d0%b8%d1%82%d0%be%d1%80%d0%b8%d1%8f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><code>git clone git@github.com:&lt;USERNAME&gt;/&lt;REPONAME&gt;.git</code> — клонирует удалённый репозиторий на локальный хост и связывает их, если этот удалённый репозиторий принадлежит пользователю хоста.</p>
+<h3 id="работа-с-ветками" class="heading-element"><span>Работа с ветками</span>
+  <a href="#%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%b0-%d1%81-%d0%b2%d0%b5%d1%82%d0%ba%d0%b0%d0%bc%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git branch                           <span class="c1"># Вывести список веток в репозитории</span>
+</span></span><span class="line"><span class="cl">git branch -a                        <span class="c1"># Вывести список веток в локальном и связанном с ним удалённом репозитории</span>
+</span></span><span class="line"><span class="cl">git branch &lt;name&gt;                    <span class="c1"># Создание ветки с именем name</span>
+</span></span><span class="line"><span class="cl">git branch -d &lt;name&gt;                 <span class="c1"># Удалить ветку name, если она является частью main</span>
+</span></span><span class="line"><span class="cl">git branch -D &lt;name&gt;                 <span class="c1"># Удалить ветку name</span>
+</span></span><span class="line"><span class="cl">git branch -m &lt;name&gt;                 <span class="c1"># Переименовать ветку в name</span>
+</span></span><span class="line"><span class="cl">git branch -m &lt;old_name&gt; &lt;new_name&gt;  <span class="c1"># Переименовать ветку с old_name в new_name</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git checkout &lt;name&gt;     <span class="c1"># Перейти на ветку name</span>
+</span></span><span class="line"><span class="cl">git checkout -b &lt;name&gt;  <span class="c1"># Создать ветку name и перейти в неё</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git merge &lt;name&gt;            <span class="c1"># Объединить активную ветку с веткой name</span>
+</span></span><span class="line"><span class="cl">git merge --no-edit &lt;name&gt;  <span class="c1"># Объединить активную ветку с веткой name, при этом отключить ввод сообщения</span>
+</span></span><span class="line"><span class="cl">git merge --no-ff &lt;name&gt;    <span class="c1"># Отключить fast-forward слияние веток</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git rebase &lt;branch_name&gt;    <span class="c1"># Переместить коммиты активной ветки в конец ветки branch_name</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="работа-с-удалёнными-репозиториями" class="heading-element"><span>Работа с удалёнными репозиториями</span>
+  <a href="#%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%b0-%d1%81-%d1%83%d0%b4%d0%b0%d0%bb%d1%91%d0%bd%d0%bd%d1%8b%d0%bc%d0%b8-%d1%80%d0%b5%d0%bf%d0%be%d0%b7%d0%b8%d1%82%d0%be%d1%80%d0%b8%d1%8f%d0%bc%d0%b8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git fetch origin                <span class="c1"># Загрузить все изменения из удалённого репозитория</span>
+</span></span><span class="line"><span class="cl">git fetch origin &lt;branch_name&gt;  <span class="c1"># Загрузить все изменения определённой ветки из удалённого репозитория</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git pull  <span class="c1"># Подтянуть изменения активной ветки из удалённого репозитория (`git fetch` + `git merge`)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git push -u origin &lt;branch_name&gt;  <span class="c1"># Отправить новую ветку в удалённый репозиторий и связать локальную с удалённой</span>
+</span></span><span class="line"><span class="cl">git push &lt;branch_name&gt;            <span class="c1"># Отправить изменения в ветку branch_name, уже существующую в удалённом репозитории</span>
+</span></span><span class="line"><span class="cl">git push --force                  <span class="c1"># Принудительно отправить изменения, при необходимости перезаписав историю</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="прочие-команды" class="heading-element"><span>Прочие команды</span>
+  <a href="#%d0%bf%d1%80%d0%be%d1%87%d0%b8%d0%b5-%d0%ba%d0%be%d0%bc%d0%b0%d0%bd%d0%b4%d1%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><code>git version</code> — показывает версию Git;<br>
+<code>git config</code> — нужна для просмотра и изменений настроек Git;<br>
+<code>git status</code> — выводит в консоль статусы файлов в локальном репозитории;
+<code>git status --ignored</code> — выводит в консоль статусы файлов, в том числе игнорируемых;
+<code>git remote -v</code> — выводит информацию о том, связан ли локальный репозиторий с удалённым;
+<code>git mergetool</code> — открывает vimdiff (по умолчанию) — инструмент для разрешения конфликтов.</p>
+<hr>
+<h2 id="алгоритмы" class="heading-element"><span>Алгоритмы</span>
+  <a href="#%d0%b0%d0%bb%d0%b3%d0%be%d1%80%d0%b8%d1%82%d0%bc%d1%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="коммит-пуш" class="heading-element"><span>Коммит-пуш</span>
+  <a href="#%d0%ba%d0%be%d0%bc%d0%bc%d0%b8%d1%82-%d0%bf%d1%83%d1%88" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Типичный алгоритм коммита-пуша:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git pull                   <span class="c1"># Подтягивание изменений для активной ветки из удалённого репозитория (дабы избежать конфликтов версий)</span>
+</span></span><span class="line"><span class="cl">git add .                  <span class="c1"># Добавление файла в индекс</span>
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;&lt;comment&gt;&#34;</span>  <span class="c1"># Сохранение файла</span>
+</span></span><span class="line"><span class="cl">git push                   <span class="c1"># Отправка сохранённых изменений в удалённый репозиторий</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="привязка-удалённого-репозитория" class="heading-element"><span>Привязка удалённого репозитория</span>
+  <a href="#%d0%bf%d1%80%d0%b8%d0%b2%d1%8f%d0%b7%d0%ba%d0%b0-%d1%83%d0%b4%d0%b0%d0%bb%d1%91%d0%bd%d0%bd%d0%be%d0%b3%d0%be-%d1%80%d0%b5%d0%bf%d0%be%d0%b7%d0%b8%d1%82%d0%be%d1%80%d0%b8%d1%8f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Алгоритм создания и привязки удалённого репозитория:</p>
+<ul>
+<li>Создать удалённый репозиторий в GitHub</li>
+<li>Сгенерировать SSH-ключ (если ещё нет):
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-keygen -t ed25519 -C <span class="s2">&#34;электронная почта, к которой привязан аккаунт на GitHub&#34;</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>Копировать открытый ключ командой <code>cat ~/.ssh/id_ed25519.pub</code></li>
+<li>Добавить созданный ключ на GitHub</li>
+<li><strong>Привязать удалённый репозиторий</strong> командой <code>git remote add origin &lt;ссылка_на_удалённый_репозиторий&gt;</code> и убедиться, что репозитории связаны: <code>git remote -v</code><br>
+В выводе должно быть:
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">origin    git@github.com:%ИМЯ_АККАУНТА%/%ИМЯ-ПРОЕКТА%.git <span class="o">(</span>fetch<span class="o">)</span>
+</span></span><span class="line"><span class="cl">origin    git@github.com:%ИМЯ_АККАУНТА%/%ИМЯ-ПРОЕКТА%.git <span class="o">(</span>push<span class="o">)</span> </span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="форк-репозитория" class="heading-element"><span>Форк репозитория</span>
+  <a href="#%d1%84%d0%be%d1%80%d0%ba-%d1%80%d0%b5%d0%bf%d0%be%d0%b7%d0%b8%d1%82%d0%be%d1%80%d0%b8%d1%8f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Форк — создание копии репозитория в GitHub. В процессе форка создаются копии всех файлов, веток и истории коммитов.</p>
+<p>Чтобы сделать форк, нужно нажать на соответствующую кнопку в репозитории проекта:
+<img loading="lazy" src="/notes/git/images/fork.png" alt="/notes/git/images/fork.png" srcset="/notes/git/images/fork.png?size=small, /notes/git/images/fork.png?size=medium 1.5x, /notes/git/images/fork.png?size=large 2x" data-title="/notes/git/images/fork.png" style="--width: 444px;--aspect-ratio: 444 / 43;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>Теперь репозиторий можно клонировать локально, вносить необходимые изменения и отправлять их.</p>
+<h3 id="создание-ветки-и-слияние-с-основной" class="heading-element"><span>Создание ветки и слияние с основной</span>
+  <a href="#%d1%81%d0%be%d0%b7%d0%b4%d0%b0%d0%bd%d0%b8%d0%b5-%d0%b2%d0%b5%d1%82%d0%ba%d0%b8-%d0%b8-%d1%81%d0%bb%d0%b8%d1%8f%d0%bd%d0%b8%d0%b5-%d1%81-%d0%be%d1%81%d0%bd%d0%be%d0%b2%d0%bd%d0%be%d0%b9" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Допустим, в работающий проект нужно добавить новые функции. Для этого лучшей практикой считается создание новой ветки, в которой будет проходить разработка и тестирование. Если изменения удачны, их заливают в релиз путём объединения веток.<br>
+Посмотрим на алгоритм подобных действий:</p>
+<ol>
+<li>Создать ветку и перейти в неё: <code>git checkout -b dev</code>;</li>
+<li>Выполнить необходимые коммиты;</li>
+<li>Протестировать;</li>
+<li>Перейти в главную ветку и слить ветку с главной: <code>git checkout main &amp;&amp; git merge dev</code>. При этом обе ветки теперь будут указывать на последний коммит ветки <code>dev</code>;</li>
+<li>Удалить второстепенную ветку (она должна быть неактивной): <code>git branch -d dev</code>.</li>
+</ol>
+<h3 id="pull-request" class="heading-element"><span>Pull request</span>
+  <a href="#pull-request" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>Pull request — запрос на изменения. Его используют, чтобы предложить свои улучшения по проекту. PR могут как принять, т.е. слить с веткой оригинального проекта, так и отклонить. Важно также понимать, что pull request — фича GitHub (и ему подобных), а не Git.</p>
+<p>Чтобы создать PR, можно следовать алгоритму:</p>
+<ol>
+<li>Создать форк репозитория;</li>
+<li>Клонировать локально;</li>
+<li>Связать с оригинальным репозиторием, чтобы отслеживать изменения: <code>git remote add &lt;имя_привязки&gt; &lt;ссылка_на_удалённый_репозиторий&gt;</code> -&gt; <code>git fetch &lt;имя_привязки&gt;</code></li>
+<li>Создать новую ветку: <code>git branch &lt;branch_name&gt;</code>;</li>
+<li>Выполнить необходимые изменения;</li>
+<li>Протестировать;</li>
+<li>Запушить;</li>
+<li>Перейти в <u>свой</u> удалённый репозиторий -&gt; Pull requests -&gt; New pull request. Выбрать ветки: из какой и в какую пойдёт предложение изменений. -&gt; Create pull request -&gt; Заполнить поля -&gt; повторно Create pull request.</li>
+</ol>
+<p>Теперь на вкладке Files changed можно обсуждать изменения и делать ревью. Также можно в любой момент добавить дополнительные коммиты в ветку — они автоматически попадут в открытый pull request после пуша.</p>
+<p>Если изменения подходят, владельцу оригинального репозитория достаточно нажать &ldquo;Merge pull request&rdquo;, чтобы объединить ветки.</p>
+<h3 id="разрешение-конфликта" class="heading-element"><span>Разрешение конфликта</span>
+  <a href="#%d1%80%d0%b0%d0%b7%d1%80%d0%b5%d1%88%d0%b5%d0%bd%d0%b8%d0%b5-%d0%ba%d0%be%d0%bd%d1%84%d0%bb%d0%b8%d0%ba%d1%82%d0%b0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><ol>
+<li>Открыть конфликтный файл в IDE или mergetool: <code>git mergetool &lt;file_name&gt;</code> и разрешить конфликт;</li>
+<li>Сделать коммит — он завершит процесс слияния веток.</li>
+</ol></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="Oбновлена 2025-03-28 00:00:01">Oбновлена 28-03-2025&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="Поделиться в X" data-sharer="twitter" data-url="http://localhost:1313/notes/git/" data-title="Шпаргалка по Git" data-hashtags="git"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/notes/git/" data-title="Шпаргалка по Git" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в VK" data-sharer="vk" data-url="http://localhost:1313/notes/git/" data-title="Шпаргалка по Git"><i class="fa-brands fa-vk fa-fw" aria-hidden="true"></i></a>
+  <a href="//mix.com/add?url=http%3a%2f%2flocalhost%3a1313%2fnotes%2fgit%2f&amp;description=%d0%a8%d0%bf%d0%b0%d1%80%d0%b3%d0%b0%d0%bb%d0%ba%d0%b0%20%d0%bf%d0%be%20Git" target="_blank" title="Поделиться в Mix"><i class="fa-brands fa-mix fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/git/" class="post-tag" title="Тэги - Git">Git</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">Назад</a></span>&nbsp;|&nbsp;<span><a href="/">Домой</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/notes/docker/" class="post-nav-item" rel="prev" title="Шпаргалка по Docker"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Шпаргалка по Docker</a><a href="/projects/subs_aggregator/" class="post-nav-item" rel="next" title="Subscription Aggregator for 3x-ui Proxy Servers">Subscription Aggregator for 3x-ui Proxy Servers<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div class="post-reward">
+    <div class="comment">Поддержать автора</div>
+    <input type="checkbox" class="reward-input" name="reward" id="fi-reward" hidden />
+    <label class="reward-button" for="fi-reward"><i class="fa-solid fa-qrcode fa-fw" aria-hidden="true"></i></label>
+    <div class="reward-ways" data-mode="fixed"><div><img loading="lazy" src="/img/CloudTips.png" alt="NoisyCake cloudtips" data-title="NoisyCake cloudtips" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span>cloudtips</span>
+          </div></div>
+  </div></article>
+
+  <aside class="toc" id="toc-auto" aria-label="Содержание"><h2 class="toc-title">Содержание&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2024 - 2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://t.me/noisycake"target="_blank" rel="external nofollow noopener noreferrer">NoisyCake</a></span></div><div class="footer-line statistics"><span class="site-time" title='Website running ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Дней жизни:</span><span class="run-times ms-1">Website running ...</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='Всего посетителей'><i class="fa-regular fa-user fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='Всего посещений'><i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Наверх"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><div class="reading-progress-bar" style="--fi-progress-start: left; top: 0; --fi-progress-bg: #8581dd; --fi-progress-bg-dark: #fff;"></div><noscript>
+    <div class="noscript-warning"></div>
+  </noscript>
+</div><script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.3.0/dist/mermaid.esm.min.mjs';
+    
+    
+    
+    window.mermaid = mermaid;
+  </script><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><link rel="stylesheet" href="/lib/pace/themes/blue/pace-theme-minimal.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/instant-page/instantpage.min.js" async defer type="module"></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/pace/pace.min.js" async defer></script><script>window.config={"autoBookmark":true,"code":{"copyTitle":"Копировать в буфер обмена","editLockTitle":"Заблокировать редактируемый кодовый блок","editUnLockTitle":"Разблокировать редактируемый блок кода","editable":true,"maxShownLines":50},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Окей","link":"Узнать больше","message":"Сайт использует куки"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"mermaid":{"themes":["default","dark"]},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/search.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"Результатов не найдено","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"siteTime":"2024-11-15T16:15:22","version":"v0.3.14"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>
