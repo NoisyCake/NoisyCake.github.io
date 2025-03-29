@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
     <title>Шпаргалка по Git | HFK</title><meta name="author" content="NoisyCake">
-<meta name="description" content="Конспект посвящён основам работы с распределённой системой контроля версиями (Git).
+<meta name="description" content="
+Конспект посвящён основам работы с распределённой системой контроля версиями (Git).
 "><meta name="keywords" content='git'>
   <meta itemprop="name" content="Шпаргалка по Git">
   <meta itemprop="description" content="Конспект посвящён основам работы с распределённой системой контроля версиями (Git).">
-  <meta itemprop="datePublished" content="2025-03-28T00:00:01+00:00">
-  <meta itemprop="dateModified" content="2025-03-28T00:00:01+00:00">
+  <meta itemprop="datePublished" content="2025-03-29T00:00:01+00:00">
+  <meta itemprop="dateModified" content="2025-03-29T00:00:01+00:00">
   <meta itemprop="wordCount" content="1362">
   <meta itemprop="keywords" content="Git"><meta property="og:url" content="http://localhost:1313/notes/git/">
   <meta property="og:site_name" content="HFK">
@@ -20,8 +21,8 @@
   <meta property="og:locale" content="ru">
   <meta property="og:type" content="article">
     <meta property="article:section" content="notes">
-    <meta property="article:published_time" content="2025-03-28T00:00:01+00:00">
-    <meta property="article:modified_time" content="2025-03-28T00:00:01+00:00">
+    <meta property="article:published_time" content="2025-03-29T00:00:01+00:00">
+    <meta property="article:modified_time" content="2025-03-29T00:00:01+00:00">
     <meta property="article:tag" content="Git">
 
   <meta name="twitter:card" content="summary">
@@ -40,7 +41,7 @@
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/notes\/git\/"
     },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "git","wordcount":  1362 ,
-    "url": "http:\/\/localhost:1313\/notes\/git\/","datePublished": "2025-03-28T00:00:01+00:00","dateModified": "2025-03-28T00:00:01+00:00","publisher": {
+    "url": "http:\/\/localhost:1313\/notes\/git\/","datePublished": "2025-03-29T00:00:01+00:00","dateModified": "2025-03-29T00:00:01+00:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
         "@type": "Person",
@@ -135,7 +136,7 @@
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Шпаргалка по Git</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisycake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-    NoisyCake</a></span></div><div class="post-meta-line"><span title="Опубликовано 2025-03-28 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="28-03-2025">28-03-2025</time></span>&nbsp;<span title="1362 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 1400 слов</span>&nbsp;</div>
+    NoisyCake</a></span></div><div class="post-meta-line"><span title="Опубликовано 2025-03-29 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="29-03-2025">29-03-2025</time></span>&nbsp;<span title="1362 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 1400 слов</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>Содержание</span>
@@ -176,7 +177,8 @@
     </li>
   </ol>
 </nav></div>
-      </div><div class="content" id="content"><p>Конспект посвящён основам работы с распределённой системой контроля версиями (Git).</p>
+      </div><div class="content" id="content"><p><img loading="lazy" src="/notes/git/images/feature.png" alt="/notes/git/images/feature.png" srcset="/notes/git/images/feature.png?size=small, /notes/git/images/feature.png?size=medium 1.5x, /notes/git/images/feature.png?size=large 2x" data-title="/notes/git/images/feature.png" style="--width: 1200px;--aspect-ratio: 1200 / 675;background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>Конспект посвящён основам работы с распределённой системой контроля версиями (Git).</p>
 <h2 id="о-git" class="heading-element"><span>О Git</span>
   <a href="#%d0%be-git" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
@@ -542,7 +544,7 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title="Oбновлена 2025-03-28 00:00:01">Oбновлена 28-03-2025&nbsp;</span>
+        <span title="Oбновлена 2025-03-29 00:00:01">Oбновлена 29-03-2025&nbsp;</span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">

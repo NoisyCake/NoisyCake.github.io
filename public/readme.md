@@ -6,7 +6,7 @@
 
 
 
-- 03-28 [Шпаргалка по Git](http://localhost:1313/notes/git/ "2025-03-28 00:00:01")
+- 03-29 [Шпаргалка по Git](http://localhost:1313/notes/git/ "2025-03-29 00:00:01")
 - 03-22 [Subscription Aggregator for 3x-ui Proxy Servers](http://localhost:1313/projects/subs_aggregator/ "2025-03-22 00:00:01")
 - 03-14 [Шпаргалка по Docker](http://localhost:1313/notes/docker/ "2025-03-14 00:00:01")
 - 01-26 [VPN на домашнем роутере | Xiaomi AX3000T](http://localhost:1313/articles/ax3000t/ "2025-01-26 00:00:01")

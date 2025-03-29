@@ -8,16 +8,8 @@
     <language>ru</language>
     <managingEditor>darkgxd@vk.com (NoisyCake)</managingEditor>
     <webMaster>darkgxd@vk.com (NoisyCake)</webMaster>
-    <lastBuildDate>Sun, 23 Mar 2025 00:00:01 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jul 2024 00:00:01 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/python/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Matplotlib</title>
-      <link>http://localhost:1313/notes/drafts/matplotlib/</link>
-      <pubDate>Sun, 23 Mar 2025 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
-      <guid>http://localhost:1313/notes/drafts/matplotlib/</guid>
-      <category domain="http://localhost:1313/categories/python/">Python</category>
-      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;images/feature.png&#34; alt=&#34;images/feature.png&#34; srcset=&#34;images/feature.png?size=small, images/feature.png?size=medium 1.5x, images/feature.png?size=large 2x&#34; data-title=&#34;images/feature.png&#34; style=&#34;background: url(/images/loading.min.svg) no-repeat center;&#34; onload=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}this.dataset.lazyloaded=&#39;&#39;;&#34; onerror=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}&#34;/&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;details admonition warning open&#34;&gt;&#xD;&#xA;  &lt;div class=&#34;details-summary admonition-title&#34;&gt;&lt;i class=&#34;icon fa-fw fa-solid fa-exclamation-triangle&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;Предупреждение&lt;i class=&#34;details-icon fa-solid fa-angle-right fa-fw&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;&lt;/div&gt;&#xD;&#xA;  &lt;div class=&#34;details-content&#34;&gt;&#xD;&#xA;    &lt;div class=&#34;admonition-content&#34;&gt;В процессе написания!&lt;/div&gt;&#xD;&#xA;  &lt;/div&gt;&#xD;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;Конспект посвящён модулю matplotlib и основам его применения.&lt;/p&gt;</description>
-    </item>
     <item>
       <title>Коллекции в Python. Часть II</title>
       <link>http://localhost:1313/notes/collections2/</link>
