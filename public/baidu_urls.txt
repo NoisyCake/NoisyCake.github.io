@@ -1,4 +1,5 @@
 http://localhost:1313/projects/subs_aggregator/
+http://localhost:1313/notes/drafts/numpy/
 http://localhost:1313/notes/git/
 http://localhost:1313/notes/docker/
 http://localhost:1313/articles/ax3000t/

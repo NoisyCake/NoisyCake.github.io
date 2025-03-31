@@ -8,14 +8,14 @@
     <language>ru</language>
     <managingEditor>darkgxd@vk.com (NoisyCake)</managingEditor>
     <webMaster>darkgxd@vk.com (NoisyCake)</webMaster>
-    <lastBuildDate>Fri, 28 Mar 2025 00:00:01 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 29 Mar 2025 00:00:01 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Шпаргалка по Git</title>
       <link>http://localhost:1313/notes/git/</link>
-      <pubDate>Fri, 28 Mar 2025 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <pubDate>Sat, 29 Mar 2025 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
       <guid>http://localhost:1313/notes/git/</guid>
-      <description>&lt;p&gt;Конспект посвящён основам работы с распределённой системой контроля версиями (Git).&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/notes/git/images/feature.png&#34; alt=&#34;/notes/git/images/feature.png&#34; srcset=&#34;http://localhost:1313/notes/git/images/feature.png?size=small, http://localhost:1313/notes/git/images/feature.png?size=medium 1.5x, http://localhost:1313/notes/git/images/feature.png?size=large 2x&#34; data-title=&#34;/notes/git/images/feature.png&#34; style=&#34;--width: 1200px;--aspect-ratio: 1200 / 675;background: url(/images/loading.min.svg) no-repeat center;&#34; onload=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}this.dataset.lazyloaded=&#39;&#39;;&#34; onerror=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}&#34;/&gt;&lt;/p&gt;&#xA;&lt;p&gt;Конспект посвящён основам работы с распределённой системой контроля версиями (Git).&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
