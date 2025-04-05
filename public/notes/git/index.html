@@ -29,7 +29,7 @@
   <meta name="twitter:title" content="Шпаргалка по Git">
   <meta name="twitter:description" content="Конспект посвящён основам работы с распределённой системой контроля версиями (Git).">
 <meta name="application-name" content="FixIt">
-<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/git/" title="Шпаргалка по Git | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/notes/docker/" title="Шпаргалка по Docker" /><link rel="next" type="text/html" href="http://localhost:1313/projects/subs_aggregator/" title="Subscription Aggregator for 3x-ui Proxy Servers" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/git/index.md" title="Шпаргалка по Git | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/git/" title="Шпаргалка по Git | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/notes/docker/" title="Шпаргалка по Docker" /><link rel="next" type="text/html" href="http://localhost:1313/notes/numpy/" title="Шпаргалка по NumPy" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/git/index.md" title="Шпаргалка по Git | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -334,7 +334,7 @@
 </span></span><span class="line"><span class="cl">git commit --amend --no-edit            <span class="c1"># Добавить изменения к последнему коммиту и оставить сообщение прежним</span>
 </span></span><span class="line"><span class="cl">git commit --amend -m <span class="s2">&#34;Новое сообщение&#34;</span> <span class="c1"># Изменить сообщение к последнему коммиту</span>
 </span></span><span class="line"><span class="cl">git reset --soft &lt;commit_hash&gt;          <span class="c1"># Отмена коммита с оставлением изменений в staged</span>
-</span></span><span class="line"><span class="cl">gir reset --mixed &lt;commit_hash&gt;         <span class="c1"># Отмена коммита и убираем изменения из staged, не редактируя файлы</span>
+</span></span><span class="line"><span class="cl">git reset --mixed &lt;commit_hash&gt;         <span class="c1"># Отмена коммита и убираем изменения из staged, не редактируя файлы</span>
 </span></span><span class="line"><span class="cl">git reset --hard &lt;commit_hash&gt;          <span class="c1"># Отмена коммита со сбросом изменений в файлах</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">git log           <span class="c1"># Вывести подробную информацию о коммитах</span>
@@ -436,9 +436,9 @@
   </a>
 </h3><p><code>git version</code> — показывает версию Git;<br>
 <code>git config</code> — нужна для просмотра и изменений настроек Git;<br>
-<code>git status</code> — выводит в консоль статусы файлов в локальном репозитории;
-<code>git status --ignored</code> — выводит в консоль статусы файлов, в том числе игнорируемых;
-<code>git remote -v</code> — выводит информацию о том, связан ли локальный репозиторий с удалённым;
+<code>git status</code> — выводит в консоль статусы файлов в локальном репозитории;<br>
+<code>git status --ignored</code> — выводит в консоль статусы файлов, в том числе игнорируемых;<br>
+<code>git remote -v</code> — выводит информацию о том, связан ли локальный репозиторий с удалённым;<br>
 <code>git mergetool</code> — открывает vimdiff (по умолчанию) — инструмент для разрешения конфликтов.</p>
 <hr>
 <h2 id="алгоритмы" class="heading-element"><span>Алгоритмы</span>
@@ -563,7 +563,7 @@
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">Назад</a></span>&nbsp;|&nbsp;<span><a href="/">Домой</a></span>
     </section>
-  </div><div class="post-nav"><a href="/notes/docker/" class="post-nav-item" rel="prev" title="Шпаргалка по Docker"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Шпаргалка по Docker</a><a href="/projects/subs_aggregator/" class="post-nav-item" rel="next" title="Subscription Aggregator for 3x-ui Proxy Servers">Subscription Aggregator for 3x-ui Proxy Servers<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+  </div><div class="post-nav"><a href="/notes/docker/" class="post-nav-item" rel="prev" title="Шпаргалка по Docker"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Шпаргалка по Docker</a><a href="/notes/numpy/" class="post-nav-item" rel="next" title="Шпаргалка по NumPy">Шпаргалка по NumPy<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div class="post-reward">
     <div class="comment">Поддержать автора</div>

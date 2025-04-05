@@ -6,7 +6,8 @@
 
 
 
-- 03-31 [Шпаргалка по NumPy](http://localhost:1313/notes/drafts/numpy/ "2025-03-31 00:00:01")
+- 04-05 [Обработка исключений в Python](http://localhost:1313/notes/drafts/exception_handling/ "2025-04-05 00:00:01")
+- 03-31 [Шпаргалка по NumPy](http://localhost:1313/notes/numpy/ "2025-03-31 00:00:01")
 - 03-29 [Шпаргалка по Git](http://localhost:1313/notes/git/ "2025-03-29 00:00:01")
 - 03-22 [Subscription Aggregator for 3x-ui Proxy Servers](http://localhost:1313/projects/subs_aggregator/ "2025-03-22 00:00:01")
 - 03-14 [Шпаргалка по Docker](http://localhost:1313/notes/docker/ "2025-03-14 00:00:01")

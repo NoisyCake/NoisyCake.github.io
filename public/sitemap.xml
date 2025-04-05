@@ -7,25 +7,79 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tags/git/</loc>
-    <lastmod>2025-03-29T00:00:01+00:00</lastmod>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2025-04-05T00:00:01+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-03-29T00:00:01+00:00</lastmod>
+    <lastmod>2025-04-05T00:00:01+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/python/</loc>
+    <lastmod>2025-04-05T00:00:01+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/categories/python/</loc>
+    <lastmod>2025-04-05T00:00:01+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-03-29T00:00:01+00:00</lastmod>
+    <lastmod>2025-04-05T00:00:01+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://localhost:1313/notes/</loc>
+    <lastmod>2025-04-05T00:00:01+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/notes/drafts/exception_handling/</loc>
+    <lastmod>2025-04-05T00:00:01+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/collections/</loc>
+    <lastmod>2025-03-31T00:00:01+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/datatypes/</loc>
+    <lastmod>2025-03-31T00:00:01+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/modules/</loc>
+    <lastmod>2025-03-31T00:00:01+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/numpy/</loc>
+    <lastmod>2025-03-31T00:00:01+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/notes/numpy/</loc>
+    <lastmod>2025-03-31T00:00:01+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/git/</loc>
     <lastmod>2025-03-29T00:00:01+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -103,19 +157,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2024-07-24T00:00:01+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>http://localhost:1313/tags/chainmap/</loc>
-    <lastmod>2024-07-24T00:00:01+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/tags/collections/</loc>
     <lastmod>2024-07-24T00:00:01+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -127,19 +169,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tags/datatypes/</loc>
-    <lastmod>2024-07-24T00:00:01+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>http://localhost:1313/tags/defaultdict/</loc>
-    <lastmod>2024-07-24T00:00:01+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/tags/modules/</loc>
     <lastmod>2024-07-24T00:00:01+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -152,18 +182,6 @@
   </url>
   <url>
     <loc>http://localhost:1313/tags/ordereddict/</loc>
-    <lastmod>2024-07-24T00:00:01+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/tags/python/</loc>
-    <lastmod>2024-07-24T00:00:01+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/categories/python/</loc>
     <lastmod>2024-07-24T00:00:01+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
