@@ -13,7 +13,7 @@
   <meta itemprop="description" content="Конспект посвящён рекурсивным функциям в Python">
   <meta itemprop="datePublished" content="2025-04-06T00:00:01+00:00">
   <meta itemprop="dateModified" content="2025-04-06T00:00:01+00:00">
-  <meta itemprop="wordCount" content="851">
+  <meta itemprop="wordCount" content="913">
   <meta itemprop="keywords" content="Python"><meta property="og:url" content="http://localhost:1313/notes/recursion/">
   <meta property="og:site_name" content="HFK">
   <meta property="og:title" content="Рекурсия в Python">
@@ -29,7 +29,7 @@
   <meta name="twitter:title" content="Рекурсия в Python">
   <meta name="twitter:description" content="Конспект посвящён рекурсивным функциям в Python">
 <meta name="application-name" content="FixIt">
-<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/recursion/" title="Рекурсия в Python | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/notes/drafts/exception_handling/" title="Обработка исключений в Python" /><link rel="next" type="text/html" href="http://localhost:1313/projects/subs_aggregator/" title="Subscription Aggregator for 3x-ui Proxy Servers" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/recursion/index.md" title="Рекурсия в Python | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/recursion/" title="Рекурсия в Python | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/notes/drafts/functions3/" title="Функции в Python. Часть III" /><link rel="next" type="text/html" href="http://localhost:1313/projects/subs_aggregator/" title="Subscription Aggregator for 3x-ui Proxy Servers" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/recursion/index.md" title="Рекурсия в Python | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -40,7 +40,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/notes\/recursion\/"
-    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "python","wordcount":  851 ,
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "python","wordcount":  913 ,
     "url": "http:\/\/localhost:1313\/notes\/recursion\/","datePublished": "2025-04-06T00:00:01+00:00","dateModified": "2025-04-06T00:00:01+00:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -136,7 +136,7 @@
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Рекурсия в Python</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisycake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-    NoisyCake</a></span><span class="post-included-in">&nbsp;включен в <a href="/categories/python/" class="post-category" title="Категория - Python"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Python</a></span></div><div class="post-meta-line"><span title="Опубликовано 2025-04-06 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="06-04-2025">06-04-2025</time></span>&nbsp;<span title="Одно слово"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 900 слов</span>&nbsp;</div>
+    NoisyCake</a></span><span class="post-included-in">&nbsp;включен в <a href="/categories/python/" class="post-category" title="Категория - Python"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Python</a></span></div><div class="post-meta-line"><span title="Опубликовано 2025-04-06 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="06-04-2025">06-04-2025</time></span>&nbsp;<span title="913 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 1000 слов</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>Содержание</span>
@@ -154,7 +154,11 @@
         <li><a href="#задача-5">Задача 5</a></li>
       </ol>
     </li>
-    <li><a href="#мемоизация">Мемоизация</a></li>
+    <li><a href="#мемоизация">Мемоизация</a>
+      <ol>
+        <li><a href="#стратегии-кэширования">Стратегии кэширования</a></li>
+      </ol>
+    </li>
     <li><a href="#настройка-глубины-рекурсии">Настройка глубины рекурсии</a></li>
   </ol>
 </nav></div>
@@ -397,7 +401,8 @@
   <a href="#%d0%bc%d0%b5%d0%bc%d0%be%d0%b8%d0%b7%d0%b0%d1%86%d0%b8%d1%8f" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><p><strong>Мемоизация</strong> — метод оптимизации, при котором результат выполнения функции кэшируется (сохраняется) и используется в следующем вызове.</p>
+</h2><p><strong>Кэширование</strong> — сохранение равнее полученных/вычисленных данных с целью ускорения доступа в будущем.</p>
+<p><strong>Мемоизация</strong> — частный случай кэширования, при котором результат выполнения функции сохраняется и используется в следующем вызове.</p>
 <p>Перепишем функцию из задачи 3 с использованием мемоизации:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -422,7 +427,47 @@
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">fib_rec</span><span class="p">(</span><span class="n">n</span><span class="p">)</span></span></span></code></pre></td></tr></table>
 </div>
-</div><hr>
+</div><h3 id="стратегии-кэширования" class="heading-element"><span>Стратегии кэширования</span>
+  <a href="#%d1%81%d1%82%d1%80%d0%b0%d1%82%d0%b5%d0%b3%d0%b8%d0%b8-%d0%ba%d1%8d%d1%88%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d1%8f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Стратегия</th>
+          <th style="text-align: left">Удаляемая запись</th>
+          <th style="text-align: left">Повторно используемые записи</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">First-In, First-Out (FIFO)</td>
+          <td style="text-align: left">Самая старая</td>
+          <td style="text-align: left">Новые</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Last-In, First-Out (LIFO)</td>
+          <td style="text-align: left">Самая новая</td>
+          <td style="text-align: left">Старые</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Least Recently Used (LRU)</td>
+          <td style="text-align: left">Которая не использовалась дольше остальных</td>
+          <td style="text-align: left">Недавно прочитанные</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Most Recently Used (MRU)</td>
+          <td style="text-align: left">Которая использовалась последней</td>
+          <td style="text-align: left">Прочитанные первыми</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Least Frequently Used (LFU)</td>
+          <td style="text-align: left">Которая использовалась наиболее редко</td>
+          <td style="text-align: left">Часто используемые</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
 <h2 id="настройка-глубины-рекурсии" class="heading-element"><span>Настройка глубины рекурсии</span>
   <a href="#%d0%bd%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0-%d0%b3%d0%bb%d1%83%d0%b1%d0%b8%d0%bd%d1%8b-%d1%80%d0%b5%d0%ba%d1%83%d1%80%d1%81%d0%b8%d0%b8" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
@@ -486,7 +531,7 @@
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">Назад</a></span>&nbsp;|&nbsp;<span><a href="/">Домой</a></span>
     </section>
-  </div><div class="post-nav"><a href="/notes/drafts/exception_handling/" class="post-nav-item" rel="prev" title="Обработка исключений в Python"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Обработка исключений в Python</a><a href="/projects/subs_aggregator/" class="post-nav-item" rel="next" title="Subscription Aggregator for 3x-ui Proxy Servers">Subscription Aggregator for 3x-ui Proxy Servers<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+  </div><div class="post-nav"><a href="/notes/drafts/functions3/" class="post-nav-item" rel="prev" title="Функции в Python. Часть III"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Функции в Python. Часть III</a><a href="/projects/subs_aggregator/" class="post-nav-item" rel="next" title="Subscription Aggregator for 3x-ui Proxy Servers">Subscription Aggregator for 3x-ui Proxy Servers<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div class="post-reward">
     <div class="comment">Поддержать автора</div>

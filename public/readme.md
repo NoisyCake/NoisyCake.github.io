@@ -6,8 +6,9 @@
 
 
 
+- 04-06 [Функции в Python. Часть III](http://localhost:1313/notes/drafts/functions3/ "2025-04-06 00:00:01")
 - 04-06 [Рекурсия в Python](http://localhost:1313/notes/recursion/ "2025-04-06 00:00:01")
-- 04-05 [Обработка исключений в Python](http://localhost:1313/notes/drafts/exception_handling/ "2025-04-05 00:00:01")
+- 04-05 [Обработка исключений в Python](http://localhost:1313/notes/exception_handling/ "2025-04-05 00:00:01")
 - 03-31 [Шпаргалка по NumPy](http://localhost:1313/notes/numpy/ "2025-03-31 00:00:01")
 - 03-29 [Шпаргалка по Git](http://localhost:1313/notes/git/ "2025-03-29 00:00:01")
 - 03-22 [Subscription Aggregator for 3x-ui Proxy Servers](http://localhost:1313/projects/subs_aggregator/ "2025-03-22 00:00:01")
@@ -33,7 +34,7 @@
 - 05-25 [Парадигмы программирования](http://localhost:1313/notes/programming_paradigms/ "2024-05-25 00:00:01")
 - 05-20 [Big O](http://localhost:1313/notes/big_o/ "2024-05-20 13:00:00")
 - 05-17 [Работа с txt файлами в Python](http://localhost:1313/notes/work_with_files/ "2024-05-17 00:00:01")
-- 05-16 [Функции в Python](http://localhost:1313/notes/functions2/ "2024-05-16 00:00:01")
+- 05-16 [Функции в Python. Часть II](http://localhost:1313/notes/functions2/ "2024-05-16 00:00:01")
 - 05-14 [Decimal, Fraction и комплексные числа в Python](http://localhost:1313/notes/dec_frac_compl/ "2024-05-14 00:00:01")
 - 05-13 [Модули random и string](http://localhost:1313/notes/random_string/ "2024-05-13 00:00:01")
 - 05-12 [Коллекции в Python. Часть I](http://localhost:1313/notes/collections/ "2024-05-12 00:00:01")
