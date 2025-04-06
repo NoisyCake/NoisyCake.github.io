@@ -18,7 +18,7 @@ draft: false
 
 Исключения — ошибки, происходящие во время выполнения программы и не являющиеся безусловно фатальными.
 
-В Python есть встроенные исключения, такие как TypeError, ValueError, ZeroDivisionError и т.д. Список всех можно посмотреть в [документации](https://docs.python.org/3/library/exceptions.html#bltin-exceptions), но посмотрим на некоторые:
+В Python есть встроенные исключения, такие как `TypeError`, `ValueError`, `ZeroDivisionError` и т.д. Список всех можно посмотреть в [документации](https://docs.python.org/3/library/exceptions.html#bltin-exceptions), но посмотрим на некоторые:
 
 * `TypeError` — Возникает, когда операция или функция применяется к объекту неподходящего типа.
 
