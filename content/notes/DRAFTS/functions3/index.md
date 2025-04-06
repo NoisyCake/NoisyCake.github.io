@@ -1,6 +1,6 @@
 ---
 title: "Функции в Python. Часть III"
-date: 2025-04-06 00:00:01
+date: 2025-04-06 12:00:01
 type: posts
 tags:
   - python
@@ -9,8 +9,6 @@ categories:
   - python
 draft: false
 ---
-
-![](images/feature.png)
 
 Третья часть функций в Python. Замыкание, декораторы и другое
 <!--more-->
