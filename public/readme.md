@@ -6,7 +6,8 @@
 
 
 
-- 04-06 [Функции в Python. Часть III](http://localhost:1313/notes/drafts/functions3/ "2025-04-06 00:00:01")
+- 04-08 [Генераторы в Python](http://localhost:1313/notes/drafts/generators/ "2025-04-08 00:00:01")
+- 04-06 [Функции в Python. Часть III](http://localhost:1313/notes/functions3/ "2025-04-06 12:00:01")
 - 04-06 [Рекурсия в Python](http://localhost:1313/notes/recursion/ "2025-04-06 00:00:01")
 - 04-05 [Обработка исключений в Python](http://localhost:1313/notes/exception_handling/ "2025-04-05 00:00:01")
 - 03-31 [Шпаргалка по NumPy](http://localhost:1313/notes/numpy/ "2025-03-31 00:00:01")

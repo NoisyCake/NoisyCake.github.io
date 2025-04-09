@@ -116,7 +116,7 @@ theme = 'FixIt'
     # placeholder of the search bar
     placeholder = ""
     # max number of results length
-    maxResultLength = 10
+    maxResultLength = 15
     # snippet length of the result
     snippetLength = 30
     # HTML tag name of the highlight part in results
@@ -210,7 +210,7 @@ theme = 'FixIt'
       social = true
     [params.home.posts]
       enable = true
-      paginate = 6
+      paginate = 10
 
   [params.social]
     Telegram = 'noisycake'
