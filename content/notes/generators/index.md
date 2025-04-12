@@ -509,7 +509,6 @@ with open('data.csv', 'r', encoding='utf-8') as file:
         print(f'{index}. {name} --- {ip}')
 ```
 
-
 ---
 
 **Основной источник:** https://stepik.org/course/82541

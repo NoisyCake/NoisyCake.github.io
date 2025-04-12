@@ -8,13 +8,21 @@
     <language>ru</language>
     <managingEditor>darkgxd@vk.com (NoisyCake)</managingEditor>
     <webMaster>darkgxd@vk.com (NoisyCake)</webMaster>
-    <lastBuildDate>Tue, 08 Apr 2025 00:00:01 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 12 Apr 2025 00:00:01 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Модуль re</title>
+      <link>http://localhost:1313/notes/re/</link>
+      <pubDate>Sat, 12 Apr 2025 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/re/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>&lt;p&gt;Конспект посвящён регулярным выражениям и модулю &lt;code&gt;re&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Генераторы в Python</title>
-      <link>http://localhost:1313/notes/drafts/generators/</link>
-      <pubDate>Tue, 08 Apr 2025 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
-      <guid>http://localhost:1313/notes/drafts/generators/</guid>
+      <link>http://localhost:1313/notes/generators/</link>
+      <pubDate>Wed, 09 Apr 2025 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/generators/</guid>
       <category domain="http://localhost:1313/categories/python/">Python</category>
       <description>&lt;p&gt;Конспект посвящён устройству итераторов и генераторов в Python&lt;/p&gt;</description>
     </item>
