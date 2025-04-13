@@ -1,5 +1,7 @@
 http://localhost:1313/projects/subs_aggregator/
+http://localhost:1313/notes/oop_introduction/
 http://localhost:1313/notes/re/
+http://localhost:1313/notes/drafts/itertools/
 http://localhost:1313/notes/generators/
 http://localhost:1313/notes/functions3/
 http://localhost:1313/notes/recursion/

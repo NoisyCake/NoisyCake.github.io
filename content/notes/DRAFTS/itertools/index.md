@@ -8,14 +8,14 @@ tags:
   - itertools
 categories:
   - python
-draft: true
+draft: false
 ---
 
 Конспект посвящён некоторым функциям модуля `itertools`
 <!--more-->
 
 ## Описание модуля
-В модуле `itertools` реализованы функции для создания итераторов. Он стандартизирует базовый набор быстрых и экономичных с точки зрения памяти инструментов, которые полезны сами по себе или в комбинации
+В модуле `itertools` реализованы функции для создания итераторов. Он стандартизирует базовый набор быстрых и эффективных по памяти инструментов, которые полезны сами по себе или в комбинации.
 
 Прообразом генераторных функций модуля `itertools` послужили аналогичные функции из таких языков функционального программирования, как Clojure, Haskell, APL и SML.
 
@@ -56,7 +56,7 @@ print(next(count1), next(count1), next(count1))
 import itertools
 from fractions import Fraction
 
-frac_iter = count(1, Fraction(1, 2))
+frac_iter = itertools.count(1, Fraction(1, 2))
 print(next(frac_iter), next(frac_iter), next(frac_iter), next(frac_iter), next(frac_iter))
 
 # Вывод: 1 3/2 2 5/2 3
@@ -112,7 +112,7 @@ c
 Стоит учесть, что `cycle()` сохраняет копию каждого элемента из `iterable`, поэтому для её работы может потребоваться большой объём памяти
 {{< /admonition >}}
 
-**Возможная реализация**
+**Возможная реализация:**
 ```py
 def cycle(iterable):
     saved = []
@@ -151,7 +151,7 @@ bee-and-geek
 [1, 2, 3]
 ```
 
-**Возможная реализация**
+**Возможная реализация:**
 ```py
 def repeat(object, times=None):
     if times is None:
@@ -217,7 +217,7 @@ print(list(accumulate([1, 2, 3, 4, 5], initial=100)))
 # Вывод: [100, 101, 103, 106, 110, 115]
 ```
 
-**Возможная реализация**
+**Возможная реализация:**
 ```py
 import operator
 
@@ -262,7 +262,7 @@ beegeek
 is
 ```
 
-**Возможная реализация**
+**Возможная реализация:**
 ```py
 def dropwhile(predicate, iterable):
     iterable = iter(iterable)
@@ -281,7 +281,7 @@ def dropwhile(predicate, iterable):
 from itertools import takewhile
 
 numbers = [1, 1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3]
-words = ['is', 'an', 'of', 'python', 'C#', 'beegeek', 'is']
+words = ['is', 'an', 'of', 'python', 'C#', 'is']
 
 new_numbers = list(takewhile(lambda num: num <= 5, numbers))
 print(new_numbers)
@@ -297,7 +297,7 @@ an
 of
 ```
 
-**Возможная реализация**
+**Возможная реализация:**
 ```py
 def takewhile(predicate, iterable):
     for x in iterable:
@@ -314,7 +314,7 @@ def takewhile(predicate, iterable):
 from itertools import filterfalse
 
 numbers = [1, 1, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3]
-words = ['is', 'an', 'of', 'python', 'C#', 'beegeek', 'is']
+words = ['is', 'an', 'of', 'python', 'C#', 'is']
 
 new_numbers = list(filterfalse(lambda num: num <= 5, numbers))
 print(new_numbers)
@@ -326,14 +326,13 @@ for word in filterfalse(lambda s: len(s) == 2, words):
 # Вывод:
 [6, 7, 8, 9, 10]
 python
-beegeek
 ```
 
 {{< admonition info >}}
 Если `predicate=None`, то фильтрующая функция равнозначна функции `bool()`
 {{< /admonition >}}
 
-**Возможная реализация**
+**Возможная реализация:**
 ```py
 def filterfalse(predicate, iterable):
     if predicate is None:
@@ -358,7 +357,7 @@ print(list(result))
 # Вывод: ['A', 'C', 'E']
 ```
 
-**Возможная реализация**
+**Возможная реализация:**
 ```py
 def compress(iterable, selectors):
     for value, selector in zip(iterable, selectors):
@@ -389,38 +388,362 @@ print(*islice(range(100), 0, 100, 10))
 ## Функции, объединяющие и разделяющие данные
 
 ### `chain()`
-Функция `chain()` 
+Функция `chain(*iterables)` создаёт итератор, последовательно возвращающий элементы всех переданных итерируемых объектов.
 
+```py
+from itertools import chain
 
+chain_iter1 = chain('ABC', 'DEF')
+print(*chain_iter1)
 
+chain_iter2 = chain(enumerate('ABC'))
+print(*chain_iter2)
 
+for i in chain([1, 2, 3], ['a', 'b', 'c'], ('Shmidt', 20, 'Male', 'Student')):
+    print(i, end=' ')
+```
+```
+# Вывод:
+A B C D E F
+(0, 'A') (1, 'B') (2, 'C')
+1 2 3 a b c Shmidt 20 Male Student
+```
 
+**Возможная реализация:**
+```py
+def chain(*iterables):
+    for it in iterables:
+        for element in it:
+            yield element
+```
 
+### `chain.from_iterable()`
+Функция `chain.from_iterable(iterable)` создаёт итератор, возвращающий все элементы итерируемого объекта, включая вложенные элементы вложенных.
 
+{{< admonition info >}}
+Все вложенные объекты должны быть итерируемыми
+{{< /admonition >}}
 
+```py
+from itertools import chain
 
+chain_iter1 = chain.from_iterable(['ABC', 'DEF'])      # передаем список
+print(*chain_iter1)
 
+chain_iter2 = chain.from_iterable(enumerate('ABC'))
+print(*chain_iter2)
 
+for i in chain.from_iterable(['Shmidt', '20', 'Male', 'Student']):
+    print(i, end=' ')
+```
+```
+# Вывод:
+A B C D E F
+0 A 1 B 2 C
+S h m i d t 2 0 M a l e S t u d e n t
+```
 
+**Возможная реализация:**
+```py
+def from_iterable(iterables):
+    for it in iterables:
+        for element in it:
+            yield element
+```
 
+### `zip_longest()`
+Функция `zip_longest(*iterables, fillvalue=None)` работает аналогично `zip()`, за тем исключением, что работает до исчерпания всех переданных итерируемых объектов.
 
+```py
+from itertools import zip_longest
 
+print(*zip([1, 2, 3], ['a', 'b', 'c', 'd', 'e']))
+print(*zip_longest([1, 2, 3], ['a', 'b', 'c', 'd', 'e']))                     # fillvalue=None
+print(*zip_longest([1, 2, 3], ['a', 'b', 'c', 'd', 'e'], fillvalue='*'))
+print(*zip_longest(['a', 'b', 'c', 'd', 'e'], [1, 2, 3], fillvalue=777))
+```
+```
+(1, 'a') (2, 'b') (3, 'c')
+(1, 'a') (2, 'b') (3, 'c') (None, 'd') (None, 'e')
+(1, 'a') (2, 'b') (3, 'c') ('*', 'd') ('*', 'e')
+('a', 1) ('b', 2) ('c', 3) ('d', 777) ('e', 777)
+```
 
+### `tee()`
+Функция `tee(iterable, n=2)` создаёт `n` независимых итераторов на основе одного итерируемого объекта.
 
+```py
+from itertools import tee
 
+iter1, iter2 = tee([1, 'a', 2, 'b', 3, 'c'])    # по умолчанию n=2
 
+print(*iter1)
+print(*iter2)
+```
+```
+# Вывод:
+1 a 2 b 3 c
+1 a 2 b 3 c
+```
 
+Новые итераторы, созданные функцией `tee()`, разделяют данные c исходным итерируемым объектом, и поэтому после их создания исходный итерируемый объект не должен изменяться.
 
+```py
+from itertools import tee
 
+data = [1, 2, 3, 4, 5]
 
+iter1, iter2 = tee(data)
 
+data.append(6)                      
 
+print(*iter1)
+print(*iter2)
+```
+```
+# Вывод:
+1 2 3 4 5 6
+1 2 3 4 5 6
+```
 
+### `pairwise()`
+Функция `pairwise(iterable)` создаёт итератор, возвращающий последовательные перекрывающие пары в виде кортежей.
 
+```py
+from itertools import pairwise
 
+print(*pairwise('ABCDEFG'))
+print(*pairwise([1, 2, 3, 4, 5]))
+```
+```
+# Вывод:
+('A', 'B') ('B', 'C') ('C', 'D') ('D', 'E') ('E', 'F') ('F', 'G')
+(1, 2) (2, 3) (3, 4) (4, 5)
+```
 
+**Возможная реализация:**
+```py
+def pairwise(iterable):
+    a, b = tee(iterable)
+    next(b, None)
+    return zip(a, b)
+```
 
+---
+## `groupby()`
 
+Функция `groupby(iterable, key=None)` используется для группировки смежных элементов итерируемого объекта. Она возвращает итератор, содержащий кортежи, каждый из которых состоит из двух элементов: первый — значение, характеризующее группу, второй — итератор, содержащий элементы соответствующей группы.  
+`key` — функция, характеризующая группу. Если не указана, используется функция тождественности.
+
+```py
+from itertools import groupby
+
+numbers = [1, 1, 1, 7, 7, 7, 7, 15, 7, 7, 7]
+
+group_iter = groupby(numbers)
+
+for key, values in group_iter:
+    print(f'{key}: {list(values)}')  
+```
+```
+# Вывод:
+1: [1, 1, 1]
+7: [7, 7, 7, 7]
+15: [15]
+7: [7, 7, 7]
+```
+
+Посмотрим, как работает `key`:
+```py
+from itertools import groupby
+
+numbers = [1, 1, 1, 7, 7, 7, 7, 15, 7, 7, 7]
+
+group_iter = groupby(numbers, key=lambda num: num < 10)
+
+for key, values in group_iter:
+    print(f'{key}: {list(values)}')
+```
+```
+# Вывод:
+True: [1, 1, 1, 7, 7, 7, 7]
+False: [15]
+True: [7, 7, 7]
+```
+
+Взглянем на примеры использования `groupby()` в реальных задачах.
+
+### Пример 1
+Задача: удалить подряд идущие одинаковые элементы в списке:
+```py
+from itertools import groupby
+
+data = ['A', 'A', 'A', 'A', 'B', 'B', 'B', 'C', 'C', 'D', 'A', 'A', 'B', 'B', 'B']
+
+result = [key for key, group in groupby(data)] 
+
+print(result)
+
+# Вывод: ['A', 'B', 'C', 'D', 'A', 'B']
+```
+
+### Пример 2
+Задача: получить список с уникальными элементами списка:
+```py
+from itertools import groupby
+
+data = ['A', 'A', 'A', 'A', 'B', 'B', 'B', 'C', 'C', 'D', 'A', 'A', 'B', 'B', 'B']
+
+result = [key for key, group in groupby(sorted(data))] 
+
+print(result)
+
+# Вывод: ['A', 'B', 'C', 'D']
+```
+
+### Пример 3
+Задача: определить, какой символ встречается чаще всего в строке:
+```py
+from itertools import groupby
+
+data = 'aaabcdaabcccdddcccccccbrttbcc'
+group_iter = groupby(sorted(data))
+
+max_result = max(group_iter, key=lambda tpl: sum(1 for i in tpl[1]))
+
+print('Символ встречающийся чаще всего в строке:', max_result[0])
+
+# Вывод: Символ встречающийся чаще всего в строке: c
+```
+
+---
+## Комбинаторные функции
+
+### `permutations()`
+Функция `permutations(iterable, r=None)` создаёт итератор, возвращающий все перестановки элементов `iterable` в виде кортежей. Для задания длины кортежей используется `r`.
+
+```py
+from itertools import permutations
+
+numbers = [1, 2, 3, 4]
+letters = 'cba'
+
+all_num_permutations = permutations(numbers)
+all_let_permutations = permutations(letters)
+
+print(list(all_num_permutations))
+print(list(all_let_permutations))
+```
+```
+# Вывод:
+[(1, 2, 3, 4), (1, 2, 4, 3), (1, 3, 2, 4), (1, 3, 4, 2), (1, 4, 2, 3), (1, 4, 3, 2), (2, 1, 3, 4), (2, 1, 4, 3), (2, 3, 1, 4), (2, 3, 4, 1), (2, 4, 1, 3), (2, 4, 3, 1), (3, 1, 2, 4), (3, 1, 4, 2), (3, 2, 1, 4), (3, 2, 4, 1), (3, 4, 1, 2), (3, 4, 2, 1), (4, 1, 2, 3), (4, 1, 3, 2), (4, 2, 1, 3), (4, 2, 3, 1), (4, 3, 1, 2), (4, 3, 2, 1)]
+[('c', 'b', 'a'), ('c', 'a', 'b'), ('b', 'c', 'a'), ('b', 'a', 'c'), ('a', 'c', 'b'), ('a', 'b', 'c')]
+```
+
+Если передать `r`, получим все размещения из `n` элементов по `r`, где `n` — длина переданного итерируемого объекта.
+```py
+from itertools import permutations
+
+letters = ['a', 'b', 'c']
+
+permutations1 = permutations(letters, r=1)
+permutations2 = permutations(letters, r=2)
+permutations3 = permutations(letters, r=3)
+
+print(list(permutations1))
+print(list(permutations2))
+print(list(permutations3))
+```
+```
+# Вывод:
+[('a',), ('b',), ('c',)]
+[('a', 'b'), ('a', 'c'), ('b', 'a'), ('b', 'c'), ('c', 'a'), ('c', 'b')]
+[('a', 'b', 'c'), ('a', 'c', 'b'), ('b', 'a', 'c'), ('b', 'c', 'a'), ('c', 'a', 'b'), ('c', 'b', 'a')]
+```
+
+{{< admonition info >}}
+Элементы итерируемого объекта рассматриваются как уникальные в зависимости от их положения, а не от их значения. Поэтому, если элементы уникальны, повторных значений в каждой перестановке не будет, иначе будут повторы
+{{< /admonition >}}
+
+### `combinations()`
+Функция `combinations(iterable, r)` создаёт итератор, возвращающий сочетания из `n` по `r` элементов `iterable`.
+
+```py
+from itertools import combinations
+
+numbers = [1, 2, 3, 4]
+
+print(list(combinations(numbers, r=1)))
+print(list(combinations(numbers, r=2)))
+print(list(combinations(numbers, r=3)))
+print(list(combinations(numbers, r=4)))
+```
+```
+# Вывод:
+[(1,), (2,), (3,), (4,)]
+[(1, 2), (1, 3), (1, 4), (2, 3), (2, 4), (3, 4)]
+[(1, 2, 3), (1, 2, 4), (1, 3, 4), (2, 3, 4)]
+[(1, 2, 3, 4)]
+```
+
+{{< admonition info >}}
+Аналогично предыдущей функции, отсутствие повторений гарантируется только если элементы `iterable` уникальны
+{{< /admonition >}}
+
+### `combinations_with_replacement()`
+Функция `combinations_with_replacement(iterable, r)` создаёт итератор, возвращающий сочетания с повторами из `n` по `r` элементов `iterable`.
+
+```py
+from itertools import combinations_with_replacement
+
+numbers = [1, 2, 3, 4]
+
+print(list(combinations_with_replacement(numbers, 1)))
+print(list(combinations_with_replacement(numbers, 2)))
+print(list(combinations_with_replacement(numbers, 3)))
+```
+```
+# Вывод:
+[(1,), (2,), (3,), (4,)]
+[(1, 1), (1, 2), (1, 3), (1, 4), (2, 2), (2, 3), (2, 4), (3, 3), (3, 4), (4, 4)]
+[(1, 1, 1), (1, 1, 2), (1, 1, 3), (1, 1, 4), (1, 2, 2), (1, 2, 3), (1, 2, 4), (1, 3, 3), (1, 3, 4), (1, 4, 4), (2, 2, 2), (2, 2, 3), (2, 2, 4), (2, 3, 3), (2, 3, 4), (2, 4, 4), (3, 3, 3), (3, 3, 4), (3, 4, 4), (4, 4, 4)]
+```
+
+### `product()`
+Функция `product(*iterables, repeat=1)` создаёт итератор, возвращающий декартово произведение всех переданных итерируемых объектов.
+
+{{< admonition info >}}
+Декартовым произведением A и B называется множество, содержащее все упорядоченные пары (a, b)
+{{< /admonition >}}
+
+```py
+from itertools import product
+
+numbers = [1, 2]
+letters = ['x', 'y', 'z']
+flags = [False, True]
+
+print(list(product(numbers, letters)))
+print(list(product(letters, numbers)))
+print(list(product(letters, numbers, flags)))
+```
+```
+# Вывод:
+[(1, 'x'), (1, 'y'), (1, 'z'), (2, 'x'), (2, 'y'), (2, 'z')]
+[('x', 1), ('x', 2), ('y', 1), ('y', 2), ('z', 1), ('z', 2)]
+[('x', 1, False), ('x', 1, True), ('x', 2, False), ('x', 2, True), ('y', 1, False), ('y', 1, True), ('y', 2, False), ('y', 2, True), ('z', 1, False), ('z', 1, True), ('z', 2, False), ('z', 2, True)]
+```
+
+Чтобы вычислить декартово произведение итерируемого объекта с самим собой, можно использовать необязательный аргумент `repeat`:
+```py
+from itertools import product
+
+letters = 'abc'
+
+print(list(product(letters, repeat=2)))
+
+# Вывод: [('a', 'a'), ('a', 'b'), ('a', 'c'), ('b', 'a'), ('b', 'b'), ('b', 'c'), ('c', 'a'), ('c', 'b'), ('c', 'c')]
+```
 
 ---
 

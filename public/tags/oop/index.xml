@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OOP - Тэг | HFK</title>
+    <link>http://localhost:1313/tags/oop/</link>
+    <description>Hungry for Knowledge – онлайн-ресурс, содержащий конспекты, статьи и проекты автора, охватывающие спектр тем, связанных с программированием и не только.</description>
+    <generator>Hugo 0.138.0 &amp; FixIt v0.3.14</generator>
+    <language>ru</language>
+    <managingEditor>darkgxd@vk.com (NoisyCake)</managingEditor>
+    <webMaster>darkgxd@vk.com (NoisyCake)</webMaster>
+    <lastBuildDate>Sun, 13 Apr 2025 00:00:01 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/oop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Атрибуты, свойства и методы</title>
+      <link>http://localhost:1313/notes/drafts/attributesmethods/</link>
+      <pubDate>Sun, 13 Apr 2025 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/drafts/attributesmethods/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>&lt;p&gt;Конспект посвящён атрибутам, методам и свойствам объектов и классов в Python&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Введение в ООП</title>
+      <link>http://localhost:1313/notes/oop_introduction/</link>
+      <pubDate>Sat, 12 Apr 2025 12:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/notes/oop_introduction/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/notes/oop_introduction/images/feature.png&#34; alt=&#34;/notes/oop_introduction/images/feature.png&#34; srcset=&#34;http://localhost:1313/notes/oop_introduction/images/feature.png?size=small, http://localhost:1313/notes/oop_introduction/images/feature.png?size=medium 1.5x, http://localhost:1313/notes/oop_introduction/images/feature.png?size=large 2x&#34; data-title=&#34;/notes/oop_introduction/images/feature.png&#34; style=&#34;--width: 1920px;--aspect-ratio: 1920 / 963;background: url(/images/loading.min.svg) no-repeat center;&#34; onload=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}this.dataset.lazyloaded=&#39;&#39;;&#34; onerror=&#34;this.title=this.dataset.title;for(const i of [&#39;style&#39;, &#39;data-title&#39;,&#39;onerror&#39;,&#39;onload&#39;]){this.removeAttribute(i);}&#34;/&gt;&lt;/p&gt;&#xA;&lt;p&gt;Конспект посвящён основам и принципам ООП в Python&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
