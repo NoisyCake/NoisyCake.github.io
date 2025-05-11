@@ -13,7 +13,7 @@
   <meta itemprop="description" content="Конспект посвящён основам Docker: установке, командам и т.п. Применимо к Ubuntu 22.04. Теория, а конкретно “что такое Docker и для чего он нужен” — опускается.">
   <meta itemprop="datePublished" content="2025-03-14T00:00:01+00:00">
   <meta itemprop="dateModified" content="2025-03-14T00:00:01+00:00">
-  <meta itemprop="wordCount" content="2312">
+  <meta itemprop="wordCount" content="2321">
   <meta itemprop="keywords" content="Docker"><meta property="og:url" content="http://localhost:1313/notes/docker/">
   <meta property="og:site_name" content="HFK">
   <meta property="og:title" content="Шпаргалка по Docker">
@@ -29,7 +29,7 @@
   <meta name="twitter:title" content="Шпаргалка по Docker">
   <meta name="twitter:description" content="Конспект посвящён основам Docker: установке, командам и т.п. Применимо к Ubuntu 22.04. Теория, а конкретно “что такое Docker и для чего он нужен” — опускается.">
 <meta name="application-name" content="FixIt">
-<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/docker/" title="Шпаргалка по Docker | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/articles/ax3000t/" title="VPN на домашнем роутере | Xiaomi AX3000T" /><link rel="next" type="text/html" href="http://localhost:1313/notes/git/" title="Шпаргалка по Git" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/docker/index.md" title="Шпаргалка по Docker | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/notes/docker/" title="Шпаргалка по Docker | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/articles/anonymity/" title="Анонимность в сети. Часть I" /><link rel="next" type="text/html" href="http://localhost:1313/notes/git/" title="Шпаргалка по Git" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/notes/docker/index.md" title="Шпаргалка по Docker | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -40,7 +40,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/notes\/docker\/"
-    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "docker","wordcount":  2312 ,
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "docker","wordcount":  2321 ,
     "url": "http:\/\/localhost:1313\/notes\/docker\/","datePublished": "2025-03-14T00:00:01+00:00","dateModified": "2025-03-14T00:00:01+00:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -52,7 +52,7 @@
   <body data-header-desktop="sticky" data-header-mobile="normal"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
   <div class="header-wrapper">
     <div class="header-title">
-      <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+      <a href="/" title="HFK"><img loading="lazy" src="/img/HFK-Icon.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
     <nav>
       <ul class="menu"><li class="menu-item has-children">
               <a class="menu-link" href="javascript:void(0);"><i class="fa-solid fa-feather-pointed"></i> Посты</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
@@ -85,7 +85,7 @@
   <div class="header-container">
     <div class="header-wrapper">
       <div class="header-title">
-        <a href="/" title="HFK"><img loading="lazy" src="/img/logo_transparent.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
+        <a href="/" title="HFK"><img loading="lazy" src="/img/HFK-Icon.png" alt="HFK" data-title="HFK" width="26" height="26" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">HFK</span></a><span class="header-subtitle"></span></div>
       <div class="menu-toggle" id="menu-toggle-mobile">
         <span></span><span></span><span></span>
       </div>
@@ -136,7 +136,7 @@
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Шпаргалка по Docker</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisycake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-    NoisyCake</a></span></div><div class="post-meta-line"><span title="Опубликовано 2025-03-14 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="14-03-2025">14-03-2025</time></span>&nbsp;<span title="2312 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 2400 слов</span>&nbsp;</div>
+    NoisyCake</a></span></div><div class="post-meta-line"><span title="Опубликовано 2025-03-14 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="14-03-2025">14-03-2025</time></span>&nbsp;<span title="Одно слово"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 2400 слов</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>Содержание</span>
@@ -376,6 +376,7 @@
 <p>Общая схема команд для управления контейнерами: <code>docker container &lt;command&gt;</code>, где вместо <code>&lt;command&gt;</code> вставляется:</p>
 <ul>
 <li><code>create</code> — создание контейнера из образа.</li>
+<li><code>commit</code> — создание нового образа из изменений в контейнере.</li>
 <li><code>start</code> — запуск созданного контейнера.</li>
 <li><code>run</code> — создание и запуск контейнера. Если образа для контейнера нет локально, Docker загрузит его из удалённого реестра.<br>
 Флаги:
@@ -756,7 +757,7 @@
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">Назад</a></span>&nbsp;|&nbsp;<span><a href="/">Домой</a></span>
     </section>
-  </div><div class="post-nav"><a href="/articles/ax3000t/" class="post-nav-item" rel="prev" title="VPN на домашнем роутере | Xiaomi AX3000T"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>VPN на домашнем роутере | Xiaomi AX3000T</a><a href="/notes/git/" class="post-nav-item" rel="next" title="Шпаргалка по Git">Шпаргалка по Git<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+  </div><div class="post-nav"><a href="/articles/anonymity/" class="post-nav-item" rel="prev" title="Анонимность в сети. Часть I"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Анонимность в сети. Часть I</a><a href="/notes/git/" class="post-nav-item" rel="next" title="Шпаргалка по Git">Шпаргалка по Git<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div class="post-reward">
     <div class="comment">Поддержать автора</div>

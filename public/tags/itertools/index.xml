@@ -12,9 +12,9 @@
     <atom:link href="http://localhost:1313/tags/itertools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Модуль itertools</title>
-      <link>http://localhost:1313/notes/drafts/itertools/</link>
+      <link>http://localhost:1313/notes/itertools/</link>
       <pubDate>Thu, 10 Apr 2025 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
-      <guid>http://localhost:1313/notes/drafts/itertools/</guid>
+      <guid>http://localhost:1313/notes/itertools/</guid>
       <category domain="http://localhost:1313/categories/python/">Python</category>
       <description>&lt;p&gt;Конспект посвящён некоторым функциям модуля &lt;code&gt;itertools&lt;/code&gt;&lt;/p&gt;</description>
     </item>

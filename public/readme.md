@@ -8,7 +8,7 @@
 
 - 04-12 [Введение в ООП](http://localhost:1313/notes/oop_introduction/ "2025-04-12 12:00:01")
 - 04-12 [Модуль re](http://localhost:1313/notes/re/ "2025-04-12 00:00:01")
-- 04-10 [Модуль itertools](http://localhost:1313/notes/drafts/itertools/ "2025-04-10 00:00:01")
+- 04-10 [Модуль itertools](http://localhost:1313/notes/itertools/ "2025-04-10 00:00:01")
 - 04-09 [Генераторы в Python](http://localhost:1313/notes/generators/ "2025-04-09 00:00:01")
 - 04-06 [Функции в Python. Часть III](http://localhost:1313/notes/functions3/ "2025-04-06 12:00:01")
 - 04-06 [Рекурсия в Python](http://localhost:1313/notes/recursion/ "2025-04-06 00:00:01")

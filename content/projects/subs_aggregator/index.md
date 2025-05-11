@@ -76,6 +76,7 @@ logger = logging.getLogger(__name__)
 ```py
 app = FastAPI()
 load_dotenv()
+path = os.getenv('URL')
 ```
 
 ### Функция `fetch_subscription`
@@ -101,7 +102,7 @@ async def fetch_subscription(client, sub_url: str, sub_id: str) -> Optional[byte
 1. Объединяет и кодирует данные;
 1. Возвращает ответ в виде голого текста.
 ```py
-@app.get('/sub/{sub_id}')
+@app.get(f'/{path}/{{sub_id}}')
 async def merge_subscriptions(sub_id: str) -> Response:
     sub_urls = os.getenv('SUB_URLS').split()
     
