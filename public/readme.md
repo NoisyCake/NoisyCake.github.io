@@ -6,6 +6,7 @@
 
 
 
+- 05-12 [HFK Routers](http://localhost:1313/projects/hfk_routers/ "2025-05-12 00:00:01")
 - 04-12 [Введение в ООП](http://localhost:1313/notes/oop_introduction/ "2025-04-12 12:00:01")
 - 04-12 [Модуль re](http://localhost:1313/notes/re/ "2025-04-12 00:00:01")
 - 04-10 [Модуль itertools](http://localhost:1313/notes/itertools/ "2025-04-10 00:00:01")

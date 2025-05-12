@@ -8,8 +8,15 @@
     <language>ru</language>
     <managingEditor>darkgxd@vk.com (NoisyCake)</managingEditor>
     <webMaster>darkgxd@vk.com (NoisyCake)</webMaster>
-    <lastBuildDate>Sat, 12 Apr 2025 12:00:01 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 May 2025 00:00:01 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HFK Router</title>
+      <link>http://localhost:1313/projects/hfk_routers/</link>
+      <pubDate>Sun, 11 May 2025 00:00:01 +0000</pubDate><author>darkgxd@vk.com (NoisyCake)</author>
+      <guid>http://localhost:1313/projects/hfk_routers/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;HFK Routers&lt;/strong&gt; — это Telegram-бот, который предоставляет пользователям удобный способ оплаты подписки на доступ к прокси-серверу через перепрошитый роутер, приобретённый в &lt;strong&gt;HFK Shop&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Введение в ООП</title>
       <link>http://localhost:1313/notes/oop_introduction/</link>
