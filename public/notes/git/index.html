@@ -13,7 +13,7 @@
   <meta itemprop="description" content="Конспект посвящён основам работы с распределённой системой контроля версиями (Git).">
   <meta itemprop="datePublished" content="2025-03-29T00:00:01+00:00">
   <meta itemprop="dateModified" content="2025-03-29T00:00:01+00:00">
-  <meta itemprop="wordCount" content="1362">
+  <meta itemprop="wordCount" content="1373">
   <meta itemprop="keywords" content="Git"><meta property="og:url" content="http://localhost:1313/notes/git/">
   <meta property="og:site_name" content="HFK">
   <meta property="og:title" content="Шпаргалка по Git">
@@ -40,7 +40,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/notes\/git\/"
-    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "git","wordcount":  1362 ,
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "git","wordcount":  1373 ,
     "url": "http:\/\/localhost:1313\/notes\/git\/","datePublished": "2025-03-29T00:00:01+00:00","dateModified": "2025-03-29T00:00:01+00:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -136,7 +136,7 @@
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Шпаргалка по Git</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisycake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-    NoisyCake</a></span></div><div class="post-meta-line"><span title="Опубликовано 2025-03-29 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="29-03-2025">29-03-2025</time></span>&nbsp;<span title="1362 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 1400 слов</span>&nbsp;</div>
+    NoisyCake</a></span></div><div class="post-meta-line"><span title="Опубликовано 2025-03-29 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="29-03-2025">29-03-2025</time></span>&nbsp;<span title="1373 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 1400 слов</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>Содержание</span>
@@ -481,7 +481,7 @@
 </div></li>
 <li>Копировать открытый ключ командой <code>cat ~/.ssh/id_ed25519.pub</code></li>
 <li>Добавить созданный ключ на GitHub</li>
-<li><strong>Привязать удалённый репозиторий</strong> командой <code>git remote add origin &lt;ссылка_на_удалённый_репозиторий&gt;</code> и убедиться, что репозитории связаны: <code>git remote -v</code><br>
+<li><strong>Привязать удалённый репозиторий</strong> командой <code>git remote add origin &lt;ссылка_на_удалённый_репозиторий&gt;</code> или клонировать его командой <code>git clone &lt;ссылка_на_удалённый_репозиторий&gt;</code> и убедиться, что репозитории связаны: <code>git remote -v</code><br>
 В выводе должно быть:
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -513,7 +513,8 @@
 <li>Выполнить необходимые коммиты;</li>
 <li>Протестировать;</li>
 <li>Перейти в главную ветку и слить ветку с главной: <code>git checkout main &amp;&amp; git merge dev</code>. При этом обе ветки теперь будут указывать на последний коммит ветки <code>dev</code>;</li>
-<li>Удалить второстепенную ветку (она должна быть неактивной): <code>git branch -d dev</code>.</li>
+<li>Удалить второстепенную ветку (она должна быть неактивной): <code>git branch -d dev</code>;</li>
+<li>Запушить изменения: <code>git push</code>.</li>
 </ol>
 <h3 id="pull-request" class="heading-element"><span>Pull request</span>
   <a href="#pull-request" class="heading-mark">
