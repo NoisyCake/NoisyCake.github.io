@@ -5,18 +5,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Subscription Aggregator for 3x-ui Proxy Servers | HFK</title><meta name="author" content="NoisyCake">
-<meta name="description" content="Subscription Aggregator for 3x-ui Proxy Servers — это обратный прокси, который объединяет подписки с нескольких прокси-серверов, работающих на платформе 3x-ui, в одну ссылку. Проект расширяет стандартные возможности подписок 3x-ui и делает их использование более удобным.
+    <title>VLESS Config Aggregator | HFK</title><meta name="author" content="NoisyCake">
+<meta name="description" content="VLESS Config Aggregator — это серверное приложение, которое объединяет прокси-конфигурации с различных источников (3x-ui и vless://) в единую ссылку. Проект расширил исходную архитектуру и теперь может обрабатывать как подписки в формате 3x-ui, так и прямые VLESS-ссылки, размещённые на GitHub.
+Что нового в версии 2.0.0✅ Изменён способ передачи ссылок — ссылки на конфиги должны находиться в .txt файле в удалённом репозитории. Поддерживаются приватные GitHub репозитории
+✅ Поддержка ссылок типа vless:// — кроме подписок 3x-ui теперь можно вставлять и прямые ссылки на конфиги
+✅ Улучшение логгера и обработки ошибок
 "><meta name="keywords" content='vpn'>
-  <meta itemprop="name" content="Subscription Aggregator for 3x-ui Proxy Servers">
-  <meta itemprop="description" content="Subscription Aggregator for 3x-ui Proxy Servers — это обратный прокси, который объединяет подписки с нескольких прокси-серверов, работающих на платформе 3x-ui, в одну ссылку. Проект расширяет стандартные возможности подписок 3x-ui и делает их использование более удобным.">
+  <meta itemprop="name" content="VLESS Config Aggregator">
+  <meta itemprop="description" content="VLESS Config Aggregator — это серверное приложение, которое объединяет прокси-конфигурации с различных источников (3x-ui и vless://) в единую ссылку. Проект расширил исходную архитектуру и теперь может обрабатывать как подписки в формате 3x-ui, так и прямые VLESS-ссылки, размещённые на GitHub.
+Что нового в версии 2.0.0✅ Изменён способ передачи ссылок — ссылки на конфиги должны находиться в .txt файле в удалённом репозитории. Поддерживаются приватные GitHub репозитории
+✅ Поддержка ссылок типа vless:// — кроме подписок 3x-ui теперь можно вставлять и прямые ссылки на конфиги
+✅ Улучшение логгера и обработки ошибок">
   <meta itemprop="datePublished" content="2025-03-22T00:00:01+00:00">
   <meta itemprop="dateModified" content="2025-03-22T00:00:01+00:00">
-  <meta itemprop="wordCount" content="608">
+  <meta itemprop="wordCount" content="233">
   <meta itemprop="keywords" content="Vpn"><meta property="og:url" content="http://localhost:1313/projects/subs_aggregator/">
   <meta property="og:site_name" content="HFK">
-  <meta property="og:title" content="Subscription Aggregator for 3x-ui Proxy Servers">
-  <meta property="og:description" content="Subscription Aggregator for 3x-ui Proxy Servers — это обратный прокси, который объединяет подписки с нескольких прокси-серверов, работающих на платформе 3x-ui, в одну ссылку. Проект расширяет стандартные возможности подписок 3x-ui и делает их использование более удобным.">
+  <meta property="og:title" content="VLESS Config Aggregator">
+  <meta property="og:description" content="VLESS Config Aggregator — это серверное приложение, которое объединяет прокси-конфигурации с различных источников (3x-ui и vless://) в единую ссылку. Проект расширил исходную архитектуру и теперь может обрабатывать как подписки в формате 3x-ui, так и прямые VLESS-ссылки, размещённые на GitHub.
+Что нового в версии 2.0.0✅ Изменён способ передачи ссылок — ссылки на конфиги должны находиться в .txt файле в удалённом репозитории. Поддерживаются приватные GitHub репозитории
+✅ Поддержка ссылок типа vless:// — кроме подписок 3x-ui теперь можно вставлять и прямые ссылки на конфиги
+✅ Улучшение логгера и обработки ошибок">
   <meta property="og:locale" content="ru">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
@@ -25,21 +34,24 @@
     <meta property="article:tag" content="Vpn">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Subscription Aggregator for 3x-ui Proxy Servers">
-  <meta name="twitter:description" content="Subscription Aggregator for 3x-ui Proxy Servers — это обратный прокси, который объединяет подписки с нескольких прокси-серверов, работающих на платформе 3x-ui, в одну ссылку. Проект расширяет стандартные возможности подписок 3x-ui и делает их использование более удобным.">
+  <meta name="twitter:title" content="VLESS Config Aggregator">
+  <meta name="twitter:description" content="VLESS Config Aggregator — это серверное приложение, которое объединяет прокси-конфигурации с различных источников (3x-ui и vless://) в единую ссылку. Проект расширил исходную архитектуру и теперь может обрабатывать как подписки в формате 3x-ui, так и прямые VLESS-ссылки, размещённые на GitHub.
+Что нового в версии 2.0.0✅ Изменён способ передачи ссылок — ссылки на конфиги должны находиться в .txt файле в удалённом репозитории. Поддерживаются приватные GitHub репозитории
+✅ Поддержка ссылок типа vless:// — кроме подписок 3x-ui теперь можно вставлять и прямые ссылки на конфиги
+✅ Улучшение логгера и обработки ошибок">
 <meta name="application-name" content="FixIt">
-<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/projects/subs_aggregator/" title="Subscription Aggregator for 3x-ui Proxy Servers | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/articles/ax3000t/" title="VPN на домашнем роутере | Xiaomi AX3000T" /><link rel="next" type="text/html" href="http://localhost:1313/projects/hfk_routers/" title="HFK Routers" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/projects/subs_aggregator/index.md" title="Subscription Aggregator for 3x-ui Proxy Servers | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" type="text/html" href="http://localhost:1313/projects/subs_aggregator/" title="VLESS Config Aggregator | HFK" /><link rel="prev" type="text/html" href="http://localhost:1313/articles/ax3000t/" title="VPN на домашнем роутере | Xiaomi AX3000T" /><link rel="next" type="text/html" href="http://localhost:1313/projects/hfk_routers/" title="HFK Routers" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/projects/subs_aggregator/index.md" title="VLESS Config Aggregator | HFK"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "Subscription Aggregator for 3x-ui Proxy Servers",
+    "headline": "VLESS Config Aggregator",
     "inLanguage": "ru",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/projects\/subs_aggregator\/"
-    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "vpn","wordcount":  608 ,
+    },"image": ["http:\/\/localhost:1313\/img\/logo_transparent.png"],"genre": "posts","keywords": "vpn","wordcount":  233 ,
     "url": "http:\/\/localhost:1313\/projects\/subs_aggregator\/","datePublished": "2025-03-22T00:00:01+00:00","dateModified": "2025-03-22T00:00:01+00:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -127,15 +139,15 @@
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
   </div><nav aria-label="breadcrumb" class="breadcrumb-container">
-    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/projects/" title="Проекты">Проекты</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">Subscription Aggregator for 3x-ui Proxy Servers</li>
+    <ol class="breadcrumb"><li class="breadcrumb-item" data-separator="/"><a href="/projects/" title="Проекты">Проекты</a></li><li class="breadcrumb-item active" data-separator="/" aria-current="page">VLESS Config Aggregator</li>
     </ol>
   </nav><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label=""></aside>
 
   <article class="page single">
-    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Subscription Aggregator for 3x-ui Proxy Servers</span>
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>VLESS Config Aggregator</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><a href="https://t.me/noisycake" title="Автор"target="_blank" rel="external nofollow noopener noreferrer author" class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-    NoisyCake</a></span></div><div class="post-meta-line"><span title="Опубликовано 2025-03-22 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="22-03-2025">22-03-2025</time></span>&nbsp;<span title="608 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 700 слов</span>&nbsp;</div>
+    NoisyCake</a></span></div><div class="post-meta-line"><span title="Опубликовано 2025-03-22 00:00:01"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="22-03-2025">22-03-2025</time></span>&nbsp;<span title="233 слов"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>Около 300 слов</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>Содержание</span>
@@ -143,36 +155,49 @@
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ol>
+    <li><a href="#что-нового-в-версии-200">Что нового в версии 2.0.0</a></li>
     <li><a href="#для-чего">Для чего</a></li>
     <li><a href="#как-работает">Как работает</a></li>
     <li><a href="#стек-технологий">Стек технологий</a></li>
     <li><a href="#основные-фичи">Основные фичи</a></li>
-    <li><a href="#исходный-код">Исходный код</a>
-      <ol>
-        <li><a href="#импорт-библиотек">Импорт библиотек</a></li>
-        <li><a href="#настройка-логера">Настройка логера</a></li>
-        <li><a href="#инициализация-fastapi">Инициализация FastAPI</a></li>
-        <li><a href="#функция-fetch_subscription">Функция <code>fetch_subscription</code></a></li>
-        <li><a href="#функция-merge_subscriptions">Функция <code>merge_subscriptions</code></a></li>
-      </ol>
-    </li>
     <li><a href="#установка">Установка</a></li>
     <li><a href="#ссылки">Ссылки</a></li>
     <li><a href="#лицензия">Лицензия</a></li>
   </ol>
 </nav></div>
-      </div><div class="content" id="content"><p><strong>Subscription Aggregator for 3x-ui Proxy Servers</strong> — это обратный прокси, который объединяет подписки с нескольких прокси-серверов, работающих на платформе 3x-ui, в одну ссылку. Проект расширяет стандартные возможности подписок 3x-ui и делает их использование более удобным.</p>
+      </div><div class="content" id="content"><p><strong>VLESS Config Aggregator</strong> — это серверное приложение, которое объединяет прокси-конфигурации с различных источников (3x-ui и <code>vless://</code>) в единую ссылку. Проект расширил исходную архитектуру и теперь может обрабатывать как подписки в формате 3x-ui, так и прямые VLESS-ссылки, размещённые на GitHub.</p>
+<h2 id="что-нового-в-версии-200" class="heading-element"><span>Что нового в версии 2.0.0</span>
+  <a href="#%d1%87%d1%82%d0%be-%d0%bd%d0%be%d0%b2%d0%be%d0%b3%d0%be-%d0%b2-%d0%b2%d0%b5%d1%80%d1%81%d0%b8%d0%b8-200" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>✅ <strong>Изменён способ передачи ссылок</strong> — ссылки на конфиги должны находиться в <code>.txt</code> файле в удалённом репозитории. Поддерживаются приватные GitHub репозитории</p>
+<p>✅ <strong>Поддержка ссылок типа <code>vless://</code></strong> — кроме подписок 3x-ui теперь можно вставлять и прямые ссылки на конфиги</p>
+<p>✅ <strong>Улучшение логгера и обработки ошибок</strong></p>
 <h2 id="для-чего" class="heading-element"><span>Для чего</span>
   <a href="#%d0%b4%d0%bb%d1%8f-%d1%87%d0%b5%d0%b3%d0%be" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><p>Платформа 3x-ui не позволяет объединить несколько серверов, как, например, Marzban. Это приложение частично решает проблему, предоставляя единую ссылку для доступа к подпискам с нескольких прокси-серверов, облегчая подключение для пользователей.</p>
+</h2><p>Платформа 3x-ui не поддерживает объединение нескольких прокси-серверов по умолчанию. Данный сервис позволяет:</p>
+<ul>
+<li>Объединять все ссылки в одну и предоставлять пользователям единую ссылку для подключения;</li>
+<li>Хостить конфигурации централизованно.</li>
+</ul>
 <h2 id="как-работает" class="heading-element"><span>Как работает</span>
   <a href="#%d0%ba%d0%b0%d0%ba-%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%b0%d0%b5%d1%82" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><p>Приложение получает запрос с subscription_id и дублирует его на сервера 3x-ui. Каждый сервер возвращает конфигурацию в виде base64 строки. Приложение декодирует полученные данные, объединяет их и снова кодирует в base64. Пользователю нужно вставить лишь один URL, ссылающийся на Nginx сервер, чтобы получить доступ ко всем конфигурациям.</p>
-<p>Так, если отправить запрос на <code>https://example.com/sub/test</code>, приложение отправит соответствующие запросы на получение подписок, к примеру на <code>https://3x-ui_server/subscription/test</code> и <code>https://another_server/podpiska/test</code>. Если подписки найдены, приложение получает ответы и объединяет их, возвращая пользователю base64 строку.</p>
+</h2><ol>
+<li>Например, в <code>configs.txt</code> приватного репозитория GitHub указываются строки:
+<ul>
+<li>Подписочные ссылки 3x-ui: <code>https://domain:port/sub/</code></li>
+<li>Прямые ссылки VLESS: <code>vless://...</code></li>
+</ul>
+</li>
+<li>Приложение получает доступ к файлу с помощью токена и асинхронно подгружает все ссылки;</li>
+<li>Строки, полученные с подписок 3x-ui, декодируются из base64;</li>
+<li>Всё объединяется и кодируется в одну base64 строку;</li>
+<li>Результат возвращается по ссылкам типа <code>https://example.com/sub/abc123/HFK</code> или <code>https://example.com/sub/HFK</code></li>
+</ol>
 <h2 id="стек-технологий" class="heading-element"><span>Стек технологий</span>
   <a href="#%d1%81%d1%82%d0%b5%d0%ba-%d1%82%d0%b5%d1%85%d0%bd%d0%be%d0%bb%d0%be%d0%b3%d0%b8%d0%b9" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
@@ -184,188 +209,19 @@
   <a href="#%d0%be%d1%81%d0%bd%d0%be%d0%b2%d0%bd%d1%8b%d0%b5-%d1%84%d0%b8%d1%87%d0%b8" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><p>✅ <strong>Объединение подписок</strong> — Автоматическое извлечение данных с нескольких прокси-серверов и их объединение в одну ссылку</p>
-<p>✅ <strong>Асинхронная работа</strong> — Использование асинхронного Python (FastAPI), а также Nginx</p>
-<p>✅ <strong>Безопасность</strong> — Обязательное использование HTTPS и редирект с HTTP</p>
-<p>✅ <strong>Простота развёртывания</strong> — Благодаря Docker</p>
+</h2><p>✅ Объединение конфигураций из разных форматов ссылок (Subscription 3x-ui и <code>vless://</code>)</p>
+<p>✅ Поддержка приватных репозиториев GitHub</p>
 <hr>
-<h2 id="исходный-код" class="heading-element"><span>Исходный код</span>
-  <a href="#%d0%b8%d1%81%d1%85%d0%be%d0%b4%d0%bd%d1%8b%d0%b9-%d0%ba%d0%be%d0%b4" class="heading-mark">
-    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
-  </a>
-</h2><p>Все исходники доступны на <a href="https://github.com/NoisyCake/3x-ui_subscriptions_aggregator#"target="_blank" rel="external nofollow noopener noreferrer">GitHub<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a>. Далее разберём логику проекта, а именно <code>main.py</code> файл.</p>
-<h3 id="импорт-библиотек" class="heading-element"><span>Импорт библиотек</span>
-  <a href="#%d0%b8%d0%bc%d0%bf%d0%be%d1%80%d1%82-%d0%b1%d0%b8%d0%b1%d0%bb%d0%b8%d0%be%d1%82%d0%b5%d0%ba" class="heading-mark">
-    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
-  </a>
-</h3><ul>
-<li><code>os</code> для работы с переменными окружения;</li>
-<li><code>httpx</code> для асинхронных HTTP-запросов;</li>
-<li><code>base64</code> для кодирования и декодирования данных соответствующего формата;</li>
-<li><code>logging</code> для логирования ошибок;</li>
-<li><code>asyncio.gather</code> для параллельного выполнения асинхронных задач;</li>
-<li><code>typing.Optional</code> для аннотации, поскольку в качестве Docker-образа используется старая легковесная версия Python, в которой ещё не поддерживаются последнии фичи аннотации;</li>
-<li><code>dotenv.load_dotenv</code> для загрузки переменных окружения;</li>
-<li><code>fastapi</code> для создания веб-приложения и обработки запросов.</li>
-</ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">httpx</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">base64</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">logging</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">asyncio</span> <span class="kn">import</span> <span class="n">gather</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Response</span><span class="p">,</span> <span class="n">HTTPException</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="настройка-логера" class="heading-element"><span>Настройка логера</span>
-  <a href="#%d0%bd%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0-%d0%bb%d0%be%d0%b3%d0%b5%d1%80%d0%b0" class="heading-mark">
-    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
-  </a>
-</h3><p>Здесь настраивается система логирования. В файл script_log.log записываются предупреждения и ошибки в формате {дата_и_время уровень_логирования сообщение}</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;script_log.log&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(levelname)s</span><span class="s1">: </span><span class="si">%(message)s</span><span class="s1">&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="инициализация-fastapi" class="heading-element"><span>Инициализация FastAPI</span>
-  <a href="#%d0%b8%d0%bd%d0%b8%d1%86%d0%b8%d0%b0%d0%bb%d0%b8%d0%b7%d0%b0%d1%86%d0%b8%d1%8f-fastapi" class="heading-mark">
-    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
-  </a>
-</h3><p>Первая строка создаёт экземпляр веб-приложения, а вторая загружает переменные окружения из файла <code>.env</code>.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">load_dotenv</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;URL&#39;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="функция-fetch_subscription" class="heading-element"><span>Функция <code>fetch_subscription</code></span>
-  <a href="#%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-fetch_subscription" class="heading-mark">
-    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
-  </a>
-</h3><p>Отправляет асинхронный GET-запрос к sub_url/sub_id. В случае успешного ответа декодирует base64 в бинарный формат, иначе — возвращает <code>None</code> и записывает ошибку в логи.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">fetch_subscription</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">sub_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">sub_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bytes</span><span class="p">]:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">sub</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">sub_url</span><span class="si">}{</span><span class="n">sub_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">sub</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">sub</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="n">httpx</span><span class="o">.</span><span class="n">HTTPError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Can&#39;t get subscription url from </span><span class="si">{</span><span class="n">sub_url</span><span class="si">}{</span><span class="n">sub_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Can&#39;t decode base64 for </span><span class="si">{</span><span class="n">sub_url</span><span class="si">}{</span><span class="n">sub_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="функция-merge_subscriptions" class="heading-element"><span>Функция <code>merge_subscriptions</code></span>
-  <a href="#%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-merge_subscriptions" class="heading-mark">
-    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
-  </a>
-</h3><ol>
-<li>Получает список URL из переменной окружения;</li>
-<li>Проверяет наличие хотя бы одного сервера;</li>
-<li>Создаёт асинхронный клиент;</li>
-<li>Параллельно запрашивает подписки со всех серверов;</li>
-<li>Фильтрует результаты, чтобы убрать неудачные запросы;</li>
-<li>Объединяет и кодирует данные;</li>
-<li>Возвращает ответ в виде голого текста.</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="nd">@app.get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;/</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s1">/</span><span class="se">{{</span><span class="s1">sub_id</span><span class="se">}}</span><span class="s1">&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">merge_subscriptions</span><span class="p">(</span><span class="n">sub_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">sub_urls</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;SUB_URLS&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">sub_urls</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&#34;Servers not found&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&#34;Servers not found&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">decoded_subs</span> <span class="o">=</span> <span class="p">[</span><span class="n">fetch_subscription</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">sub_url</span><span class="p">,</span> <span class="n">sub_id</span><span class="p">)</span> <span class="k">for</span> <span class="n">sub_url</span> <span class="ow">in</span> <span class="n">sub_urls</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">        <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">decoded_subs</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span> <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span> <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&#34;No subscriptions available&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&#34;No subscriptions available&#34;</span><span class="p">)</span>    
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="n">merged_subs</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">global_sub</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">merged_subs</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">global_sub</span><span class="p">,</span> <span class="n">media_type</span><span class="o">=</span><span class="s1">&#39;text/plain&#39;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
-</div>
-</div><hr>
 <h2 id="установка" class="heading-element"><span>Установка</span>
   <a href="#%d1%83%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%ba%d0%b0" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><p>Процесс установки подробно описан в <a href="https://github.com/NoisyCake/3x-ui_subscriptions_aggregator#"target="_blank" rel="external nofollow noopener noreferrer">README.md<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a> проекта.</p>
+</h2><p>Процесс установки подробно описан в <a href="https://github.com/NoisyCake/vless_config_aggregator"target="_blank" rel="external nofollow noopener noreferrer">README.md<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a> проекта.</p>
 <h2 id="ссылки" class="heading-element"><span>Ссылки</span>
   <a href="#%d1%81%d1%81%d1%8b%d0%bb%d0%ba%d0%b8" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><p><strong>GitHub-репозиторий проекта</strong>: <a href="https://github.com/NoisyCake/3x-ui_subscriptions_aggregator#"target="_blank" rel="external nofollow noopener noreferrer">https://github.com/NoisyCake/3x-ui_subscriptions_aggregator#<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a><br>
+</h2><p><strong>GitHub-репозиторий проекта</strong>: <a href="https://github.com/NoisyCake/vless_config_aggregator"target="_blank" rel="external nofollow noopener noreferrer">https://github.com/NoisyCake/vless_config_aggregator<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a>
 <strong>Автор</strong>: <a href="https://t.me/noisycake"target="_blank" rel="external nofollow noopener noreferrer">https://t.me/noisycake<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a><br>
 <strong>ТКГ</strong>: <a href="https://t.me/hfk_blog"target="_blank" rel="external nofollow noopener noreferrer">https://t.me/hfk_blog<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a><br>
 <strong>Teletype</strong>: <a href="https://teletype.in/@noisycake"target="_blank" rel="external nofollow noopener noreferrer">https://teletype.in/@noisycake<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a></p>
@@ -373,7 +229,7 @@
   <a href="#%d0%bb%d0%b8%d1%86%d0%b5%d0%bd%d0%b7%d0%b8%d1%8f" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><p>Проект распространяется под лицензией MIT. Подробности в файле <a href="https://github.com/NoisyCake/3x-ui_subscriptions_aggregator/blob/main/LICENSE"target="_blank" rel="external nofollow noopener noreferrer">LICENSE<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a>.</p></div><div class="post-footer" id="post-footer">
+</h2><p>Проект распространяется под лицензией MIT. Подробности в файле <a href="https://github.com/NoisyCake/vless_config_aggregator/blob/main/LICENSE"target="_blank" rel="external nofollow noopener noreferrer">LICENSE<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden="true"></i></a>.</p></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
@@ -383,10 +239,10 @@
           </div></div><div class="post-info-line">
         <div class="post-info-md"></div>
         <div class="post-info-share">
-          <span><a href="javascript:void(0);" title="Поделиться в X" data-sharer="twitter" data-url="http://localhost:1313/projects/subs_aggregator/" data-title="Subscription Aggregator for 3x-ui Proxy Servers" data-hashtags="vpn"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="Поделиться в WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/projects/subs_aggregator/" data-title="Subscription Aggregator for 3x-ui Proxy Servers" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="Поделиться в VK" data-sharer="vk" data-url="http://localhost:1313/projects/subs_aggregator/" data-title="Subscription Aggregator for 3x-ui Proxy Servers"><i class="fa-brands fa-vk fa-fw" aria-hidden="true"></i></a>
-  <a href="//mix.com/add?url=http%3a%2f%2flocalhost%3a1313%2fprojects%2fsubs_aggregator%2f&amp;description=Subscription%20Aggregator%20for%203x-ui%20Proxy%20Servers" target="_blank" title="Поделиться в Mix"><i class="fa-brands fa-mix fa-fw" aria-hidden="true"></i></a>
+          <span><a href="javascript:void(0);" title="Поделиться в X" data-sharer="twitter" data-url="http://localhost:1313/projects/subs_aggregator/" data-title="VLESS Config Aggregator" data-hashtags="vpn"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в WhatsApp" data-sharer="whatsapp" data-url="http://localhost:1313/projects/subs_aggregator/" data-title="VLESS Config Aggregator" data-web><i class="fa-brands fa-whatsapp fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="Поделиться в VK" data-sharer="vk" data-url="http://localhost:1313/projects/subs_aggregator/" data-title="VLESS Config Aggregator"><i class="fa-brands fa-vk fa-fw" aria-hidden="true"></i></a>
+  <a href="//mix.com/add?url=http%3a%2f%2flocalhost%3a1313%2fprojects%2fsubs_aggregator%2f&amp;description=VLESS%20Config%20Aggregator" target="_blank" title="Поделиться в Mix"><i class="fa-brands fa-mix fa-fw" aria-hidden="true"></i></a>
   </span>
         </div>
       </div></div>
