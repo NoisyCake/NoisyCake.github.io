@@ -1,6 +1,7 @@
 ---
 title: "VLESS Config Aggregator"
 date: 2025-03-22 00:00:01
+lastmod: 2025-05-16 00:00:01
 type: posts
 tags:
   - vpn

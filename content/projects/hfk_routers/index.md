@@ -6,7 +6,7 @@ tags:
   - python
   - bot
   - vpn
-weight: 1
+weight: 3
 draft: false
 ---
 
